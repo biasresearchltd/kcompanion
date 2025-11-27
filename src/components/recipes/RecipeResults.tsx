@@ -367,7 +367,7 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
   const CardComponent = isMobile ? SwipeableRecipeCard : RecipeCard;
 
   return (
-    <div className={`flex flex-col h-full bg-white ${isMobile ? '' : 'rounded-2xl shadow-sm border border-[var(--color-border)] overflow-hidden'}`}>
+    <div className={`flex flex-col bg-white ${isMobile ? 'min-h-full h-full' : 'h-full rounded-2xl shadow-sm border border-[var(--color-border)] overflow-hidden'}`}>
       {/* Header - collapsible on mobile via tab tap */}
       {(!isMobile || filtersExpanded) && (
         <div className={`p-4 border-b border-[var(--color-border)] bg-white ${isMobile ? '' : 'rounded-t-2xl'}`}>
@@ -469,13 +469,14 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
           </div>
 
           {/* Filters row */}
-          <div className="flex flex-wrap gap-2 mt-3">
+          <div className="flex gap-1.5 mt-3">
             {/* Category filter - multi-select dropdown */}
             <MultiSelectDropdown
               options={recipeCategories}
               selected={recipeCategoryFilters}
               onToggle={toggleRecipeCategoryFilter}
-              placeholder="All Types"
+              placeholder="Types"
+              className="flex-shrink-0"
             />
 
             {/* Effect filter - multi-select dropdown */}
@@ -483,11 +484,12 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
               options={effects}
               selected={effectFilters}
               onToggle={toggleEffectFilter}
-              placeholder="All Effects"
+              placeholder="Effects"
+              className="flex-shrink-0"
             />
 
             {/* Spacer to push sort to the right */}
-            <div className="flex-1" />
+            <div className="flex-1 min-w-0" />
 
             {/* Sort dropdown */}
             <SortDropdown
@@ -499,7 +501,8 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
               ]}
               value={recipeSortBy}
               onChange={(val) => setRecipeSortBy(val as 'missing' | 'price_asc' | 'price_desc' | 'name')}
-              placeholder="Sort by"
+              placeholder="Sort"
+              className="flex-shrink-0"
             />
           </div>
         </div>
@@ -507,7 +510,7 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
 
       {/* Results */}
       <div className={`flex-1 overflow-hidden ${isMobile ? '' : 'py-2 pr-1'}`}>
-        <div ref={scrollRef} className={`h-full overflow-y-auto ${isMobile ? 'p-4 pb-[calc(3rem+env(safe-area-inset-bottom))]' : 'pl-4 pr-5 pb-4'}`}>
+        <div ref={scrollRef} className={`h-full overflow-y-auto ${isMobile ? 'p-4' : 'pl-4 pr-5 pb-4'}`} style={isMobile ? { paddingBottom: '300px' } : undefined}>
         {bookmarksOnly && bookmarkedRecipes.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-64 text-[var(--color-text-muted)]">
             <svg
@@ -703,6 +706,8 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
             )}
           </div>
         )}
+        {/* Mobile scroll spacer */}
+        {isMobile && <div style={{ height: '100vh', flexShrink: 0 }} />}
         </div>
       </div>
     </div>

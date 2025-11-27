@@ -103,7 +103,7 @@ export const IngredientSelector = forwardRef<ScrollToTopHandle, IngredientSelect
   const selectedCount = selectedIngredients.length;
 
   return (
-    <div className={`flex flex-col h-full bg-white ${isMobile ? '' : 'rounded-2xl shadow-sm border border-[var(--color-border)] overflow-hidden'}`}>
+    <div className={`flex flex-col bg-white ${isMobile ? 'min-h-full h-full' : 'h-full rounded-2xl shadow-sm border border-[var(--color-border)] overflow-hidden'}`}>
       {/* Header - collapsible on mobile via tab tap */}
       {(!isMobile || filtersExpanded) && (
         <div className={`p-4 border-b border-[var(--color-border)] bg-white select-none ${isMobile ? '' : 'rounded-t-2xl'}`} style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none', userSelect: 'none' }}>
@@ -210,7 +210,7 @@ export const IngredientSelector = forwardRef<ScrollToTopHandle, IngredientSelect
 
       {/* Ingredient list */}
       <div className={`flex-1 overflow-hidden ${isMobile ? '' : 'py-2 pr-1'}`}>
-        <div ref={scrollRef} className={`h-full overflow-y-auto ${isMobile ? 'p-2 pb-[calc(3rem+env(safe-area-inset-bottom))]' : 'pl-2 pr-3 pb-2'}`}>
+        <div ref={scrollRef} className={`h-full overflow-y-auto ${isMobile ? 'p-2' : 'pl-2 pr-3 pb-2'}`} style={isMobile ? { paddingBottom: '300px' } : undefined}>
         {Object.keys(groupedIngredients).length === 0 ? (
           <div className="flex flex-col items-center justify-center h-32 text-[var(--color-text-muted)]">
             <svg
@@ -229,43 +229,51 @@ export const IngredientSelector = forwardRef<ScrollToTopHandle, IngredientSelect
             <p className="text-sm">No ingredients found</p>
           </div>
         ) : viewMode === 'grid' ? (
-          <div className="grid grid-cols-4 tablet:grid-cols-3 lg:grid-cols-4 gap-2">
-            {filteredIngredients.map((ing) => (
-              <IngredientItem
-                key={ing.id}
-                ingredient={ing}
-                isSelected={selectedIngredients.includes(ing.id)}
-                onToggle={() => toggleIngredient(ing.id)}
-                viewMode="grid"
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="space-y-4">
-            {categories
-              .filter((cat) => groupedIngredients[cat.id]?.length > 0)
-              .map((category) => (
-                <div key={category.id}>
-                  <h3 className="text-sm font-semibold text-[var(--color-text-muted)] px-2 mb-2 flex items-center gap-2">
-                    {category.name}
-                    <span className="text-xs font-normal">
-                      ({groupedIngredients[category.id]?.length || 0})
-                    </span>
-                  </h3>
-                  <div className="space-y-1">
-                    {groupedIngredients[category.id]?.map((ing) => (
-                      <IngredientItem
-                        key={ing.id}
-                        ingredient={ing}
-                        isSelected={selectedIngredients.includes(ing.id)}
-                        onToggle={() => toggleIngredient(ing.id)}
-                        viewMode="list"
-                      />
-                    ))}
-                  </div>
-                </div>
+          <>
+            <div className="grid grid-cols-4 tablet:grid-cols-3 lg:grid-cols-4 gap-2">
+              {filteredIngredients.map((ing) => (
+                <IngredientItem
+                  key={ing.id}
+                  ingredient={ing}
+                  isSelected={selectedIngredients.includes(ing.id)}
+                  onToggle={() => toggleIngredient(ing.id)}
+                  viewMode="grid"
+                />
               ))}
-          </div>
+            </div>
+            {/* Mobile scroll spacer */}
+            {isMobile && <div style={{ height: '75vh', flexShrink: 0 }} />}
+          </>
+        ) : (
+          <>
+            <div className="space-y-4">
+              {categories
+                .filter((cat) => groupedIngredients[cat.id]?.length > 0)
+                .map((category) => (
+                  <div key={category.id}>
+                    <h3 className="text-sm font-semibold text-[var(--color-text-muted)] px-2 mb-2 flex items-center gap-2">
+                      {category.name}
+                      <span className="text-xs font-normal">
+                        ({groupedIngredients[category.id]?.length || 0})
+                      </span>
+                    </h3>
+                    <div className="space-y-1">
+                      {groupedIngredients[category.id]?.map((ing) => (
+                        <IngredientItem
+                          key={ing.id}
+                          ingredient={ing}
+                          isSelected={selectedIngredients.includes(ing.id)}
+                          onToggle={() => toggleIngredient(ing.id)}
+                          viewMode="list"
+                        />
+                      ))}
+                    </div>
+                  </div>
+                ))}
+            </div>
+            {/* Mobile scroll spacer */}
+            {isMobile && <div style={{ height: '75vh', flexShrink: 0 }} />}
+          </>
         )}
         </div>
       </div>

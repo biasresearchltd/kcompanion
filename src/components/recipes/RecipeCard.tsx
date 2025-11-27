@@ -388,13 +388,16 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
           )}
           {/* Effect below badge */}
           {effect && (
-            <span className="text-xs text-purple-600 font-medium bg-purple-50 px-1.5 py-0.5 rounded whitespace-nowrap">
+            <span className="text-xs text-purple-600 font-medium bg-purple-100 px-1.5 py-0.5 rounded whitespace-nowrap">
               {effect.name} Lv.{recipe.effectLevel}
             </span>
           )}
           {/* Price */}
-          <span className="text-xs text-amber-700 font-medium bg-amber-50 px-1.5 py-0.5 rounded">
-            {recipe.baseValue}G
+          <span
+            className="text-sm bg-amber-100 px-2 py-0.5 rounded-full leading-none"
+            style={{ fontFamily: "'Eurostile Round Pro', system-ui, sans-serif", color: '#fc6800' }}
+          >
+            {recipe.baseValue} G
           </span>
         </div>
       </div>
@@ -442,14 +445,8 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                           (e.target as HTMLImageElement).src = '/images/placeholder.svg';
                         }}
                       />
-                      {/* Count badge - only show if count > 1 */}
-                      {ing.count > 1 && (
-                        <div className={`absolute -top-1 -left-1 w-4 h-4 rounded-full flex items-center justify-center ${ing.isMatched ? 'bg-purple-500' : 'bg-purple-400'}`}>
-                          <span className="text-[9px] font-bold text-white">×{ing.count}</span>
-                        </div>
-                      )}
-                      {/* Status indicator */}
-                      <div className={`absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full flex items-center justify-center ${
+                      {/* Status indicator - top right */}
+                      <div className={`absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full flex items-center justify-center ${
                         ing.isMatched
                           ? ing.needsProcessing
                             ? 'bg-blue-500'
@@ -484,6 +481,21 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                           </svg>
                         )}
                       </div>
+                      {/* Count badge - bottom right, only show if count > 1 */}
+                      {ing.count > 1 && (
+                        <span
+                          className="absolute right-0.5 text-[var(--color-primary)] leading-none"
+                          style={{
+                            fontFamily: "'Eurostile Round Pro', system-ui, sans-serif",
+                            fontSize: '16px',
+                            WebkitTextStroke: '2.5px #f5f5f0',
+                            paintOrder: 'stroke fill',
+                            bottom: '-1px',
+                          }}
+                        >
+                          {ing.count}
+                        </span>
+                      )}
                     </div>
                     <span className={`text-[10px] text-center leading-tight mt-1 line-clamp-2 ${
                       ing.isMatched

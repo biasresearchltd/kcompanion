@@ -40,7 +40,7 @@ export function SortDropdown({
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="px-3 py-1.5 text-sm border border-[var(--color-border)] rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] min-w-[120px] text-left flex items-center justify-between gap-2 select-none"
+        className="px-2.5 py-1.5 text-sm border border-[var(--color-border)] rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] text-left flex items-center justify-between gap-1.5 select-none"
       >
         <span className="text-[var(--color-text)]">
           {placeholder}

@@ -405,9 +405,11 @@ function App() {
   }
 
   return (
-    <div className="h-screen bg-[var(--color-background)] flex flex-col overflow-hidden">
+    <div className="flex flex-col overflow-hidden" style={{ minHeight: '200vh', height: '100%' }}>
       <Header utensils={categories.utensils} onStatusBarTap={handleStatusBarTap} />
 
+      {/* Content wrapper with khaki background */}
+      <div className="flex-1 flex flex-col bg-[var(--color-background)]" style={{ minHeight: '150vh' }}>
       {/* Mobile Tab Navigation - folder tab style (phones only) */}
       <div className="tablet:hidden flex gap-2 bg-[var(--color-surface-elevated)] px-2 pt-2 select-none no-transitions" style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none' }}>
         {showBookmarksView ? (
@@ -598,7 +600,7 @@ function App() {
 
       {/* Mobile phones: Tab-based full-width layout */}
       {/* Keep all components mounted but hidden to avoid remount lag on tab switch */}
-      <main className="tablet:hidden flex-1 overflow-hidden relative">
+      <main className="tablet:hidden relative" style={{ flex: '1 1 0', overflow: 'hidden' }}>
         {/* Bookmarks view */}
         <div className={`absolute inset-0 ${showBookmarksView ? '' : 'invisible pointer-events-none'}`}>
           <RecipeResults
@@ -651,6 +653,7 @@ function App() {
           />
         </div>
       </main>
+      </div>{/* End content wrapper */}
     </div>
   );
 }

@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+/* Eurostile Round Pro Black - for quantity badges */
+@font-face {
+  font-family: 'Eurostile Round Pro';
+  src: url('/fonts/EurostileRoundProBlack/font.woff2') format('woff2'),
+       url('/fonts/EurostileRoundProBlack/font.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   /* Custom breakpoint for tablets like iPad Mini (744px viewport in portrait) */
   --breakpoint-tablet: 700px;
@@ -24,23 +34,24 @@
   --safe-area-inset-right: env(safe-area-inset-right, 0px);
 }
 
-html, body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: var(--color-primary);
-  color: var(--color-text);
+html, body, #root {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   height: 100%;
+  min-height: 100vh;
   overflow: hidden;
-  position: fixed;
-  width: 100%;
-  -webkit-overflow-scrolling: touch;
   overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
 }
 
-#root {
-  height: 100%;
-  overflow: hidden;
+html, body {
+  background-color: var(--color-primary);
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--color-text);
 }
 
 /* Custom scrollbar - only on devices with fine pointer (mouse/trackpad) */
