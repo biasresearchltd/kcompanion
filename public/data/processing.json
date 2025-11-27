@@ -1,0 +1,592 @@
+{
+  "processing": [
+    {
+      "id": "cheese",
+      "name": "Cheese",
+      "inputs": ["milk"],
+      "category": "dairy"
+    },
+    {
+      "id": "cheese_plus",
+      "name": "Cheese+",
+      "inputs": ["milk_plus"],
+      "category": "dairy"
+    },
+    {
+      "id": "herb_cheese",
+      "name": "Herb Cheese",
+      "inputs": ["cheese", "mint"],
+      "category": "dairy"
+    },
+    {
+      "id": "yogurt",
+      "name": "Yogurt",
+      "inputs": ["milk"],
+      "category": "dairy"
+    },
+    {
+      "id": "yogurt_plus",
+      "name": "Yogurt+",
+      "inputs": ["buffalo_milk_plus"],
+      "category": "dairy"
+    },
+    {
+      "id": "fruit_yogurt",
+      "name": "Fruit Yogurt",
+      "inputs": ["yogurt", "mint", "strawberry"],
+      "category": "dairy"
+    },
+    {
+      "id": "butter",
+      "name": "Butter",
+      "inputs": ["milk"],
+      "category": "dairy"
+    },
+    {
+      "id": "butter_plus",
+      "name": "Butter+",
+      "inputs": ["milk_plus"],
+      "category": "dairy"
+    },
+    {
+      "id": "herb_butter",
+      "name": "Herb Butter",
+      "inputs": ["butter", "mint"],
+      "category": "dairy"
+    },
+    {
+      "id": "mayonnaise",
+      "name": "Mayonnaise",
+      "inputs": ["egg"],
+      "category": "dairy"
+    },
+    {
+      "id": "mayonnaise_plus",
+      "name": "Mayonnaise+",
+      "inputs": ["egg_plus"],
+      "category": "dairy"
+    },
+    {
+      "id": "herb_mayonnaise",
+      "name": "Herb Mayonnaise",
+      "inputs": ["mayonnaise", "mint"],
+      "category": "dairy"
+    },
+    {
+      "id": "miso",
+      "name": "Miso",
+      "inputs": ["soybean"],
+      "category": "fermented"
+    },
+    {
+      "id": "soy_sauce",
+      "name": "Soy Sauce",
+      "inputs": ["soybean"],
+      "category": "fermented"
+    },
+    {
+      "id": "vinegar",
+      "name": "Vinegar",
+      "inputs": ["rice"],
+      "category": "fermented"
+    },
+    {
+      "id": "salt",
+      "name": "Salt",
+      "inputs": ["rock_salt"],
+      "category": "condiment"
+    },
+    {
+      "id": "sugar",
+      "name": "Sugar",
+      "inputs": ["sugarcane"],
+      "category": "condiment"
+    },
+    {
+      "id": "pepper",
+      "name": "Pepper",
+      "inputs": ["peppercorn"],
+      "category": "condiment"
+    },
+    {
+      "id": "spice",
+      "name": "Spice",
+      "inputs": ["chili_pepper"],
+      "category": "condiment"
+    },
+    {
+      "id": "chocolate",
+      "name": "Chocolate",
+      "inputs": ["cacao"],
+      "category": "condiment"
+    },
+    {
+      "id": "wheat_flour",
+      "name": "Wheat Flour",
+      "inputs": ["wheat"],
+      "category": "flour"
+    },
+    {
+      "id": "rice_flour",
+      "name": "Rice Flour",
+      "inputs": ["rice"],
+      "category": "flour"
+    },
+    {
+      "id": "soy_flour",
+      "name": "Soy Flour",
+      "inputs": ["soybean"],
+      "category": "flour"
+    },
+    {
+      "id": "buckwheat_flour",
+      "name": "Buckwheat Flour",
+      "inputs": ["buckwheat"],
+      "category": "flour"
+    },
+    {
+      "id": "bread_crumbs",
+      "name": "Bread Crumbs",
+      "inputs": ["bread"],
+      "category": "flour"
+    },
+    {
+      "id": "white_bread_crumbs",
+      "name": "White Bread Crumbs",
+      "inputs": ["white_bread"],
+      "category": "flour"
+    },
+    {
+      "id": "refined_rice_flour",
+      "name": "Refined Rice Flour",
+      "inputs": ["mochi"],
+      "category": "flour"
+    },
+    {
+      "id": "mochi",
+      "name": "Mochi",
+      "inputs": ["cooked_rice"],
+      "category": "prepared"
+    },
+    {
+      "id": "oil",
+      "name": "Oil",
+      "inputs": ["olive"],
+      "category": "oil"
+    },
+    {
+      "id": "olive_oil",
+      "name": "Olive Oil",
+      "inputs": ["olive", "oil"],
+      "category": "oil"
+    },
+    {
+      "id": "herb_oil",
+      "name": "Herb Oil",
+      "inputs": ["mint", "oil"],
+      "category": "oil"
+    },
+    {
+      "id": "nut_oil",
+      "name": "Nut Oil",
+      "inputs": ["walnut", "oil"],
+      "category": "oil"
+    },
+    {
+      "id": "grape_oil",
+      "name": "Grape Seed Oil",
+      "inputs": ["grape", "oil"],
+      "category": "oil"
+    },
+    {
+      "id": "pumpkin_oil",
+      "name": "Pumpkin Seed Oil",
+      "inputs": ["pumpkin", "oil"],
+      "category": "oil"
+    },
+    {
+      "id": "honey",
+      "name": "Honey",
+      "inputs": ["honeycomb"],
+      "category": "processed"
+    },
+    {
+      "id": "invigorating_honey",
+      "name": "Invigorating Honey",
+      "inputs": ["invigorating_honeycomb"],
+      "category": "processed"
+    },
+    {
+      "id": "mellow_honey",
+      "name": "Mellow Honey",
+      "inputs": ["mellow_honeycomb"],
+      "category": "processed"
+    },
+    {
+      "id": "royal_honey",
+      "name": "Royal Honey",
+      "inputs": ["royal_honeycomb"],
+      "category": "processed"
+    },
+    {
+      "id": "bottled_walnuts",
+      "name": "Bottled Walnuts",
+      "inputs": ["walnut"],
+      "category": "processed"
+    },
+    {
+      "id": "bottled_chestnuts",
+      "name": "Bottled Chestnuts",
+      "inputs": ["chestnut"],
+      "category": "processed"
+    },
+    {
+      "id": "coffee_pack",
+      "name": "Coffee Pack",
+      "inputs": ["coffee_bean"],
+      "category": "processed"
+    },
+    {
+      "id": "tofu",
+      "name": "Tofu",
+      "inputs": ["soybean"],
+      "category": "processed"
+    },
+    {
+      "id": "soy_milk",
+      "name": "Soy Milk",
+      "inputs": ["soybean"],
+      "category": "processed"
+    },
+    {
+      "id": "cooked_rice",
+      "name": "Cooked Rice",
+      "inputs": ["rice"],
+      "category": "prepared"
+    },
+    {
+      "id": "bread",
+      "name": "Bread",
+      "inputs": ["wheat_flour"],
+      "category": "prepared"
+    },
+    {
+      "id": "pickled_turnip",
+      "name": "Pickled Turnip",
+      "inputs": ["turnip", "vinegar"],
+      "category": "pickled"
+    },
+    {
+      "id": "pickled_potato",
+      "name": "Pickled Potato",
+      "inputs": ["potato", "vinegar"],
+      "category": "pickled"
+    },
+    {
+      "id": "pickled_onion",
+      "name": "Pickled Onion",
+      "inputs": ["onion", "vinegar"],
+      "category": "pickled"
+    },
+    {
+      "id": "pickled_radish",
+      "name": "Pickled Radish",
+      "inputs": ["radish", "vinegar"],
+      "category": "pickled"
+    },
+    {
+      "id": "pickled_cabbage",
+      "name": "Pickled Cabbage",
+      "inputs": ["cabbage", "vinegar"],
+      "category": "pickled"
+    },
+    {
+      "id": "pickled_carrot",
+      "name": "Pickled Carrot",
+      "inputs": ["carrot", "vinegar"],
+      "category": "pickled"
+    },
+    {
+      "id": "pickled_eggplant",
+      "name": "Pickled Eggplant",
+      "inputs": ["eggplant", "vinegar"],
+      "category": "pickled"
+    },
+    {
+      "id": "pickled_pumpkin",
+      "name": "Pickled Pumpkin",
+      "inputs": ["pumpkin", "vinegar"],
+      "category": "pickled"
+    },
+    {
+      "id": "pickled_corn",
+      "name": "Pickled Corn",
+      "inputs": ["corn", "vinegar"],
+      "category": "pickled"
+    },
+    {
+      "id": "pickled_cucumber",
+      "name": "Pickled Cucumber",
+      "inputs": ["cucumber", "vinegar"],
+      "category": "pickled"
+    },
+    {
+      "id": "pickled_peppers",
+      "name": "Pickled Peppers",
+      "inputs": ["green_pepper", "vinegar"],
+      "category": "pickled"
+    },
+    {
+      "id": "pickled_asparagus",
+      "name": "Pickled Asparagus",
+      "inputs": ["asparagus", "vinegar"],
+      "category": "pickled"
+    },
+    {
+      "id": "pickled_cauliflower",
+      "name": "Pickled Cauliflower",
+      "inputs": ["cauliflower", "vinegar"],
+      "category": "pickled"
+    },
+    {
+      "id": "pickled_spinach",
+      "name": "Pickled Spinach",
+      "inputs": ["spinach", "vinegar"],
+      "category": "pickled"
+    },
+    {
+      "id": "pickled_veggie_mix",
+      "name": "Pickled Veggie Mix",
+      "inputs": ["pickled_turnip", "pickled_potato", "pickled_onion", "pickled_radish"],
+      "category": "pickled"
+    },
+    {
+      "id": "apple_jam",
+      "name": "Apple Jam",
+      "inputs": ["apple"],
+      "category": "jam"
+    },
+    {
+      "id": "strawberry_jam",
+      "name": "Strawberry Jam",
+      "inputs": ["strawberry"],
+      "category": "jam"
+    },
+    {
+      "id": "grape_jam",
+      "name": "Grape Jam",
+      "inputs": ["grape"],
+      "category": "jam"
+    },
+    {
+      "id": "blueberry_jam",
+      "name": "Blueberry Jam",
+      "inputs": ["blueberry"],
+      "category": "jam"
+    },
+    {
+      "id": "apple_juice",
+      "name": "Apple Juice",
+      "inputs": ["apple"],
+      "category": "juice"
+    },
+    {
+      "id": "orange_juice",
+      "name": "Orange Juice",
+      "inputs": ["orange"],
+      "category": "juice"
+    },
+    {
+      "id": "grape_juice",
+      "name": "Grape Juice",
+      "inputs": ["grape"],
+      "category": "juice"
+    },
+    {
+      "id": "tomato_juice",
+      "name": "Tomato Juice",
+      "inputs": ["tomato"],
+      "category": "juice"
+    },
+    {
+      "id": "strawberry_juice",
+      "name": "Strawberry Juice",
+      "inputs": ["strawberry"],
+      "category": "juice"
+    },
+    {
+      "id": "pineapple_juice",
+      "name": "Pineapple Juice",
+      "inputs": ["pineapple"],
+      "category": "juice"
+    },
+    {
+      "id": "banana_juice",
+      "name": "Banana Juice",
+      "inputs": ["banana"],
+      "category": "juice"
+    },
+    {
+      "id": "blueberry_juice",
+      "name": "Blueberry Juice",
+      "inputs": ["blueberry"],
+      "category": "juice"
+    },
+    {
+      "id": "cherry_juice",
+      "name": "Cherry Juice",
+      "inputs": ["cherry"],
+      "category": "juice"
+    },
+    {
+      "id": "peach_juice",
+      "name": "Peach Juice",
+      "inputs": ["peach"],
+      "category": "juice"
+    },
+    {
+      "id": "red_wine",
+      "name": "Red Wine",
+      "inputs": ["grape"],
+      "category": "wine"
+    },
+    {
+      "id": "white_wine",
+      "name": "White Wine",
+      "inputs": ["muscat"],
+      "category": "wine"
+    },
+    {
+      "id": "rose_wine",
+      "name": "Rose Wine",
+      "inputs": ["grape", "muscat"],
+      "category": "wine"
+    },
+    {
+      "id": "green_tea_tin",
+      "name": "Green Tea (Tin)",
+      "inputs": ["spring_tea_leaves"],
+      "category": "tea"
+    },
+    {
+      "id": "black_tea_tin",
+      "name": "Black Tea (Tin)",
+      "inputs": ["fall_tea_leaves"],
+      "category": "tea"
+    },
+    {
+      "id": "oolong_tea_tin",
+      "name": "Oolong Tea (Tin)",
+      "inputs": ["summer_tea_leaves", "fall_tea_leaves"],
+      "category": "tea"
+    },
+    {
+      "id": "mint_tea_tin",
+      "name": "Mint Tea (Tin)",
+      "inputs": ["fall_tea_leaves", "mint"],
+      "category": "tea"
+    },
+    {
+      "id": "chamomile_tea_tin",
+      "name": "Chamomile Tea (Tin)",
+      "inputs": ["fall_tea_leaves", "chamomile"],
+      "category": "tea"
+    },
+    {
+      "id": "lavender_tea_tin",
+      "name": "Lavender Tea (Tin)",
+      "inputs": ["fall_tea_leaves", "lavender"],
+      "category": "tea"
+    },
+    {
+      "id": "strawberry_tea_tin",
+      "name": "Strawberry Tea (Tin)",
+      "inputs": ["fall_tea_leaves", "strawberry"],
+      "category": "tea"
+    },
+    {
+      "id": "apple_tea_tin",
+      "name": "Apple Tea (Tin)",
+      "inputs": ["fall_tea_leaves", "apple"],
+      "category": "tea"
+    },
+    {
+      "id": "orange_tea_tin",
+      "name": "Orange Tea (Tin)",
+      "inputs": ["fall_tea_leaves", "orange"],
+      "category": "tea"
+    },
+    {
+      "id": "banana_tea_tin",
+      "name": "Banana Tea (Tin)",
+      "inputs": ["fall_tea_leaves", "banana"],
+      "category": "tea"
+    },
+    {
+      "id": "blueberry_tea_tin",
+      "name": "Blueberry Tea (Tin)",
+      "inputs": ["fall_tea_leaves", "blueberry"],
+      "category": "tea"
+    },
+    {
+      "id": "peach_tea_tin",
+      "name": "Peach Tea (Tin)",
+      "inputs": ["fall_tea_leaves", "peach"],
+      "category": "tea"
+    },
+    {
+      "id": "cherry_tea_tin",
+      "name": "Cherry Tea (Tin)",
+      "inputs": ["fall_tea_leaves", "cherry"],
+      "category": "tea"
+    },
+    {
+      "id": "pineapple_tea_tin",
+      "name": "Pineapple Tea (Tin)",
+      "inputs": ["fall_tea_leaves", "pineapple"],
+      "category": "tea"
+    },
+    {
+      "id": "grape_tea_tin",
+      "name": "Grape Tea (Tin)",
+      "inputs": ["fall_tea_leaves", "grape"],
+      "category": "tea"
+    },
+    {
+      "id": "woolen_yarn",
+      "name": "Woolen Yarn",
+      "inputs": ["wool", "wool"],
+      "category": "textile"
+    },
+    {
+      "id": "woolen_yarn_plus",
+      "name": "Woolen Yarn+",
+      "inputs": ["wool_plus", "wool_plus"],
+      "category": "textile"
+    },
+    {
+      "id": "suffolk_yarn",
+      "name": "Suffolk Yarn",
+      "inputs": ["suffolk_wool", "suffolk_wool"],
+      "category": "textile"
+    },
+    {
+      "id": "suffolk_yarn_plus",
+      "name": "Suffolk Yarn+",
+      "inputs": ["suffolk_wool_plus", "suffolk_wool_plus"],
+      "category": "textile"
+    },
+    {
+      "id": "alpaca_yarn",
+      "name": "Alpaca Yarn",
+      "inputs": ["alpaca_wool", "alpaca_wool"],
+      "category": "textile"
+    },
+    {
+      "id": "alpaca_yarn_plus",
+      "name": "Alpaca Yarn+",
+      "inputs": ["alpaca_wool_plus", "alpaca_wool_plus"],
+      "category": "textile"
+    }
+  ]
+}

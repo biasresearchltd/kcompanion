@@ -1,0 +1,2926 @@
+{
+  "ingredients": [
+    {
+      "id": "asparagus",
+      "name": "Asparagus",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring"
+      ],
+      "source": "farming",
+      "basePrice": 300,
+      "variants": [],
+      "icon": "asparagus.png"
+    },
+    {
+      "id": "autumn_tea_leaves",
+      "name": "Autumn Tea Leaves",
+      "category": "crops",
+      "subcategory": "fall",
+      "season": [
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 70,
+      "variants": [],
+      "icon": "autumn_tea_leaves.png"
+    },
+    {
+      "id": "bok_choy",
+      "name": "Bok Choy",
+      "category": "crops",
+      "subcategory": "fall",
+      "season": [
+        "fall",
+        "winter"
+      ],
+      "source": "farming",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "bok_choy.png"
+    },
+    {
+      "id": "broccoli",
+      "name": "Broccoli",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring",
+        "winter"
+      ],
+      "source": "farming",
+      "basePrice": 45,
+      "variants": [],
+      "icon": "broccoli.png"
+    },
+    {
+      "id": "burdock",
+      "name": "Burdock",
+      "category": "crops",
+      "subcategory": "winter",
+      "season": [
+        "winter"
+      ],
+      "source": "farming",
+      "basePrice": 155,
+      "variants": [],
+      "icon": "burdock.png"
+    },
+    {
+      "id": "cabbage",
+      "name": "Cabbage",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring",
+        "winter"
+      ],
+      "source": "farming",
+      "basePrice": 470,
+      "variants": [],
+      "icon": "cabbage.png"
+    },
+    {
+      "id": "carrot",
+      "name": "Carrot",
+      "category": "crops",
+      "subcategory": "fall",
+      "season": [
+        "fall",
+        "winter"
+      ],
+      "source": "farming",
+      "basePrice": 300,
+      "variants": [],
+      "icon": "carrot.png"
+    },
+    {
+      "id": "cauliflower",
+      "name": "Cauliflower",
+      "category": "crops",
+      "subcategory": "fall",
+      "season": [
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 430,
+      "variants": [],
+      "icon": "cauliflower.png"
+    },
+    {
+      "id": "chili_pepper",
+      "name": "Chili Pepper",
+      "category": "crops",
+      "subcategory": "fall",
+      "season": [
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 135,
+      "variants": [],
+      "icon": "chili_pepper.png"
+    },
+    {
+      "id": "corn",
+      "name": "Corn",
+      "category": "crops",
+      "subcategory": "summer",
+      "season": [
+        "summer"
+      ],
+      "source": "farming",
+      "basePrice": 145,
+      "variants": [],
+      "icon": "corn.png"
+    },
+    {
+      "id": "cucumber",
+      "name": "Cucumber",
+      "category": "crops",
+      "subcategory": "summer",
+      "season": [
+        "summer",
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 40,
+      "variants": [],
+      "icon": "cucumber.png"
+    },
+    {
+      "id": "daikon_radish",
+      "name": "Daikon Radish",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring",
+        "winter"
+      ],
+      "source": "farming",
+      "basePrice": 280,
+      "variants": [],
+      "icon": "daikon_radish.png"
+    },
+    {
+      "id": "eggplant",
+      "name": "Eggplant",
+      "category": "crops",
+      "subcategory": "summer",
+      "season": [
+        "summer",
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 50,
+      "variants": [],
+      "icon": "eggplant.png"
+    },
+    {
+      "id": "garlic",
+      "name": "Garlic",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring"
+      ],
+      "source": "farming",
+      "basePrice": 120,
+      "variants": [],
+      "icon": "garlic.png"
+    },
+    {
+      "id": "green_bell_pepper",
+      "name": "Green Bell Pepper",
+      "category": "crops",
+      "subcategory": "summer",
+      "season": [
+        "summer",
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 48,
+      "variants": [],
+      "icon": "green_bell_pepper.png"
+    },
+    {
+      "id": "green_onion",
+      "name": "Green Onion",
+      "category": "crops",
+      "subcategory": "winter",
+      "season": [
+        "winter"
+      ],
+      "source": "farming",
+      "basePrice": 75,
+      "variants": [],
+      "icon": "green_onion.png"
+    },
+    {
+      "id": "melon",
+      "name": "Melon",
+      "category": "crops",
+      "subcategory": "summer",
+      "season": [
+        "summer",
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 470,
+      "variants": [],
+      "icon": "melon.png"
+    },
+    {
+      "id": "napa_cabbage",
+      "name": "Napa Cabbage",
+      "category": "crops",
+      "subcategory": "winter",
+      "season": [
+        "winter"
+      ],
+      "source": "farming",
+      "basePrice": 340,
+      "variants": [],
+      "icon": "napa_cabbage.png"
+    },
+    {
+      "id": "onion",
+      "name": "Onion",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring",
+        "summer"
+      ],
+      "source": "farming",
+      "basePrice": 250,
+      "variants": [],
+      "icon": "onion.png"
+    },
+    {
+      "id": "pineapple",
+      "name": "Pineapple",
+      "category": "crops",
+      "subcategory": "summer",
+      "season": [
+        "summer"
+      ],
+      "source": "farming",
+      "basePrice": 330,
+      "variants": [],
+      "icon": "pineapple.png"
+    },
+    {
+      "id": "potato",
+      "name": "Potato",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring",
+        "summer",
+        "winter"
+      ],
+      "source": "farming",
+      "basePrice": 60,
+      "variants": [],
+      "icon": "potato.png"
+    },
+    {
+      "id": "pumpkin",
+      "name": "Pumpkin",
+      "category": "crops",
+      "subcategory": "summer",
+      "season": [
+        "summer"
+      ],
+      "source": "farming",
+      "basePrice": 400,
+      "variants": [],
+      "icon": "pumpkin.png"
+    },
+    {
+      "id": "radish",
+      "name": "Radish",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 50,
+      "variants": [],
+      "icon": "radish.png"
+    },
+    {
+      "id": "red_bell_pepper",
+      "name": "Red Bell Pepper",
+      "category": "crops",
+      "subcategory": "summer",
+      "season": [
+        "summer"
+      ],
+      "source": "farming",
+      "basePrice": 48,
+      "variants": [],
+      "icon": "red_bell_pepper.png"
+    },
+    {
+      "id": "rice",
+      "name": "Rice",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 70,
+      "variants": [],
+      "icon": "rice.png"
+    },
+    {
+      "id": "soybean",
+      "name": "Soybean",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 65,
+      "variants": [],
+      "icon": "soybean.png"
+    },
+    {
+      "id": "spinach",
+      "name": "Spinach",
+      "category": "crops",
+      "subcategory": "fall",
+      "season": [
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 285,
+      "variants": [],
+      "icon": "spinach.png"
+    },
+    {
+      "id": "spring_tea_leaves",
+      "name": "Spring Tea Leaves",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring"
+      ],
+      "source": "farming",
+      "basePrice": 70,
+      "variants": [],
+      "icon": "spring_tea_leaves.png"
+    },
+    {
+      "id": "strawberry",
+      "name": "Strawberry",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring"
+      ],
+      "source": "farming",
+      "basePrice": 120,
+      "variants": [],
+      "icon": "strawberry.png"
+    },
+    {
+      "id": "summer_tea_leaves",
+      "name": "Summer Tea Leaves",
+      "category": "crops",
+      "subcategory": "summer",
+      "season": [
+        "summer"
+      ],
+      "source": "farming",
+      "basePrice": 70,
+      "variants": [],
+      "icon": "summer_tea_leaves.png"
+    },
+    {
+      "id": "sweet_potato",
+      "name": "Sweet Potato",
+      "category": "crops",
+      "subcategory": "fall",
+      "season": [
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 155,
+      "variants": [],
+      "icon": "sweet_potato.png"
+    },
+    {
+      "id": "tomato",
+      "name": "Tomato",
+      "category": "crops",
+      "subcategory": "summer",
+      "season": [
+        "summer",
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 42,
+      "variants": [],
+      "icon": "tomato.png"
+    },
+    {
+      "id": "turnip",
+      "name": "Turnip",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring"
+      ],
+      "source": "farming",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "turnip.png"
+    },
+    {
+      "id": "watermelon",
+      "name": "Watermelon",
+      "category": "crops",
+      "subcategory": "summer",
+      "season": [
+        "summer"
+      ],
+      "source": "farming",
+      "basePrice": 540,
+      "variants": [],
+      "icon": "watermelon.png"
+    },
+    {
+      "id": "wheat",
+      "name": "Wheat",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 75,
+      "variants": [],
+      "icon": "wheat.png"
+    },
+    {
+      "id": "almond",
+      "name": "Almond",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "summer"
+      ],
+      "source": "tree",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "almond.png"
+    },
+    {
+      "id": "apple",
+      "name": "Apple",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "fall",
+        "winter"
+      ],
+      "source": "tree",
+      "basePrice": 180,
+      "variants": [],
+      "icon": "apple.png"
+    },
+    {
+      "id": "avocado",
+      "name": "Avocado",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "spring"
+      ],
+      "source": "tree",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "avocado.png"
+    },
+    {
+      "id": "banana",
+      "name": "Banana",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "summer"
+      ],
+      "source": "tree",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "banana.png"
+    },
+    {
+      "id": "blueberry",
+      "name": "Blueberry",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "fall"
+      ],
+      "source": "tree",
+      "basePrice": 90,
+      "variants": [],
+      "icon": "blueberry.png"
+    },
+    {
+      "id": "cacao_bean",
+      "name": "Cacao Bean",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "summer"
+      ],
+      "source": "tree",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "cacao_bean.png"
+    },
+    {
+      "id": "cherry",
+      "name": "Cherry",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "spring"
+      ],
+      "source": "tree",
+      "basePrice": 80,
+      "variants": [],
+      "icon": "cherry.png"
+    },
+    {
+      "id": "coffee_bean",
+      "name": "Coffee Bean",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "spring"
+      ],
+      "source": "tree",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "coffee_bean.png"
+    },
+    {
+      "id": "green_grapes",
+      "name": "Green Grapes",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "fall"
+      ],
+      "source": "tree",
+      "basePrice": 160,
+      "variants": [],
+      "icon": "green_grapes.png"
+    },
+    {
+      "id": "lemon",
+      "name": "Lemon",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "summer",
+        "winter"
+      ],
+      "source": "tree",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "lemon.png"
+    },
+    {
+      "id": "mango",
+      "name": "Mango",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "summer"
+      ],
+      "source": "tree",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "mango.png"
+    },
+    {
+      "id": "olive",
+      "name": "Olive",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "fall"
+      ],
+      "source": "tree",
+      "basePrice": 120,
+      "variants": [],
+      "icon": "olive.png"
+    },
+    {
+      "id": "orange",
+      "name": "Orange",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "spring",
+        "winter"
+      ],
+      "source": "tree",
+      "basePrice": 130,
+      "variants": [],
+      "icon": "orange.png"
+    },
+    {
+      "id": "peach",
+      "name": "Peach",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "summer"
+      ],
+      "source": "tree",
+      "basePrice": 130,
+      "variants": [],
+      "icon": "peach.png"
+    },
+    {
+      "id": "red_grapes",
+      "name": "Red Grapes",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "fall"
+      ],
+      "source": "tree",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "red_grapes.png"
+    },
+    {
+      "id": "alpaca_wool",
+      "name": "Alpaca Wool",
+      "category": "animal_products",
+      "subcategory": "wool",
+      "season": [
+        "all"
+      ],
+      "source": "alpaca",
+      "basePrice": 250,
+      "variants": [],
+      "icon": "alpaca_wool.png"
+    },
+    {
+      "id": "buffalo_milk",
+      "name": "Buffalo Milk",
+      "category": "animal_products",
+      "subcategory": "milk",
+      "season": [
+        "all"
+      ],
+      "source": "buffalo",
+      "basePrice": 200,
+      "variants": [
+        "buffalo_milk_plus"
+      ],
+      "icon": "buffalo_milk.png"
+    },
+    {
+      "id": "butter",
+      "name": "Butter",
+      "category": "animal_products",
+      "subcategory": "dairy",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 400,
+      "variants": [
+        "butter_plus"
+      ],
+      "icon": "butter.png"
+    },
+    {
+      "id": "cheese",
+      "name": "Cheese",
+      "category": "animal_products",
+      "subcategory": "dairy",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 500,
+      "variants": [
+        "cheese_plus"
+      ],
+      "icon": "cheese.png"
+    },
+    {
+      "id": "egg",
+      "name": "Egg",
+      "category": "animal_products",
+      "subcategory": "eggs",
+      "season": [
+        "all"
+      ],
+      "source": "chicken",
+      "basePrice": 90,
+      "variants": [
+        "egg_plus"
+      ],
+      "icon": "egg.png"
+    },
+    {
+      "id": "fruit_yogurt",
+      "name": "Fruit Yogurt",
+      "category": "animal_products",
+      "subcategory": "dairy",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 1200,
+      "variants": [],
+      "icon": "fruit_yogurt.png"
+    },
+    {
+      "id": "herb_butter",
+      "name": "Herb Butter",
+      "category": "animal_products",
+      "subcategory": "dairy",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 600,
+      "variants": [],
+      "icon": "herb_butter.png"
+    },
+    {
+      "id": "herb_cheese",
+      "name": "Herb Cheese",
+      "category": "animal_products",
+      "subcategory": "dairy",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 750,
+      "variants": [],
+      "icon": "herb_cheese.png"
+    },
+    {
+      "id": "herb_mayonnaise",
+      "name": "Herb Mayonnaise",
+      "category": "animal_products",
+      "subcategory": "dairy",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 450,
+      "variants": [],
+      "icon": "herb_mayonnaise.png"
+    },
+    {
+      "id": "mayonnaise",
+      "name": "Mayonnaise",
+      "category": "animal_products",
+      "subcategory": "dairy",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 300,
+      "variants": [
+        "mayonnaise_plus"
+      ],
+      "icon": "mayonnaise.png"
+    },
+    {
+      "id": "milk",
+      "name": "Milk",
+      "category": "animal_products",
+      "subcategory": "milk",
+      "season": [
+        "all"
+      ],
+      "source": "cow",
+      "basePrice": 150,
+      "variants": [
+        "milk_plus"
+      ],
+      "icon": "milk.png"
+    },
+    {
+      "id": "silkie_egg",
+      "name": "Silkie Egg",
+      "category": "animal_products",
+      "subcategory": "eggs",
+      "season": [
+        "all"
+      ],
+      "source": "silkie_chicken",
+      "basePrice": 120,
+      "variants": [
+        "silkie_egg_plus"
+      ],
+      "icon": "silkie_egg.png"
+    },
+    {
+      "id": "wool",
+      "name": "Wool",
+      "category": "animal_products",
+      "subcategory": "wool",
+      "season": [
+        "all"
+      ],
+      "source": "sheep",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "wool.png"
+    },
+    {
+      "id": "yogurt",
+      "name": "Yogurt",
+      "category": "animal_products",
+      "subcategory": "dairy",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 600,
+      "variants": [
+        "yogurt_plus"
+      ],
+      "icon": "yogurt.png"
+    },
+    {
+      "id": "amur_minnow",
+      "name": "Amur Minnow",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "spring",
+        "fall",
+        "winter"
+      ],
+      "source": "fishing",
+      "basePrice": 50,
+      "variants": [],
+      "icon": "amur_minnow.png"
+    },
+    {
+      "id": "barbel_steed",
+      "name": "Barbel Steed",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "source": "fishing",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "barbel_steed.png"
+    },
+    {
+      "id": "basa",
+      "name": "Basa",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "all"
+      ],
+      "source": "fishing",
+      "basePrice": 80,
+      "variants": [],
+      "icon": "basa.png"
+    },
+    {
+      "id": "bighead_carp",
+      "name": "Bighead Carp",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "summer",
+        "fall"
+      ],
+      "source": "fishing",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "bighead_carp.png"
+    },
+    {
+      "id": "bitterling",
+      "name": "Bitterling",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "winter"
+      ],
+      "source": "fishing",
+      "basePrice": 60,
+      "variants": [],
+      "icon": "bitterling.png"
+    },
+    {
+      "id": "black_bass",
+      "name": "Black Bass",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "all"
+      ],
+      "source": "fishing",
+      "basePrice": 180,
+      "variants": [],
+      "icon": "black_bass.png"
+    },
+    {
+      "id": "bluegill",
+      "name": "Bluegill",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "source": "fishing",
+      "basePrice": 70,
+      "variants": [],
+      "icon": "bluegill.png"
+    },
+    {
+      "id": "brown_trout",
+      "name": "Brown Trout",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "fall",
+        "winter"
+      ],
+      "source": "fishing",
+      "basePrice": 160,
+      "variants": [],
+      "icon": "brown_trout.png"
+    },
+    {
+      "id": "char",
+      "name": "Char",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "fall",
+        "winter"
+      ],
+      "source": "fishing",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "char.png"
+    },
+    {
+      "id": "cherry_salmon",
+      "name": "Cherry Salmon",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "spring",
+        "summer"
+      ],
+      "source": "fishing",
+      "basePrice": 180,
+      "variants": [],
+      "icon": "cherry_salmon.png"
+    },
+    {
+      "id": "crucian_carp",
+      "name": "Crucian Carp",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "all"
+      ],
+      "source": "fishing",
+      "basePrice": 60,
+      "variants": [],
+      "icon": "crucian_carp.png"
+    },
+    {
+      "id": "dace",
+      "name": "Dace",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "all"
+      ],
+      "source": "fishing",
+      "basePrice": 55,
+      "variants": [],
+      "icon": "dace.png"
+    },
+    {
+      "id": "dark_chub",
+      "name": "Dark Chub",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "spring",
+        "summer"
+      ],
+      "source": "fishing",
+      "basePrice": 65,
+      "variants": [],
+      "icon": "dark_chub.png"
+    },
+    {
+      "id": "eel",
+      "name": "Eel",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "summer"
+      ],
+      "source": "fishing",
+      "basePrice": 250,
+      "variants": [],
+      "icon": "eel.png"
+    },
+    {
+      "id": "goldfish",
+      "name": "Goldfish",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "source": "fishing",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "goldfish.png"
+    },
+    {
+      "id": "grayling",
+      "name": "Grayling",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "spring",
+        "fall",
+        "winter"
+      ],
+      "source": "fishing",
+      "basePrice": 140,
+      "variants": [],
+      "icon": "grayling.png"
+    },
+    {
+      "id": "icefish",
+      "name": "Icefish",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "winter"
+      ],
+      "source": "fishing",
+      "basePrice": 120,
+      "variants": [],
+      "icon": "icefish.png"
+    },
+    {
+      "id": "killifish",
+      "name": "Killifish",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "spring",
+        "summer"
+      ],
+      "source": "fishing",
+      "basePrice": 40,
+      "variants": [],
+      "icon": "killifish.png"
+    },
+    {
+      "id": "marbled_eel",
+      "name": "Marbled Eel",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "summer",
+        "fall"
+      ],
+      "source": "fishing",
+      "basePrice": 300,
+      "variants": [],
+      "icon": "marbled_eel.png"
+    },
+    {
+      "id": "masu_trout",
+      "name": "Masu Trout",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "spring",
+        "fall"
+      ],
+      "source": "fishing",
+      "basePrice": 170,
+      "variants": [],
+      "icon": "masu_trout.png"
+    },
+    {
+      "id": "mugitsuku",
+      "name": "Mugitsuku",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "spring",
+        "summer"
+      ],
+      "source": "fishing",
+      "basePrice": 130,
+      "variants": [],
+      "icon": "mugitsuku.png"
+    },
+    {
+      "id": "nile_perch",
+      "name": "Nile Perch",
+      "category": "fish",
+      "subcategory": "large",
+      "season": [
+        "summer",
+        "fall"
+      ],
+      "source": "fishing",
+      "basePrice": 350,
+      "variants": [],
+      "icon": "nile_perch.png"
+    },
+    {
+      "id": "pale_chub",
+      "name": "Pale Chub",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "source": "fishing",
+      "basePrice": 50,
+      "variants": [],
+      "icon": "pale_chub.png"
+    },
+    {
+      "id": "pond_smelt",
+      "name": "Pond Smelt",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "winter"
+      ],
+      "source": "fishing",
+      "basePrice": 80,
+      "variants": [],
+      "icon": "pond_smelt.png"
+    },
+    {
+      "id": "rainbow_trout",
+      "name": "Rainbow Trout",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "spring",
+        "fall"
+      ],
+      "source": "fishing",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "rainbow_trout.png"
+    },
+    {
+      "id": "salmon",
+      "name": "Salmon",
+      "category": "fish",
+      "subcategory": "large",
+      "season": [
+        "fall"
+      ],
+      "source": "fishing",
+      "basePrice": 400,
+      "variants": [],
+      "icon": "salmon.png"
+    },
+    {
+      "id": "sculpin",
+      "name": "Sculpin",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "all"
+      ],
+      "source": "fishing",
+      "basePrice": 45,
+      "variants": [],
+      "icon": "sculpin.png"
+    },
+    {
+      "id": "silver_carp",
+      "name": "Silver Carp",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "spring",
+        "summer"
+      ],
+      "source": "fishing",
+      "basePrice": 120,
+      "variants": [],
+      "icon": "silver_carp.png"
+    },
+    {
+      "id": "snakehead",
+      "name": "Snakehead",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "summer",
+        "fall"
+      ],
+      "source": "fishing",
+      "basePrice": 180,
+      "variants": [],
+      "icon": "snakehead.png"
+    },
+    {
+      "id": "stone_moroko",
+      "name": "Stone Moroko",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "source": "fishing",
+      "basePrice": 55,
+      "variants": [],
+      "icon": "stone_moroko.png"
+    },
+    {
+      "id": "sweetfish",
+      "name": "Sweetfish",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "summer"
+      ],
+      "source": "fishing",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "sweetfish.png"
+    },
+    {
+      "id": "tamoroko",
+      "name": "Tamoroko",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "all"
+      ],
+      "source": "fishing",
+      "basePrice": 50,
+      "variants": [],
+      "icon": "tamoroko.png"
+    },
+    {
+      "id": "three_lips_carp",
+      "name": "Three Lips Carp",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "spring",
+        "fall"
+      ],
+      "source": "fishing",
+      "basePrice": 160,
+      "variants": [],
+      "icon": "three_lips_carp.png"
+    },
+    {
+      "id": "willow_shiner",
+      "name": "Willow Shiner",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "spring",
+        "summer"
+      ],
+      "source": "fishing",
+      "basePrice": 45,
+      "variants": [],
+      "icon": "willow_shiner.png"
+    },
+    {
+      "id": "yellow_perch",
+      "name": "Yellow Perch",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "all"
+      ],
+      "source": "fishing",
+      "basePrice": 140,
+      "variants": [],
+      "icon": "yellow_perch.png"
+    },
+    {
+      "id": "chamomile",
+      "name": "Chamomile",
+      "category": "foraged",
+      "subcategory": "herbs",
+      "season": [
+        "spring",
+        "summer"
+      ],
+      "source": "foraging",
+      "basePrice": 50,
+      "variants": [],
+      "icon": "chamomile.png"
+    },
+    {
+      "id": "chestnut",
+      "name": "Chestnut",
+      "category": "foraged",
+      "subcategory": "nuts",
+      "season": [
+        "fall"
+      ],
+      "source": "foraging",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "chestnut.png"
+    },
+    {
+      "id": "honeycomb",
+      "name": "Honeycomb",
+      "category": "foraged",
+      "subcategory": "bee",
+      "season": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "source": "beekeeping",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "honeycomb.png"
+    },
+    {
+      "id": "lavender",
+      "name": "Lavender",
+      "category": "foraged",
+      "subcategory": "herbs",
+      "season": [
+        "fall",
+        "winter"
+      ],
+      "source": "foraging",
+      "basePrice": 50,
+      "variants": [],
+      "icon": "lavender.png"
+    },
+    {
+      "id": "magic_blue_flower",
+      "name": "Magic Blue Flower",
+      "category": "foraged",
+      "subcategory": "flowers",
+      "season": [
+        "spring"
+      ],
+      "source": "foraging",
+      "basePrice": 60,
+      "variants": [],
+      "icon": "magic_blue_flower.png"
+    },
+    {
+      "id": "magic_red_flower",
+      "name": "Magic Red Flower",
+      "category": "foraged",
+      "subcategory": "flowers",
+      "season": [
+        "fall"
+      ],
+      "source": "foraging",
+      "basePrice": 60,
+      "variants": [],
+      "icon": "magic_red_flower.png"
+    },
+    {
+      "id": "mint",
+      "name": "Mint",
+      "category": "foraged",
+      "subcategory": "herbs",
+      "season": [
+        "all"
+      ],
+      "source": "foraging",
+      "basePrice": 50,
+      "variants": [],
+      "icon": "mint.png"
+    },
+    {
+      "id": "moondrop_flower",
+      "name": "Moondrop Flower",
+      "category": "foraged",
+      "subcategory": "flowers",
+      "season": [
+        "spring"
+      ],
+      "source": "foraging",
+      "basePrice": 90,
+      "variants": [],
+      "icon": "moondrop_flower.png"
+    },
+    {
+      "id": "pink_cat_flower",
+      "name": "Pink Cat Flower",
+      "category": "foraged",
+      "subcategory": "flowers",
+      "season": [
+        "summer"
+      ],
+      "source": "foraging",
+      "basePrice": 60,
+      "variants": [],
+      "icon": "pink_cat_flower.png"
+    },
+    {
+      "id": "seaweed",
+      "name": "Seaweed",
+      "category": "foraged",
+      "subcategory": "ocean",
+      "season": [
+        "all"
+      ],
+      "source": "foraging",
+      "basePrice": 30,
+      "variants": [],
+      "icon": "seaweed.png"
+    },
+    {
+      "id": "toy_flower",
+      "name": "Toy Flower",
+      "category": "foraged",
+      "subcategory": "flowers",
+      "season": [
+        "spring"
+      ],
+      "source": "foraging",
+      "basePrice": 50,
+      "variants": [],
+      "icon": "toy_flower.png"
+    },
+    {
+      "id": "walnut",
+      "name": "Walnut",
+      "category": "foraged",
+      "subcategory": "nuts",
+      "season": [
+        "spring",
+        "summer",
+        "winter"
+      ],
+      "source": "foraging",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "walnut.png"
+    },
+    {
+      "id": "common_mushroom",
+      "name": "Common Mushroom",
+      "category": "mushrooms",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "mushroom_log",
+      "basePrice": 80,
+      "variants": [],
+      "icon": "common_mushroom.png"
+    },
+    {
+      "id": "matsutake_mushroom",
+      "name": "Matsutake Mushroom",
+      "category": "mushrooms",
+      "subcategory": null,
+      "season": [
+        "fall"
+      ],
+      "source": "rare",
+      "basePrice": 600,
+      "variants": [],
+      "icon": "matsutake_mushroom.png"
+    },
+    {
+      "id": "monarch_mushroom",
+      "name": "Monarch Mushroom",
+      "category": "mushrooms",
+      "subcategory": null,
+      "season": [
+        "fall"
+      ],
+      "source": "rare",
+      "basePrice": 1000,
+      "variants": [],
+      "icon": "monarch_mushroom.png"
+    },
+    {
+      "id": "morel_mushroom",
+      "name": "Morel Mushroom",
+      "category": "mushrooms",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "mushroom_log",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "morel_mushroom.png"
+    },
+    {
+      "id": "porcini_mushroom",
+      "name": "Porcini Mushroom",
+      "category": "mushrooms",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "mushroom_log",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "porcini_mushroom.png"
+    },
+    {
+      "id": "shiitake_mushroom",
+      "name": "Shiitake Mushroom",
+      "category": "mushrooms",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "mushroom_log",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "shiitake_mushroom.png"
+    },
+    {
+      "id": "shimeji_mushroom",
+      "name": "Shimeji Mushroom",
+      "category": "mushrooms",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "mushroom_log",
+      "basePrice": 90,
+      "variants": [],
+      "icon": "shimeji_mushroom.png"
+    },
+    {
+      "id": "apple_tea_tin",
+      "name": "Apple Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 180,
+      "variants": [],
+      "icon": "apple_tea_tin.png"
+    },
+    {
+      "id": "autumn_blend_tea_tin",
+      "name": "Autumn Blend Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "fall"
+      ],
+      "source": "windmill",
+      "basePrice": 400,
+      "variants": [],
+      "icon": "autumn_blend_tea_tin.png"
+    },
+    {
+      "id": "banana_tea_tin",
+      "name": "Banana Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 170,
+      "variants": [],
+      "icon": "banana_tea_tin.png"
+    },
+    {
+      "id": "black_tea_tin",
+      "name": "Black Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 120,
+      "variants": [],
+      "icon": "black_tea_tin.png"
+    },
+    {
+      "id": "blueberry_tea_tin",
+      "name": "Blueberry Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 140,
+      "variants": [],
+      "icon": "blueberry_tea_tin.png"
+    },
+    {
+      "id": "bottled_chestnuts",
+      "name": "Bottled Chestnuts",
+      "category": "processed",
+      "subcategory": "bottled",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "bottled_chestnuts.png"
+    },
+    {
+      "id": "bottled_walnuts",
+      "name": "Bottled Walnuts",
+      "category": "processed",
+      "subcategory": "bottled",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "bottled_walnuts.png"
+    },
+    {
+      "id": "breadcrumbs",
+      "name": "Breadcrumbs",
+      "category": "processed",
+      "subcategory": "flour",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "breadcrumbs.png"
+    },
+    {
+      "id": "buckwheat_flour",
+      "name": "Buckwheat Flour",
+      "category": "processed",
+      "subcategory": "flour",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 120,
+      "variants": [],
+      "icon": "buckwheat_flour.png"
+    },
+    {
+      "id": "chamomile_tea_tin",
+      "name": "Chamomile Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "chamomile_tea_tin.png"
+    },
+    {
+      "id": "cherry_tea_tin",
+      "name": "Cherry Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "cherry_tea_tin.png"
+    },
+    {
+      "id": "chocolate",
+      "name": "Chocolate",
+      "category": "processed",
+      "subcategory": "sweet",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "chocolate.png"
+    },
+    {
+      "id": "coffee_pack",
+      "name": "Coffee Pack",
+      "category": "processed",
+      "subcategory": "beverage",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "coffee_pack.png"
+    },
+    {
+      "id": "curry_powder",
+      "name": "Curry Powder",
+      "category": "processed",
+      "subcategory": "seasoning",
+      "season": [
+        "all"
+      ],
+      "source": "store",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "curry_powder.png"
+    },
+    {
+      "id": "fried_tofu",
+      "name": "Fried Tofu",
+      "category": "processed",
+      "subcategory": "soy",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 267,
+      "variants": [],
+      "icon": "fried_tofu.png"
+    },
+    {
+      "id": "golden_blend_tea_tin",
+      "name": "Golden Blend Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 2000,
+      "variants": [],
+      "icon": "golden_blend_tea_tin.png"
+    },
+    {
+      "id": "grape_oil",
+      "name": "Grape Oil",
+      "category": "processed",
+      "subcategory": "oil",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "grape_oil.png"
+    },
+    {
+      "id": "green_grape_tea_tin",
+      "name": "Green Grape Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 180,
+      "variants": [],
+      "icon": "green_grape_tea_tin.png"
+    },
+    {
+      "id": "green_tea_tin",
+      "name": "Green Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "green_tea_tin.png"
+    },
+    {
+      "id": "herb_oil",
+      "name": "Herb Oil",
+      "category": "processed",
+      "subcategory": "oil",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 180,
+      "variants": [],
+      "icon": "herb_oil.png"
+    },
+    {
+      "id": "honey",
+      "name": "Honey",
+      "category": "processed",
+      "subcategory": "sweet",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "honey.png"
+    },
+    {
+      "id": "lavender_tea_tin",
+      "name": "Lavender Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "lavender_tea_tin.png"
+    },
+    {
+      "id": "lemon_tea_tin",
+      "name": "Lemon Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "lemon_tea_tin.png"
+    },
+    {
+      "id": "mango_tea_tin",
+      "name": "Mango Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "mango_tea_tin.png"
+    },
+    {
+      "id": "matcha_tea_tin",
+      "name": "Matcha Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 130,
+      "variants": [],
+      "icon": "matcha_tea_tin.png"
+    },
+    {
+      "id": "melon_tea_tin",
+      "name": "Melon Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 280,
+      "variants": [],
+      "icon": "melon_tea_tin.png"
+    },
+    {
+      "id": "mint_tea_tin",
+      "name": "Mint Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "mint_tea_tin.png"
+    },
+    {
+      "id": "miso",
+      "name": "Miso",
+      "category": "processed",
+      "subcategory": "seasoning",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "miso.png"
+    },
+    {
+      "id": "mochi",
+      "name": "Mochi",
+      "category": "processed",
+      "subcategory": "rice",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "mochi.png"
+    },
+    {
+      "id": "nut_oil",
+      "name": "Nut Oil",
+      "category": "processed",
+      "subcategory": "oil",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 180,
+      "variants": [],
+      "icon": "nut_oil.png"
+    },
+    {
+      "id": "oil",
+      "name": "Oil",
+      "category": "processed",
+      "subcategory": "oil",
+      "season": [
+        "all"
+      ],
+      "source": "store",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "oil.png"
+    },
+    {
+      "id": "olive_oil",
+      "name": "Olive Oil",
+      "category": "processed",
+      "subcategory": "oil",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "olive_oil.png"
+    },
+    {
+      "id": "olive_tea_tin",
+      "name": "Olive Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 160,
+      "variants": [],
+      "icon": "olive_tea_tin.png"
+    },
+    {
+      "id": "oolong_tea_tin",
+      "name": "Oolong Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 120,
+      "variants": [],
+      "icon": "oolong_tea_tin.png"
+    },
+    {
+      "id": "orange_tea_tin",
+      "name": "Orange Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 160,
+      "variants": [],
+      "icon": "orange_tea_tin.png"
+    },
+    {
+      "id": "peach_tea_tin",
+      "name": "Peach Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 160,
+      "variants": [],
+      "icon": "peach_tea_tin.png"
+    },
+    {
+      "id": "pepper",
+      "name": "Pepper",
+      "category": "processed",
+      "subcategory": "seasoning",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 80,
+      "variants": [],
+      "icon": "pepper.png"
+    },
+    {
+      "id": "pineapple_tea_tin",
+      "name": "Pineapple Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 220,
+      "variants": [],
+      "icon": "pineapple_tea_tin.png"
+    },
+    {
+      "id": "puer_tea_tin",
+      "name": "Puer Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 120,
+      "variants": [],
+      "icon": "puer_tea_tin.png"
+    },
+    {
+      "id": "pumpkin_oil",
+      "name": "Pumpkin Oil",
+      "category": "processed",
+      "subcategory": "oil",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "pumpkin_oil.png"
+    },
+    {
+      "id": "red_grape_tea_tin",
+      "name": "Red Grape Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 180,
+      "variants": [],
+      "icon": "red_grape_tea_tin.png"
+    },
+    {
+      "id": "refined_rice_flour",
+      "name": "Refined Rice Flour",
+      "category": "processed",
+      "subcategory": "flour",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "refined_rice_flour.png"
+    },
+    {
+      "id": "rice_flour",
+      "name": "Rice Flour",
+      "category": "processed",
+      "subcategory": "flour",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "rice_flour.png"
+    },
+    {
+      "id": "royal_honey",
+      "name": "Royal Honey",
+      "category": "processed",
+      "subcategory": "sweet",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 800,
+      "variants": [],
+      "icon": "royal_honey.png"
+    },
+    {
+      "id": "salt",
+      "name": "Salt",
+      "category": "processed",
+      "subcategory": "seasoning",
+      "season": [
+        "all"
+      ],
+      "source": "store",
+      "basePrice": 50,
+      "variants": [],
+      "icon": "salt.png"
+    },
+    {
+      "id": "sencha_tea_tin",
+      "name": "Sencha Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 120,
+      "variants": [],
+      "icon": "sencha_tea_tin.png"
+    },
+    {
+      "id": "soy_milk",
+      "name": "Soy Milk",
+      "category": "processed",
+      "subcategory": "beverage",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 85,
+      "variants": [],
+      "icon": "soy_milk.png"
+    },
+    {
+      "id": "soy_sauce",
+      "name": "Soy Sauce",
+      "category": "processed",
+      "subcategory": "seasoning",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "soy_sauce.png"
+    },
+    {
+      "id": "soybean_flour",
+      "name": "Soybean Flour",
+      "category": "processed",
+      "subcategory": "flour",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "soybean_flour.png"
+    },
+    {
+      "id": "spice",
+      "name": "Spice",
+      "category": "processed",
+      "subcategory": "seasoning",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "spice.png"
+    },
+    {
+      "id": "spring_blend_tea_tin",
+      "name": "Spring Blend Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "spring"
+      ],
+      "source": "windmill",
+      "basePrice": 400,
+      "variants": [],
+      "icon": "spring_blend_tea_tin.png"
+    },
+    {
+      "id": "strawberry_tea_tin",
+      "name": "Strawberry Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "strawberry_tea_tin.png"
+    },
+    {
+      "id": "sugar",
+      "name": "Sugar",
+      "category": "processed",
+      "subcategory": "seasoning",
+      "season": [
+        "all"
+      ],
+      "source": "store",
+      "basePrice": 60,
+      "variants": [],
+      "icon": "sugar.png"
+    },
+    {
+      "id": "summer_blend_tea_tin",
+      "name": "Summer Blend Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "summer"
+      ],
+      "source": "windmill",
+      "basePrice": 400,
+      "variants": [],
+      "icon": "summer_blend_tea_tin.png"
+    },
+    {
+      "id": "tofu",
+      "name": "Tofu",
+      "category": "processed",
+      "subcategory": "soy",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 205,
+      "variants": [],
+      "icon": "tofu.png"
+    },
+    {
+      "id": "vinegar",
+      "name": "Vinegar",
+      "category": "processed",
+      "subcategory": "seasoning",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 80,
+      "variants": [],
+      "icon": "vinegar.png"
+    },
+    {
+      "id": "watermelon_tea_tin",
+      "name": "Watermelon Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 300,
+      "variants": [],
+      "icon": "watermelon_tea_tin.png"
+    },
+    {
+      "id": "wheat_flour",
+      "name": "Wheat Flour",
+      "category": "processed",
+      "subcategory": "flour",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "wheat_flour.png"
+    },
+    {
+      "id": "white_breadcrumbs",
+      "name": "White Breadcrumbs",
+      "category": "processed",
+      "subcategory": "flour",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 180,
+      "variants": [],
+      "icon": "white_breadcrumbs.png"
+    },
+    {
+      "id": "apple_jam",
+      "name": "Apple Jam",
+      "category": "prepared",
+      "subcategory": "jam",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 932,
+      "variants": [],
+      "icon": "apple_jam.png"
+    },
+    {
+      "id": "apple_juice",
+      "name": "Apple Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 221,
+      "variants": [],
+      "icon": "apple_juice.png"
+    },
+    {
+      "id": "autumn_juice",
+      "name": "Autumn Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "fall"
+      ],
+      "source": "recipe",
+      "basePrice": 1010,
+      "variants": [],
+      "icon": "autumn_juice.png"
+    },
+    {
+      "id": "baguettes",
+      "name": "Baguettes",
+      "category": "prepared",
+      "subcategory": "bread",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 662,
+      "variants": [],
+      "icon": "baguettes.png"
+    },
+    {
+      "id": "banana_juice",
+      "name": "Banana Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 260,
+      "variants": [],
+      "icon": "banana_juice.png"
+    },
+    {
+      "id": "black_tea",
+      "name": "Black Tea",
+      "category": "prepared",
+      "subcategory": "tea",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 401,
+      "variants": [],
+      "icon": "black_tea.png"
+    },
+    {
+      "id": "blueberry_jam",
+      "name": "Blueberry Jam",
+      "category": "prepared",
+      "subcategory": "jam",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 863,
+      "variants": [],
+      "icon": "blueberry_jam.png"
+    },
+    {
+      "id": "blueberry_juice",
+      "name": "Blueberry Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 163,
+      "variants": [],
+      "icon": "blueberry_juice.png"
+    },
+    {
+      "id": "bread",
+      "name": "Bread",
+      "category": "prepared",
+      "subcategory": "bread",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 195,
+      "variants": [],
+      "icon": "bread.png"
+    },
+    {
+      "id": "castella",
+      "name": "Castella",
+      "category": "prepared",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 801,
+      "variants": [],
+      "icon": "castella.png"
+    },
+    {
+      "id": "cherry_juice",
+      "name": "Cherry Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 182,
+      "variants": [],
+      "icon": "cherry_juice.png"
+    },
+    {
+      "id": "cooked_rice",
+      "name": "Cooked Rice",
+      "category": "prepared",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 91,
+      "variants": [],
+      "icon": "cooked_rice.png"
+    },
+    {
+      "id": "curry_rice",
+      "name": "Curry Rice",
+      "category": "prepared",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 911,
+      "variants": [],
+      "icon": "curry_rice.png"
+    },
+    {
+      "id": "fish_cake",
+      "name": "Fish Cake",
+      "category": "prepared",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 195,
+      "variants": [],
+      "icon": "fish_cake.png"
+    },
+    {
+      "id": "focaccia_bread",
+      "name": "Focaccia Bread",
+      "category": "prepared",
+      "subcategory": "bread",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 843,
+      "variants": [],
+      "icon": "focaccia_bread.png"
+    },
+    {
+      "id": "grape_jam",
+      "name": "Grape Jam",
+      "category": "prepared",
+      "subcategory": "jam",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 1007,
+      "variants": [],
+      "icon": "grape_jam.png"
+    },
+    {
+      "id": "grape_juice",
+      "name": "Grape Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 228,
+      "variants": [],
+      "icon": "grape_juice.png"
+    },
+    {
+      "id": "hot_coffee",
+      "name": "Hot Coffee",
+      "category": "prepared",
+      "subcategory": "beverage",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 380,
+      "variants": [],
+      "icon": "hot_coffee.png"
+    },
+    {
+      "id": "lemon_juice",
+      "name": "Lemon Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 176,
+      "variants": [],
+      "icon": "lemon_juice.png"
+    },
+    {
+      "id": "mango_juice",
+      "name": "Mango Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 260,
+      "variants": [],
+      "icon": "mango_juice.png"
+    },
+    {
+      "id": "melon_juice",
+      "name": "Melon Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 658,
+      "variants": [],
+      "icon": "melon_juice.png"
+    },
+    {
+      "id": "mixed_salad",
+      "name": "Mixed Salad",
+      "category": "prepared",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 404,
+      "variants": [],
+      "icon": "mixed_salad.png"
+    },
+    {
+      "id": "omelet",
+      "name": "Omelet",
+      "category": "prepared",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 721,
+      "variants": [],
+      "icon": "omelet.png"
+    },
+    {
+      "id": "onigiri",
+      "name": "Onigiri",
+      "category": "prepared",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 370,
+      "variants": [],
+      "icon": "onigiri.png"
+    },
+    {
+      "id": "orange_juice",
+      "name": "Orange Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 180,
+      "variants": [],
+      "icon": "orange_juice.png"
+    },
+    {
+      "id": "pasta",
+      "name": "Pasta",
+      "category": "prepared",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 328,
+      "variants": [],
+      "icon": "pasta.png"
+    },
+    {
+      "id": "peach_juice",
+      "name": "Peach Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 182,
+      "variants": [],
+      "icon": "peach_juice.png"
+    },
+    {
+      "id": "sashimi",
+      "name": "Sashimi",
+      "category": "prepared",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 195,
+      "variants": [],
+      "icon": "sashimi.png"
+    },
+    {
+      "id": "spring_juice",
+      "name": "Spring Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "spring"
+      ],
+      "source": "recipe",
+      "basePrice": 935,
+      "variants": [],
+      "icon": "spring_juice.png"
+    },
+    {
+      "id": "strawberry_jam",
+      "name": "Strawberry Jam",
+      "category": "prepared",
+      "subcategory": "jam",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 855,
+      "variants": [],
+      "icon": "strawberry_jam.png"
+    },
+    {
+      "id": "strawberry_juice",
+      "name": "Strawberry Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 156,
+      "variants": [],
+      "icon": "strawberry_juice.png"
+    },
+    {
+      "id": "summer_juice",
+      "name": "Summer Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "summer"
+      ],
+      "source": "recipe",
+      "basePrice": 1020,
+      "variants": [],
+      "icon": "summer_juice.png"
+    },
+    {
+      "id": "supreme_curry",
+      "name": "Supreme Curry",
+      "category": "prepared",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 3724,
+      "variants": [],
+      "icon": "supreme_curry.png"
+    },
+    {
+      "id": "tempura",
+      "name": "Tempura",
+      "category": "prepared",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 1152,
+      "variants": [],
+      "icon": "tempura.png"
+    },
+    {
+      "id": "white_bread",
+      "name": "White Bread",
+      "category": "prepared",
+      "subcategory": "bread",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 182,
+      "variants": [],
+      "icon": "white_bread.png"
+    },
+    {
+      "id": "curled_chili_pepper",
+      "name": "Curled Chili Pepper",
+      "category": "rare_crops",
+      "subcategory": null,
+      "season": [
+        "fall"
+      ],
+      "source": "rare",
+      "basePrice": 400,
+      "variants": [],
+      "icon": "curled_chili_pepper.png"
+    },
+    {
+      "id": "giant_tomato",
+      "name": "Giant Tomato",
+      "category": "rare_crops",
+      "subcategory": null,
+      "season": [
+        "summer"
+      ],
+      "source": "rare",
+      "basePrice": 600,
+      "variants": [],
+      "icon": "giant_tomato.png"
+    },
+    {
+      "id": "heart_watermelon",
+      "name": "Heart Watermelon",
+      "category": "rare_crops",
+      "subcategory": null,
+      "season": [
+        "summer"
+      ],
+      "source": "rare",
+      "basePrice": 1500,
+      "variants": [],
+      "icon": "heart_watermelon.png"
+    },
+    {
+      "id": "jewel_pineapple",
+      "name": "Jewel Pineapple",
+      "category": "rare_crops",
+      "subcategory": null,
+      "season": [
+        "summer"
+      ],
+      "source": "rare",
+      "basePrice": 1000,
+      "variants": [],
+      "icon": "jewel_pineapple.png"
+    },
+    {
+      "id": "star_potato",
+      "name": "Star Potato",
+      "category": "rare_crops",
+      "subcategory": null,
+      "season": [
+        "spring"
+      ],
+      "source": "rare",
+      "basePrice": 500,
+      "variants": [],
+      "icon": "star_potato.png"
+    },
+    {
+      "id": "three_forked_carrot",
+      "name": "Three Forked Carrot",
+      "category": "rare_crops",
+      "subcategory": null,
+      "season": [
+        "fall"
+      ],
+      "source": "rare",
+      "basePrice": 800,
+      "variants": [],
+      "icon": "three_forked_carrot.png"
+    },
+    {
+      "id": "urchin",
+      "name": "Urchin",
+      "category": "ocean",
+      "subcategory": null,
+      "season": [
+        "summer"
+      ],
+      "source": "diving",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "urchin.png"
+    }
+  ]
+}

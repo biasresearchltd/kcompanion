@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+@theme {
+  /* Custom breakpoint for tablets like iPad Mini (744px viewport in portrait) */
+  --breakpoint-tablet: 700px;
+}
+
+:root {
+  --color-primary: #8B4513;
+  --color-primary-dark: #6B3410;
+  --color-secondary: #D2691E;
+  --color-background: #D9C4A5;
+  --color-surface: #FFFFFF;
+  --color-surface-elevated: #D1C7BC;
+  --color-text: #1F2937;
+  --color-text-muted: #6B7280;
+  --color-border: #E5E7EB;
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  /* Safe area insets for iOS notch */
+  --safe-area-inset-top: env(safe-area-inset-top, 0px);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-inset-left: env(safe-area-inset-left, 0px);
+  --safe-area-inset-right: env(safe-area-inset-right, 0px);
+}
+
+html, body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none;
+}
+
+#root {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Custom scrollbar - only on devices with fine pointer (mouse/trackpad) */
+@media (pointer: fine) {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-border);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-dark);
+  }
+}
+
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: background-color, border-color, color, opacity;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
+}
+
+/* Folder tab corners - creates the curved cutout effect */
+.tab-active {
+  z-index: 10;
+}
+
+.tab-active::before,
+.tab-active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 8px;
+  height: 8px;
+  background: var(--color-surface-elevated);
+  transition: none !important;
+  z-index: 20;
+}
+
+.tab-active::before {
+  left: -8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 3px 3px 0 3px white;
+}
+
+.tab-active::after {
+  right: -8px;
+  border-bottom-left-radius: 8px;
+  box-shadow: -3px 3px 0 3px white;
+}
+
+/* Amber tab variant for bookmarks - no pseudo-elements since it's full width */
+.tab-active-amber::before,
+.tab-active-amber::after {
+  display: none;
+}
+
+/* Disable all transitions for mobile tab navigation to prevent fade effects on tab switch */
+.no-transitions,
+.no-transitions *,
+.no-transitions *::before,
+.no-transitions *::after {
+  transition: none !important;
+}
+
+
+/* Marquee text animation for truncated ingredient names */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(var(--marquee-distance, -20px));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.marquee-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-text {
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.marquee-container:hover .marquee-text.is-truncated {
+  overflow: visible;
+  text-overflow: clip;
+  animation: marquee 3s ease-in-out infinite;
+  -webkit-animation: marquee 3s ease-in-out infinite;
+}

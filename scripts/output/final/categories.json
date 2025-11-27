@@ -1,0 +1,196 @@
+{
+  "ingredientCategories": [
+    {
+      "id": "crops",
+      "name": "Crops",
+      "icon": "crops.png",
+      "order": 1
+    },
+    {
+      "id": "fruits",
+      "name": "Fruits",
+      "icon": "fruits.png",
+      "order": 2
+    },
+    {
+      "id": "animal_products",
+      "name": "Animal Products",
+      "icon": "animal.png",
+      "order": 3
+    },
+    {
+      "id": "fish",
+      "name": "Fish",
+      "icon": "fish.png",
+      "order": 4
+    },
+    {
+      "id": "foraged",
+      "name": "Foraged Items",
+      "icon": "foraged.png",
+      "order": 5
+    },
+    {
+      "id": "mushrooms",
+      "name": "Mushrooms",
+      "icon": "mushrooms.png",
+      "order": 6
+    },
+    {
+      "id": "processed",
+      "name": "Processed Goods",
+      "icon": "processed.png",
+      "order": 7
+    },
+    {
+      "id": "prepared",
+      "name": "Prepared Ingredients",
+      "icon": "prepared.png",
+      "order": 8
+    },
+    {
+      "id": "rare_crops",
+      "name": "Rare Crops",
+      "icon": "rare.png",
+      "order": 9
+    },
+    {
+      "id": "other",
+      "name": "Other",
+      "icon": "other.png",
+      "order": 10
+    }
+  ],
+  "recipeCategories": [
+    {
+      "id": "salad",
+      "name": "Salads",
+      "icon": "salad.png"
+    },
+    {
+      "id": "soup",
+      "name": "Soups",
+      "icon": "soup.png"
+    },
+    {
+      "id": "side",
+      "name": "Sides",
+      "icon": "side.png"
+    },
+    {
+      "id": "main_dish",
+      "name": "Main Dishes",
+      "icon": "main.png"
+    },
+    {
+      "id": "dessert",
+      "name": "Desserts",
+      "icon": "dessert.png"
+    },
+    {
+      "id": "other",
+      "name": "Other",
+      "icon": "other.png"
+    }
+  ],
+  "utensils": [
+    {
+      "id": "none",
+      "name": "No Utensil",
+      "unlockCost": 0
+    },
+    {
+      "id": "pot",
+      "name": "Pot",
+      "unlockCost": 10000
+    },
+    {
+      "id": "frying_pan",
+      "name": "Frying Pan",
+      "unlockCost": 10000
+    },
+    {
+      "id": "seasoning_set",
+      "name": "Seasoning Set",
+      "unlockCost": 10000
+    }
+  ],
+  "variantGroups": {
+    "cheese": [
+      "cheese",
+      "cheese_plus",
+      "herb_cheese"
+    ],
+    "butter": [
+      "butter",
+      "butter_plus",
+      "herb_butter"
+    ],
+    "yogurt": [
+      "yogurt",
+      "yogurt_plus",
+      "fruit_yogurt"
+    ],
+    "mayonnaise": [
+      "mayonnaise",
+      "mayonnaise_plus",
+      "herb_mayonnaise"
+    ],
+    "milk": [
+      "milk",
+      "milk_plus",
+      "buffalo_milk",
+      "buffalo_milk_plus"
+    ],
+    "egg": [
+      "egg",
+      "egg_plus",
+      "silkie_egg",
+      "silkie_egg_plus"
+    ],
+    "mushroom": [
+      "common_mushroom",
+      "shiitake_mushroom",
+      "shimeji_mushroom",
+      "porcini_mushroom",
+      "morel_mushroom",
+      "matsutake_mushroom",
+      "monarch_mushroom"
+    ],
+    "oil": [
+      "oil",
+      "olive_oil",
+      "nut_oil",
+      "herb_oil",
+      "grape_oil",
+      "pumpkin_oil"
+    ],
+    "honey": [
+      "honey",
+      "invigorating_honey",
+      "mellow_honey",
+      "royal_honey"
+    ],
+    "jam": [
+      "apple_jam",
+      "strawberry_jam",
+      "grape_jam",
+      "blueberry_jam"
+    ],
+    "bread": [
+      "bread",
+      "white_bread",
+      "baguettes",
+      "focaccia_bread"
+    ],
+    "flour": [
+      "wheat_flour",
+      "rice_flour"
+    ],
+    "herb": [
+      "mint",
+      "chamomile",
+      "lavender"
+    ]
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "effects": [
+    {
+      "id": "stamina_saver",
+      "name": "Stamina Saver",
+      "description": "Reduces stamina consumption for actions",
+      "maxLevel": 4,
+      "category": "stamina"
+    },
+    {
+      "id": "max_stamina_up",
+      "name": "Max Stamina Up",
+      "description": "Temporarily increases maximum stamina",
+      "maxLevel": 4,
+      "category": "stamina"
+    },
+    {
+      "id": "run_speed_up",
+      "name": "Run Speed Up",
+      "description": "Increases movement speed",
+      "maxLevel": 4,
+      "category": "movement"
+    },
+    {
+      "id": "watering_rare_crop",
+      "name": "Watering Rare Crop %",
+      "description": "Increases chance of rare crop mutation when watering",
+      "maxLevel": 4,
+      "category": "farming"
+    },
+    {
+      "id": "rod_durability_up",
+      "name": "Rod Durability Up",
+      "description": "Reduces fishing rod durability loss",
+      "maxLevel": 4,
+      "category": "fishing"
+    },
+    {
+      "id": "chat_friendship_boost",
+      "name": "Chat Friendship Boost",
+      "description": "Increases friendship gained from conversations",
+      "maxLevel": 4,
+      "category": "social"
+    },
+    {
+      "id": "petting_happiness_up",
+      "name": "Petting Happiness Up",
+      "description": "Increases animal happiness from petting",
+      "maxLevel": 4,
+      "category": "animals"
+    },
+    {
+      "id": "petting_rare_item",
+      "name": "Petting Rare Item %",
+      "description": "Increases chance of rare items when petting animals",
+      "maxLevel": 4,
+      "category": "animals"
+    },
+    {
+      "id": "pet_training_up",
+      "name": "Pet Training Up",
+      "description": "Increases effectiveness of pet training",
+      "maxLevel": 4,
+      "category": "animals"
+    },
+    {
+      "id": "happy_energy_gain",
+      "name": "Happy Energy Gain",
+      "description": "Increases Happy Energy earned at the bazaar",
+      "maxLevel": 4,
+      "category": "bazaar"
+    },
+    {
+      "id": "jump_distance_up",
+      "name": "Jump Distance Up",
+      "description": "Increases jump distance",
+      "maxLevel": 1,
+      "category": "movement"
+    },
+    {
+      "id": "double_forage",
+      "name": "Double Forage",
+      "description": "Chance to gather double foraged items",
+      "maxLevel": 1,
+      "category": "foraging"
+    }
+  ]
+}

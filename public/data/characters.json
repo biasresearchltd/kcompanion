@@ -1,0 +1,1479 @@
+{
+  "characters": [
+    {
+      "id": "arata",
+      "name": "Arata",
+      "romanceable": true,
+      "icon": "arata.png",
+      "favoriteGifts": [
+        "warm_milk"
+      ],
+      "lovedGifts": [
+        "omelet",
+        "onigiri",
+        "sashimi",
+        "omelet_rice",
+        "grilled_fish",
+        "egg_over_rice",
+        "milk",
+        "milk_rice_porridge"
+      ]
+    },
+    {
+      "id": "derek",
+      "name": "Derek",
+      "romanceable": true,
+      "icon": "derek.png",
+      "favoriteGifts": [
+        "elephant_beetle",
+        "hercules_beetle",
+        "rhinoceros_beetle"
+      ],
+      "lovedGifts": [
+        "gold_medal",
+        "silver_medal",
+        "bronze_medal",
+        "risotto",
+        "omelet_rice",
+        "giant_stag_beetle",
+        "stag_beetle",
+        "autumn_tea_leaves",
+        "spring_tea_leaves"
+      ]
+    },
+    {
+      "id": "diana",
+      "name": "Diana",
+      "romanceable": true,
+      "icon": "diana.png",
+      "favoriteGifts": [
+        "apple_jam",
+        "apple_juice"
+      ],
+      "lovedGifts": [
+        "cookies",
+        "chocolate_covered_banana",
+        "pancakes",
+        "strawberry_mochi",
+        "ice_cream",
+        "chartreuse_brooch",
+        "strawberry_pie",
+        "walnut_cookies"
+      ]
+    },
+    {
+      "id": "freya",
+      "name": "Freya",
+      "romanceable": true,
+      "icon": "freya.png",
+      "favoriteGifts": [
+        "moonstone",
+        "peridot",
+        "topaz",
+        "sandrose",
+        "pizza"
+      ],
+      "lovedGifts": [
+        "swallowtail_butterfly",
+        "milk",
+        "warm_milk",
+        "herbed_cheese"
+      ]
+    },
+    {
+      "id": "gabriel",
+      "name": "Gabriel",
+      "romanceable": true,
+      "icon": "gabriel.png",
+      "favoriteGifts": [
+        "omelet_rice",
+        "ice_cream",
+        "pizza",
+        "french_fries"
+      ],
+      "lovedGifts": [
+        "omelet",
+        "honey_juice",
+        "potato_pancakes",
+        "strawberry_tea",
+        "strawberry_juice"
+      ]
+    },
+    {
+      "id": "jules",
+      "name": "Jules",
+      "romanceable": true,
+      "icon": "jules.png",
+      "favoriteGifts": [
+        "herbal_perfume",
+        "chamomile",
+        "mint",
+        "floral_perfume"
+      ],
+      "lovedGifts": [
+        "magic_blue_flower",
+        "pickled_onion",
+        "poached_egg",
+        "moondrop_flower"
+      ]
+    },
+    {
+      "id": "june",
+      "name": "June",
+      "romanceable": true,
+      "icon": "june.png",
+      "favoriteGifts": [
+        "cherry_tea",
+        "chartreuse_brooch",
+        "green_brooch",
+        "other_brooch_and_accessories"
+      ],
+      "lovedGifts": [
+        "chamomile_tea",
+        "strawberry_tea",
+        "black_tea",
+        "magic_blue_flower",
+        "walnut_juice",
+        "bouillabaisse",
+        "radish_soup"
+      ]
+    },
+    {
+      "id": "kagetsu",
+      "name": "Kagetsu",
+      "romanceable": true,
+      "icon": "kagetsu.png",
+      "favoriteGifts": [
+        "soy_milk_pudding",
+        "soy_milk",
+        "other_tofu_based_foods"
+      ],
+      "lovedGifts": [
+        "toy_flower",
+        "moondrop_flower",
+        "spring_tea_leaves",
+        "mint",
+        "summer_tea_leaves",
+        "walnut",
+        "babaocai"
+      ]
+    },
+    {
+      "id": "lloyd",
+      "name": "Lloyd",
+      "romanceable": true,
+      "icon": "lloyd.png",
+      "favoriteGifts": [
+        "gold_medal",
+        "diamond",
+        "diamondd",
+        "bouillabaisse"
+      ],
+      "lovedGifts": [
+        "magic_blue_flower",
+        "smallheaded_locusts",
+        "seven_spotted_ladybug",
+        "autumn_tea_leaves"
+      ]
+    },
+    {
+      "id": "maple",
+      "name": "Maple",
+      "romanceable": true,
+      "icon": "maple.png",
+      "favoriteGifts": [
+        "cookies",
+        "walnut_cookies",
+        "pancakes",
+        "churros"
+      ],
+      "lovedGifts": [
+        "honey_juice",
+        "magic_blue_flower",
+        "strawberry_juice",
+        "toy_flower",
+        "moondrop_flower",
+        "pansy",
+        "baby_blue_flower",
+        "walnut_juice",
+        "egg_tart"
+      ]
+    },
+    {
+      "id": "samir",
+      "name": "Samir",
+      "romanceable": true,
+      "icon": "samir.png",
+      "favoriteGifts": [
+        "cooked_rice",
+        "chocolate_covered_banana",
+        "cookies"
+      ],
+      "lovedGifts": [
+        "gazpacho_soup",
+        "egg_drop_soup",
+        "rice_porridge",
+        "omelet_rice",
+        "grilled_fish"
+      ]
+    },
+    {
+      "id": "sophie",
+      "name": "Sophie",
+      "romanceable": true,
+      "icon": "sophie.png",
+      "favoriteGifts": [
+        "herb_salad",
+        "rice_porridge",
+        "pickled_potato",
+        "pickled_onion",
+        "onion_salad",
+        "tofu"
+      ],
+      "lovedGifts": [
+        "pasta",
+        "soy_milk",
+        "toast",
+        "herb_sandwich",
+        "fruit_sandwich",
+        "bread"
+      ]
+    },
+    {
+      "id": "clara",
+      "name": "Clara",
+      "romanceable": false,
+      "icon": "clara.png",
+      "favoriteGifts": [
+        "pickled_onion",
+        "pickled_potato",
+        "pickled_carrot",
+        "pickled_radish"
+      ],
+      "lovedGifts": [
+        "soy_milk",
+        "onion_salad",
+        "baby_blue_flower",
+        "basa",
+        "chamomile",
+        "chestnut",
+        "apple",
+        "herb_salad"
+      ]
+    },
+    {
+      "id": "erik",
+      "name": "Erik",
+      "romanceable": false,
+      "icon": "erik.png",
+      "favoriteGifts": [
+        "black_tea",
+        "chamomile_tea",
+        "bouillabaisse",
+        "cherry_tea",
+        "banana_tea"
+      ],
+      "lovedGifts": [
+        "onion_salad",
+        "herbal_perfume",
+        "herb_soup",
+        "gazpacho_soup",
+        "sauteed_turnips",
+        "toast"
+      ]
+    },
+    {
+      "id": "felix",
+      "name": "Felix",
+      "romanceable": false,
+      "icon": "felix.png",
+      "favoriteGifts": [
+        "bouillabaisse"
+      ],
+      "lovedGifts": [
+        "cheese",
+        "herb_cheese",
+        "magic_red_flower",
+        "gazpacho_soup",
+        "risotto"
+      ]
+    },
+    {
+      "id": "harold",
+      "name": "Harold",
+      "romanceable": false,
+      "icon": "harold.png",
+      "favoriteGifts": [
+        "soy_milk_pudding"
+      ],
+      "lovedGifts": [
+        "chamomile_tea",
+        "black_tea",
+        "strawberry_tea",
+        "blueberry_tea"
+      ]
+    },
+    {
+      "id": "isaac",
+      "name": "Isaac",
+      "romanceable": false,
+      "icon": "isaac.png",
+      "favoriteGifts": [
+        "sandwich",
+        "toast",
+        "herb_sandwich",
+        "fruit_sandwich"
+      ],
+      "lovedGifts": [
+        "rock",
+        "amethyst",
+        "silver",
+        "agate",
+        "peridot"
+      ]
+    },
+    {
+      "id": "kevin",
+      "name": "Kevin",
+      "romanceable": false,
+      "icon": "kevin.png",
+      "favoriteGifts": [
+        "smallheaded_locust",
+        "ruby_ladybug",
+        "swallowtail_butterfly",
+        "tree_frog",
+        "opal_cicada",
+        "seven_spotted_ladybug"
+      ],
+      "lovedGifts": [
+        "medal",
+        "stone",
+        "wood",
+        "weeds",
+        "dark_chub",
+        "fish_bones"
+      ]
+    },
+    {
+      "id": "laurie",
+      "name": "Laurie",
+      "romanceable": false,
+      "icon": "laurie.png",
+      "favoriteGifts": [
+        "omelet",
+        "milk",
+        "pizza",
+        "hash_browns"
+      ],
+      "lovedGifts": [
+        "magic_blue_flower",
+        "toy_flower",
+        "popcorn"
+      ]
+    },
+    {
+      "id": "madeleine",
+      "name": "Madeleine",
+      "romanceable": false,
+      "icon": "madeleine.png",
+      "favoriteGifts": [
+        "strawberry_pie",
+        "apple_pie",
+        "pineapple_pie"
+      ],
+      "lovedGifts": [
+        "soybean_flour",
+        "strawberry",
+        "rice_flour",
+        "magic_blue_flower",
+        "citrus_perfume"
+      ]
+    },
+    {
+      "id": "miguel",
+      "name": "Miguel",
+      "romanceable": false,
+      "icon": "miguel.png",
+      "favoriteGifts": [
+        "black_necklace",
+        "chartreuse_brooch",
+        "fireflies",
+        "french_fries"
+      ],
+      "lovedGifts": [
+        "medal",
+        "silver_medal",
+        "gold_medal",
+        "bread"
+      ]
+    },
+    {
+      "id": "mina",
+      "name": "Mina",
+      "romanceable": false,
+      "icon": "mina.png",
+      "favoriteGifts": [
+        "mushroom_pasta",
+        "french_fries"
+      ],
+      "lovedGifts": [
+        "cookies",
+        "pansy",
+        "spring_tea_leaves",
+        "hibiscus",
+        "onion_salad",
+        "gazpacho_soup"
+      ]
+    },
+    {
+      "id": "nadine",
+      "name": "Nadine",
+      "romanceable": false,
+      "icon": "nadine.png",
+      "favoriteGifts": [
+        "floral_perfume",
+        "milk_rice_porridge",
+        "herb_soup"
+      ],
+      "lovedGifts": [
+        "pale_chub",
+        "basa",
+        "onion_salad"
+      ]
+    },
+    {
+      "id": "sherene",
+      "name": "Sherene",
+      "romanceable": false,
+      "icon": "sherene.png",
+      "favoriteGifts": [],
+      "lovedGifts": [
+        "floral_perfume",
+        "pink_cat_flower",
+        "magic_red_flower",
+        "herb_cookies",
+        "royal_honey"
+      ]
+    },
+    {
+      "id": "sonia",
+      "name": "Sonia",
+      "romanceable": false,
+      "icon": "sonia.png",
+      "favoriteGifts": [
+        "strawberry_juice",
+        "tomato_juice",
+        "fruit_sandwich",
+        "strawberry_pie",
+        "cherry_tea"
+      ],
+      "lovedGifts": [
+        "poached_egg",
+        "toy_flower",
+        "milk_rice_porridge",
+        "grilled_fish"
+      ]
+    },
+    {
+      "id": "stuart",
+      "name": "Stuart",
+      "romanceable": false,
+      "icon": "stuart.png",
+      "favoriteGifts": [
+        "pasta",
+        "herb_salad",
+        "spring_tea"
+      ],
+      "lovedGifts": [
+        "honey_juice",
+        "fried_egg"
+      ]
+    },
+    {
+      "id": "sylvia",
+      "name": "Sylvia",
+      "romanceable": false,
+      "icon": "sylvia.png",
+      "favoriteGifts": [
+        "omelet",
+        "egg",
+        "french_fries",
+        "pizza"
+      ],
+      "lovedGifts": [
+        "pasta",
+        "herb_soup",
+        "gazpacho_soup_bouillabaisse",
+        "cherry_tea"
+      ]
+    },
+    {
+      "id": "wilbur",
+      "name": "Wilbur",
+      "romanceable": false,
+      "icon": "wilbur.png",
+      "favoriteGifts": [],
+      "lovedGifts": [
+        "cooked_rice",
+        "amethyst",
+        "emerald"
+      ]
+    }
+  ],
+  "giftToCharacters": {
+    "warm_milk": {
+      "favorite": [
+        "arata"
+      ],
+      "loved": [
+        "freya"
+      ]
+    },
+    "omelet": {
+      "favorite": [
+        "laurie",
+        "sylvia"
+      ],
+      "loved": [
+        "arata",
+        "gabriel"
+      ]
+    },
+    "onigiri": {
+      "favorite": [],
+      "loved": [
+        "arata"
+      ]
+    },
+    "sashimi": {
+      "favorite": [],
+      "loved": [
+        "arata"
+      ]
+    },
+    "omelet_rice": {
+      "favorite": [
+        "gabriel"
+      ],
+      "loved": [
+        "arata",
+        "derek",
+        "samir"
+      ]
+    },
+    "grilled_fish": {
+      "favorite": [],
+      "loved": [
+        "arata",
+        "samir",
+        "sonia"
+      ]
+    },
+    "egg_over_rice": {
+      "favorite": [],
+      "loved": [
+        "arata"
+      ]
+    },
+    "milk": {
+      "favorite": [
+        "laurie"
+      ],
+      "loved": [
+        "arata",
+        "freya"
+      ]
+    },
+    "milk_rice_porridge": {
+      "favorite": [
+        "nadine"
+      ],
+      "loved": [
+        "arata",
+        "sonia"
+      ]
+    },
+    "elephant_beetle": {
+      "favorite": [
+        "derek"
+      ],
+      "loved": []
+    },
+    "hercules_beetle": {
+      "favorite": [
+        "derek"
+      ],
+      "loved": []
+    },
+    "rhinoceros_beetle": {
+      "favorite": [
+        "derek"
+      ],
+      "loved": []
+    },
+    "gold_medal": {
+      "favorite": [
+        "lloyd"
+      ],
+      "loved": [
+        "derek",
+        "miguel"
+      ]
+    },
+    "silver_medal": {
+      "favorite": [],
+      "loved": [
+        "derek",
+        "miguel"
+      ]
+    },
+    "bronze_medal": {
+      "favorite": [],
+      "loved": [
+        "derek"
+      ]
+    },
+    "risotto": {
+      "favorite": [],
+      "loved": [
+        "derek",
+        "felix"
+      ]
+    },
+    "giant_stag_beetle": {
+      "favorite": [],
+      "loved": [
+        "derek"
+      ]
+    },
+    "stag_beetle": {
+      "favorite": [],
+      "loved": [
+        "derek"
+      ]
+    },
+    "autumn_tea_leaves": {
+      "favorite": [],
+      "loved": [
+        "derek",
+        "lloyd"
+      ]
+    },
+    "spring_tea_leaves": {
+      "favorite": [],
+      "loved": [
+        "derek",
+        "kagetsu",
+        "mina"
+      ]
+    },
+    "apple_jam": {
+      "favorite": [
+        "diana"
+      ],
+      "loved": []
+    },
+    "apple_juice": {
+      "favorite": [
+        "diana"
+      ],
+      "loved": []
+    },
+    "cookies": {
+      "favorite": [
+        "maple",
+        "samir"
+      ],
+      "loved": [
+        "diana",
+        "mina"
+      ]
+    },
+    "chocolate_covered_banana": {
+      "favorite": [
+        "samir"
+      ],
+      "loved": [
+        "diana"
+      ]
+    },
+    "pancakes": {
+      "favorite": [
+        "maple"
+      ],
+      "loved": [
+        "diana"
+      ]
+    },
+    "strawberry_mochi": {
+      "favorite": [],
+      "loved": [
+        "diana"
+      ]
+    },
+    "ice_cream": {
+      "favorite": [
+        "gabriel"
+      ],
+      "loved": [
+        "diana"
+      ]
+    },
+    "chartreuse_brooch": {
+      "favorite": [
+        "june",
+        "miguel"
+      ],
+      "loved": [
+        "diana"
+      ]
+    },
+    "strawberry_pie": {
+      "favorite": [
+        "madeleine",
+        "sonia"
+      ],
+      "loved": [
+        "diana"
+      ]
+    },
+    "walnut_cookies": {
+      "favorite": [
+        "maple"
+      ],
+      "loved": [
+        "diana"
+      ]
+    },
+    "moonstone": {
+      "favorite": [
+        "freya"
+      ],
+      "loved": []
+    },
+    "peridot": {
+      "favorite": [
+        "freya"
+      ],
+      "loved": [
+        "isaac"
+      ]
+    },
+    "topaz": {
+      "favorite": [
+        "freya"
+      ],
+      "loved": []
+    },
+    "sandrose": {
+      "favorite": [
+        "freya"
+      ],
+      "loved": []
+    },
+    "pizza": {
+      "favorite": [
+        "freya",
+        "gabriel",
+        "laurie",
+        "sylvia"
+      ],
+      "loved": []
+    },
+    "swallowtail_butterfly": {
+      "favorite": [
+        "kevin"
+      ],
+      "loved": [
+        "freya"
+      ]
+    },
+    "herbed_cheese": {
+      "favorite": [],
+      "loved": [
+        "freya"
+      ]
+    },
+    "french_fries": {
+      "favorite": [
+        "gabriel",
+        "miguel",
+        "mina",
+        "sylvia"
+      ],
+      "loved": []
+    },
+    "honey_juice": {
+      "favorite": [],
+      "loved": [
+        "gabriel",
+        "maple",
+        "stuart"
+      ]
+    },
+    "potato_pancakes": {
+      "favorite": [],
+      "loved": [
+        "gabriel"
+      ]
+    },
+    "strawberry_tea": {
+      "favorite": [],
+      "loved": [
+        "gabriel",
+        "june",
+        "harold"
+      ]
+    },
+    "strawberry_juice": {
+      "favorite": [
+        "sonia"
+      ],
+      "loved": [
+        "gabriel",
+        "maple"
+      ]
+    },
+    "herbal_perfume": {
+      "favorite": [
+        "jules"
+      ],
+      "loved": [
+        "erik"
+      ]
+    },
+    "chamomile": {
+      "favorite": [
+        "jules"
+      ],
+      "loved": [
+        "clara"
+      ]
+    },
+    "mint": {
+      "favorite": [
+        "jules"
+      ],
+      "loved": [
+        "kagetsu"
+      ]
+    },
+    "floral_perfume": {
+      "favorite": [
+        "jules",
+        "nadine"
+      ],
+      "loved": [
+        "sherene"
+      ]
+    },
+    "magic_blue_flower": {
+      "favorite": [],
+      "loved": [
+        "jules",
+        "june",
+        "lloyd",
+        "maple",
+        "laurie",
+        "madeleine"
+      ]
+    },
+    "pickled_onion": {
+      "favorite": [
+        "sophie",
+        "clara"
+      ],
+      "loved": [
+        "jules"
+      ]
+    },
+    "poached_egg": {
+      "favorite": [],
+      "loved": [
+        "jules",
+        "sonia"
+      ]
+    },
+    "moondrop_flower": {
+      "favorite": [],
+      "loved": [
+        "jules",
+        "kagetsu",
+        "maple"
+      ]
+    },
+    "cherry_tea": {
+      "favorite": [
+        "june",
+        "erik",
+        "sonia"
+      ],
+      "loved": [
+        "sylvia"
+      ]
+    },
+    "green_brooch": {
+      "favorite": [
+        "june"
+      ],
+      "loved": []
+    },
+    "other_brooch_and_accessories": {
+      "favorite": [
+        "june"
+      ],
+      "loved": []
+    },
+    "chamomile_tea": {
+      "favorite": [
+        "erik"
+      ],
+      "loved": [
+        "june",
+        "harold"
+      ]
+    },
+    "black_tea": {
+      "favorite": [
+        "erik"
+      ],
+      "loved": [
+        "june",
+        "harold"
+      ]
+    },
+    "walnut_juice": {
+      "favorite": [],
+      "loved": [
+        "june",
+        "maple"
+      ]
+    },
+    "bouillabaisse": {
+      "favorite": [
+        "lloyd",
+        "erik",
+        "felix"
+      ],
+      "loved": [
+        "june"
+      ]
+    },
+    "radish_soup": {
+      "favorite": [],
+      "loved": [
+        "june"
+      ]
+    },
+    "soy_milk_pudding": {
+      "favorite": [
+        "kagetsu",
+        "harold"
+      ],
+      "loved": []
+    },
+    "soy_milk": {
+      "favorite": [
+        "kagetsu"
+      ],
+      "loved": [
+        "sophie",
+        "clara"
+      ]
+    },
+    "other_tofu_based_foods": {
+      "favorite": [
+        "kagetsu"
+      ],
+      "loved": []
+    },
+    "toy_flower": {
+      "favorite": [],
+      "loved": [
+        "kagetsu",
+        "maple",
+        "laurie",
+        "sonia"
+      ]
+    },
+    "summer_tea_leaves": {
+      "favorite": [],
+      "loved": [
+        "kagetsu"
+      ]
+    },
+    "walnut": {
+      "favorite": [],
+      "loved": [
+        "kagetsu"
+      ]
+    },
+    "babaocai": {
+      "favorite": [],
+      "loved": [
+        "kagetsu"
+      ]
+    },
+    "diamond": {
+      "favorite": [
+        "lloyd"
+      ],
+      "loved": []
+    },
+    "diamondd": {
+      "favorite": [
+        "lloyd"
+      ],
+      "loved": []
+    },
+    "smallheaded_locusts": {
+      "favorite": [],
+      "loved": [
+        "lloyd"
+      ]
+    },
+    "seven_spotted_ladybug": {
+      "favorite": [
+        "kevin"
+      ],
+      "loved": [
+        "lloyd"
+      ]
+    },
+    "churros": {
+      "favorite": [
+        "maple"
+      ],
+      "loved": []
+    },
+    "pansy": {
+      "favorite": [],
+      "loved": [
+        "maple",
+        "mina"
+      ]
+    },
+    "baby_blue_flower": {
+      "favorite": [],
+      "loved": [
+        "maple",
+        "clara"
+      ]
+    },
+    "egg_tart": {
+      "favorite": [],
+      "loved": [
+        "maple"
+      ]
+    },
+    "cooked_rice": {
+      "favorite": [
+        "samir"
+      ],
+      "loved": [
+        "wilbur"
+      ]
+    },
+    "gazpacho_soup": {
+      "favorite": [],
+      "loved": [
+        "samir",
+        "erik",
+        "felix",
+        "mina"
+      ]
+    },
+    "egg_drop_soup": {
+      "favorite": [],
+      "loved": [
+        "samir"
+      ]
+    },
+    "rice_porridge": {
+      "favorite": [
+        "sophie"
+      ],
+      "loved": [
+        "samir"
+      ]
+    },
+    "herb_salad": {
+      "favorite": [
+        "sophie",
+        "stuart"
+      ],
+      "loved": [
+        "clara"
+      ]
+    },
+    "pickled_potato": {
+      "favorite": [
+        "sophie",
+        "clara"
+      ],
+      "loved": []
+    },
+    "onion_salad": {
+      "favorite": [
+        "sophie"
+      ],
+      "loved": [
+        "clara",
+        "erik",
+        "mina",
+        "nadine"
+      ]
+    },
+    "tofu": {
+      "favorite": [
+        "sophie"
+      ],
+      "loved": []
+    },
+    "pasta": {
+      "favorite": [
+        "stuart"
+      ],
+      "loved": [
+        "sophie",
+        "sylvia"
+      ]
+    },
+    "toast": {
+      "favorite": [
+        "isaac"
+      ],
+      "loved": [
+        "sophie",
+        "erik"
+      ]
+    },
+    "herb_sandwich": {
+      "favorite": [
+        "isaac"
+      ],
+      "loved": [
+        "sophie"
+      ]
+    },
+    "fruit_sandwich": {
+      "favorite": [
+        "isaac",
+        "sonia"
+      ],
+      "loved": [
+        "sophie"
+      ]
+    },
+    "bread": {
+      "favorite": [],
+      "loved": [
+        "sophie",
+        "miguel"
+      ]
+    },
+    "pickled_carrot": {
+      "favorite": [
+        "clara"
+      ],
+      "loved": []
+    },
+    "pickled_radish": {
+      "favorite": [
+        "clara"
+      ],
+      "loved": []
+    },
+    "basa": {
+      "favorite": [],
+      "loved": [
+        "clara",
+        "nadine"
+      ]
+    },
+    "chestnut": {
+      "favorite": [],
+      "loved": [
+        "clara"
+      ]
+    },
+    "apple": {
+      "favorite": [],
+      "loved": [
+        "clara"
+      ]
+    },
+    "banana_tea": {
+      "favorite": [
+        "erik"
+      ],
+      "loved": []
+    },
+    "herb_soup": {
+      "favorite": [
+        "nadine"
+      ],
+      "loved": [
+        "erik",
+        "sylvia"
+      ]
+    },
+    "sauteed_turnips": {
+      "favorite": [],
+      "loved": [
+        "erik"
+      ]
+    },
+    "cheese": {
+      "favorite": [],
+      "loved": [
+        "felix"
+      ]
+    },
+    "herb_cheese": {
+      "favorite": [],
+      "loved": [
+        "felix"
+      ]
+    },
+    "magic_red_flower": {
+      "favorite": [],
+      "loved": [
+        "felix",
+        "sherene"
+      ]
+    },
+    "blueberry_tea": {
+      "favorite": [],
+      "loved": [
+        "harold"
+      ]
+    },
+    "sandwich": {
+      "favorite": [
+        "isaac"
+      ],
+      "loved": []
+    },
+    "rock": {
+      "favorite": [],
+      "loved": [
+        "isaac"
+      ]
+    },
+    "amethyst": {
+      "favorite": [],
+      "loved": [
+        "isaac",
+        "wilbur"
+      ]
+    },
+    "silver": {
+      "favorite": [],
+      "loved": [
+        "isaac"
+      ]
+    },
+    "agate": {
+      "favorite": [],
+      "loved": [
+        "isaac"
+      ]
+    },
+    "smallheaded_locust": {
+      "favorite": [
+        "kevin"
+      ],
+      "loved": []
+    },
+    "ruby_ladybug": {
+      "favorite": [
+        "kevin"
+      ],
+      "loved": []
+    },
+    "tree_frog": {
+      "favorite": [
+        "kevin"
+      ],
+      "loved": []
+    },
+    "opal_cicada": {
+      "favorite": [
+        "kevin"
+      ],
+      "loved": []
+    },
+    "medal": {
+      "favorite": [],
+      "loved": [
+        "kevin",
+        "miguel"
+      ]
+    },
+    "stone": {
+      "favorite": [],
+      "loved": [
+        "kevin"
+      ]
+    },
+    "wood": {
+      "favorite": [],
+      "loved": [
+        "kevin"
+      ]
+    },
+    "weeds": {
+      "favorite": [],
+      "loved": [
+        "kevin"
+      ]
+    },
+    "dark_chub": {
+      "favorite": [],
+      "loved": [
+        "kevin"
+      ]
+    },
+    "fish_bones": {
+      "favorite": [],
+      "loved": [
+        "kevin"
+      ]
+    },
+    "hash_browns": {
+      "favorite": [
+        "laurie"
+      ],
+      "loved": []
+    },
+    "popcorn": {
+      "favorite": [],
+      "loved": [
+        "laurie"
+      ]
+    },
+    "apple_pie": {
+      "favorite": [
+        "madeleine"
+      ],
+      "loved": []
+    },
+    "pineapple_pie": {
+      "favorite": [
+        "madeleine"
+      ],
+      "loved": []
+    },
+    "soybean_flour": {
+      "favorite": [],
+      "loved": [
+        "madeleine"
+      ]
+    },
+    "strawberry": {
+      "favorite": [],
+      "loved": [
+        "madeleine"
+      ]
+    },
+    "rice_flour": {
+      "favorite": [],
+      "loved": [
+        "madeleine"
+      ]
+    },
+    "citrus_perfume": {
+      "favorite": [],
+      "loved": [
+        "madeleine"
+      ]
+    },
+    "black_necklace": {
+      "favorite": [
+        "miguel"
+      ],
+      "loved": []
+    },
+    "fireflies": {
+      "favorite": [
+        "miguel"
+      ],
+      "loved": []
+    },
+    "mushroom_pasta": {
+      "favorite": [
+        "mina"
+      ],
+      "loved": []
+    },
+    "hibiscus": {
+      "favorite": [],
+      "loved": [
+        "mina"
+      ]
+    },
+    "pale_chub": {
+      "favorite": [],
+      "loved": [
+        "nadine"
+      ]
+    },
+    "pink_cat_flower": {
+      "favorite": [],
+      "loved": [
+        "sherene"
+      ]
+    },
+    "herb_cookies": {
+      "favorite": [],
+      "loved": [
+        "sherene"
+      ]
+    },
+    "royal_honey": {
+      "favorite": [],
+      "loved": [
+        "sherene"
+      ]
+    },
+    "tomato_juice": {
+      "favorite": [
+        "sonia"
+      ],
+      "loved": []
+    },
+    "spring_tea": {
+      "favorite": [
+        "stuart"
+      ],
+      "loved": []
+    },
+    "fried_egg": {
+      "favorite": [],
+      "loved": [
+        "stuart"
+      ]
+    },
+    "egg": {
+      "favorite": [
+        "sylvia"
+      ],
+      "loved": []
+    },
+    "gazpacho_soup_bouillabaisse": {
+      "favorite": [],
+      "loved": [
+        "sylvia"
+      ]
+    },
+    "emerald": {
+      "favorite": [],
+      "loved": [
+        "wilbur"
+      ]
+    }
+  },
+  "scraped_at": "2025-11-26 09:46:33",
+  "source": "game8.co"
+}

@@ -1,0 +1,6847 @@
+{
+  "ingredients": [
+    {
+      "id": "asparagus",
+      "name": "Asparagus",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring"
+      ],
+      "source": "farming",
+      "basePrice": 300,
+      "variants": [],
+      "icon": "asparagus.png"
+    },
+    {
+      "id": "autumn_tea_leaves",
+      "name": "Autumn Tea Leaves",
+      "category": "crops",
+      "subcategory": "fall",
+      "season": [
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 70,
+      "variants": [],
+      "icon": "autumn_tea_leaves.png"
+    },
+    {
+      "id": "bok_choy",
+      "name": "Bok Choy",
+      "category": "crops",
+      "subcategory": "fall",
+      "season": [
+        "fall",
+        "winter"
+      ],
+      "source": "farming",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "bok_choy.png"
+    },
+    {
+      "id": "broccoli",
+      "name": "Broccoli",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring",
+        "winter"
+      ],
+      "source": "farming",
+      "basePrice": 45,
+      "variants": [],
+      "icon": "broccoli.png"
+    },
+    {
+      "id": "burdock",
+      "name": "Burdock",
+      "category": "crops",
+      "subcategory": "winter",
+      "season": [
+        "winter"
+      ],
+      "source": "farming",
+      "basePrice": 155,
+      "variants": [],
+      "icon": "burdock.png"
+    },
+    {
+      "id": "cabbage",
+      "name": "Cabbage",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring",
+        "winter"
+      ],
+      "source": "farming",
+      "basePrice": 470,
+      "variants": [],
+      "icon": "cabbage.png"
+    },
+    {
+      "id": "carrot",
+      "name": "Carrot",
+      "category": "crops",
+      "subcategory": "fall",
+      "season": [
+        "fall",
+        "winter"
+      ],
+      "source": "farming",
+      "basePrice": 300,
+      "variants": [],
+      "icon": "carrot.png"
+    },
+    {
+      "id": "cauliflower",
+      "name": "Cauliflower",
+      "category": "crops",
+      "subcategory": "fall",
+      "season": [
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 430,
+      "variants": [],
+      "icon": "cauliflower.png"
+    },
+    {
+      "id": "chili_pepper",
+      "name": "Chili Pepper",
+      "category": "crops",
+      "subcategory": "fall",
+      "season": [
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 135,
+      "variants": [],
+      "icon": "chili_pepper.png"
+    },
+    {
+      "id": "corn",
+      "name": "Corn",
+      "category": "crops",
+      "subcategory": "summer",
+      "season": [
+        "summer"
+      ],
+      "source": "farming",
+      "basePrice": 145,
+      "variants": [],
+      "icon": "corn.png"
+    },
+    {
+      "id": "cucumber",
+      "name": "Cucumber",
+      "category": "crops",
+      "subcategory": "summer",
+      "season": [
+        "summer",
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 40,
+      "variants": [],
+      "icon": "cucumber.png"
+    },
+    {
+      "id": "daikon_radish",
+      "name": "Daikon Radish",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring",
+        "winter"
+      ],
+      "source": "farming",
+      "basePrice": 280,
+      "variants": [],
+      "icon": "daikon_radish.png"
+    },
+    {
+      "id": "eggplant",
+      "name": "Eggplant",
+      "category": "crops",
+      "subcategory": "summer",
+      "season": [
+        "summer",
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 50,
+      "variants": [],
+      "icon": "eggplant.png"
+    },
+    {
+      "id": "garlic",
+      "name": "Garlic",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring"
+      ],
+      "source": "farming",
+      "basePrice": 120,
+      "variants": [],
+      "icon": "garlic.png"
+    },
+    {
+      "id": "green_bell_pepper",
+      "name": "Green Bell Pepper",
+      "category": "crops",
+      "subcategory": "summer",
+      "season": [
+        "summer",
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 48,
+      "variants": [],
+      "icon": "green_bell_pepper.png"
+    },
+    {
+      "id": "green_onion",
+      "name": "Green Onion",
+      "category": "crops",
+      "subcategory": "winter",
+      "season": [
+        "winter"
+      ],
+      "source": "farming",
+      "basePrice": 75,
+      "variants": [],
+      "icon": "green_onion.png"
+    },
+    {
+      "id": "melon",
+      "name": "Melon",
+      "category": "crops",
+      "subcategory": "summer",
+      "season": [
+        "summer",
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 470,
+      "variants": [],
+      "icon": "melon.png"
+    },
+    {
+      "id": "napa_cabbage",
+      "name": "Napa Cabbage",
+      "category": "crops",
+      "subcategory": "winter",
+      "season": [
+        "winter"
+      ],
+      "source": "farming",
+      "basePrice": 340,
+      "variants": [],
+      "icon": "napa_cabbage.png"
+    },
+    {
+      "id": "onion",
+      "name": "Onion",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring",
+        "summer"
+      ],
+      "source": "farming",
+      "basePrice": 250,
+      "variants": [],
+      "icon": "onion.png"
+    },
+    {
+      "id": "pineapple",
+      "name": "Pineapple",
+      "category": "crops",
+      "subcategory": "summer",
+      "season": [
+        "summer"
+      ],
+      "source": "farming",
+      "basePrice": 330,
+      "variants": [],
+      "icon": "pineapple.png"
+    },
+    {
+      "id": "potato",
+      "name": "Potato",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring",
+        "summer",
+        "winter"
+      ],
+      "source": "farming",
+      "basePrice": 60,
+      "variants": [],
+      "icon": "potato.png"
+    },
+    {
+      "id": "pumpkin",
+      "name": "Pumpkin",
+      "category": "crops",
+      "subcategory": "summer",
+      "season": [
+        "summer"
+      ],
+      "source": "farming",
+      "basePrice": 400,
+      "variants": [],
+      "icon": "pumpkin.png"
+    },
+    {
+      "id": "radish",
+      "name": "Radish",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 50,
+      "variants": [],
+      "icon": "radish.png"
+    },
+    {
+      "id": "red_bell_pepper",
+      "name": "Red Bell Pepper",
+      "category": "crops",
+      "subcategory": "summer",
+      "season": [
+        "summer"
+      ],
+      "source": "farming",
+      "basePrice": 48,
+      "variants": [],
+      "icon": "red_bell_pepper.png"
+    },
+    {
+      "id": "rice",
+      "name": "Rice",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 70,
+      "variants": [],
+      "icon": "rice.png"
+    },
+    {
+      "id": "soybean",
+      "name": "Soybean",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 65,
+      "variants": [],
+      "icon": "soybean.png"
+    },
+    {
+      "id": "spinach",
+      "name": "Spinach",
+      "category": "crops",
+      "subcategory": "fall",
+      "season": [
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 285,
+      "variants": [],
+      "icon": "spinach.png"
+    },
+    {
+      "id": "spring_tea_leaves",
+      "name": "Spring Tea Leaves",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring"
+      ],
+      "source": "farming",
+      "basePrice": 70,
+      "variants": [],
+      "icon": "spring_tea_leaves.png"
+    },
+    {
+      "id": "strawberry",
+      "name": "Strawberry",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring"
+      ],
+      "source": "farming",
+      "basePrice": 120,
+      "variants": [],
+      "icon": "strawberry.png"
+    },
+    {
+      "id": "summer_tea_leaves",
+      "name": "Summer Tea Leaves",
+      "category": "crops",
+      "subcategory": "summer",
+      "season": [
+        "summer"
+      ],
+      "source": "farming",
+      "basePrice": 70,
+      "variants": [],
+      "icon": "summer_tea_leaves.png"
+    },
+    {
+      "id": "sweet_potato",
+      "name": "Sweet Potato",
+      "category": "crops",
+      "subcategory": "fall",
+      "season": [
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 155,
+      "variants": [],
+      "icon": "sweet_potato.png"
+    },
+    {
+      "id": "tomato",
+      "name": "Tomato",
+      "category": "crops",
+      "subcategory": "summer",
+      "season": [
+        "summer",
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 42,
+      "variants": [],
+      "icon": "tomato.png"
+    },
+    {
+      "id": "turnip",
+      "name": "Turnip",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring"
+      ],
+      "source": "farming",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "turnip.png"
+    },
+    {
+      "id": "watermelon",
+      "name": "Watermelon",
+      "category": "crops",
+      "subcategory": "summer",
+      "season": [
+        "summer"
+      ],
+      "source": "farming",
+      "basePrice": 540,
+      "variants": [],
+      "icon": "watermelon.png"
+    },
+    {
+      "id": "wheat",
+      "name": "Wheat",
+      "category": "crops",
+      "subcategory": "spring",
+      "season": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "source": "farming",
+      "basePrice": 75,
+      "variants": [],
+      "icon": "wheat.png"
+    },
+    {
+      "id": "almond",
+      "name": "Almond",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "summer"
+      ],
+      "source": "tree",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "almond.png"
+    },
+    {
+      "id": "apple",
+      "name": "Apple",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "fall",
+        "winter"
+      ],
+      "source": "tree",
+      "basePrice": 180,
+      "variants": [],
+      "icon": "apple.png"
+    },
+    {
+      "id": "avocado",
+      "name": "Avocado",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "spring"
+      ],
+      "source": "tree",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "avocado.png"
+    },
+    {
+      "id": "banana",
+      "name": "Banana",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "summer"
+      ],
+      "source": "tree",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "banana.png"
+    },
+    {
+      "id": "blueberry",
+      "name": "Blueberry",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "fall"
+      ],
+      "source": "tree",
+      "basePrice": 90,
+      "variants": [],
+      "icon": "blueberry.png"
+    },
+    {
+      "id": "cacao_bean",
+      "name": "Cacao Bean",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "summer"
+      ],
+      "source": "tree",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "cacao_bean.png"
+    },
+    {
+      "id": "cherry",
+      "name": "Cherry",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "spring"
+      ],
+      "source": "tree",
+      "basePrice": 80,
+      "variants": [],
+      "icon": "cherry.png"
+    },
+    {
+      "id": "coffee_bean",
+      "name": "Coffee Bean",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "spring"
+      ],
+      "source": "tree",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "coffee_bean.png"
+    },
+    {
+      "id": "green_grapes",
+      "name": "Green Grapes",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "fall"
+      ],
+      "source": "tree",
+      "basePrice": 160,
+      "variants": [],
+      "icon": "green_grapes.png"
+    },
+    {
+      "id": "lemon",
+      "name": "Lemon",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "summer",
+        "winter"
+      ],
+      "source": "tree",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "lemon.png"
+    },
+    {
+      "id": "mango",
+      "name": "Mango",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "summer"
+      ],
+      "source": "tree",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "mango.png"
+    },
+    {
+      "id": "olive",
+      "name": "Olive",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "fall"
+      ],
+      "source": "tree",
+      "basePrice": 120,
+      "variants": [],
+      "icon": "olive.png"
+    },
+    {
+      "id": "orange",
+      "name": "Orange",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "spring",
+        "winter"
+      ],
+      "source": "tree",
+      "basePrice": 130,
+      "variants": [],
+      "icon": "orange.png"
+    },
+    {
+      "id": "peach",
+      "name": "Peach",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "summer"
+      ],
+      "source": "tree",
+      "basePrice": 130,
+      "variants": [],
+      "icon": "peach.png"
+    },
+    {
+      "id": "red_grapes",
+      "name": "Red Grapes",
+      "category": "fruits",
+      "subcategory": "tree",
+      "season": [
+        "fall"
+      ],
+      "source": "tree",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "red_grapes.png"
+    },
+    {
+      "id": "alpaca_wool",
+      "name": "Alpaca Wool",
+      "category": "animal_products",
+      "subcategory": "wool",
+      "season": [
+        "all"
+      ],
+      "source": "alpaca",
+      "basePrice": 250,
+      "variants": [],
+      "icon": "alpaca_wool.png"
+    },
+    {
+      "id": "buffalo_milk",
+      "name": "Buffalo Milk",
+      "category": "animal_products",
+      "subcategory": "milk",
+      "season": [
+        "all"
+      ],
+      "source": "buffalo",
+      "basePrice": 200,
+      "variants": [
+        "buffalo_milk_plus"
+      ],
+      "icon": "buffalo_milk.png"
+    },
+    {
+      "id": "butter",
+      "name": "Butter",
+      "category": "animal_products",
+      "subcategory": "dairy",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 400,
+      "variants": [
+        "butter_plus"
+      ],
+      "icon": "butter.png"
+    },
+    {
+      "id": "cheese",
+      "name": "Cheese",
+      "category": "animal_products",
+      "subcategory": "dairy",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 500,
+      "variants": [
+        "cheese_plus"
+      ],
+      "icon": "cheese.png"
+    },
+    {
+      "id": "egg",
+      "name": "Egg",
+      "category": "animal_products",
+      "subcategory": "eggs",
+      "season": [
+        "all"
+      ],
+      "source": "chicken",
+      "basePrice": 90,
+      "variants": [
+        "egg_plus"
+      ],
+      "icon": "egg.png"
+    },
+    {
+      "id": "fruit_yogurt",
+      "name": "Fruit Yogurt",
+      "category": "animal_products",
+      "subcategory": "dairy",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 1200,
+      "variants": [],
+      "icon": "fruit_yogurt.png"
+    },
+    {
+      "id": "herb_butter",
+      "name": "Herb Butter",
+      "category": "animal_products",
+      "subcategory": "dairy",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 600,
+      "variants": [],
+      "icon": "herb_butter.png"
+    },
+    {
+      "id": "herb_cheese",
+      "name": "Herb Cheese",
+      "category": "animal_products",
+      "subcategory": "dairy",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 750,
+      "variants": [],
+      "icon": "herb_cheese.png"
+    },
+    {
+      "id": "herb_mayonnaise",
+      "name": "Herb Mayonnaise",
+      "category": "animal_products",
+      "subcategory": "dairy",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 450,
+      "variants": [],
+      "icon": "herb_mayonnaise.png"
+    },
+    {
+      "id": "mayonnaise",
+      "name": "Mayonnaise",
+      "category": "animal_products",
+      "subcategory": "dairy",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 300,
+      "variants": [
+        "mayonnaise_plus"
+      ],
+      "icon": "mayonnaise.png"
+    },
+    {
+      "id": "milk",
+      "name": "Milk",
+      "category": "animal_products",
+      "subcategory": "milk",
+      "season": [
+        "all"
+      ],
+      "source": "cow",
+      "basePrice": 150,
+      "variants": [
+        "milk_plus"
+      ],
+      "icon": "milk.png"
+    },
+    {
+      "id": "silkie_egg",
+      "name": "Silkie Egg",
+      "category": "animal_products",
+      "subcategory": "eggs",
+      "season": [
+        "all"
+      ],
+      "source": "silkie_chicken",
+      "basePrice": 120,
+      "variants": [
+        "silkie_egg_plus"
+      ],
+      "icon": "silkie_egg.png"
+    },
+    {
+      "id": "wool",
+      "name": "Wool",
+      "category": "animal_products",
+      "subcategory": "wool",
+      "season": [
+        "all"
+      ],
+      "source": "sheep",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "wool.png"
+    },
+    {
+      "id": "yogurt",
+      "name": "Yogurt",
+      "category": "animal_products",
+      "subcategory": "dairy",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 600,
+      "variants": [
+        "yogurt_plus"
+      ],
+      "icon": "yogurt.png"
+    },
+    {
+      "id": "amur_minnow",
+      "name": "Amur Minnow",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "spring",
+        "fall",
+        "winter"
+      ],
+      "source": "fishing",
+      "basePrice": 50,
+      "variants": [],
+      "icon": "amur_minnow.png"
+    },
+    {
+      "id": "barbel_steed",
+      "name": "Barbel Steed",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "source": "fishing",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "barbel_steed.png"
+    },
+    {
+      "id": "basa",
+      "name": "Basa",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "all"
+      ],
+      "source": "fishing",
+      "basePrice": 80,
+      "variants": [],
+      "icon": "basa.png"
+    },
+    {
+      "id": "bighead_carp",
+      "name": "Bighead Carp",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "summer",
+        "fall"
+      ],
+      "source": "fishing",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "bighead_carp.png"
+    },
+    {
+      "id": "bitterling",
+      "name": "Bitterling",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "winter"
+      ],
+      "source": "fishing",
+      "basePrice": 60,
+      "variants": [],
+      "icon": "bitterling.png"
+    },
+    {
+      "id": "black_bass",
+      "name": "Black Bass",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "all"
+      ],
+      "source": "fishing",
+      "basePrice": 180,
+      "variants": [],
+      "icon": "black_bass.png"
+    },
+    {
+      "id": "bluegill",
+      "name": "Bluegill",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "source": "fishing",
+      "basePrice": 70,
+      "variants": [],
+      "icon": "bluegill.png"
+    },
+    {
+      "id": "brown_trout",
+      "name": "Brown Trout",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "fall",
+        "winter"
+      ],
+      "source": "fishing",
+      "basePrice": 160,
+      "variants": [],
+      "icon": "brown_trout.png"
+    },
+    {
+      "id": "char",
+      "name": "Char",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "fall",
+        "winter"
+      ],
+      "source": "fishing",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "char.png"
+    },
+    {
+      "id": "cherry_salmon",
+      "name": "Cherry Salmon",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "spring",
+        "summer"
+      ],
+      "source": "fishing",
+      "basePrice": 180,
+      "variants": [],
+      "icon": "cherry_salmon.png"
+    },
+    {
+      "id": "crucian_carp",
+      "name": "Crucian Carp",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "all"
+      ],
+      "source": "fishing",
+      "basePrice": 60,
+      "variants": [],
+      "icon": "crucian_carp.png"
+    },
+    {
+      "id": "dace",
+      "name": "Dace",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "all"
+      ],
+      "source": "fishing",
+      "basePrice": 55,
+      "variants": [],
+      "icon": "dace.png"
+    },
+    {
+      "id": "dark_chub",
+      "name": "Dark Chub",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "spring",
+        "summer"
+      ],
+      "source": "fishing",
+      "basePrice": 65,
+      "variants": [],
+      "icon": "dark_chub.png"
+    },
+    {
+      "id": "eel",
+      "name": "Eel",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "summer"
+      ],
+      "source": "fishing",
+      "basePrice": 250,
+      "variants": [],
+      "icon": "eel.png"
+    },
+    {
+      "id": "goldfish",
+      "name": "Goldfish",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "source": "fishing",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "goldfish.png"
+    },
+    {
+      "id": "grayling",
+      "name": "Grayling",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "spring",
+        "fall",
+        "winter"
+      ],
+      "source": "fishing",
+      "basePrice": 140,
+      "variants": [],
+      "icon": "grayling.png"
+    },
+    {
+      "id": "icefish",
+      "name": "Icefish",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "winter"
+      ],
+      "source": "fishing",
+      "basePrice": 120,
+      "variants": [],
+      "icon": "icefish.png"
+    },
+    {
+      "id": "killifish",
+      "name": "Killifish",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "spring",
+        "summer"
+      ],
+      "source": "fishing",
+      "basePrice": 40,
+      "variants": [],
+      "icon": "killifish.png"
+    },
+    {
+      "id": "marbled_eel",
+      "name": "Marbled Eel",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "summer",
+        "fall"
+      ],
+      "source": "fishing",
+      "basePrice": 300,
+      "variants": [],
+      "icon": "marbled_eel.png"
+    },
+    {
+      "id": "masu_trout",
+      "name": "Masu Trout",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "spring",
+        "fall"
+      ],
+      "source": "fishing",
+      "basePrice": 170,
+      "variants": [],
+      "icon": "masu_trout.png"
+    },
+    {
+      "id": "mugitsuku",
+      "name": "Mugitsuku",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "spring",
+        "summer"
+      ],
+      "source": "fishing",
+      "basePrice": 130,
+      "variants": [],
+      "icon": "mugitsuku.png"
+    },
+    {
+      "id": "nile_perch",
+      "name": "Nile Perch",
+      "category": "fish",
+      "subcategory": "large",
+      "season": [
+        "summer",
+        "fall"
+      ],
+      "source": "fishing",
+      "basePrice": 350,
+      "variants": [],
+      "icon": "nile_perch.png"
+    },
+    {
+      "id": "pale_chub",
+      "name": "Pale Chub",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "source": "fishing",
+      "basePrice": 50,
+      "variants": [],
+      "icon": "pale_chub.png"
+    },
+    {
+      "id": "pond_smelt",
+      "name": "Pond Smelt",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "winter"
+      ],
+      "source": "fishing",
+      "basePrice": 80,
+      "variants": [],
+      "icon": "pond_smelt.png"
+    },
+    {
+      "id": "rainbow_trout",
+      "name": "Rainbow Trout",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "spring",
+        "fall"
+      ],
+      "source": "fishing",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "rainbow_trout.png"
+    },
+    {
+      "id": "salmon",
+      "name": "Salmon",
+      "category": "fish",
+      "subcategory": "large",
+      "season": [
+        "fall"
+      ],
+      "source": "fishing",
+      "basePrice": 400,
+      "variants": [],
+      "icon": "salmon.png"
+    },
+    {
+      "id": "sculpin",
+      "name": "Sculpin",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "all"
+      ],
+      "source": "fishing",
+      "basePrice": 45,
+      "variants": [],
+      "icon": "sculpin.png"
+    },
+    {
+      "id": "silver_carp",
+      "name": "Silver Carp",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "spring",
+        "summer"
+      ],
+      "source": "fishing",
+      "basePrice": 120,
+      "variants": [],
+      "icon": "silver_carp.png"
+    },
+    {
+      "id": "snakehead",
+      "name": "Snakehead",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "summer",
+        "fall"
+      ],
+      "source": "fishing",
+      "basePrice": 180,
+      "variants": [],
+      "icon": "snakehead.png"
+    },
+    {
+      "id": "stone_moroko",
+      "name": "Stone Moroko",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "source": "fishing",
+      "basePrice": 55,
+      "variants": [],
+      "icon": "stone_moroko.png"
+    },
+    {
+      "id": "sweetfish",
+      "name": "Sweetfish",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "summer"
+      ],
+      "source": "fishing",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "sweetfish.png"
+    },
+    {
+      "id": "tamoroko",
+      "name": "Tamoroko",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "all"
+      ],
+      "source": "fishing",
+      "basePrice": 50,
+      "variants": [],
+      "icon": "tamoroko.png"
+    },
+    {
+      "id": "three_lips_carp",
+      "name": "Three Lips Carp",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "spring",
+        "fall"
+      ],
+      "source": "fishing",
+      "basePrice": 160,
+      "variants": [],
+      "icon": "three_lips_carp.png"
+    },
+    {
+      "id": "willow_shiner",
+      "name": "Willow Shiner",
+      "category": "fish",
+      "subcategory": "small",
+      "season": [
+        "spring",
+        "summer"
+      ],
+      "source": "fishing",
+      "basePrice": 45,
+      "variants": [],
+      "icon": "willow_shiner.png"
+    },
+    {
+      "id": "yellow_perch",
+      "name": "Yellow Perch",
+      "category": "fish",
+      "subcategory": "medium",
+      "season": [
+        "all"
+      ],
+      "source": "fishing",
+      "basePrice": 140,
+      "variants": [],
+      "icon": "yellow_perch.png"
+    },
+    {
+      "id": "chamomile",
+      "name": "Chamomile",
+      "category": "foraged",
+      "subcategory": "herbs",
+      "season": [
+        "spring",
+        "summer"
+      ],
+      "source": "foraging",
+      "basePrice": 50,
+      "variants": [],
+      "icon": "chamomile.png"
+    },
+    {
+      "id": "chestnut",
+      "name": "Chestnut",
+      "category": "foraged",
+      "subcategory": "nuts",
+      "season": [
+        "fall"
+      ],
+      "source": "foraging",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "chestnut.png"
+    },
+    {
+      "id": "honeycomb",
+      "name": "Honeycomb",
+      "category": "foraged",
+      "subcategory": "bee",
+      "season": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "source": "beekeeping",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "honeycomb.png"
+    },
+    {
+      "id": "lavender",
+      "name": "Lavender",
+      "category": "foraged",
+      "subcategory": "herbs",
+      "season": [
+        "fall",
+        "winter"
+      ],
+      "source": "foraging",
+      "basePrice": 50,
+      "variants": [],
+      "icon": "lavender.png"
+    },
+    {
+      "id": "magic_blue_flower",
+      "name": "Magic Blue Flower",
+      "category": "foraged",
+      "subcategory": "flowers",
+      "season": [
+        "spring"
+      ],
+      "source": "foraging",
+      "basePrice": 60,
+      "variants": [],
+      "icon": "magic_blue_flower.png"
+    },
+    {
+      "id": "magic_red_flower",
+      "name": "Magic Red Flower",
+      "category": "foraged",
+      "subcategory": "flowers",
+      "season": [
+        "fall"
+      ],
+      "source": "foraging",
+      "basePrice": 60,
+      "variants": [],
+      "icon": "magic_red_flower.png"
+    },
+    {
+      "id": "mint",
+      "name": "Mint",
+      "category": "foraged",
+      "subcategory": "herbs",
+      "season": [
+        "all"
+      ],
+      "source": "foraging",
+      "basePrice": 50,
+      "variants": [],
+      "icon": "mint.png"
+    },
+    {
+      "id": "moondrop_flower",
+      "name": "Moondrop Flower",
+      "category": "foraged",
+      "subcategory": "flowers",
+      "season": [
+        "spring"
+      ],
+      "source": "foraging",
+      "basePrice": 90,
+      "variants": [],
+      "icon": "moondrop_flower.png"
+    },
+    {
+      "id": "pink_cat_flower",
+      "name": "Pink Cat Flower",
+      "category": "foraged",
+      "subcategory": "flowers",
+      "season": [
+        "summer"
+      ],
+      "source": "foraging",
+      "basePrice": 60,
+      "variants": [],
+      "icon": "pink_cat_flower.png"
+    },
+    {
+      "id": "seaweed",
+      "name": "Seaweed",
+      "category": "foraged",
+      "subcategory": "ocean",
+      "season": [
+        "all"
+      ],
+      "source": "foraging",
+      "basePrice": 30,
+      "variants": [],
+      "icon": "seaweed.png"
+    },
+    {
+      "id": "toy_flower",
+      "name": "Toy Flower",
+      "category": "foraged",
+      "subcategory": "flowers",
+      "season": [
+        "spring"
+      ],
+      "source": "foraging",
+      "basePrice": 50,
+      "variants": [],
+      "icon": "toy_flower.png"
+    },
+    {
+      "id": "walnut",
+      "name": "Walnut",
+      "category": "foraged",
+      "subcategory": "nuts",
+      "season": [
+        "spring",
+        "summer",
+        "winter"
+      ],
+      "source": "foraging",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "walnut.png"
+    },
+    {
+      "id": "common_mushroom",
+      "name": "Common Mushroom",
+      "category": "mushrooms",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "mushroom_log",
+      "basePrice": 80,
+      "variants": [],
+      "icon": "common_mushroom.png"
+    },
+    {
+      "id": "matsutake_mushroom",
+      "name": "Matsutake Mushroom",
+      "category": "mushrooms",
+      "subcategory": null,
+      "season": [
+        "fall"
+      ],
+      "source": "rare",
+      "basePrice": 600,
+      "variants": [],
+      "icon": "matsutake_mushroom.png"
+    },
+    {
+      "id": "monarch_mushroom",
+      "name": "Monarch Mushroom",
+      "category": "mushrooms",
+      "subcategory": null,
+      "season": [
+        "fall"
+      ],
+      "source": "rare",
+      "basePrice": 1000,
+      "variants": [],
+      "icon": "monarch_mushroom.png"
+    },
+    {
+      "id": "morel_mushroom",
+      "name": "Morel Mushroom",
+      "category": "mushrooms",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "mushroom_log",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "morel_mushroom.png"
+    },
+    {
+      "id": "porcini_mushroom",
+      "name": "Porcini Mushroom",
+      "category": "mushrooms",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "mushroom_log",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "porcini_mushroom.png"
+    },
+    {
+      "id": "shiitake_mushroom",
+      "name": "Shiitake Mushroom",
+      "category": "mushrooms",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "mushroom_log",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "shiitake_mushroom.png"
+    },
+    {
+      "id": "shimeji_mushroom",
+      "name": "Shimeji Mushroom",
+      "category": "mushrooms",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "mushroom_log",
+      "basePrice": 90,
+      "variants": [],
+      "icon": "shimeji_mushroom.png"
+    },
+    {
+      "id": "apple_tea_tin",
+      "name": "Apple Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 180,
+      "variants": [],
+      "icon": "apple_tea_tin.png"
+    },
+    {
+      "id": "autumn_blend_tea_tin",
+      "name": "Autumn Blend Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "fall"
+      ],
+      "source": "windmill",
+      "basePrice": 400,
+      "variants": [],
+      "icon": "autumn_blend_tea_tin.png"
+    },
+    {
+      "id": "banana_tea_tin",
+      "name": "Banana Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 170,
+      "variants": [],
+      "icon": "banana_tea_tin.png"
+    },
+    {
+      "id": "black_tea_tin",
+      "name": "Black Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 120,
+      "variants": [],
+      "icon": "black_tea_tin.png"
+    },
+    {
+      "id": "blueberry_tea_tin",
+      "name": "Blueberry Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 140,
+      "variants": [],
+      "icon": "blueberry_tea_tin.png"
+    },
+    {
+      "id": "bottled_chestnuts",
+      "name": "Bottled Chestnuts",
+      "category": "processed",
+      "subcategory": "bottled",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "bottled_chestnuts.png"
+    },
+    {
+      "id": "bottled_walnuts",
+      "name": "Bottled Walnuts",
+      "category": "processed",
+      "subcategory": "bottled",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "bottled_walnuts.png"
+    },
+    {
+      "id": "breadcrumbs",
+      "name": "Breadcrumbs",
+      "category": "processed",
+      "subcategory": "flour",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "breadcrumbs.png"
+    },
+    {
+      "id": "buckwheat_flour",
+      "name": "Buckwheat Flour",
+      "category": "processed",
+      "subcategory": "flour",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 120,
+      "variants": [],
+      "icon": "buckwheat_flour.png"
+    },
+    {
+      "id": "chamomile_tea_tin",
+      "name": "Chamomile Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "chamomile_tea_tin.png"
+    },
+    {
+      "id": "cherry_tea_tin",
+      "name": "Cherry Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "cherry_tea_tin.png"
+    },
+    {
+      "id": "chocolate",
+      "name": "Chocolate",
+      "category": "processed",
+      "subcategory": "sweet",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "chocolate.png"
+    },
+    {
+      "id": "coffee_pack",
+      "name": "Coffee Pack",
+      "category": "processed",
+      "subcategory": "beverage",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "coffee_pack.png"
+    },
+    {
+      "id": "curry_powder",
+      "name": "Curry Powder",
+      "category": "processed",
+      "subcategory": "seasoning",
+      "season": [
+        "all"
+      ],
+      "source": "store",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "curry_powder.png"
+    },
+    {
+      "id": "fried_tofu",
+      "name": "Fried Tofu",
+      "category": "processed",
+      "subcategory": "soy",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 267,
+      "variants": [],
+      "icon": "fried_tofu.png"
+    },
+    {
+      "id": "golden_blend_tea_tin",
+      "name": "Golden Blend Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 2000,
+      "variants": [],
+      "icon": "golden_blend_tea_tin.png"
+    },
+    {
+      "id": "grape_oil",
+      "name": "Grape Oil",
+      "category": "processed",
+      "subcategory": "oil",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "grape_oil.png"
+    },
+    {
+      "id": "green_grape_tea_tin",
+      "name": "Green Grape Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 180,
+      "variants": [],
+      "icon": "green_grape_tea_tin.png"
+    },
+    {
+      "id": "green_tea_tin",
+      "name": "Green Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "green_tea_tin.png"
+    },
+    {
+      "id": "herb_oil",
+      "name": "Herb Oil",
+      "category": "processed",
+      "subcategory": "oil",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 180,
+      "variants": [],
+      "icon": "herb_oil.png"
+    },
+    {
+      "id": "honey",
+      "name": "Honey",
+      "category": "processed",
+      "subcategory": "sweet",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "honey.png"
+    },
+    {
+      "id": "lavender_tea_tin",
+      "name": "Lavender Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "lavender_tea_tin.png"
+    },
+    {
+      "id": "lemon_tea_tin",
+      "name": "Lemon Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "lemon_tea_tin.png"
+    },
+    {
+      "id": "mango_tea_tin",
+      "name": "Mango Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "mango_tea_tin.png"
+    },
+    {
+      "id": "matcha_tea_tin",
+      "name": "Matcha Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 130,
+      "variants": [],
+      "icon": "matcha_tea_tin.png"
+    },
+    {
+      "id": "melon_tea_tin",
+      "name": "Melon Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 280,
+      "variants": [],
+      "icon": "melon_tea_tin.png"
+    },
+    {
+      "id": "mint_tea_tin",
+      "name": "Mint Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "mint_tea_tin.png"
+    },
+    {
+      "id": "miso",
+      "name": "Miso",
+      "category": "processed",
+      "subcategory": "seasoning",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "miso.png"
+    },
+    {
+      "id": "mochi",
+      "name": "Mochi",
+      "category": "processed",
+      "subcategory": "rice",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "mochi.png"
+    },
+    {
+      "id": "nut_oil",
+      "name": "Nut Oil",
+      "category": "processed",
+      "subcategory": "oil",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 180,
+      "variants": [],
+      "icon": "nut_oil.png"
+    },
+    {
+      "id": "oil",
+      "name": "Oil",
+      "category": "processed",
+      "subcategory": "oil",
+      "season": [
+        "all"
+      ],
+      "source": "store",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "oil.png"
+    },
+    {
+      "id": "olive_oil",
+      "name": "Olive Oil",
+      "category": "processed",
+      "subcategory": "oil",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "olive_oil.png"
+    },
+    {
+      "id": "olive_tea_tin",
+      "name": "Olive Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 160,
+      "variants": [],
+      "icon": "olive_tea_tin.png"
+    },
+    {
+      "id": "oolong_tea_tin",
+      "name": "Oolong Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 120,
+      "variants": [],
+      "icon": "oolong_tea_tin.png"
+    },
+    {
+      "id": "orange_tea_tin",
+      "name": "Orange Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 160,
+      "variants": [],
+      "icon": "orange_tea_tin.png"
+    },
+    {
+      "id": "peach_tea_tin",
+      "name": "Peach Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 160,
+      "variants": [],
+      "icon": "peach_tea_tin.png"
+    },
+    {
+      "id": "pepper",
+      "name": "Pepper",
+      "category": "processed",
+      "subcategory": "seasoning",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 80,
+      "variants": [],
+      "icon": "pepper.png"
+    },
+    {
+      "id": "pineapple_tea_tin",
+      "name": "Pineapple Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 220,
+      "variants": [],
+      "icon": "pineapple_tea_tin.png"
+    },
+    {
+      "id": "puer_tea_tin",
+      "name": "Puer Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 120,
+      "variants": [],
+      "icon": "puer_tea_tin.png"
+    },
+    {
+      "id": "pumpkin_oil",
+      "name": "Pumpkin Oil",
+      "category": "processed",
+      "subcategory": "oil",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "pumpkin_oil.png"
+    },
+    {
+      "id": "red_grape_tea_tin",
+      "name": "Red Grape Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 180,
+      "variants": [],
+      "icon": "red_grape_tea_tin.png"
+    },
+    {
+      "id": "refined_rice_flour",
+      "name": "Refined Rice Flour",
+      "category": "processed",
+      "subcategory": "flour",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "refined_rice_flour.png"
+    },
+    {
+      "id": "rice_flour",
+      "name": "Rice Flour",
+      "category": "processed",
+      "subcategory": "flour",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "rice_flour.png"
+    },
+    {
+      "id": "royal_honey",
+      "name": "Royal Honey",
+      "category": "processed",
+      "subcategory": "sweet",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 800,
+      "variants": [],
+      "icon": "royal_honey.png"
+    },
+    {
+      "id": "salt",
+      "name": "Salt",
+      "category": "processed",
+      "subcategory": "seasoning",
+      "season": [
+        "all"
+      ],
+      "source": "store",
+      "basePrice": 50,
+      "variants": [],
+      "icon": "salt.png"
+    },
+    {
+      "id": "sencha_tea_tin",
+      "name": "Sencha Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 120,
+      "variants": [],
+      "icon": "sencha_tea_tin.png"
+    },
+    {
+      "id": "soy_milk",
+      "name": "Soy Milk",
+      "category": "processed",
+      "subcategory": "beverage",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 85,
+      "variants": [],
+      "icon": "soy_milk.png"
+    },
+    {
+      "id": "soy_sauce",
+      "name": "Soy Sauce",
+      "category": "processed",
+      "subcategory": "seasoning",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "soy_sauce.png"
+    },
+    {
+      "id": "soybean_flour",
+      "name": "Soybean Flour",
+      "category": "processed",
+      "subcategory": "flour",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "soybean_flour.png"
+    },
+    {
+      "id": "spice",
+      "name": "Spice",
+      "category": "processed",
+      "subcategory": "seasoning",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "spice.png"
+    },
+    {
+      "id": "spring_blend_tea_tin",
+      "name": "Spring Blend Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "spring"
+      ],
+      "source": "windmill",
+      "basePrice": 400,
+      "variants": [],
+      "icon": "spring_blend_tea_tin.png"
+    },
+    {
+      "id": "strawberry_tea_tin",
+      "name": "Strawberry Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 150,
+      "variants": [],
+      "icon": "strawberry_tea_tin.png"
+    },
+    {
+      "id": "sugar",
+      "name": "Sugar",
+      "category": "processed",
+      "subcategory": "seasoning",
+      "season": [
+        "all"
+      ],
+      "source": "store",
+      "basePrice": 60,
+      "variants": [],
+      "icon": "sugar.png"
+    },
+    {
+      "id": "summer_blend_tea_tin",
+      "name": "Summer Blend Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "summer"
+      ],
+      "source": "windmill",
+      "basePrice": 400,
+      "variants": [],
+      "icon": "summer_blend_tea_tin.png"
+    },
+    {
+      "id": "tofu",
+      "name": "Tofu",
+      "category": "processed",
+      "subcategory": "soy",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 205,
+      "variants": [],
+      "icon": "tofu.png"
+    },
+    {
+      "id": "vinegar",
+      "name": "Vinegar",
+      "category": "processed",
+      "subcategory": "seasoning",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 80,
+      "variants": [],
+      "icon": "vinegar.png"
+    },
+    {
+      "id": "watermelon_tea_tin",
+      "name": "Watermelon Tea Tin",
+      "category": "processed",
+      "subcategory": "tea_tin",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 300,
+      "variants": [],
+      "icon": "watermelon_tea_tin.png"
+    },
+    {
+      "id": "wheat_flour",
+      "name": "Wheat Flour",
+      "category": "processed",
+      "subcategory": "flour",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 100,
+      "variants": [],
+      "icon": "wheat_flour.png"
+    },
+    {
+      "id": "white_breadcrumbs",
+      "name": "White Breadcrumbs",
+      "category": "processed",
+      "subcategory": "flour",
+      "season": [
+        "all"
+      ],
+      "source": "windmill",
+      "basePrice": 180,
+      "variants": [],
+      "icon": "white_breadcrumbs.png"
+    },
+    {
+      "id": "apple_jam",
+      "name": "Apple Jam",
+      "category": "prepared",
+      "subcategory": "jam",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 932,
+      "variants": [],
+      "icon": "apple_jam.png"
+    },
+    {
+      "id": "apple_juice",
+      "name": "Apple Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 221,
+      "variants": [],
+      "icon": "apple_juice.png"
+    },
+    {
+      "id": "autumn_juice",
+      "name": "Autumn Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "fall"
+      ],
+      "source": "recipe",
+      "basePrice": 1010,
+      "variants": [],
+      "icon": "autumn_juice.png"
+    },
+    {
+      "id": "baguettes",
+      "name": "Baguettes",
+      "category": "prepared",
+      "subcategory": "bread",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 662,
+      "variants": [],
+      "icon": "baguettes.png"
+    },
+    {
+      "id": "banana_juice",
+      "name": "Banana Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 260,
+      "variants": [],
+      "icon": "banana_juice.png"
+    },
+    {
+      "id": "black_tea",
+      "name": "Black Tea",
+      "category": "prepared",
+      "subcategory": "tea",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 401,
+      "variants": [],
+      "icon": "black_tea.png"
+    },
+    {
+      "id": "blueberry_jam",
+      "name": "Blueberry Jam",
+      "category": "prepared",
+      "subcategory": "jam",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 863,
+      "variants": [],
+      "icon": "blueberry_jam.png"
+    },
+    {
+      "id": "blueberry_juice",
+      "name": "Blueberry Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 163,
+      "variants": [],
+      "icon": "blueberry_juice.png"
+    },
+    {
+      "id": "bread",
+      "name": "Bread",
+      "category": "prepared",
+      "subcategory": "bread",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 195,
+      "variants": [],
+      "icon": "bread.png"
+    },
+    {
+      "id": "castella",
+      "name": "Castella",
+      "category": "prepared",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 801,
+      "variants": [],
+      "icon": "castella.png"
+    },
+    {
+      "id": "cherry_juice",
+      "name": "Cherry Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 182,
+      "variants": [],
+      "icon": "cherry_juice.png"
+    },
+    {
+      "id": "cooked_rice",
+      "name": "Cooked Rice",
+      "category": "prepared",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 91,
+      "variants": [],
+      "icon": "cooked_rice.png"
+    },
+    {
+      "id": "curry_rice",
+      "name": "Curry Rice",
+      "category": "prepared",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 911,
+      "variants": [],
+      "icon": "curry_rice.png"
+    },
+    {
+      "id": "fish_cake",
+      "name": "Fish Cake",
+      "category": "prepared",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 195,
+      "variants": [],
+      "icon": "fish_cake.png"
+    },
+    {
+      "id": "focaccia_bread",
+      "name": "Focaccia Bread",
+      "category": "prepared",
+      "subcategory": "bread",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 843,
+      "variants": [],
+      "icon": "focaccia_bread.png"
+    },
+    {
+      "id": "grape_jam",
+      "name": "Grape Jam",
+      "category": "prepared",
+      "subcategory": "jam",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 1007,
+      "variants": [],
+      "icon": "grape_jam.png"
+    },
+    {
+      "id": "grape_juice",
+      "name": "Grape Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 228,
+      "variants": [],
+      "icon": "grape_juice.png"
+    },
+    {
+      "id": "hot_coffee",
+      "name": "Hot Coffee",
+      "category": "prepared",
+      "subcategory": "beverage",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 380,
+      "variants": [],
+      "icon": "hot_coffee.png"
+    },
+    {
+      "id": "lemon_juice",
+      "name": "Lemon Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 176,
+      "variants": [],
+      "icon": "lemon_juice.png"
+    },
+    {
+      "id": "mango_juice",
+      "name": "Mango Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 260,
+      "variants": [],
+      "icon": "mango_juice.png"
+    },
+    {
+      "id": "melon_juice",
+      "name": "Melon Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 658,
+      "variants": [],
+      "icon": "melon_juice.png"
+    },
+    {
+      "id": "mixed_salad",
+      "name": "Mixed Salad",
+      "category": "prepared",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 404,
+      "variants": [],
+      "icon": "mixed_salad.png"
+    },
+    {
+      "id": "omelet",
+      "name": "Omelet",
+      "category": "prepared",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 721,
+      "variants": [],
+      "icon": "omelet.png"
+    },
+    {
+      "id": "onigiri",
+      "name": "Onigiri",
+      "category": "prepared",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 370,
+      "variants": [],
+      "icon": "onigiri.png"
+    },
+    {
+      "id": "orange_juice",
+      "name": "Orange Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 180,
+      "variants": [],
+      "icon": "orange_juice.png"
+    },
+    {
+      "id": "pasta",
+      "name": "Pasta",
+      "category": "prepared",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 328,
+      "variants": [],
+      "icon": "pasta.png"
+    },
+    {
+      "id": "peach_juice",
+      "name": "Peach Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 182,
+      "variants": [],
+      "icon": "peach_juice.png"
+    },
+    {
+      "id": "sashimi",
+      "name": "Sashimi",
+      "category": "prepared",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 195,
+      "variants": [],
+      "icon": "sashimi.png"
+    },
+    {
+      "id": "spring_juice",
+      "name": "Spring Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "spring"
+      ],
+      "source": "recipe",
+      "basePrice": 935,
+      "variants": [],
+      "icon": "spring_juice.png"
+    },
+    {
+      "id": "strawberry_jam",
+      "name": "Strawberry Jam",
+      "category": "prepared",
+      "subcategory": "jam",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 855,
+      "variants": [],
+      "icon": "strawberry_jam.png"
+    },
+    {
+      "id": "strawberry_juice",
+      "name": "Strawberry Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 156,
+      "variants": [],
+      "icon": "strawberry_juice.png"
+    },
+    {
+      "id": "summer_juice",
+      "name": "Summer Juice",
+      "category": "prepared",
+      "subcategory": "juice",
+      "season": [
+        "summer"
+      ],
+      "source": "recipe",
+      "basePrice": 1020,
+      "variants": [],
+      "icon": "summer_juice.png"
+    },
+    {
+      "id": "supreme_curry",
+      "name": "Supreme Curry",
+      "category": "prepared",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 3724,
+      "variants": [],
+      "icon": "supreme_curry.png"
+    },
+    {
+      "id": "tempura",
+      "name": "Tempura",
+      "category": "prepared",
+      "subcategory": null,
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 1152,
+      "variants": [],
+      "icon": "tempura.png"
+    },
+    {
+      "id": "white_bread",
+      "name": "White Bread",
+      "category": "prepared",
+      "subcategory": "bread",
+      "season": [
+        "all"
+      ],
+      "source": "recipe",
+      "basePrice": 182,
+      "variants": [],
+      "icon": "white_bread.png"
+    },
+    {
+      "id": "curled_chili_pepper",
+      "name": "Curled Chili Pepper",
+      "category": "rare_crops",
+      "subcategory": null,
+      "season": [
+        "fall"
+      ],
+      "source": "rare",
+      "basePrice": 400,
+      "variants": [],
+      "icon": "curled_chili_pepper.png"
+    },
+    {
+      "id": "giant_tomato",
+      "name": "Giant Tomato",
+      "category": "rare_crops",
+      "subcategory": null,
+      "season": [
+        "summer"
+      ],
+      "source": "rare",
+      "basePrice": 600,
+      "variants": [],
+      "icon": "giant_tomato.png"
+    },
+    {
+      "id": "heart_watermelon",
+      "name": "Heart Watermelon",
+      "category": "rare_crops",
+      "subcategory": null,
+      "season": [
+        "summer"
+      ],
+      "source": "rare",
+      "basePrice": 1500,
+      "variants": [],
+      "icon": "heart_watermelon.png"
+    },
+    {
+      "id": "jewel_pineapple",
+      "name": "Jewel Pineapple",
+      "category": "rare_crops",
+      "subcategory": null,
+      "season": [
+        "summer"
+      ],
+      "source": "rare",
+      "basePrice": 1000,
+      "variants": [],
+      "icon": "jewel_pineapple.png"
+    },
+    {
+      "id": "star_potato",
+      "name": "Star Potato",
+      "category": "rare_crops",
+      "subcategory": null,
+      "season": [
+        "spring"
+      ],
+      "source": "rare",
+      "basePrice": 500,
+      "variants": [],
+      "icon": "star_potato.png"
+    },
+    {
+      "id": "three_forked_carrot",
+      "name": "Three Forked Carrot",
+      "category": "rare_crops",
+      "subcategory": null,
+      "season": [
+        "fall"
+      ],
+      "source": "rare",
+      "basePrice": 800,
+      "variants": [],
+      "icon": "three_forked_carrot.png"
+    },
+    {
+      "id": "urchin",
+      "name": "Urchin",
+      "category": "ocean",
+      "subcategory": null,
+      "season": [
+        "summer"
+      ],
+      "source": "diving",
+      "basePrice": 200,
+      "variants": [],
+      "icon": "urchin.png"
+    }
+  ],
+  "recipes": [
+    {
+      "id": "caprese_salad",
+      "name": "Caprese Salad",
+      "category": "salad",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "tomato",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "cheese",
+            "cheese_plus",
+            "herb_cheese"
+          ]
+        },
+        {
+          "id": "olive_oil",
+          "required": true
+        },
+        {
+          "id": "salt",
+          "required": true
+        }
+      ],
+      "baseValue": 2429,
+      "effect": "watering_rare_crop",
+      "effectLevel": 4,
+      "unlockMethod": "Avant-Garde Crops request from Erik",
+      "icon": "caprese_salad.png"
+    },
+    {
+      "id": "guacamole_salad",
+      "name": "Guacamole Salad",
+      "category": "salad",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "avocado",
+          "required": true
+        },
+        {
+          "id": "onion",
+          "required": true
+        },
+        {
+          "id": "tomato",
+          "required": true
+        },
+        {
+          "id": "salt",
+          "required": true
+        }
+      ],
+      "baseValue": 1309,
+      "effect": "stamina_saver",
+      "effectLevel": 3,
+      "unlockMethod": "Plower title, Nadine's Bistro",
+      "icon": "guacamole_salad.png"
+    },
+    {
+      "id": "herb_salad",
+      "name": "Herb Salad",
+      "category": "salad",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "mint",
+            "chamomile",
+            "lavender"
+          ],
+          "count": 2
+        }
+      ],
+      "baseValue": 137,
+      "effect": "stamina_saver",
+      "effectLevel": 1,
+      "unlockMethod": "Available at start",
+      "icon": "herb_salad.png"
+    },
+    {
+      "id": "kinpira_gobo",
+      "name": "Kinpira Gobo",
+      "category": "salad",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "burdock",
+          "required": true
+        },
+        {
+          "id": "carrot",
+          "required": true
+        },
+        {
+          "id": "chili_pepper",
+          "required": true
+        }
+      ],
+      "baseValue": 909,
+      "effect": "stamina_saver",
+      "effectLevel": 3,
+      "unlockMethod": "Clara's Diner",
+      "icon": "kinpira_gobo.png"
+    },
+    {
+      "id": "macaroni_salad",
+      "name": "Macaroni Salad",
+      "category": "salad",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "pasta",
+          "required": true
+        },
+        {
+          "id": "cucumber",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "mayonnaise",
+            "mayonnaise_plus",
+            "herb_mayonnaise"
+          ]
+        },
+        {
+          "id": "carrot",
+          "required": true
+        }
+      ],
+      "baseValue": 1859,
+      "effect": "stamina_saver",
+      "effectLevel": 4,
+      "unlockMethod": "Nadine's Bistro",
+      "icon": "macaroni_salad.png"
+    },
+    {
+      "id": "marinated_peppers",
+      "name": "Marinated Peppers",
+      "category": "salad",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "red_bell_pepper",
+          "required": true
+        },
+        {
+          "id": "vinegar",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "oil",
+            "nut_oil",
+            "herb_oil",
+            "olive_oil",
+            "grape_oil"
+          ]
+        }
+      ],
+      "baseValue": 598,
+      "effect": "stamina_saver",
+      "effectLevel": 2,
+      "unlockMethod": "Mini Madeleine's",
+      "icon": "marinated_peppers.png"
+    },
+    {
+      "id": "mashed_potatoes",
+      "name": "Mashed Potatoes",
+      "category": "salad",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "potato",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "butter",
+            "butter_plus",
+            "herb_butter"
+          ]
+        }
+      ],
+      "baseValue": 677,
+      "effect": "watering_rare_crop",
+      "effectLevel": 2,
+      "unlockMethod": "Café Madeleine",
+      "icon": "mashed_potatoes.png"
+    },
+    {
+      "id": "mixed_salad",
+      "name": "Mixed Salad",
+      "category": "salad",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "tomato",
+          "required": true
+        },
+        {
+          "id": "cucumber",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "cucumber",
+            "onion",
+            "asparagus",
+            "tomato",
+            "red_bell_pepper",
+            "carrot",
+            "turnip",
+            "sweet_potato",
+            "pumpkin",
+            "eggplant"
+          ]
+        }
+      ],
+      "baseValue": 404,
+      "effect": "stamina_saver",
+      "effectLevel": 1,
+      "unlockMethod": "Clara's Diner",
+      "icon": "mixed_salad.png"
+    },
+    {
+      "id": "onion_salad",
+      "name": "Onion Salad",
+      "category": "salad",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "onion",
+          "required": true
+        }
+      ],
+      "baseValue": 325,
+      "effect": "watering_rare_crop",
+      "effectLevel": 1,
+      "unlockMethod": "Café Madeleine",
+      "icon": "onion_salad.png"
+    },
+    {
+      "id": "poke",
+      "name": "Poke",
+      "category": "salad",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "avocado",
+          "required": true
+        },
+        {
+          "id": "salmon",
+          "required": true
+        },
+        {
+          "id": "soy_sauce",
+          "required": true
+        }
+      ],
+      "baseValue": 1197,
+      "effect": "watering_rare_crop",
+      "effectLevel": 3,
+      "unlockMethod": "Mini Madeleine's",
+      "icon": "poke.png"
+    },
+    {
+      "id": "tomato_salad",
+      "name": "Tomato Salad",
+      "category": "salad",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "tomato",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "mint",
+            "chamomile",
+            "lavender"
+          ]
+        }
+      ],
+      "baseValue": 126,
+      "effect": "stamina_saver",
+      "effectLevel": 1,
+      "unlockMethod": "Mini Madeleine's",
+      "icon": "tomato_salad.png"
+    },
+    {
+      "id": "turnip_salad",
+      "name": "Turnip Salad",
+      "category": "salad",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "turnip",
+          "required": true
+        }
+      ],
+      "baseValue": 260,
+      "effect": "stamina_saver",
+      "effectLevel": 1,
+      "unlockMethod": "Available at start",
+      "icon": "turnip_salad.png"
+    },
+    {
+      "id": "asparagus_soup",
+      "name": "Asparagus Soup",
+      "category": "soup",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "asparagus",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "milk_plus",
+            "buffalo_milk",
+            "buffalo_milk_plus"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "oil",
+            "nut_oil",
+            "herb_oil",
+            "olive_oil",
+            "grape_oil"
+          ]
+        },
+        {
+          "id": "onion",
+          "required": true
+        }
+      ],
+      "baseValue": 1728,
+      "effect": "rod_durability_up",
+      "effectLevel": 4,
+      "unlockMethod": "Clara's Diner",
+      "icon": "asparagus_soup.png"
+    },
+    {
+      "id": "corn_soup",
+      "name": "Corn Soup",
+      "category": "soup",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "corn",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "milk_plus",
+            "buffalo_milk",
+            "buffalo_milk_plus"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "butter",
+            "butter_plus",
+            "herb_butter"
+          ]
+        },
+        {
+          "id": "onion",
+          "required": true
+        }
+      ],
+      "baseValue": 1815,
+      "effect": "run_speed_up",
+      "effectLevel": 4,
+      "unlockMethod": "Mini Madeleine's",
+      "icon": "corn_soup.png"
+    },
+    {
+      "id": "egg_drop_soup",
+      "name": "Egg Drop Soup",
+      "category": "soup",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        }
+      ],
+      "baseValue": 117,
+      "effect": "run_speed_up",
+      "effectLevel": 1,
+      "unlockMethod": "Available at start",
+      "icon": "egg_drop_soup.png"
+    },
+    {
+      "id": "gazpacho_soup",
+      "name": "Gazpacho Soup",
+      "category": "soup",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "tomato",
+          "required": true
+        },
+        {
+          "id": "garlic",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "bread",
+            "white_bread",
+            "baguettes",
+            "focaccia_bread"
+          ]
+        }
+      ],
+      "baseValue": 490,
+      "effect": "run_speed_up",
+      "effectLevel": 1,
+      "unlockMethod": "Café Madeleine",
+      "icon": "gazpacho_soup.png"
+    },
+    {
+      "id": "herb_soup",
+      "name": "Herb Soup",
+      "category": "soup",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "mint",
+            "chamomile",
+            "lavender"
+          ],
+          "count": 2
+        }
+      ],
+      "baseValue": 137,
+      "effect": "run_speed_up",
+      "effectLevel": 1,
+      "unlockMethod": "Available at start",
+      "icon": "herb_soup.png"
+    },
+    {
+      "id": "miso_soup",
+      "name": "Miso Soup",
+      "category": "soup",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "miso",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "tofu",
+            "green_onion",
+            "fried_tofu",
+            "potato",
+            "shimeji_mushroom"
+          ]
+        }
+      ],
+      "baseValue": 260,
+      "effect": "rod_durability_up",
+      "effectLevel": 1,
+      "unlockMethod": "Clara's Diner",
+      "icon": "miso_soup.png"
+    },
+    {
+      "id": "onion_soup",
+      "name": "Onion Soup",
+      "category": "soup",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "onion",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "butter",
+            "butter_plus",
+            "herb_butter"
+          ]
+        }
+      ],
+      "baseValue": 1024,
+      "effect": "rod_durability_up",
+      "effectLevel": 3,
+      "unlockMethod": "Mini Madeleine's",
+      "icon": "onion_soup.png"
+    },
+    {
+      "id": "pumpkin_soup",
+      "name": "Pumpkin Soup",
+      "category": "soup",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "pumpkin",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "milk_plus",
+            "buffalo_milk",
+            "buffalo_milk_plus"
+          ]
+        },
+        {
+          "id": "onion",
+          "required": true
+        }
+      ],
+      "baseValue": 1320,
+      "effect": "run_speed_up",
+      "effectLevel": 3,
+      "unlockMethod": "Clara's Calamity request from Clara",
+      "icon": "pumpkin_soup.png"
+    },
+    {
+      "id": "radish_soup",
+      "name": "Radish Soup",
+      "category": "soup",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "radish",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "milk_plus",
+            "buffalo_milk",
+            "buffalo_milk_plus"
+          ]
+        },
+        {
+          "id": "salt",
+          "required": true
+        }
+      ],
+      "baseValue": 770,
+      "effect": "rod_durability_up",
+      "effectLevel": 2,
+      "unlockMethod": "Pantry Patron request from Mina",
+      "icon": "radish_soup.png"
+    },
+    {
+      "id": "vichyssoise_soup",
+      "name": "Vichyssoise Soup",
+      "category": "soup",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "potato",
+          "required": true
+        },
+        {
+          "id": "onion",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "milk_plus",
+            "buffalo_milk",
+            "buffalo_milk_plus"
+          ]
+        }
+      ],
+      "baseValue": 709,
+      "effect": "run_speed_up",
+      "effectLevel": 2,
+      "unlockMethod": "Nadine's Bistro",
+      "icon": "vichyssoise_soup.png"
+    },
+    {
+      "id": "boiled_egg",
+      "name": "Boiled Egg",
+      "category": "side",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        }
+      ],
+      "baseValue": 117,
+      "effect": "max_stamina_up",
+      "effectLevel": 1,
+      "unlockMethod": "Available at start",
+      "icon": "boiled_egg.png"
+    },
+    {
+      "id": "bread",
+      "name": "Bread",
+      "category": "side",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        }
+      ],
+      "baseValue": 195,
+      "effect": null,
+      "effectLevel": null,
+      "unlockMethod": "Café Madeleine, Mini Madeleine's, Nadine's Bistro, Clara's Diner",
+      "icon": "bread.png"
+    },
+    {
+      "id": "cooked_rice",
+      "name": "Cooked Rice",
+      "category": "side",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "rice",
+          "required": true
+        }
+      ],
+      "baseValue": 91,
+      "effect": null,
+      "effectLevel": null,
+      "unlockMethod": "Café Madeleine, Mini Madeleine's, Nadine's Bistro, Clara's Diner",
+      "icon": "cooked_rice.png"
+    },
+    {
+      "id": "baguettes",
+      "name": "Baguettes",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "salt",
+          "required": true
+        }
+      ],
+      "baseValue": 662,
+      "effect": "max_stamina_up",
+      "effectLevel": 2,
+      "unlockMethod": "Mini Madeleine's",
+      "icon": "baguettes.png"
+    },
+    {
+      "id": "baked_sweet_potato",
+      "name": "Baked Sweet Potato",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "sweet_potato",
+          "required": true
+        }
+      ],
+      "baseValue": 202,
+      "effect": "chat_friendship_boost",
+      "effectLevel": 1,
+      "unlockMethod": "Felix's Fixings (Autumn)",
+      "icon": "baked_sweet_potato.png"
+    },
+    {
+      "id": "broccoli_and_garlic_saute",
+      "name": "Broccoli & Garlic Sauté",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "broccoli",
+          "required": true
+        },
+        {
+          "id": "garlic",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "oil",
+            "nut_oil",
+            "herb_oil",
+            "olive_oil",
+            "grape_oil"
+          ]
+        }
+      ],
+      "baseValue": 563,
+      "effect": "max_stamina_up",
+      "effectLevel": 2,
+      "unlockMethod": "Nadine's Bistro",
+      "icon": "broccoli_and_garlic_saute.png"
+    },
+    {
+      "id": "buttered_potato",
+      "name": "Buttered Potato",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "potato",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "butter",
+            "butter_plus",
+            "herb_butter"
+          ]
+        }
+      ],
+      "baseValue": 677,
+      "effect": "max_stamina_up",
+      "effectLevel": 2,
+      "unlockMethod": "Count on Coach! request from Freya",
+      "icon": "buttered_potato.png"
+    },
+    {
+      "id": "buttered_roll",
+      "name": "Buttered Roll",
+      "category": "side",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "butter",
+            "butter_plus",
+            "herb_butter"
+          ]
+        }
+      ],
+      "baseValue": 1056,
+      "effect": "max_stamina_up",
+      "effectLevel": 3,
+      "unlockMethod": "Café Madeleine",
+      "icon": "buttered_roll.png"
+    },
+    {
+      "id": "cheese_bun",
+      "name": "Cheese Bun",
+      "category": "side",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "cheese",
+            "cheese_plus",
+            "herb_cheese"
+          ]
+        },
+        {
+          "id": "buffalo_milk",
+          "required": true
+        }
+      ],
+      "baseValue": 1320,
+      "effect": "chat_friendship_boost",
+      "effectLevel": 3,
+      "unlockMethod": "Mini Madeleine's",
+      "icon": "cheese_bun.png"
+    },
+    {
+      "id": "cheese_croquettes",
+      "name": "Cheese Croquettes",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "potato",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "breadcrumbs",
+            "white_breadcrumbs"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "oil",
+            "nut_oil",
+            "herb_oil",
+            "olive_oil",
+            "grape_oil"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "cheese",
+            "cheese_plus",
+            "herb_cheese"
+          ]
+        }
+      ],
+      "baseValue": 1844,
+      "effect": "chat_friendship_boost",
+      "effectLevel": 4,
+      "unlockMethod": "Nadine's Bistro",
+      "icon": "cheese_croquettes.png"
+    },
+    {
+      "id": "chili_con_carne",
+      "name": "Chili con Carne",
+      "category": "side",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "tomato",
+          "required": true
+        },
+        {
+          "id": "soybean",
+          "required": true
+        },
+        {
+          "id": "chili_pepper",
+          "required": true
+        },
+        {
+          "id": "pepper",
+          "required": true
+        }
+      ],
+      "baseValue": 911,
+      "effect": "max_stamina_up",
+      "effectLevel": 2,
+      "unlockMethod": "Nadine's Bistro",
+      "icon": "chili_con_carne.png"
+    },
+    {
+      "id": "chilled_tofu",
+      "name": "Chilled Tofu",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "tofu",
+          "required": true
+        },
+        {
+          "id": "soy_sauce",
+          "required": true
+        }
+      ],
+      "baseValue": 458,
+      "effect": "max_stamina_up",
+      "effectLevel": 1,
+      "unlockMethod": "Clara's Diner",
+      "icon": "chilled_tofu.png"
+    },
+    {
+      "id": "corn_flakes_cereal",
+      "name": "Corn Flakes Cereal",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "corn",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "milk_plus",
+            "buffalo_milk",
+            "buffalo_milk_plus"
+          ]
+        }
+      ],
+      "baseValue": 403,
+      "effect": "max_stamina_up",
+      "effectLevel": 1,
+      "unlockMethod": "Clara's Diner",
+      "icon": "corn_flakes_cereal.png"
+    },
+    {
+      "id": "cream_croquettes",
+      "name": "Cream Croquettes",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "potato",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "breadcrumbs",
+            "white_breadcrumbs"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "oil",
+            "nut_oil",
+            "herb_oil",
+            "olive_oil",
+            "grape_oil"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "milk_plus",
+            "buffalo_milk",
+            "buffalo_milk_plus"
+          ]
+        }
+      ],
+      "baseValue": 1098,
+      "effect": "chat_friendship_boost",
+      "effectLevel": 3,
+      "unlockMethod": "Nadine's Bistro",
+      "icon": "cream_croquettes.png"
+    },
+    {
+      "id": "croquettes",
+      "name": "Croquettes",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "potato",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "breadcrumbs",
+            "white_breadcrumbs"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "oil",
+            "nut_oil",
+            "herb_oil",
+            "olive_oil",
+            "grape_oil"
+          ]
+        }
+      ],
+      "baseValue": 709,
+      "effect": "chat_friendship_boost",
+      "effectLevel": 2,
+      "unlockMethod": "Clara's Diner",
+      "icon": "croquettes.png"
+    },
+    {
+      "id": "curry_bun",
+      "name": "Curry Bun",
+      "category": "side",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "curry_powder",
+          "required": true
+        },
+        {
+          "id": "onion",
+          "required": true
+        },
+        {
+          "id": "carrot",
+          "required": true
+        }
+      ],
+      "baseValue": 1920,
+      "effect": "chat_friendship_boost",
+      "effectLevel": 4,
+      "unlockMethod": "Clara's Diner",
+      "icon": "curry_bun.png"
+    },
+    {
+      "id": "fish_and_chips",
+      "name": "Fish & Chips",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "yellow_perch",
+            "snakehead",
+            "masu_trout",
+            "char",
+            "salmon",
+            "icefish",
+            "cherry_salmon"
+          ]
+        },
+        {
+          "id": "potato",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "wheat_flour",
+            "rice_flour"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "oil",
+            "nut_oil",
+            "herb_oil",
+            "olive_oil",
+            "grape_oil"
+          ]
+        }
+      ],
+      "baseValue": 1584,
+      "effect": "max_stamina_up",
+      "effectLevel": 3,
+      "unlockMethod": "Mini Madeleine's",
+      "icon": "fish_and_chips.png"
+    },
+    {
+      "id": "fish_cake",
+      "name": "Fish Cake",
+      "category": "side",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "amur_minnow",
+            "dace",
+            "pale_chub",
+            "sculpin",
+            "dark_chub",
+            "bitterling",
+            "tamoroko",
+            "rainbow_trout",
+            "silver_carp",
+            "basa"
+          ]
+        }
+      ],
+      "baseValue": 195,
+      "effect": "rod_durability_up",
+      "effectLevel": 1,
+      "unlockMethod": "Bottled Nuts Wanted request from Nadine",
+      "icon": "fish_cake.png"
+    },
+    {
+      "id": "focaccia_bread",
+      "name": "Focaccia Bread",
+      "category": "side",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "olive_oil",
+          "required": true
+        }
+      ],
+      "baseValue": 843,
+      "effect": "max_stamina_up",
+      "effectLevel": 2,
+      "unlockMethod": "Bookshelves in Lloyd's House",
+      "icon": "focaccia_bread.png"
+    },
+    {
+      "id": "freeze_dried_tofu",
+      "name": "Freeze-Dried Tofu",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "tofu",
+          "required": true
+        },
+        {
+          "id": "soy_sauce",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "oil",
+            "nut_oil",
+            "herb_oil",
+            "olive_oil",
+            "grape_oil"
+          ]
+        }
+      ],
+      "baseValue": 824,
+      "effect": "max_stamina_up",
+      "effectLevel": 2,
+      "unlockMethod": "Clara's Diner",
+      "icon": "freeze_dried_tofu.png"
+    },
+    {
+      "id": "french_fries",
+      "name": "French Fries",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "potato",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "oil",
+            "nut_oil",
+            "herb_oil",
+            "olive_oil",
+            "grape_oil"
+          ]
+        }
+      ],
+      "baseValue": 355,
+      "effect": "chat_friendship_boost",
+      "effectLevel": 1,
+      "unlockMethod": "Mini Madeleine's",
+      "icon": "french_fries.png"
+    },
+    {
+      "id": "french_toast",
+      "name": "French Toast",
+      "category": "side",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "bread",
+            "white_bread"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "milk_plus",
+            "buffalo_milk",
+            "buffalo_milk_plus"
+          ]
+        }
+      ],
+      "baseValue": 647,
+      "effect": "chat_friendship_boost",
+      "effectLevel": 2,
+      "unlockMethod": "Nadine's Bistro",
+      "icon": "french_toast.png"
+    },
+    {
+      "id": "fried_egg",
+      "name": "Fried Egg",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "oil",
+            "nut_oil",
+            "herb_oil",
+            "olive_oil",
+            "grape_oil"
+          ]
+        }
+      ],
+      "baseValue": 396,
+      "effect": "max_stamina_up",
+      "effectLevel": 1,
+      "unlockMethod": "Café Madeleine",
+      "icon": "fried_egg.png"
+    },
+    {
+      "id": "fried_mushrooms",
+      "name": "Fried Mushrooms",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "common_mushroom",
+            "shiitake_mushroom",
+            "shimeji_mushroom",
+            "porcini_mushroom",
+            "morel_mushroom",
+            "matsutake_mushroom",
+            "monarch_mushroom"
+          ]
+        }
+      ],
+      "baseValue": 195,
+      "effect": "max_stamina_up",
+      "effectLevel": 1,
+      "unlockMethod": "Felix's Fixings (Autumn)",
+      "icon": "fried_mushrooms.png"
+    },
+    {
+      "id": "fried_tofu",
+      "name": "Fried Tofu",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "tofu",
+          "required": true
+        }
+      ],
+      "baseValue": 267,
+      "effect": "max_stamina_up",
+      "effectLevel": 1,
+      "unlockMethod": "Nadine's Bistro",
+      "icon": "fried_tofu.png"
+    },
+    {
+      "id": "galette",
+      "name": "Galette",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "buckwheat_flour",
+          "required": true
+        },
+        {
+          "id": "potato",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "oil",
+            "nut_oil",
+            "herb_oil",
+            "olive_oil",
+            "grape_oil"
+          ]
+        }
+      ],
+      "baseValue": 1122,
+      "effect": "max_stamina_up",
+      "effectLevel": 3,
+      "unlockMethod": "Mini Madeleine's",
+      "icon": "galette.png"
+    },
+    {
+      "id": "grilled_corn",
+      "name": "Grilled Corn",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "corn",
+          "required": true
+        },
+        {
+          "id": "soy_sauce",
+          "required": true
+        },
+        {
+          "id": "sugar",
+          "required": true
+        }
+      ],
+      "baseValue": 886,
+      "effect": "watering_rare_crop",
+      "effectLevel": 2,
+      "unlockMethod": "Felix's Fixings (Summer)",
+      "icon": "grilled_corn.png"
+    },
+    {
+      "id": "gyoza",
+      "name": "Gyoza",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "cabbage",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "oil",
+            "nut_oil",
+            "herb_oil",
+            "olive_oil",
+            "grape_oil"
+          ]
+        }
+      ],
+      "baseValue": 1353,
+      "effect": "max_stamina_up",
+      "effectLevel": 3,
+      "unlockMethod": "Clara's Diner",
+      "icon": "gyoza.png"
+    },
+    {
+      "id": "hash_browns",
+      "name": "Hash Browns",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "potato",
+          "required": true
+        },
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "oil",
+            "nut_oil",
+            "herb_oil",
+            "olive_oil",
+            "grape_oil"
+          ]
+        }
+      ],
+      "baseValue": 632,
+      "effect": "max_stamina_up",
+      "effectLevel": 2,
+      "unlockMethod": "Mini Madeleine's",
+      "icon": "hash_browns.png"
+    },
+    {
+      "id": "khachapuri",
+      "name": "Khachapuri",
+      "category": "side",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "cheese_plus",
+          "required": true,
+          "plusQuality": true
+        },
+        {
+          "id": "yogurt_plus",
+          "required": true,
+          "plusQuality": true
+        },
+        {
+          "id": "butter_plus",
+          "required": true,
+          "plusQuality": true
+        }
+      ],
+      "baseValue": 10098,
+      "effect": "double_forage",
+      "effectLevel": 1,
+      "unlockMethod": "A Homemade Meal request from Samir",
+      "icon": "khachapuri.png"
+    },
+    {
+      "id": "lightly_fried_tofu",
+      "name": "Lightly Fried Tofu",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "tofu",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "wheat_flour",
+            "rice_flour"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "oil",
+            "nut_oil",
+            "herb_oil",
+            "olive_oil",
+            "grape_oil"
+          ]
+        }
+      ],
+      "baseValue": 809,
+      "effect": "max_stamina_up",
+      "effectLevel": 2,
+      "unlockMethod": "Clara's Diner",
+      "icon": "lightly_fried_tofu.png"
+    },
+    {
+      "id": "miso_glazed_eggplant",
+      "name": "Miso Glazed Eggplant",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "eggplant",
+          "required": true
+        },
+        {
+          "id": "miso",
+          "required": true
+        }
+      ],
+      "baseValue": 246,
+      "effect": "max_stamina_up",
+      "effectLevel": 1,
+      "unlockMethod": "Nadine's Bistro",
+      "icon": "miso_glazed_eggplant.png"
+    },
+    {
+      "id": "morel_cream_stew",
+      "name": "Morel Cream Stew",
+      "category": "side",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "morel_mushroom",
+          "required": true
+        },
+        {
+          "id": "buffalo_milk",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "butter",
+            "butter_plus",
+            "herb_butter"
+          ]
+        },
+        {
+          "id": "urchin",
+          "required": true
+        }
+      ],
+      "baseValue": 2592,
+      "effect": "max_stamina_up",
+      "effectLevel": 4,
+      "unlockMethod": "Nadine's Bistro",
+      "icon": "morel_cream_stew.png"
+    },
+    {
+      "id": "poached_egg",
+      "name": "Poached Egg",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        },
+        {
+          "id": "soy_sauce",
+          "required": true
+        }
+      ],
+      "baseValue": 301,
+      "effect": "chat_friendship_boost",
+      "effectLevel": 1,
+      "unlockMethod": "Café Madeleine",
+      "icon": "poached_egg.png"
+    },
+    {
+      "id": "popcorn",
+      "name": "Popcorn",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "corn",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "oil",
+            "nut_oil",
+            "herb_oil",
+            "olive_oil",
+            "grape_oil"
+          ]
+        }
+      ],
+      "baseValue": 508,
+      "effect": "chat_friendship_boost",
+      "effectLevel": 2,
+      "unlockMethod": "Neighborly title, Mini Madeleine's",
+      "icon": "popcorn.png"
+    },
+    {
+      "id": "potato_pancakes",
+      "name": "Potato Pancakes",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "potato",
+          "required": true
+        },
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        }
+      ],
+      "baseValue": 429,
+      "effect": "max_stamina_up",
+      "effectLevel": 1,
+      "unlockMethod": "Café Madeleine",
+      "icon": "potato_pancakes.png"
+    },
+    {
+      "id": "quiche",
+      "name": "Quiche",
+      "category": "side",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "spinach",
+          "required": true
+        },
+        {
+          "id": "pumpkin",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "common_mushroom",
+            "shiitake_mushroom",
+            "shimeji_mushroom",
+            "porcini_mushroom",
+            "morel_mushroom",
+            "matsutake_mushroom",
+            "monarch_mushroom"
+          ]
+        }
+      ],
+      "baseValue": 1892,
+      "effect": "max_stamina_up",
+      "effectLevel": 4,
+      "unlockMethod": "Main Mushroom request from Mina",
+      "icon": "quiche.png"
+    },
+    {
+      "id": "rolled_egg",
+      "name": "Rolled Egg",
+      "category": "side",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        },
+        {
+          "id": "soy_sauce",
+          "required": true
+        },
+        {
+          "id": "sugar",
+          "required": true
+        }
+      ],
+      "baseValue": 801,
+      "effect": "max_stamina_up",
+      "effectLevel": 2,
+      "unlockMethod": "Clara's Diner",
+      "icon": "rolled_egg.png"
+    },
+    {
+      "id": "sashimi",
+      "name": "Sashimi",
+      "category": "side",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "amur_minnow",
+            "dace",
+            "pale_chub",
+            "sculpin",
+            "dark_chub",
+            "bitterling",
+            "tamoroko",
+            "rainbow_trout",
+            "silver_carp",
+            "basa"
+          ]
+        }
+      ],
+      "baseValue": 195,
+      "effect": "rod_durability_up",
+      "effectLevel": 1,
+      "unlockMethod": "Available at start",
+      "icon": "sashimi.png"
+    },
+    {
+      "id": "sauteed_cauliflower",
+      "name": "Sautéed Cauliflower",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "cauliflower",
+          "required": true
+        }
+      ],
+      "baseValue": 602,
+      "effect": "max_stamina_up",
+      "effectLevel": 2,
+      "unlockMethod": "Mini Madeleine's",
+      "icon": "sauteed_cauliflower.png"
+    },
+    {
+      "id": "sauteed_turnips",
+      "name": "Sautéed Turnips",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "turnip",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "butter",
+            "butter_plus",
+            "herb_butter"
+          ]
+        }
+      ],
+      "baseValue": 882,
+      "effect": "max_stamina_up",
+      "effectLevel": 2,
+      "unlockMethod": "Café Madeleine",
+      "icon": "sauteed_turnips.png"
+    },
+    {
+      "id": "scones",
+      "name": "Scones",
+      "category": "side",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "butter",
+            "butter_plus",
+            "herb_butter"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "milk_plus",
+            "buffalo_milk",
+            "buffalo_milk_plus"
+          ]
+        }
+      ],
+      "baseValue": 1155,
+      "effect": "max_stamina_up",
+      "effectLevel": 3,
+      "unlockMethod": "Café Madeleine",
+      "icon": "scones.png"
+    },
+    {
+      "id": "shumai_dumplings",
+      "name": "Shumai Dumplings",
+      "category": "side",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "onion",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "bluegill",
+            "willow_shiner",
+            "killifish",
+            "stone_moroko",
+            "pond_smelt",
+            "sweetfish",
+            "eel",
+            "marbled_eel",
+            "goldfish",
+            "crucian_carp"
+          ]
+        }
+      ],
+      "baseValue": 924,
+      "effect": "rod_durability_up",
+      "effectLevel": 2,
+      "unlockMethod": "Reeling in a Meal request from Sonia",
+      "icon": "shumai_dumplings.png"
+    },
+    {
+      "id": "soy_okara",
+      "name": "Soy Okara",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "tofu",
+          "required": true
+        },
+        {
+          "id": "carrot",
+          "required": true
+        }
+      ],
+      "baseValue": 743,
+      "effect": "max_stamina_up",
+      "effectLevel": 2,
+      "unlockMethod": "Clara's Diner",
+      "icon": "soy_okara.png"
+    },
+    {
+      "id": "spring_rolls",
+      "name": "Spring Rolls",
+      "category": "side",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "shiitake_mushroom",
+          "required": true
+        },
+        {
+          "id": "carrot",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "oil",
+            "nut_oil",
+            "herb_oil",
+            "olive_oil",
+            "grape_oil"
+          ]
+        }
+      ],
+      "baseValue": 1530,
+      "effect": "max_stamina_up",
+      "effectLevel": 3,
+      "unlockMethod": "Clara's Diner",
+      "icon": "spring_rolls.png"
+    },
+    {
+      "id": "steamed_bun",
+      "name": "Steamed Bun",
+      "category": "side",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "napa_cabbage",
+          "required": true
+        },
+        {
+          "id": "shiitake_mushroom",
+          "required": true
+        },
+        {
+          "id": "green_onion",
+          "required": true
+        }
+      ],
+      "baseValue": 1377,
+      "effect": "max_stamina_up",
+      "effectLevel": 3,
+      "unlockMethod": "Mini Madeleine's",
+      "icon": "steamed_bun.png"
+    },
+    {
+      "id": "steamed_egg_custard",
+      "name": "Steamed Egg Custard",
+      "category": "side",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        },
+        {
+          "id": "shiitake_mushroom",
+          "required": true
+        },
+        {
+          "id": "fish_cake",
+          "required": true
+        }
+      ],
+      "baseValue": 747,
+      "effect": "max_stamina_up",
+      "effectLevel": 2,
+      "unlockMethod": "Clara's Diner",
+      "icon": "steamed_egg_custard.png"
+    },
+    {
+      "id": "steamed_muffin",
+      "name": "Steamed Muffin",
+      "category": "side",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        },
+        {
+          "id": "sweet_potato",
+          "required": true
+        }
+      ],
+      "baseValue": 609,
+      "effect": "max_stamina_up",
+      "effectLevel": 2,
+      "unlockMethod": "Bug Collector title, Generous Bug Catcher title, Clara's Diner",
+      "icon": "steamed_muffin.png"
+    },
+    {
+      "id": "stew",
+      "name": "Stew",
+      "category": "side",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "milk_plus",
+            "buffalo_milk",
+            "buffalo_milk_plus"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "potato",
+            "asparagus",
+            "carrot",
+            "cabbage",
+            "turnip",
+            "cauliflower"
+          ]
+        }
+      ],
+      "baseValue": 770,
+      "effect": "chat_friendship_boost",
+      "effectLevel": 2,
+      "unlockMethod": "Nadine's Bistro",
+      "icon": "stew.png"
+    },
+    {
+      "id": "stir_fried_vegetables",
+      "name": "Stir-Fried Vegetables",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "cabbage",
+          "required": true
+        },
+        {
+          "id": "napa_cabbage",
+          "required": true
+        }
+      ],
+      "baseValue": 1276,
+      "effect": "max_stamina_up",
+      "effectLevel": 3,
+      "unlockMethod": "Clara's Diner",
+      "icon": "stir_fried_vegetables.png"
+    },
+    {
+      "id": "stuffed_cabbage",
+      "name": "Stuffed Cabbage",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "cabbage",
+          "required": true
+        },
+        {
+          "id": "carrot",
+          "required": true
+        }
+      ],
+      "baseValue": 1213,
+      "effect": "max_stamina_up",
+      "effectLevel": 3,
+      "unlockMethod": "Famed Foodie request from Madeleine",
+      "icon": "stuffed_cabbage.png"
+    },
+    {
+      "id": "toast",
+      "name": "Toast",
+      "category": "side",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "bread",
+            "white_bread"
+          ]
+        }
+      ],
+      "baseValue": 234,
+      "effect": "max_stamina_up",
+      "effectLevel": 1,
+      "unlockMethod": "Bookshelves in June's House",
+      "icon": "toast.png"
+    },
+    {
+      "id": "tofu",
+      "name": "Tofu",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "soybean",
+          "required": true
+        },
+        {
+          "id": "soy_milk",
+          "required": true
+        }
+      ],
+      "baseValue": 205,
+      "effect": "max_stamina_up",
+      "effectLevel": 1,
+      "unlockMethod": "Mini Madeleine's",
+      "icon": "tofu.png"
+    },
+    {
+      "id": "tofu_skin",
+      "name": "Tofu Skin",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "soy_milk",
+          "required": true
+        }
+      ],
+      "baseValue": 111,
+      "effect": "max_stamina_up",
+      "effectLevel": 1,
+      "unlockMethod": "Clara's Diner",
+      "icon": "tofu_skin.png"
+    },
+    {
+      "id": "white_bread",
+      "name": "White Bread",
+      "category": "side",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "rice_flour",
+          "required": true
+        }
+      ],
+      "baseValue": 182,
+      "effect": null,
+      "effectLevel": null,
+      "unlockMethod": "Nadine's Bistro",
+      "icon": "white_bread.png"
+    },
+    {
+      "id": "babaocai",
+      "name": "Babaocai",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "napa_cabbage",
+          "required": true
+        },
+        {
+          "id": "carrot",
+          "required": true
+        },
+        {
+          "id": "green_bell_pepper",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "common_mushroom",
+            "shiitake_mushroom",
+            "shimeji_mushroom",
+            "porcini_mushroom",
+            "morel_mushroom",
+            "matsutake_mushroom",
+            "monarch_mushroom"
+          ]
+        }
+      ],
+      "baseValue": 1509,
+      "effect": "watering_rare_crop",
+      "effectLevel": 3,
+      "unlockMethod": "Hydrator title, Nadine's Bistro",
+      "icon": "babaocai.png"
+    },
+    {
+      "id": "curry_rice",
+      "name": "Curry Rice",
+      "category": "main_dish",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "cooked_rice",
+          "required": true
+        },
+        {
+          "id": "curry_powder",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "potato",
+            "carrot",
+            "onion"
+          ]
+        }
+      ],
+      "baseValue": 911,
+      "effect": null,
+      "effectLevel": null,
+      "unlockMethod": "Clara's Diner, Flex it out! mail from Felix",
+      "icon": "curry_rice.png"
+    },
+    {
+      "id": "egg_over_rice",
+      "name": "Egg Over Rice",
+      "category": "main_dish",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        },
+        {
+          "id": "cooked_rice",
+          "required": true
+        }
+      ],
+      "baseValue": 248,
+      "effect": null,
+      "effectLevel": null,
+      "unlockMethod": "Available at start",
+      "icon": "egg_over_rice.png"
+    },
+    {
+      "id": "grilled_fish",
+      "name": "Grilled Fish",
+      "category": "main_dish",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "amur_minnow",
+            "dace",
+            "pale_chub",
+            "sculpin",
+            "dark_chub",
+            "bitterling",
+            "tamoroko",
+            "rainbow_trout",
+            "silver_carp",
+            "basa"
+          ]
+        }
+      ],
+      "baseValue": 195,
+      "effect": null,
+      "effectLevel": null,
+      "unlockMethod": "Available at start",
+      "icon": "grilled_fish.png"
+    },
+    {
+      "id": "omelet",
+      "name": "Omelet",
+      "category": "main_dish",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "butter",
+            "butter_plus",
+            "herb_butter"
+          ]
+        }
+      ],
+      "baseValue": 721,
+      "effect": null,
+      "effectLevel": null,
+      "unlockMethod": "Café Madeleine",
+      "icon": "omelet.png"
+    },
+    {
+      "id": "pasta",
+      "name": "Pasta",
+      "category": "main_dish",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        }
+      ],
+      "baseValue": 328,
+      "effect": null,
+      "effectLevel": null,
+      "unlockMethod": "Café Madeleine",
+      "icon": "pasta.png"
+    },
+    {
+      "id": "pizza",
+      "name": "Pizza",
+      "category": "main_dish",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "tomato",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "cheese",
+            "cheese_plus",
+            "herb_cheese"
+          ]
+        }
+      ],
+      "baseValue": 1142,
+      "effect": null,
+      "effectLevel": null,
+      "unlockMethod": "Face of Zephyr Town title, Nadine's Bistro",
+      "icon": "pizza.png"
+    },
+    {
+      "id": "sandwich",
+      "name": "Sandwich",
+      "category": "main_dish",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "bread",
+            "white_bread",
+            "baguettes",
+            "focaccia_bread"
+          ]
+        },
+        {
+          "id": "tomato",
+          "required": true
+        },
+        {
+          "id": "cucumber",
+          "required": true
+        }
+      ],
+      "baseValue": 375,
+      "effect": null,
+      "effectLevel": null,
+      "unlockMethod": "Café Madeleine",
+      "icon": "sandwich.png"
+    },
+    {
+      "id": "fried_rice",
+      "name": "Fried Rice",
+      "category": "main_dish",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "cooked_rice",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        },
+        {
+          "id": "onion",
+          "required": true
+        },
+        {
+          "id": "carrot",
+          "required": true
+        }
+      ],
+      "baseValue": 1316,
+      "effect": null,
+      "effectLevel": null,
+      "unlockMethod": "Clara's Diner",
+      "icon": "fried_rice.png"
+    },
+    {
+      "id": "omelet_rice",
+      "name": "Omelet Rice",
+      "category": "main_dish",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "omelet",
+          "required": true
+        },
+        {
+          "id": "cooked_rice",
+          "required": true
+        }
+      ],
+      "baseValue": 1410,
+      "effect": null,
+      "effectLevel": null,
+      "unlockMethod": "Bookshelves in Gabriel's House",
+      "icon": "omelet_rice.png"
+    },
+    {
+      "id": "udon",
+      "name": "Udon",
+      "category": "main_dish",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "fish_cake",
+          "required": true
+        },
+        {
+          "id": "green_onion",
+          "required": true
+        }
+      ],
+      "baseValue": 647,
+      "effect": null,
+      "effectLevel": null,
+      "unlockMethod": "Clara's Diner",
+      "icon": "udon.png"
+    },
+    {
+      "id": "sushi",
+      "name": "Sushi",
+      "category": "main_dish",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "sashimi",
+          "required": true
+        },
+        {
+          "id": "cooked_rice",
+          "required": true
+        },
+        {
+          "id": "vinegar",
+          "required": true
+        }
+      ],
+      "baseValue": 657,
+      "effect": null,
+      "effectLevel": null,
+      "unlockMethod": "Let's get cooking! mail, Clara's Diner",
+      "icon": "sushi.png"
+    },
+    {
+      "id": "tempura",
+      "name": "Tempura",
+      "category": "main_dish",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "oil",
+            "nut_oil",
+            "herb_oil",
+            "olive_oil",
+            "grape_oil"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "shiitake_mushroom",
+            "pumpkin",
+            "eggplant",
+            "sweet_potato",
+            "icefish",
+            "pond_smelt"
+          ]
+        }
+      ],
+      "baseValue": 1152,
+      "effect": null,
+      "effectLevel": null,
+      "unlockMethod": "Clara's Diner",
+      "icon": "tempura.png"
+    },
+    {
+      "id": "tempura_udon",
+      "name": "Tempura Udon",
+      "category": "main_dish",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "tempura",
+          "required": true
+        }
+      ],
+      "baseValue": 2188,
+      "effect": null,
+      "effectLevel": null,
+      "unlockMethod": "Clara's Diner",
+      "icon": "tempura_udon.png"
+    },
+    {
+      "id": "tempura_soba",
+      "name": "Tempura Soba",
+      "category": "main_dish",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "buckwheat_flour",
+          "required": true
+        },
+        {
+          "id": "tempura",
+          "required": true
+        }
+      ],
+      "baseValue": 2641,
+      "effect": null,
+      "effectLevel": null,
+      "unlockMethod": "Clara's Diner",
+      "icon": "tempura_soba.png"
+    },
+    {
+      "id": "zaru_soba",
+      "name": "Zaru Soba",
+      "category": "main_dish",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "buckwheat_flour",
+          "required": true
+        },
+        {
+          "id": "wheat_flour",
+          "required": true
+        }
+      ],
+      "baseValue": 838,
+      "effect": null,
+      "effectLevel": null,
+      "unlockMethod": "Clara's Diner",
+      "icon": "zaru_soba.png"
+    },
+    {
+      "id": "risotto",
+      "name": "Risotto",
+      "category": "main_dish",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "rice",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "cheese",
+            "cheese_plus",
+            "herb_cheese"
+          ]
+        },
+        {
+          "id": "tomato",
+          "required": true
+        },
+        {
+          "id": "onion",
+          "required": true
+        }
+      ],
+      "baseValue": 1552,
+      "effect": null,
+      "effectLevel": null,
+      "unlockMethod": "Café Madeleine",
+      "icon": "risotto.png"
+    },
+    {
+      "id": "onigiri",
+      "name": "Onigiri",
+      "category": "main_dish",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "cooked_rice",
+          "required": true
+        },
+        {
+          "id": "seaweed",
+          "required": true
+        }
+      ],
+      "baseValue": 370,
+      "effect": null,
+      "effectLevel": null,
+      "unlockMethod": "Café Madeleine",
+      "icon": "onigiri.png"
+    },
+    {
+      "id": "apple_pie",
+      "name": "Apple Pie",
+      "category": "dessert",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "butter",
+            "butter_plus",
+            "herb_butter"
+          ]
+        },
+        {
+          "id": "apple",
+          "required": true
+        }
+      ],
+      "baseValue": 1458,
+      "effect": "petting_rare_item",
+      "effectLevel": 3,
+      "unlockMethod": "Calm Amongst Chaos request from Clara",
+      "icon": "apple_pie.png"
+    },
+    {
+      "id": "baked_apple",
+      "name": "Baked Apple",
+      "category": "dessert",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "apple",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "butter",
+            "butter_plus",
+            "herb_butter"
+          ]
+        }
+      ],
+      "baseValue": 838,
+      "effect": "petting_happiness_up",
+      "effectLevel": 2,
+      "unlockMethod": "Felix's Fixings (Autumn)",
+      "icon": "baked_apple.png"
+    },
+    {
+      "id": "cake",
+      "name": "Cake",
+      "category": "dessert",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "milk_plus",
+            "buffalo_milk",
+            "buffalo_milk_plus"
+          ]
+        }
+      ],
+      "baseValue": 601,
+      "effect": "petting_happiness_up",
+      "effectLevel": 2,
+      "unlockMethod": "Cheer Captain title, Nadine's Bistro, Everything changes! mail from Gabriel",
+      "icon": "cake.png"
+    },
+    {
+      "id": "cookies",
+      "name": "Cookies",
+      "category": "dessert",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        }
+      ],
+      "baseValue": 328,
+      "effect": "petting_rare_item",
+      "effectLevel": 1,
+      "unlockMethod": "Cheer Leader title, Café Madeleine",
+      "icon": "cookies.png"
+    },
+    {
+      "id": "ice_cream",
+      "name": "Ice Cream",
+      "category": "dessert",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "milk_plus",
+            "buffalo_milk",
+            "buffalo_milk_plus"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        },
+        {
+          "id": "sugar",
+          "required": true
+        }
+      ],
+      "baseValue": 832,
+      "effect": "petting_happiness_up",
+      "effectLevel": 2,
+      "unlockMethod": "Bookshelves in June's House",
+      "icon": "ice_cream.png"
+    },
+    {
+      "id": "pudding",
+      "name": "Pudding",
+      "category": "dessert",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "milk_plus",
+            "buffalo_milk",
+            "buffalo_milk_plus"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        }
+      ],
+      "baseValue": 328,
+      "effect": "petting_rare_item",
+      "effectLevel": 1,
+      "unlockMethod": "Generous Forager title, Nadine's Bistro, Family seal of approval! mail from Felix",
+      "icon": "pudding.png"
+    },
+    {
+      "id": "pancakes",
+      "name": "Pancakes",
+      "category": "dessert",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "milk_plus",
+            "buffalo_milk",
+            "buffalo_milk_plus"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "honey",
+            "invigorating_honey",
+            "mellow_honey",
+            "royal_honey"
+          ]
+        }
+      ],
+      "baseValue": 1152,
+      "effect": "petting_happiness_up",
+      "effectLevel": 3,
+      "unlockMethod": "Café Madeleine",
+      "icon": "pancakes.png"
+    },
+    {
+      "id": "chocolate_cake",
+      "name": "Chocolate Cake",
+      "category": "dessert",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "milk_plus",
+            "buffalo_milk",
+            "buffalo_milk_plus"
+          ]
+        },
+        {
+          "id": "chocolate",
+          "required": true
+        }
+      ],
+      "baseValue": 1242,
+      "effect": "petting_happiness_up",
+      "effectLevel": 3,
+      "unlockMethod": "Clara's Diner",
+      "icon": "chocolate_cake.png"
+    },
+    {
+      "id": "cheesecake",
+      "name": "Cheesecake",
+      "category": "dessert",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        },
+        {
+          "id": "buffalo_milk",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "cheese",
+            "cheese_plus",
+            "herb_cheese"
+          ]
+        }
+      ],
+      "baseValue": 1602,
+      "effect": "petting_happiness_up",
+      "effectLevel": 3,
+      "unlockMethod": "Dairy Driver title, Nadine's Bistro",
+      "icon": "cheesecake.png"
+    },
+    {
+      "id": "donuts",
+      "name": "Donuts",
+      "category": "dessert",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        },
+        {
+          "id": "sugar",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "oil",
+            "nut_oil",
+            "herb_oil",
+            "olive_oil",
+            "grape_oil"
+          ]
+        }
+      ],
+      "baseValue": 1332,
+      "effect": "petting_happiness_up",
+      "effectLevel": 3,
+      "unlockMethod": "Excellent Eggs request from Sylvia, Me and mom baked em! mail from Sylvia",
+      "icon": "donuts.png"
+    },
+    {
+      "id": "churros",
+      "name": "Churros",
+      "category": "dessert",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "oil",
+            "nut_oil",
+            "herb_oil",
+            "olive_oil",
+            "grape_oil"
+          ]
+        },
+        {
+          "id": "sugar",
+          "required": true
+        }
+      ],
+      "baseValue": 1332,
+      "effect": "petting_happiness_up",
+      "effectLevel": 3,
+      "unlockMethod": "Scene Stealer title, Mini Madeleine's, A rare treat! mail from Maple",
+      "icon": "churros.png"
+    },
+    {
+      "id": "baumkuchen",
+      "name": "Baumkuchen",
+      "category": "dessert",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "milk_plus",
+            "buffalo_milk",
+            "buffalo_milk_plus"
+          ]
+        },
+        {
+          "id": "sugar",
+          "required": true
+        }
+      ],
+      "baseValue": 1242,
+      "effect": "petting_happiness_up",
+      "effectLevel": 3,
+      "unlockMethod": "It's Gotta Be Yummy request from Laurie",
+      "icon": "baumkuchen.png"
+    },
+    {
+      "id": "dango",
+      "name": "Dango",
+      "category": "dessert",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "refined_rice_flour",
+          "required": true
+        }
+      ],
+      "baseValue": 588,
+      "effect": "petting_happiness_up",
+      "effectLevel": 2,
+      "unlockMethod": "Café Madeleine",
+      "icon": "dango.png"
+    },
+    {
+      "id": "apple_juice",
+      "name": "Apple Juice",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "apple",
+          "required": true
+        }
+      ],
+      "baseValue": 221,
+      "effect": "pet_training_up",
+      "effectLevel": 1,
+      "unlockMethod": "Mini Madeleine's",
+      "icon": "apple_juice.png"
+    },
+    {
+      "id": "grape_juice",
+      "name": "Grape Juice",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "red_grapes",
+          "required": true
+        }
+      ],
+      "baseValue": 228,
+      "effect": "pet_training_up",
+      "effectLevel": 1,
+      "unlockMethod": "First Juice Festival, Nadine's Bistro",
+      "icon": "grape_juice.png"
+    },
+    {
+      "id": "strawberry_juice",
+      "name": "Strawberry Juice",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "strawberry",
+          "required": true
+        }
+      ],
+      "baseValue": 156,
+      "effect": "chat_friendship_boost",
+      "effectLevel": 1,
+      "unlockMethod": "Café Madeleine",
+      "icon": "strawberry_juice.png"
+    },
+    {
+      "id": "tomato_juice",
+      "name": "Tomato Juice",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "tomato",
+          "required": true
+        }
+      ],
+      "baseValue": 55,
+      "effect": "chat_friendship_boost",
+      "effectLevel": 1,
+      "unlockMethod": "Café Madeleine",
+      "icon": "tomato_juice.png"
+    },
+    {
+      "id": "orange_juice",
+      "name": "Orange Juice",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "orange",
+          "required": true
+        }
+      ],
+      "baseValue": 180,
+      "effect": "pet_training_up",
+      "effectLevel": 1,
+      "unlockMethod": "Mini Madeleine's",
+      "icon": "orange_juice.png"
+    },
+    {
+      "id": "warm_milk",
+      "name": "Warm Milk",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "milk_plus",
+            "buffalo_milk",
+            "buffalo_milk_plus"
+          ]
+        }
+      ],
+      "baseValue": 195,
+      "effect": "chat_friendship_boost",
+      "effectLevel": 1,
+      "unlockMethod": "Available at start, Café Madeleine",
+      "icon": "warm_milk.png"
+    },
+    {
+      "id": "hot_coffee",
+      "name": "Hot Coffee",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "coffee_pack",
+          "required": true
+        }
+      ],
+      "baseValue": 380,
+      "effect": "chat_friendship_boost",
+      "effectLevel": 1,
+      "unlockMethod": "Café Madeleine",
+      "icon": "hot_coffee.png"
+    },
+    {
+      "id": "black_tea",
+      "name": "Black Tea",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "black_tea_tin",
+          "required": true
+        }
+      ],
+      "baseValue": 401,
+      "effect": "watering_rare_crop",
+      "effectLevel": 1,
+      "unlockMethod": "Café Madeleine, A trip with a goddess mail from Erik",
+      "icon": "black_tea.png"
+    },
+    {
+      "id": "green_tea",
+      "name": "Green Tea",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "green_tea_tin",
+          "required": true
+        }
+      ],
+      "baseValue": 182,
+      "effect": "chat_friendship_boost",
+      "effectLevel": 1,
+      "unlockMethod": "Clara's Diner",
+      "icon": "green_tea.png"
+    },
+    {
+      "id": "honey_juice",
+      "name": "Honey Juice",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "honey",
+            "invigorating_honey",
+            "mellow_honey",
+            "royal_honey"
+          ]
+        }
+      ],
+      "baseValue": 325,
+      "effect": "stamina_saver",
+      "effectLevel": 1,
+      "unlockMethod": "Generous Beekeeper title, Café Madeleine",
+      "icon": "honey_juice.png"
+    },
+    {
+      "id": "walnut_juice",
+      "name": "Walnut Juice",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "bottled_walnuts",
+          "required": true
+        }
+      ],
+      "baseValue": 260,
+      "effect": "chat_friendship_boost",
+      "effectLevel": 1,
+      "unlockMethod": "Available at start",
+      "icon": "walnut_juice.png"
+    },
+    {
+      "id": "apple_jam",
+      "name": "Apple Jam",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "apple",
+          "required": true
+        },
+        {
+          "id": "sugar",
+          "required": true
+        },
+        {
+          "id": "lemon",
+          "required": true
+        }
+      ],
+      "baseValue": 932,
+      "effect": "pet_training_up",
+      "effectLevel": 2,
+      "unlockMethod": "Mini Madeleine's",
+      "icon": "apple_jam.png"
+    },
+    {
+      "id": "strawberry_jam",
+      "name": "Strawberry Jam",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "strawberry",
+          "required": true
+        },
+        {
+          "id": "sugar",
+          "required": true
+        },
+        {
+          "id": "lemon",
+          "required": true
+        }
+      ],
+      "baseValue": 855,
+      "effect": "chat_friendship_boost",
+      "effectLevel": 2,
+      "unlockMethod": "Mini Madeleine's",
+      "icon": "strawberry_jam.png"
+    },
+    {
+      "id": "grape_jam",
+      "name": "Grape Jam",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "red_grapes",
+          "required": true
+        },
+        {
+          "id": "sugar",
+          "required": true
+        },
+        {
+          "id": "lemon",
+          "required": true
+        }
+      ],
+      "baseValue": 1007,
+      "effect": "pet_training_up",
+      "effectLevel": 3,
+      "unlockMethod": "Mini Madeleine's",
+      "icon": "grape_jam.png"
+    },
+    {
+      "id": "blueberry_jam",
+      "name": "Blueberry Jam",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "blueberry",
+          "required": true
+        },
+        {
+          "id": "sugar",
+          "required": true
+        },
+        {
+          "id": "lemon",
+          "required": true
+        }
+      ],
+      "baseValue": 863,
+      "effect": "pet_training_up",
+      "effectLevel": 2,
+      "unlockMethod": "Mini Madeleine's",
+      "icon": "blueberry_jam.png"
+    },
+    {
+      "id": "soy_milk",
+      "name": "Soy Milk",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "soybean",
+          "required": true
+        }
+      ],
+      "baseValue": 85,
+      "effect": "max_stamina_up",
+      "effectLevel": 1,
+      "unlockMethod": "Café Madeleine",
+      "icon": "soy_milk.png"
+    },
+    {
+      "id": "simmered_seaweed",
+      "name": "Simmered Seaweed",
+      "category": "other",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "seaweed",
+          "required": true
+        },
+        {
+          "id": "soy_sauce",
+          "required": true
+        }
+      ],
+      "baseValue": 424,
+      "effect": "rod_durability_up",
+      "effectLevel": 1,
+      "unlockMethod": "Clara's Diner",
+      "icon": "simmered_seaweed.png"
+    },
+    {
+      "id": "happy_forest_mix",
+      "name": "Happy Forest Mix",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "walnut",
+          "required": true
+        }
+      ],
+      "baseValue": 130,
+      "effect": "happy_energy_gain",
+      "effectLevel": 1,
+      "unlockMethod": "Sprite's Bazaar Stand",
+      "icon": "happy_forest_mix.png"
+    },
+    {
+      "id": "happy_chef_salad",
+      "name": "Happy Chef Salad",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        },
+        {
+          "id": "corn",
+          "required": true
+        },
+        {
+          "id": "onion",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "cucumber",
+            "onion",
+            "asparagus",
+            "tomato",
+            "red_bell_pepper",
+            "carrot",
+            "turnip",
+            "sweet_potato",
+            "pumpkin",
+            "eggplant"
+          ]
+        }
+      ],
+      "baseValue": 1233,
+      "effect": "happy_energy_gain",
+      "effectLevel": 3,
+      "unlockMethod": "Sprite's Bazaar Stand",
+      "icon": "happy_chef_salad.png"
+    },
+    {
+      "id": "happy_mushroom_fry",
+      "name": "Happy Mushroom Fry",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "common_mushroom",
+            "shiitake_mushroom",
+            "shimeji_mushroom",
+            "porcini_mushroom",
+            "morel_mushroom",
+            "matsutake_mushroom",
+            "monarch_mushroom"
+          ]
+        },
+        {
+          "id": "salt",
+          "required": true
+        }
+      ],
+      "baseValue": 662,
+      "effect": "happy_energy_gain",
+      "effectLevel": 2,
+      "unlockMethod": "Sprite's Bazaar Stand",
+      "icon": "happy_mushroom_fry.png"
+    }
+  ],
+  "effects": [
+    {
+      "id": "stamina_saver",
+      "name": "Stamina Saver",
+      "description": "Reduces stamina consumption for actions",
+      "maxLevel": 4,
+      "category": "stamina"
+    },
+    {
+      "id": "max_stamina_up",
+      "name": "Max Stamina Up",
+      "description": "Temporarily increases maximum stamina",
+      "maxLevel": 4,
+      "category": "stamina"
+    },
+    {
+      "id": "run_speed_up",
+      "name": "Run Speed Up",
+      "description": "Increases movement speed",
+      "maxLevel": 4,
+      "category": "movement"
+    },
+    {
+      "id": "watering_rare_crop",
+      "name": "Watering Rare Crop %",
+      "description": "Increases chance of rare crop mutation when watering",
+      "maxLevel": 4,
+      "category": "farming"
+    },
+    {
+      "id": "rod_durability_up",
+      "name": "Rod Durability Up",
+      "description": "Reduces fishing rod durability loss",
+      "maxLevel": 4,
+      "category": "fishing"
+    },
+    {
+      "id": "chat_friendship_boost",
+      "name": "Chat Friendship Boost",
+      "description": "Increases friendship gained from conversations",
+      "maxLevel": 4,
+      "category": "social"
+    },
+    {
+      "id": "petting_happiness_up",
+      "name": "Petting Happiness Up",
+      "description": "Increases animal happiness from petting",
+      "maxLevel": 4,
+      "category": "animals"
+    },
+    {
+      "id": "petting_rare_item",
+      "name": "Petting Rare Item %",
+      "description": "Increases chance of rare items when petting animals",
+      "maxLevel": 4,
+      "category": "animals"
+    },
+    {
+      "id": "pet_training_up",
+      "name": "Pet Training Up",
+      "description": "Increases effectiveness of pet training",
+      "maxLevel": 4,
+      "category": "animals"
+    },
+    {
+      "id": "happy_energy_gain",
+      "name": "Happy Energy Gain",
+      "description": "Increases Happy Energy earned at the bazaar",
+      "maxLevel": 4,
+      "category": "bazaar"
+    },
+    {
+      "id": "jump_distance_up",
+      "name": "Jump Distance Up",
+      "description": "Increases jump distance",
+      "maxLevel": 1,
+      "category": "movement"
+    },
+    {
+      "id": "double_forage",
+      "name": "Double Forage",
+      "description": "Chance to gather double foraged items",
+      "maxLevel": 1,
+      "category": "foraging"
+    }
+  ],
+  "categories": {
+    "ingredientCategories": [
+      {
+        "id": "crops",
+        "name": "Crops",
+        "icon": "crops.png",
+        "order": 1
+      },
+      {
+        "id": "fruits",
+        "name": "Fruits",
+        "icon": "fruits.png",
+        "order": 2
+      },
+      {
+        "id": "animal_products",
+        "name": "Animal Products",
+        "icon": "animal.png",
+        "order": 3
+      },
+      {
+        "id": "fish",
+        "name": "Fish",
+        "icon": "fish.png",
+        "order": 4
+      },
+      {
+        "id": "foraged",
+        "name": "Foraged Items",
+        "icon": "foraged.png",
+        "order": 5
+      },
+      {
+        "id": "mushrooms",
+        "name": "Mushrooms",
+        "icon": "mushrooms.png",
+        "order": 6
+      },
+      {
+        "id": "processed",
+        "name": "Processed Goods",
+        "icon": "processed.png",
+        "order": 7
+      },
+      {
+        "id": "prepared",
+        "name": "Prepared Ingredients",
+        "icon": "prepared.png",
+        "order": 8
+      },
+      {
+        "id": "rare_crops",
+        "name": "Rare Crops",
+        "icon": "rare.png",
+        "order": 9
+      },
+      {
+        "id": "other",
+        "name": "Other",
+        "icon": "other.png",
+        "order": 10
+      }
+    ],
+    "recipeCategories": [
+      {
+        "id": "salad",
+        "name": "Salads",
+        "icon": "salad.png"
+      },
+      {
+        "id": "soup",
+        "name": "Soups",
+        "icon": "soup.png"
+      },
+      {
+        "id": "side",
+        "name": "Sides",
+        "icon": "side.png"
+      },
+      {
+        "id": "main_dish",
+        "name": "Main Dishes",
+        "icon": "main.png"
+      },
+      {
+        "id": "dessert",
+        "name": "Desserts",
+        "icon": "dessert.png"
+      },
+      {
+        "id": "other",
+        "name": "Other",
+        "icon": "other.png"
+      }
+    ],
+    "utensils": [
+      {
+        "id": "none",
+        "name": "No Utensil",
+        "unlockCost": 0
+      },
+      {
+        "id": "pot",
+        "name": "Pot",
+        "unlockCost": 10000
+      },
+      {
+        "id": "frying_pan",
+        "name": "Frying Pan",
+        "unlockCost": 10000
+      },
+      {
+        "id": "seasoning_set",
+        "name": "Seasoning Set",
+        "unlockCost": 10000
+      }
+    ],
+    "variantGroups": {
+      "cheese": [
+        "cheese",
+        "cheese_plus",
+        "herb_cheese"
+      ],
+      "butter": [
+        "butter",
+        "butter_plus",
+        "herb_butter"
+      ],
+      "yogurt": [
+        "yogurt",
+        "yogurt_plus",
+        "fruit_yogurt"
+      ],
+      "mayonnaise": [
+        "mayonnaise",
+        "mayonnaise_plus",
+        "herb_mayonnaise"
+      ],
+      "milk": [
+        "milk",
+        "milk_plus",
+        "buffalo_milk",
+        "buffalo_milk_plus"
+      ],
+      "egg": [
+        "egg",
+        "egg_plus",
+        "silkie_egg",
+        "silkie_egg_plus"
+      ],
+      "mushroom": [
+        "common_mushroom",
+        "shiitake_mushroom",
+        "shimeji_mushroom",
+        "porcini_mushroom",
+        "morel_mushroom",
+        "matsutake_mushroom",
+        "monarch_mushroom"
+      ],
+      "oil": [
+        "oil",
+        "olive_oil",
+        "nut_oil",
+        "herb_oil",
+        "grape_oil",
+        "pumpkin_oil"
+      ],
+      "honey": [
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey"
+      ],
+      "jam": [
+        "apple_jam",
+        "strawberry_jam",
+        "grape_jam",
+        "blueberry_jam"
+      ],
+      "bread": [
+        "bread",
+        "white_bread",
+        "baguettes",
+        "focaccia_bread"
+      ],
+      "flour": [
+        "wheat_flour",
+        "rice_flour"
+      ],
+      "herb": [
+        "mint",
+        "chamomile",
+        "lavender"
+      ]
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "game": "Story of Seasons: Grand Bazaar (Switch)",
+    "recipeCount": 128,
+    "ingredientCount": 219,
+    "effectCount": 12,
+    "source": "stratswiki.com/sos-gb",
+    "normalizedAt": "2025-11-25 11:46:45"
+  }
+}
