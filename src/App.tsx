@@ -19,8 +19,6 @@ function App() {
   const effectMap = useEffectMap(effects);
   const characterMap = useCharacterMap(characters);
   const [activeTab, setActiveTab] = useState<'ingredients' | 'recipes'>('ingredients');
-  const [ingredientsFiltersExpanded, setIngredientsFiltersExpanded] = useState(false);
-  const [recipesFiltersExpanded, setRecipesFiltersExpanded] = useState(false);
   const { selectedIngredients, ownedUtensils, clearInventory } = useInventoryStore();
   const { showBookmarksView, setShowBookmarksView } = useSettingsStore();
   const { bookmarkedRecipes } = useBookmarkStore();
@@ -337,24 +335,24 @@ function App() {
     }
 
     if (activeTab === tab) {
-      // Already on this tab - only toggle filters if clicked on icon/text area
+      // Already on this tab - toggle filters visibility if clicked on icon/text area
       if (target instanceof HTMLElement) {
         const isFilterToggleArea = target.hasAttribute('data-filter-toggle') || target.closest('[data-filter-toggle]');
         if (!isFilterToggleArea) {
           return;
         }
       }
-      // Toggle filters
+      // Toggle filters - if visible (scrollTop near 0), hide them; otherwise reveal them
       if (tab === 'ingredients') {
-        setIngredientsFiltersExpanded(!ingredientsFiltersExpanded);
+        ingredientSelectorRef.current?.toggleFilters?.();
       } else {
-        setRecipesFiltersExpanded(!recipesFiltersExpanded);
+        recipeResultsRef.current?.toggleFilters?.();
       }
     } else {
       // Switching tabs
       setActiveTab(tab);
     }
-  }, [activeTab, ingredientsFiltersExpanded, recipesFiltersExpanded]);
+  }, [activeTab]);
 
   // Touch handlers for tabs - respond immediately without 300ms delay
   const handleTabTouchStart = useCallback((tab: 'ingredients' | 'recipes', e: React.TouchEvent) => {
@@ -411,7 +409,7 @@ function App() {
       {/* Content wrapper with khaki background */}
       <div className="flex-1 flex flex-col bg-[var(--color-background)]" style={{ minHeight: '150vh' }}>
       {/* Mobile Tab Navigation - folder tab style (phones only) */}
-      <div className="tablet:hidden flex gap-2 bg-[var(--color-surface-elevated)] px-2 pt-2 select-none no-transitions" style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none' }}>
+      <div className="tablet:hidden flex gap-2 bg-[var(--color-surface-elevated)] px-2 pt-2 select-none no-transitions relative z-10 tab-bar-border" style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none' }}>
         {showBookmarksView ? (
           /* Bookmarks view - single tab */
           <div className="flex-1 relative">
@@ -616,7 +614,6 @@ function App() {
             characterMap={characterMap}
             giftToCharacters={giftToCharacters}
             isMobile={true}
-            filtersExpanded={false}
             bookmarksOnly={true}
           />
         </div>
@@ -627,8 +624,6 @@ function App() {
             ingredients={ingredients}
             categories={categories.ingredientCategories}
             isMobile={true}
-            filtersExpanded={ingredientsFiltersExpanded}
-            onFiltersExpandedChange={setIngredientsFiltersExpanded}
             showOnlySelected={showOnlySelected}
             onShowOnlySelectedChange={setShowOnlySelected}
           />
@@ -648,8 +643,6 @@ function App() {
             characterMap={characterMap}
             giftToCharacters={giftToCharacters}
             isMobile={true}
-            filtersExpanded={recipesFiltersExpanded}
-            onFiltersExpandedChange={setRecipesFiltersExpanded}
           />
         </div>
       </main>

@@ -1,4 +1,4 @@
-import { useMemo, forwardRef, useImperativeHandle, useRef, useState } from 'react';
+import { useMemo, forwardRef, useImperativeHandle, useRef, useState, useCallback } from 'react';
 import Fuse from 'fuse.js';
 import type { Recipe, Ingredient, Effect, VariantGroups, RecipeCategory, ProcessingRecipe, Character, GiftToCharacters } from '../../types';
 import { useInventoryStore } from '../../store/inventoryStore';
@@ -6,13 +6,16 @@ import { useSettingsStore } from '../../store/settingsStore';
 import { useBookmarkStore } from '../../store/bookmarkStore';
 import { useOwnedRecipesStore } from '../../store/ownedRecipesStore';
 import { useScrollToTop, type ScrollToTopHandle } from '../../hooks/useScrollToTop';
+import { useAnimatedVisibility } from '../../hooks/useAnimatedVisibility';
 import { findRecipes, expandInventoryWithProcessing } from '../../lib/recipeEngine';
 import { RecipeCard } from './RecipeCard';
 import { SwipeableRecipeCard } from './SwipeableRecipeCard';
+import { FocusDock } from './FocusDock';
 import { SearchInput } from '../ui/SearchInput';
 import { CollapsibleSection } from '../ui/CollapsibleSection';
 import { MultiSelectDropdown } from '../ui/MultiSelectDropdown';
 import { SortDropdown } from '../ui/SortDropdown';
+import { FocusToggleButton } from '../ui/FocusToggleButton';
 
 interface RecipeResultsProps {
   recipes: Recipe[];
@@ -26,8 +29,6 @@ interface RecipeResultsProps {
   characterMap: Map<string, Character>;
   giftToCharacters: GiftToCharacters;
   isMobile?: boolean;
-  filtersExpanded?: boolean;
-  onFiltersExpandedChange?: (expanded: boolean) => void;
   bookmarksOnly?: boolean;
 }
 
@@ -47,16 +48,50 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
   characterMap,
   giftToCharacters,
   isMobile = false,
-  filtersExpanded: externalFiltersExpanded,
   bookmarksOnly = false,
 }, ref) {
   const { scrollRef, scrollToTop } = useScrollToTop();
+  const headerRef = useRef<HTMLDivElement>(null);
   const readySectionRef = useRef<HTMLDivElement>(null);
   const processingSectionRef = useRef<HTMLDivElement>(null);
 
   // Controlled open state for collapsible sections
   const [readySectionOpen, setReadySectionOpen] = useState(true);
   const [processingSectionOpen, setProcessingSectionOpen] = useState(true);
+
+  // Mobile filter overlay state with animation
+  const [filterOverlayOpen, setFilterOverlayOpen] = useState(false);
+  const { shouldRender: showFilterOverlay, isAnimatingOut: isFilterClosing } = useAnimatedVisibility(filterOverlayOpen, 200);
+
+  // Scroll to filters (top of scroll container) - desktop/tablet only
+  const scrollToFilters = useCallback(() => {
+    scrollRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [scrollRef]);
+
+  // Hide filters - desktop/tablet scrolls, mobile closes overlay
+  const hideFilters = useCallback(() => {
+    if (isMobile) {
+      setFilterOverlayOpen(false);
+    } else if (scrollRef.current && headerRef.current) {
+      const headerHeight = headerRef.current.offsetHeight;
+      scrollRef.current.scrollTo({ top: headerHeight, behavior: 'smooth' });
+    }
+  }, [isMobile, scrollRef]);
+
+  // Toggle filters visibility - mobile uses overlay, desktop uses scroll
+  const toggleFilters = useCallback(() => {
+    if (isMobile) {
+      setFilterOverlayOpen(prev => !prev);
+    } else if (scrollRef.current && headerRef.current) {
+      const headerHeight = headerRef.current.offsetHeight;
+      const currentScroll = scrollRef.current.scrollTop;
+      if (currentScroll < headerHeight / 2) {
+        scrollRef.current.scrollTo({ top: headerHeight, behavior: 'smooth' });
+      } else {
+        scrollRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+  }, [isMobile, scrollRef]);
 
   const scrollToSection = (
     sectionRef: React.RefObject<HTMLDivElement | null>,
@@ -78,9 +113,13 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
 
   useImperativeHandle(ref, () => ({
     scrollToTop,
+    scrollToFilters,
+    hideFilters,
+    toggleFilters,
     scrollToReady: () => scrollToSection(readySectionRef, setReadySectionOpen),
     scrollToProcessing: () => scrollToSection(processingSectionRef, setProcessingSectionOpen),
   }));
+
   const { selectedIngredients, ownedUtensils, maxMissing } = useInventoryStore();
   const { bookmarkedRecipes } = useBookmarkStore();
   const { ownedRecipes } = useOwnedRecipesStore();
@@ -96,6 +135,11 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
     setShowAllRecipes,
     recipeSortBy,
     setRecipeSortBy,
+    showFocusDock,
+    setShowFocusDock,
+    focusIngredientFilters,
+    toggleFocusIngredientFilter,
+    clearFocusIngredientFilters,
   } = useSettingsStore();
 
   // Fuse instance for recipe search
@@ -264,8 +308,26 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
       results = results.filter((m) => m.recipe.effect && effectFilters.includes(m.recipe.effect));
     }
 
+    // Filter by focus ingredients (AND logic - recipe must contain ALL focused ingredients)
+    // Only apply filters for ingredients that are still in the selected inventory
+    const validFocusFilters = focusIngredientFilters.filter(id =>
+      selectedIngredients.includes(id)
+    );
+    if (validFocusFilters.length > 0) {
+      results = results.filter((m) => {
+        // Get all ingredient IDs the recipe can use (including oneOf alternatives)
+        const recipeIngredientIds = m.recipe.ingredients.flatMap(ing =>
+          ing.oneOf && ing.oneOf.length > 0 ? ing.oneOf : [ing.id]
+        );
+        // Recipe must contain ALL focused ingredients
+        return validFocusFilters.every(focusId =>
+          recipeIngredientIds.includes(focusId)
+        );
+      });
+    }
+
     return results;
-  }, [matches, recipeSearchQuery, recipeCategoryFilters, effectFilters, fuse, bookmarksOnly, bookmarkedRecipes, showOwnedOnly, ownedRecipes]);
+  }, [matches, recipeSearchQuery, recipeCategoryFilters, effectFilters, fuse, bookmarksOnly, bookmarkedRecipes, showOwnedOnly, ownedRecipes, focusIngredientFilters, selectedIngredients]);
 
   // Sort filtered matches
   const sortedMatches = useMemo(() => {
@@ -360,19 +422,232 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
   const processingCount = groupedMatches.needsProcessing.length;
   const hasFilters = recipeSearchQuery || recipeCategoryFilters.length > 0 || effectFilters.length > 0;
 
-  // Use external state if provided (for mobile tab toggle), otherwise always show on desktop
-  const filtersExpanded = externalFiltersExpanded ?? true;
-
   // Helper to render recipe card - uses SwipeableRecipeCard on mobile
   const CardComponent = isMobile ? SwipeableRecipeCard : RecipeCard;
 
+  // Mobile filter controls JSX - reorganized layout for mobile
+  const mobileFilterControlsJSX = (
+    <>
+      {/* Row 1: Search + found count */}
+      <div className="flex items-center gap-2">
+        <div className="flex-1">
+          <SearchInput
+            value={recipeSearchQuery}
+            onChange={setRecipeSearchQuery}
+            placeholder="Search recipes..."
+          />
+        </div>
+        <span className="text-sm px-3 py-1.5 rounded-full bg-gray-100 text-[var(--color-text-muted)] flex-shrink-0">
+          {filteredMatches.length} found
+        </span>
+      </div>
+
+      {/* Row 2: Toggle buttons */}
+      <div className="flex items-center gap-2 mt-3 flex-wrap">
+        {exactCount > 0 && (
+          <button
+            onClick={() => { scrollToSection(readySectionRef, setReadySectionOpen); setFilterOverlayOpen(false); }}
+            className="text-sm px-3 py-1.5 rounded-full bg-green-100 text-green-700 hover:bg-green-200 transition-colors"
+          >
+            {exactCount} ready
+          </button>
+        )}
+        {processingCount > 0 && (
+          <button
+            onClick={() => { scrollToSection(processingSectionRef, setProcessingSectionOpen); setFilterOverlayOpen(false); }}
+            className="text-sm px-3 py-1.5 rounded-full bg-blue-100 text-blue-700 hover:bg-blue-200 transition-colors"
+          >
+            {processingCount} processing
+          </button>
+        )}
+        <button
+          type="button"
+          onClick={() => setShowAllRecipes(!showAllRecipes)}
+          className={`px-3 py-1.5 text-sm rounded-full border transition-colors select-none ${
+            showAllRecipes
+              ? 'bg-[var(--color-primary)] border-[var(--color-primary)] text-white'
+              : 'bg-transparent border-[var(--color-border)] text-[var(--color-text-muted)] hover:bg-gray-50'
+          }`}
+          style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none' }}
+        >
+          Show all
+        </button>
+        <button
+          type="button"
+          onClick={() => setShowOwnedOnly(!showOwnedOnly)}
+          className={`px-3 py-1.5 text-sm rounded-full border transition-colors select-none flex items-center gap-1.5 ${
+            showOwnedOnly
+              ? 'bg-green-500 border-green-500 text-white'
+              : 'bg-transparent border-[var(--color-border)] text-[var(--color-text-muted)] hover:bg-gray-50'
+          }`}
+          style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none' }}
+        >
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              fillRule="evenodd"
+              d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+              clipRule="evenodd"
+            />
+          </svg>
+          Owned{ownedRecipes.length > 0 ? ` (${ownedRecipes.length})` : ''}
+        </button>
+        {selectedIngredients.length > 0 && (
+          <FocusToggleButton
+            isOpen={showFocusDock}
+            activeCount={focusIngredientFilters.filter(id => selectedIngredients.includes(id)).length}
+            onToggle={() => setShowFocusDock(!showFocusDock)}
+            onClear={clearFocusIngredientFilters}
+          />
+        )}
+      </div>
+
+      {/* Row 3: Dropdown filters */}
+      <div className="flex gap-1.5 mt-3">
+        <MultiSelectDropdown
+          options={recipeCategories}
+          selected={recipeCategoryFilters}
+          onToggle={toggleRecipeCategoryFilter}
+          placeholder="Types"
+          className="flex-shrink-0"
+        />
+        <MultiSelectDropdown
+          options={effects}
+          selected={effectFilters}
+          onToggle={toggleEffectFilter}
+          placeholder="Effects"
+          className="flex-shrink-0"
+        />
+        <div className="flex-1 min-w-0" />
+        <SortDropdown
+          options={[
+            { value: 'missing', label: '# Missing' },
+            { value: 'price_desc', label: 'Price: High → Low' },
+            { value: 'price_asc', label: 'Price: Low → High' },
+            { value: 'name', label: 'Name A-Z' },
+          ]}
+          value={recipeSortBy}
+          onChange={(val) => setRecipeSortBy(val as 'missing' | 'price_asc' | 'price_desc' | 'name')}
+          placeholder="Sort"
+          className="flex-shrink-0"
+        />
+      </div>
+    </>
+  );
+
+  // Filter controls JSX - for desktop/tablet header
+  const filterControlsJSX = (
+    <>
+      {/* Search with Show all on same line */}
+      <div className="flex items-center gap-2">
+        <div className="flex-1">
+          <SearchInput
+            value={recipeSearchQuery}
+            onChange={setRecipeSearchQuery}
+            placeholder="Search recipes..."
+          />
+        </div>
+        {/* Show all toggle - outline pill */}
+        <button
+          type="button"
+          onClick={() => setShowAllRecipes(!showAllRecipes)}
+          className={`px-3 py-1.5 text-sm rounded-full border transition-colors select-none ${
+            showAllRecipes
+              ? 'bg-[var(--color-primary)] border-[var(--color-primary)] text-white'
+              : 'bg-transparent border-[var(--color-border)] text-[var(--color-text-muted)] hover:bg-gray-50'
+          }`}
+          style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none' }}
+        >
+          Show all
+        </button>
+        {/* Owned toggle - green when active */}
+        <button
+          type="button"
+          onClick={() => setShowOwnedOnly(!showOwnedOnly)}
+          className={`px-3 py-1.5 text-sm rounded-full border transition-colors select-none flex items-center gap-1.5 ${
+            showOwnedOnly
+              ? 'bg-green-500 border-green-500 text-white'
+              : 'bg-transparent border-[var(--color-border)] text-[var(--color-text-muted)] hover:bg-gray-50'
+          }`}
+          style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none' }}
+        >
+          <svg
+            className="w-4 h-4"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+              clipRule="evenodd"
+            />
+          </svg>
+          Owned{ownedRecipes.length > 0 ? ` (${ownedRecipes.length})` : ''}
+        </button>
+        {/* Focus toggle - only when ingredients selected */}
+        {selectedIngredients.length > 0 && (
+          <FocusToggleButton
+            isOpen={showFocusDock}
+            activeCount={focusIngredientFilters.filter(id => selectedIngredients.includes(id)).length}
+            onToggle={() => setShowFocusDock(!showFocusDock)}
+            onClear={clearFocusIngredientFilters}
+          />
+        )}
+      </div>
+
+      {/* Filters row */}
+      <div className="flex gap-1.5 mt-3">
+        {/* Category filter - multi-select dropdown */}
+        <MultiSelectDropdown
+          options={recipeCategories}
+          selected={recipeCategoryFilters}
+          onToggle={toggleRecipeCategoryFilter}
+          placeholder="Types"
+          className="flex-shrink-0"
+        />
+
+        {/* Effect filter - multi-select dropdown */}
+        <MultiSelectDropdown
+          options={effects}
+          selected={effectFilters}
+          onToggle={toggleEffectFilter}
+          placeholder="Effects"
+          className="flex-shrink-0"
+        />
+
+        {/* Spacer to push sort to the right */}
+        <div className="flex-1 min-w-0" />
+
+        {/* Sort dropdown */}
+        <SortDropdown
+          options={[
+            { value: 'missing', label: '# Missing' },
+            { value: 'price_desc', label: 'Price: High → Low' },
+            { value: 'price_asc', label: 'Price: Low → High' },
+            { value: 'name', label: 'Name A-Z' },
+          ]}
+          value={recipeSortBy}
+          onChange={(val) => setRecipeSortBy(val as 'missing' | 'price_asc' | 'price_desc' | 'name')}
+          placeholder="Sort"
+          className="flex-shrink-0"
+        />
+      </div>
+    </>
+  );
+
   return (
     <div className={`flex flex-col bg-white ${isMobile ? 'min-h-full h-full' : 'h-full rounded-2xl shadow-sm border border-[var(--color-border)] overflow-hidden'}`}>
-      {/* Header - collapsible on mobile via tab tap */}
-      {(!isMobile || filtersExpanded) && (
-        <div className={`p-4 border-b border-[var(--color-border)] bg-white ${isMobile ? '' : 'rounded-t-2xl'}`}>
+      {/* Mobile Filter Panel - extends from tab bar */}
+      {isMobile && showFilterOverlay && (
+        <div className={`flex-shrink-0 bg-white border-b border-[var(--color-border)] shadow-sm p-4 ${isFilterClosing ? 'animate-filter-slide-up' : 'animate-filter-slide-down'}`}>
+          {mobileFilterControlsJSX}
+        </div>
+      )}
+
+      {/* Header - fixed at top on desktop/tablet, hidden on mobile (uses overlay) */}
+      {!isMobile && (
+        <div ref={headerRef} className="p-4 border-b border-[var(--color-border)] bg-white rounded-t-2xl flex-shrink-0">
           {/* Desktop/Tablet title row with stats */}
-          <div className="hidden tablet:flex items-center justify-between mb-3">
+          <div className="flex items-center justify-between mb-3">
             <h2 className="text-lg font-semibold text-[var(--color-text)]">Recipes</h2>
             <div className="flex items-center gap-2">
               <span className="text-sm px-3 py-1 rounded-full bg-gray-100 text-[var(--color-text-muted)]">
@@ -396,121 +671,27 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
               )}
             </div>
           </div>
-
-          {/* Mobile stats row */}
-          <div className="tablet:hidden flex items-center gap-2 mb-3">
-            <span className="text-sm px-3 py-1 rounded-full bg-gray-100 text-[var(--color-text-muted)]">
-              {filteredMatches.length} found
-            </span>
-            {exactCount > 0 && (
-              <button
-                onClick={() => scrollToSection(readySectionRef, setReadySectionOpen)}
-                className="text-sm px-3 py-1 rounded-full bg-green-100 text-green-700 hover:bg-green-200 transition-colors"
-              >
-                {exactCount} ready
-              </button>
-            )}
-            {processingCount > 0 && (
-              <button
-                onClick={() => scrollToSection(processingSectionRef, setProcessingSectionOpen)}
-                className="text-sm px-3 py-1 rounded-full bg-blue-100 text-blue-700 hover:bg-blue-200 transition-colors"
-              >
-                {processingCount} processing
-              </button>
-            )}
-          </div>
-
-          {/* Search with Show all on same line */}
-          <div className="flex items-center gap-2">
-            <div className="flex-1">
-              <SearchInput
-                value={recipeSearchQuery}
-                onChange={setRecipeSearchQuery}
-                placeholder="Search recipes..."
-              />
-            </div>
-            {/* Show all toggle - outline pill */}
-            <button
-              type="button"
-              onClick={() => setShowAllRecipes(!showAllRecipes)}
-              className={`px-3 py-1.5 text-sm rounded-full border transition-colors select-none ${
-                showAllRecipes
-                  ? 'bg-[var(--color-primary)] border-[var(--color-primary)] text-white'
-                  : 'bg-transparent border-[var(--color-border)] text-[var(--color-text-muted)] hover:bg-gray-50'
-              }`}
-              style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none' }}
-            >
-              Show all
-            </button>
-            {/* Owned toggle - green when active */}
-            <button
-              type="button"
-              onClick={() => setShowOwnedOnly(!showOwnedOnly)}
-              className={`px-3 py-1.5 text-sm rounded-full border transition-colors select-none flex items-center gap-1.5 ${
-                showOwnedOnly
-                  ? 'bg-green-500 border-green-500 text-white'
-                  : 'bg-transparent border-[var(--color-border)] text-[var(--color-text-muted)] hover:bg-gray-50'
-              }`}
-              style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none' }}
-            >
-              <svg
-                className="w-4 h-4"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              Owned{ownedRecipes.length > 0 ? ` (${ownedRecipes.length})` : ''}
-            </button>
-          </div>
-
-          {/* Filters row */}
-          <div className="flex gap-1.5 mt-3">
-            {/* Category filter - multi-select dropdown */}
-            <MultiSelectDropdown
-              options={recipeCategories}
-              selected={recipeCategoryFilters}
-              onToggle={toggleRecipeCategoryFilter}
-              placeholder="Types"
-              className="flex-shrink-0"
-            />
-
-            {/* Effect filter - multi-select dropdown */}
-            <MultiSelectDropdown
-              options={effects}
-              selected={effectFilters}
-              onToggle={toggleEffectFilter}
-              placeholder="Effects"
-              className="flex-shrink-0"
-            />
-
-            {/* Spacer to push sort to the right */}
-            <div className="flex-1 min-w-0" />
-
-            {/* Sort dropdown */}
-            <SortDropdown
-              options={[
-                { value: 'missing', label: '# Missing' },
-                { value: 'price_desc', label: 'Price: High → Low' },
-                { value: 'price_asc', label: 'Price: Low → High' },
-                { value: 'name', label: 'Name A-Z' },
-              ]}
-              value={recipeSortBy}
-              onChange={(val) => setRecipeSortBy(val as 'missing' | 'price_asc' | 'price_desc' | 'name')}
-              placeholder="Sort"
-              className="flex-shrink-0"
-            />
-          </div>
+          {filterControlsJSX}
         </div>
       )}
 
-      {/* Results */}
-      <div className={`flex-1 overflow-hidden ${isMobile ? '' : 'py-2 pr-1'}`}>
-        <div ref={scrollRef} className={`h-full overflow-y-auto ${isMobile ? 'p-4' : 'pl-4 pr-5 pb-4'}`} style={isMobile ? { paddingBottom: '300px' } : undefined}>
+      {/* Scroll container for content only */}
+      <div ref={scrollRef} className="flex-1 overflow-y-auto relative">
+        {/* Focus Dock - floating over content */}
+        {showFocusDock && selectedIngredients.length > 0 && (
+          <div className="sticky top-0 z-10 pointer-events-none">
+            <div className="pointer-events-auto">
+              <FocusDock
+                ingredients={selectedIngredients}
+                focusedIds={focusIngredientFilters}
+                onToggle={toggleFocusIngredientFilter}
+                ingredientMap={ingredientMap}
+              />
+            </div>
+          </div>
+        )}
+        {/* Results content */}
+        <div className={isMobile ? 'p-4' : 'p-4 pr-5'} style={isMobile ? { paddingBottom: '300px' } : undefined}>
         {bookmarksOnly && bookmarkedRecipes.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-64 text-[var(--color-text-muted)]">
             <svg

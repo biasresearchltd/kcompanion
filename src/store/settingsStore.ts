@@ -17,6 +17,10 @@ interface SettingsState {
   showAllRecipes: boolean;
   recipeSortBy: RecipeSortBy;
 
+  // Focus dock settings
+  showFocusDock: boolean;
+  focusIngredientFilters: string[];
+
   // Bookmarks view
   showBookmarksView: boolean;
 
@@ -33,6 +37,9 @@ interface SettingsState {
   setShowAllRecipes: (show: boolean) => void;
   setRecipeSortBy: (sort: RecipeSortBy) => void;
   setShowBookmarksView: (show: boolean) => void;
+  setShowFocusDock: (show: boolean) => void;
+  toggleFocusIngredientFilter: (ingredientId: string) => void;
+  clearFocusIngredientFilters: () => void;
 }
 
 export const useSettingsStore = create<SettingsState>()(
@@ -47,6 +54,8 @@ export const useSettingsStore = create<SettingsState>()(
       recipeSearchQuery: '',
       showAllRecipes: false,
       recipeSortBy: 'missing',
+      showFocusDock: false,
+      focusIngredientFilters: [],
       showBookmarksView: false,
 
       setViewMode: (mode) => set({ viewMode: mode }),
@@ -73,6 +82,13 @@ export const useSettingsStore = create<SettingsState>()(
       setShowAllRecipes: (show) => set({ showAllRecipes: show }),
       setRecipeSortBy: (sort) => set({ recipeSortBy: sort }),
       setShowBookmarksView: (show) => set({ showBookmarksView: show }),
+      setShowFocusDock: (show) => set({ showFocusDock: show }),
+      toggleFocusIngredientFilter: (ingredientId) => set((state) => ({
+        focusIngredientFilters: state.focusIngredientFilters.includes(ingredientId)
+          ? state.focusIngredientFilters.filter(id => id !== ingredientId)
+          : [...state.focusIngredientFilters, ingredientId]
+      })),
+      clearFocusIngredientFilters: () => set({ focusIngredientFilters: [], showFocusDock: false }),
     }),
     {
       name: 'gb-kitchen-settings',

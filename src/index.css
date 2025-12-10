@@ -90,6 +90,18 @@ body {
   transition-timing-function: ease-in-out;
 }
 
+/* White border strip below tab bar - covers where pseudo-elements meet scroll content */
+.tab-bar-border::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: white;
+  z-index: 30;
+}
+
 /* Folder tab corners - creates the curved cutout effect */
 .tab-active {
   z-index: 10;
@@ -164,4 +176,49 @@ body {
   text-overflow: clip;
   animation: marquee 3s ease-in-out infinite;
   -webkit-animation: marquee 3s ease-in-out infinite;
+}
+
+/* Filter overlay slide-down animation */
+@keyframes filter-slide-down {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes filter-slide-up {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.animate-filter-slide-down {
+  animation: filter-slide-down 200ms ease-out forwards;
+}
+
+.animate-filter-slide-up {
+  animation: filter-slide-up 200ms ease-out forwards;
+}
+
+/* Backdrop fade-in animation */
+@keyframes backdrop-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-backdrop-fade-in {
+  animation: backdrop-fade-in 150ms ease-out forwards;
 }

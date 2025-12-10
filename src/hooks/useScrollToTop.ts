@@ -2,6 +2,9 @@ import { useRef, useCallback } from 'react';
 
 export interface ScrollToTopHandle {
   scrollToTop: () => void;
+  scrollToFilters?: () => void;
+  hideFilters?: () => void;
+  toggleFilters?: () => void;
 }
 
 export function useScrollToTop() {
