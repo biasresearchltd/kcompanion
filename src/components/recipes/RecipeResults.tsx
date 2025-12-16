@@ -638,7 +638,7 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
     <div className={`flex flex-col bg-white ${isMobile ? 'min-h-full h-full' : 'h-full rounded-2xl shadow-sm border border-[var(--color-border)] overflow-hidden'}`}>
       {/* Mobile Filter Panel - extends from tab bar */}
       {isMobile && showFilterOverlay && (
-        <div className={`flex-shrink-0 bg-white border-b border-[var(--color-border)] shadow-sm p-4 ${isFilterClosing ? 'animate-filter-slide-up' : 'animate-filter-slide-down'}`}>
+        <div className={`flex-shrink-0 bg-white border-b border-[var(--color-border)] shadow-sm p-4 z-30 relative ${isFilterClosing ? 'animate-filter-slide-up' : 'animate-filter-slide-down'}`}>
           {mobileFilterControlsJSX}
         </div>
       )}

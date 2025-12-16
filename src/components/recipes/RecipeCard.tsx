@@ -35,6 +35,15 @@ const CATEGORY_LABELS: Record<string, string> = {
   other: 'Other',
 };
 
+// Format ingredient ID to display name, converting _plus suffix to + symbol
+function formatIngredientName(id: string): string {
+  if (id.endsWith('_plus')) {
+    const baseName = id.slice(0, -5).replace(/_/g, ' ');
+    return baseName.replace(/\b\w/g, c => c.toUpperCase()) + ' +';
+  }
+  return id.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+}
+
 export function RecipeCard({ match, ingredientMap, effectMap, characterMap, giftToCharacters, selectedIngredients, index = 0 }: RecipeCardProps) {
   const { recipe, matchType, missingIngredients, matchedIngredients, processedIngredients } = match;
   const effect = recipe.effect ? effectMap.get(recipe.effect) : null;
@@ -56,183 +65,69 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
   // Create a Set for quick lookup of selected ingredients
   const selectedSet = new Set(selectedIngredients);
 
-  // Build complete recipe variations - each variation shows all ingredients needed
-  // When there are oneOf groups with multiple available options, we generate multiple complete variations
-  interface IngredientDisplay {
+  // Slot-based rendering: each slot is an ingredient position with optional alternatives
+  interface IngredientOption {
     id: string;
     isMatched: boolean;
     needsProcessing: boolean;
-    count: number;  // How many of this ingredient needed
   }
 
-  interface RecipeVariation {
-    ingredients: IngredientDisplay[];
+  interface IngredientSlot {
+    primary: IngredientOption;
+    alternatives: IngredientOption[];
+    count: number;
   }
 
-  const buildRecipeVariations = (): RecipeVariation[] => {
-    // First, collect all fixed ingredients and identify oneOf groups with choices
-    const fixedIngredients: IngredientDisplay[] = [];
-    const oneOfGroups: Array<{
-      availableOptions: string[];
-      count: number;
-      fallbackId: string;  // First option if none available
-    }> = [];
+  const buildRecipeSlots = (): IngredientSlot[] => {
+    const slots: IngredientSlot[] = [];
 
     for (const ing of recipe.ingredients) {
       if (ing.oneOf && ing.oneOf.length > 0) {
-        const availableAlternatives = ing.oneOf.filter(id => selectedSet.has(id) || processedSet.has(id));
+        // oneOf group - show primary with inline alternatives
         const count = ing.count || 1;
 
-        oneOfGroups.push({
-          availableOptions: availableAlternatives,
-          count,
-          fallbackId: ing.oneOf[0],
-        });
+        // Find which options are available (matched or can be processed)
+        const availableOptions = ing.oneOf.filter(id => selectedSet.has(id) || processedSet.has(id));
+
+        // Determine primary: first available option, or first option as fallback (missing)
+        const primaryId = availableOptions.length > 0 ? availableOptions[0] : ing.oneOf[0];
+        const primary: IngredientOption = {
+          id: primaryId,
+          isMatched: selectedSet.has(primaryId) || processedSet.has(primaryId),
+          needsProcessing: processedSet.has(primaryId),
+        };
+
+        // All other options become alternatives (show all options from oneOf)
+        const alternatives: IngredientOption[] = ing.oneOf
+          .filter(id => id !== primaryId)
+          .map(id => ({
+            id,
+            isMatched: selectedSet.has(id) || processedSet.has(id),
+            needsProcessing: processedSet.has(id),
+          }));
+
+        slots.push({ primary, alternatives, count });
       } else if (ing.id && ing.id !== 'choice') {
-        const isMatched = matchedIngredients.includes(ing.id) || selectedSet.has(ing.id);
+        // Fixed ingredient - no alternatives
         const count = ing.count || 1;
-        fixedIngredients.push({
-          id: ing.id,
-          isMatched,
-          needsProcessing: processedSet.has(ing.id),
+        const isMatched = matchedIngredients.includes(ing.id) || selectedSet.has(ing.id);
+
+        slots.push({
+          primary: {
+            id: ing.id,
+            isMatched,
+            needsProcessing: processedSet.has(ing.id),
+          },
+          alternatives: [],
           count,
         });
       }
     }
 
-    // If no oneOf groups with multiple available options, just return one variation
-    const hasMultipleChoices = oneOfGroups.some(g => g.availableOptions.length > 1);
-
-    if (!hasMultipleChoices) {
-      // Simple case: one variation with all ingredients
-      const variation: RecipeVariation = { ingredients: [...fixedIngredients] };
-
-      for (const group of oneOfGroups) {
-        if (group.availableOptions.length > 0) {
-          // For count > 1, we might need combo or single
-          const count = group.count;
-          if (count > 1 && group.availableOptions.length >= count) {
-            // Combination: use 1 of each of the first 'count' options
-            for (let i = 0; i < count; i++) {
-              const id = group.availableOptions[i];
-              variation.ingredients.push({
-                id,
-                isMatched: true,
-                needsProcessing: processedSet.has(id),
-                count: 1,
-              });
-            }
-          } else {
-            // Use first available option with full count
-            const id = group.availableOptions[0];
-            variation.ingredients.push({
-              id,
-              isMatched: true,
-              needsProcessing: processedSet.has(id),
-              count,
-            });
-          }
-        } else {
-          // Missing - show fallback
-          variation.ingredients.push({
-            id: group.fallbackId,
-            isMatched: false,
-            needsProcessing: false,
-            count: group.count,
-          });
-        }
-      }
-
-      return [variation];
-    }
-
-    // Complex case: generate variations for each oneOf choice
-    // For simplicity, we'll generate one variation per available option in each oneOf group
-    const variations: RecipeVariation[] = [];
-
-    // Find the oneOf group with multiple options
-    const multiChoiceGroup = oneOfGroups.find(g => g.availableOptions.length > 1);
-    if (!multiChoiceGroup) return [{ ingredients: fixedIngredients }];
-
-    // For count > 1 with multiple options, first show the combination option
-    if (multiChoiceGroup.count > 1 && multiChoiceGroup.availableOptions.length >= multiChoiceGroup.count) {
-      const comboVariation: RecipeVariation = { ingredients: [...fixedIngredients] };
-
-      // Add combo ingredients (1 of each)
-      for (let i = 0; i < multiChoiceGroup.count; i++) {
-        const id = multiChoiceGroup.availableOptions[i];
-        comboVariation.ingredients.push({
-          id,
-          isMatched: true,
-          needsProcessing: processedSet.has(id),
-          count: 1,
-        });
-      }
-
-      // Add other oneOf groups (non-multi-choice)
-      for (const group of oneOfGroups) {
-        if (group === multiChoiceGroup) continue;
-        if (group.availableOptions.length > 0) {
-          const id = group.availableOptions[0];
-          comboVariation.ingredients.push({
-            id,
-            isMatched: true,
-            needsProcessing: processedSet.has(id),
-            count: group.count,
-          });
-        } else {
-          comboVariation.ingredients.push({
-            id: group.fallbackId,
-            isMatched: false,
-            needsProcessing: false,
-            count: group.count,
-          });
-        }
-      }
-
-      variations.push(comboVariation);
-    }
-
-    // Then show individual single-ingredient options
-    for (const optionId of multiChoiceGroup.availableOptions) {
-      const variation: RecipeVariation = { ingredients: [...fixedIngredients] };
-
-      // Add this option with full count
-      variation.ingredients.push({
-        id: optionId,
-        isMatched: true,
-        needsProcessing: processedSet.has(optionId),
-        count: multiChoiceGroup.count,
-      });
-
-      // Add other oneOf groups
-      for (const group of oneOfGroups) {
-        if (group === multiChoiceGroup) continue;
-        if (group.availableOptions.length > 0) {
-          const id = group.availableOptions[0];
-          variation.ingredients.push({
-            id,
-            isMatched: true,
-            needsProcessing: processedSet.has(id),
-            count: group.count,
-          });
-        } else {
-          variation.ingredients.push({
-            id: group.fallbackId,
-            isMatched: false,
-            needsProcessing: false,
-            count: group.count,
-          });
-        }
-      }
-
-      variations.push(variation);
-    }
-
-    return variations;
+    return slots;
   };
 
-  const recipeVariations = buildRecipeVariations();
+  const recipeSlots = buildRecipeSlots();
 
   // Get characters who love this recipe as a gift
   const getCharactersForRecipe = (): CharacterGiftInfo[] => {
@@ -405,113 +300,119 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
       {/* Divider */}
       <div className={`border-t mb-3 ${getDividerStyle()}`}></div>
 
-      {/* Ingredients as complete recipe variations separated by "or" */}
+      {/* Ingredients as slots with inline alternatives */}
       <div className="flex flex-wrap items-start gap-1">
-        {recipeVariations.map((variation, varIndex) => (
-          <div key={varIndex} className="flex items-start">
-            {/* "or" separator between complete recipe variations */}
-            {varIndex > 0 && (
-              <div className="h-10 flex items-center justify-center px-1.5">
-                <span className="text-[11px] font-bold text-gray-400">or</span>
-              </div>
-            )}
-            {/* Render all ingredients in this variation */}
-            {variation.ingredients.map((ing, ingIndex) => {
-              const ingredient = getIngredient(ing.id);
-              const name = ingredient?.name || ing.id.replace(/_/g, ' ');
-              return (
-                <div key={ing.id} className="flex items-start">
-                  {/* "+" separator between ingredients within a variation */}
-                  {ingIndex > 0 && (
-                    <div className="h-10 flex items-center justify-center px-0.5">
-                      <span className="text-[11px] font-bold text-purple-500">+</span>
-                    </div>
-                  )}
-                  <div className="flex flex-col items-center w-11">
-                    <div
-                      className={`relative w-10 h-10 rounded-xl flex items-center justify-center ${
-                        ing.isMatched
-                          ? ing.needsProcessing
-                            ? 'bg-blue-100 ring-2 ring-blue-300'
-                            : 'bg-green-100 ring-2 ring-green-300'
-                          : 'bg-gray-100 ring-2 ring-gray-300'
-                      }`}
-                    >
-                      <img
-                        src={`/images/ingredients/${ingredient?.icon || `${ing.id}.png`}`}
-                        alt={name}
-                        className={`w-8 h-8 object-contain ${!ing.isMatched ? 'opacity-50' : ''}`}
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src = '/images/placeholder.svg';
-                        }}
-                      />
-                      {/* Status indicator - top right */}
-                      <div className={`absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full flex items-center justify-center ${
-                        ing.isMatched
-                          ? ing.needsProcessing
-                            ? 'bg-blue-500'
-                            : 'bg-green-500'
-                          : 'bg-gray-400'
-                      }`}>
-                        {ing.isMatched ? (
-                          ing.needsProcessing ? (
-                            <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                              <path
-                                fillRule="evenodd"
-                                d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
-                                clipRule="evenodd"
-                              />
-                            </svg>
-                          ) : (
-                            <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                              <path
-                                fillRule="evenodd"
-                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                clipRule="evenodd"
-                              />
-                            </svg>
-                          )
-                        ) : (
-                          <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                              fillRule="evenodd"
-                              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                        )}
-                      </div>
-                      {/* Count badge - bottom right, only show if count > 1 */}
-                      {ing.count > 1 && (
-                        <span
-                          className="absolute right-0.5 text-[var(--color-primary)] leading-none"
-                          style={{
-                            fontFamily: "'Eurostile Round Pro', system-ui, sans-serif",
-                            fontSize: '16px',
-                            WebkitTextStroke: '2.5px #f5f5f0',
-                            paintOrder: 'stroke fill',
-                            bottom: '-1px',
-                          }}
-                        >
-                          {ing.count}
-                        </span>
-                      )}
-                    </div>
-                    <span className={`text-[10px] text-center leading-tight mt-1 line-clamp-2 ${
-                      ing.isMatched
-                        ? ing.needsProcessing
-                          ? 'text-blue-700'
-                          : 'text-green-700'
-                        : 'text-gray-500'
-                    }`}>
-                      {name}
-                    </span>
+        {recipeSlots.map((slot, slotIndex) => {
+          // Helper to render a single ingredient icon
+          const renderIngredientIcon = (ing: IngredientOption, showCount: boolean = false) => {
+            const ingredient = getIngredient(ing.id);
+            const name = ingredient?.name || formatIngredientName(ing.id);
+            return (
+              <div className="flex flex-col items-center w-11">
+                <div
+                  className={`relative w-10 h-10 rounded-xl flex items-center justify-center ${
+                    ing.isMatched
+                      ? ing.needsProcessing
+                        ? 'bg-blue-100 ring-2 ring-blue-300'
+                        : 'bg-green-100 ring-2 ring-green-300'
+                      : 'bg-gray-100 ring-2 ring-gray-300'
+                  }`}
+                >
+                  <img
+                    src={`/images/ingredients/${ingredient?.icon || `${ing.id}.png`}`}
+                    alt={name}
+                    className={`w-8 h-8 object-contain ${!ing.isMatched ? 'opacity-50' : ''}`}
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = '/images/placeholder.svg';
+                    }}
+                  />
+                  {/* Status indicator - top right */}
+                  <div className={`absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full flex items-center justify-center ${
+                    ing.isMatched
+                      ? ing.needsProcessing
+                        ? 'bg-blue-500'
+                        : 'bg-green-500'
+                      : 'bg-gray-400'
+                  }`}>
+                    {ing.isMatched ? (
+                      ing.needsProcessing ? (
+                        <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path
+                            fillRule="evenodd"
+                            d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      ) : (
+                        <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      )
+                    ) : (
+                      <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                          fillRule="evenodd"
+                          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    )}
                   </div>
+                  {/* Count badge - bottom right, only show if count > 1 */}
+                  {showCount && slot.count > 1 && (
+                    <span
+                      className="absolute right-0.5 text-[var(--color-primary)] leading-none"
+                      style={{
+                        fontFamily: "'Eurostile Round Pro', system-ui, sans-serif",
+                        fontSize: '16px',
+                        WebkitTextStroke: '2.5px #f5f5f0',
+                        paintOrder: 'stroke fill',
+                        bottom: '-1px',
+                      }}
+                    >
+                      {slot.count}
+                    </span>
+                  )}
                 </div>
-              );
-            })}
-          </div>
-        ))}
+                <span className={`text-[10px] text-center leading-tight mt-1 line-clamp-2 ${
+                  ing.isMatched
+                    ? ing.needsProcessing
+                      ? 'text-blue-700'
+                      : 'text-green-700'
+                    : 'text-gray-500'
+                }`}>
+                  {name}
+                </span>
+              </div>
+            );
+          };
+
+          return (
+            <div key={slotIndex} className="flex items-start">
+              {/* "+" separator between slots */}
+              {slotIndex > 0 && (
+                <div className="h-10 flex items-center justify-center px-0.5">
+                  <span className="text-[11px] font-bold text-purple-500">+</span>
+                </div>
+              )}
+              {/* Primary ingredient */}
+              {renderIngredientIcon(slot.primary, true)}
+              {/* Inline alternatives with "or" */}
+              {slot.alternatives.map((alt) => (
+                <div key={alt.id} className="flex items-start">
+                  <div className="h-10 flex items-center justify-center px-1">
+                    <span className="text-[10px] font-medium text-gray-400">or</span>
+                  </div>
+                  {renderIngredientIcon(alt, false)}
+                </div>
+              ))}
+            </div>
+          );
+        })}
       </div>
 
       {/* Bottom row: Unlock info and Character icons */}
