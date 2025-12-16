@@ -81,7 +81,7 @@ function App() {
 
   // Calculate recipe counts for tab badges
   const { readyCount, processingCount } = useMemo(() => {
-    if (!recipes.length || !categories.variantGroups) {
+    if (!recipes.length) {
       return { readyCount: 0, processingCount: 0 };
     }
     const inventory = new Set(selectedIngredients);
