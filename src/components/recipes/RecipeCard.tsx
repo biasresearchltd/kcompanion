@@ -431,26 +431,37 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
 
       {/* Adapt Section - optional ingredients from recipe.additions */}
       {recipe.additions && recipe.additions.length > 0 && (
-        <div className="mt-2 flex flex-wrap items-center gap-1">
-          <span className="text-[10px] text-purple-600 font-medium mr-0.5">Adapt:</span>
-          {recipe.additions.map((additionId) => {
-            const ingredient = getIngredient(additionId);
-            const name = ingredient?.name || formatIngredientName(additionId);
-            const isMatched = selectedSet.has(additionId);
-            return (
-              <span
-                key={additionId}
-                className={`px-1.5 py-0.5 rounded text-[10px] ${
-                  isMatched
-                    ? 'bg-green-50 text-green-700 ring-1 ring-green-200'
-                    : 'bg-purple-50 text-purple-700'
-                }`}
-              >
-                {name}
-              </span>
-            );
-          })}
-        </div>
+        <>
+          <div className={`border-t mt-3 mb-2 ${getDividerStyle()}`}></div>
+          <div className="flex flex-wrap items-center gap-1">
+            <span className="text-[10px] text-purple-600 font-medium mr-0.5">Adapt:</span>
+            {recipe.additions.map((additionId) => {
+              const ingredient = getIngredient(additionId);
+              const name = ingredient?.name || formatIngredientName(additionId);
+              const isMatched = selectedSet.has(additionId);
+              return (
+                <div
+                  key={additionId}
+                  className={`flex items-center gap-1 px-1.5 py-0.5 rounded-lg text-[10px] ${
+                    isMatched
+                      ? 'bg-green-50 text-green-700 ring-1 ring-green-200'
+                      : 'bg-purple-50 text-purple-700 ring-1 ring-purple-200'
+                  }`}
+                >
+                  <img
+                    src={`/images/ingredients/${ingredient?.icon || `${additionId}.png`}`}
+                    alt={name}
+                    className={`w-4 h-4 object-contain ${!isMatched ? 'opacity-70' : ''}`}
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = '/images/placeholder.svg';
+                    }}
+                  />
+                  <span className="truncate max-w-[80px]">{name}</span>
+                </div>
+              );
+            })}
+          </div>
+        </>
       )}
 
       {/* Bottom row: Unlock info and Character icons */}
