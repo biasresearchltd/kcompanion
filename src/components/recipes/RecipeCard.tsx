@@ -444,14 +444,14 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                   key={additionId}
                   className={`flex items-center gap-1 px-1.5 py-0.5 rounded-lg text-[10px] ${
                     isMatched
-                      ? 'bg-green-50 text-green-700 ring-1 ring-green-200'
-                      : 'bg-purple-50 text-purple-700 ring-1 ring-purple-200'
+                      ? 'bg-green-100 text-green-700 ring-1 ring-green-300'
+                      : 'bg-gray-100 text-gray-500 ring-1 ring-gray-300'
                   }`}
                 >
                   <img
                     src={`/images/ingredients/${ingredient?.icon || `${additionId}.png`}`}
                     alt={name}
-                    className={`w-4 h-4 object-contain ${!isMatched ? 'opacity-70' : ''}`}
+                    className={`w-4 h-4 object-contain ${!isMatched ? 'opacity-50' : ''}`}
                     onError={(e) => {
                       (e.target as HTMLImageElement).src = '/images/placeholder.svg';
                     }}
