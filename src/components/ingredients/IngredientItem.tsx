@@ -85,11 +85,8 @@ export function IngredientItem({
           <img
             src={`/images/ingredients/${ingredient.icon}`}
             alt={ingredient.name}
-            className={`w-12 h-12 object-contain scale-125 group-hover:scale-150 group-active:scale-150 ${isSelected ? 'scale-150' : ''}`}
+            className="w-12 h-12 object-contain"
             style={{
-              transition: 'transform 1000ms ease-in-out',
-              WebkitTransition: '-webkit-transform 1000ms ease-in-out',
-              willChange: 'transform',
               WebkitTouchCallout: 'none',
               WebkitUserSelect: 'none',
               userSelect: 'none',
@@ -139,11 +136,8 @@ export function IngredientItem({
         <img
           src={`/images/ingredients/${ingredient.icon}`}
           alt={ingredient.name}
-          className={`w-8 h-8 object-contain scale-125 group-hover:scale-150 group-active:scale-150 ${isSelected ? 'scale-150' : ''}`}
+          className="w-8 h-8 object-contain"
           style={{
-            transition: 'transform 1000ms ease-in-out',
-            WebkitTransition: '-webkit-transform 1000ms ease-in-out',
-            willChange: 'transform',
             WebkitTouchCallout: 'none',
             WebkitUserSelect: 'none',
             userSelect: 'none',

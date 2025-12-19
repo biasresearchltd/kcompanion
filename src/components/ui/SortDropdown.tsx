@@ -56,7 +56,7 @@ export function SortDropdown({
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 z-20 mt-1 w-max min-w-full bg-white border border-[var(--color-border)] rounded-lg shadow-lg max-h-60 overflow-y-auto select-none">
+        <div className="absolute right-0 z-50 mt-1 w-max min-w-full bg-white border border-[var(--color-border)] rounded-lg shadow-lg max-h-60 overflow-y-auto select-none">
           {options.map((option, index) => (
             <button
               key={option.value}
