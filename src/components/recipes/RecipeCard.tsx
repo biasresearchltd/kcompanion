@@ -277,44 +277,46 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
 
   return (
     <div
-      className={`relative rounded-xl border p-3 transition-shadow hover:shadow-md ${getCardStyle()}`}
+      className="relative"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Desktop action buttons - tab buttons that extend from under the card */}
-      {isHovered && (
-        <div className="hidden tablet:flex flex-row gap-0.5 absolute -top-8 right-3 -z-10">
-          <button
-            onClick={(e) => { e.stopPropagation(); toggleBookmark(recipe.id); }}
-            className={`p-1.5 pt-2 rounded-t-lg border border-b-0 transition-colors ${
-              isBookmarked
-                ? 'bg-red-500 text-white border-red-400 hover:bg-red-600'
-                : 'bg-white text-gray-400 border-gray-300 hover:text-red-500 hover:bg-red-50'
-            }`}
-            title={isBookmarked ? 'Remove bookmark' : 'Bookmark recipe'}
-          >
-            <svg className="w-5 h-5" fill={isBookmarked ? 'currentColor' : 'none'} stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                    d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
-            </svg>
-          </button>
-          <button
-            onClick={(e) => { e.stopPropagation(); toggleOwned(recipe.id); }}
-            className={`p-1.5 pt-2 rounded-t-lg border border-b-0 transition-colors ${
-              isOwned
-                ? 'bg-green-500 text-white border-green-400 hover:bg-green-600'
-                : 'bg-white text-gray-400 border-gray-300 hover:text-green-500 hover:bg-green-50'
-            }`}
-            title={isOwned ? 'Mark as not owned' : 'Mark as owned'}
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={isOwned ? 3 : 2}
-                    d="M5 13l4 4L19 7" />
-            </svg>
-          </button>
-        </div>
-      )}
+      {/* Desktop action buttons - tab buttons that slide out from under the card */}
+      <div className={`hidden tablet:flex flex-row gap-0.5 absolute -top-9 right-4 transition-all duration-200 ease-out ${
+        isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'
+      }`}>
+        <button
+          onClick={(e) => { e.stopPropagation(); toggleBookmark(recipe.id); }}
+          className={`px-2 pt-2 pb-3 rounded-t-lg border border-b-0 transition-colors ${
+            isBookmarked
+              ? 'bg-red-500 text-white border-red-400 hover:bg-red-600'
+              : 'bg-white text-gray-400 border-gray-300 hover:text-red-500 hover:bg-red-50 hover:border-red-400'
+          }`}
+          title={isBookmarked ? 'Remove bookmark' : 'Bookmark recipe'}
+        >
+          <svg className="w-5 h-5" fill={isBookmarked ? 'currentColor' : 'none'} stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                  d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+          </svg>
+        </button>
+        <button
+          onClick={(e) => { e.stopPropagation(); toggleOwned(recipe.id); }}
+          className={`px-2 pt-2 pb-3 rounded-t-lg border border-b-0 transition-colors ${
+            isOwned
+              ? 'bg-green-500 text-white border-green-400 hover:bg-green-600'
+              : 'bg-white text-gray-400 border-gray-300 hover:text-green-500 hover:bg-green-50 hover:border-green-400'
+          }`}
+          title={isOwned ? 'Mark as not owned' : 'Mark as owned'}
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={isOwned ? 3 : 2}
+                  d="M5 13l4 4L19 7" />
+          </svg>
+        </button>
+      </div>
 
+      {/* Card content - sits on top of tabs */}
+      <div className={`relative z-10 rounded-xl border p-3 transition-shadow hover:shadow-md ${getCardStyle()}`}>
       {/* Header - relative container for absolute positioned right column */}
       <div className="relative flex items-start gap-3 mb-3">
         {/* Recipe icon wrapper - relative for bookmark positioning, no overflow hidden */}
@@ -622,6 +624,7 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
           )}
         </div>
       )}
+      </div>
     </div>
   );
 }
