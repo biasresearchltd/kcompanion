@@ -281,12 +281,12 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Desktop action buttons - tab buttons that pop out from right edge on hover */}
+      {/* Desktop action buttons - tab buttons that pop out from top edge on hover */}
       {isHovered && (
-        <div className="hidden tablet:flex flex-col gap-0.5 absolute top-2 -right-9 z-20">
+        <div className="hidden tablet:flex flex-row gap-0.5 absolute -top-9 right-2 z-20">
           <button
             onClick={(e) => { e.stopPropagation(); toggleBookmark(recipe.id); }}
-            className={`p-1.5 rounded-r-lg shadow-md border border-l-0 transition-colors ${
+            className={`p-1.5 rounded-t-lg shadow-md border border-b-0 transition-colors ${
               isBookmarked
                 ? 'bg-red-500 text-white border-red-500 hover:bg-red-600'
                 : 'bg-white text-gray-400 border-gray-200 hover:text-red-500 hover:bg-red-50'
@@ -300,7 +300,7 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
           </button>
           <button
             onClick={(e) => { e.stopPropagation(); toggleOwned(recipe.id); }}
-            className={`p-1.5 rounded-r-lg shadow-md border border-l-0 transition-colors ${
+            className={`p-1.5 rounded-t-lg shadow-md border border-b-0 transition-colors ${
               isOwned
                 ? 'bg-green-500 text-white border-green-500 hover:bg-green-600'
                 : 'bg-white text-gray-400 border-gray-200 hover:text-green-500 hover:bg-green-50'
