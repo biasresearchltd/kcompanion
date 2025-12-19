@@ -112,14 +112,16 @@ export function IngredientItem({
             }}
           />
         </div>
-        {/* Fixed two-line height text area with marquee for overflow */}
+        {/* Fixed two-line height text area - marquee only when truncated */}
         <div
-          className="marquee-container w-full mt-auto"
+          className={`w-full mt-auto ${isGridTruncated ? 'marquee-container' : ''}`}
           style={{ height: '26px' }} /* Fixed height for 2 lines at 11px with leading-tight */
         >
           <span
             ref={gridTextRef}
-            className={`marquee-text text-[11px] text-center leading-tight select-none line-clamp-2 w-full block ${isGridTruncated ? 'is-truncated' : ''}`}
+            className={`text-[11px] text-center leading-tight select-none w-full block ${
+              isGridTruncated ? 'marquee-text is-truncated' : 'line-clamp-2'
+            }`}
             style={{ '--marquee-distance': `${gridMarqueeDistance}px`, WebkitUserSelect: 'none' } as React.CSSProperties}
           >
             {ingredient.name}
