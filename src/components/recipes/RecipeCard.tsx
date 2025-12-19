@@ -1,8 +1,66 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import type { MatchResult, Ingredient, Effect, Character, GiftToCharacters } from '../../types';
 import { Badge } from '../ui/Badge';
 import { useBookmarkStore } from '../../store/bookmarkStore';
 import { useOwnedRecipesStore } from '../../store/ownedRecipesStore';
+
+// Adapt ingredient pill with marquee effect for long names
+interface AdaptPillProps {
+  name: string;
+  icon: string;
+  isMatched: boolean;
+}
+
+function AdaptPill({ name, icon, isMatched }: AdaptPillProps) {
+  const textRef = useRef<HTMLSpanElement>(null);
+  const [isTruncated, setIsTruncated] = useState(false);
+  const [marqueeDistance, setMarqueeDistance] = useState(0);
+
+  useEffect(() => {
+    const checkTruncation = () => {
+      if (textRef.current) {
+        const scrollW = textRef.current.scrollWidth;
+        const clientW = textRef.current.clientWidth;
+        const truncated = scrollW > clientW;
+        setIsTruncated(truncated);
+        if (truncated) {
+          setMarqueeDistance(-(scrollW - clientW + 4));
+        }
+      }
+    };
+    checkTruncation();
+    window.addEventListener('resize', checkTruncation);
+    return () => window.removeEventListener('resize', checkTruncation);
+  }, [name]);
+
+  return (
+    <div
+      className={`flex items-center gap-1 px-1.5 py-0.5 rounded-lg text-[10px] ${
+        isMatched
+          ? 'bg-green-100 text-green-700 ring-1 ring-green-300'
+          : 'bg-gray-100 text-gray-500 ring-1 ring-gray-300'
+      }`}
+    >
+      <img
+        src={icon}
+        alt={name}
+        className={`w-4 h-4 object-contain flex-shrink-0 ${!isMatched ? 'opacity-50' : ''}`}
+        onError={(e) => {
+          (e.target as HTMLImageElement).src = '/images/placeholder.svg';
+        }}
+      />
+      <div className="marquee-container max-w-[80px]">
+        <span
+          ref={textRef}
+          className={`marquee-text ${isTruncated ? 'is-truncated' : ''}`}
+          style={{ '--marquee-distance': `${marqueeDistance}px` } as React.CSSProperties}
+        >
+          {name}
+        </span>
+      </div>
+    </div>
+  );
+}
 
 interface RecipeCardProps {
   match: MatchResult;
@@ -441,24 +499,12 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
               const name = ingredient?.name || formatIngredientName(additionId);
               const isMatched = selectedSet.has(additionId);
               return (
-                <div
+                <AdaptPill
                   key={additionId}
-                  className={`flex items-center gap-1 px-1.5 py-0.5 rounded-lg text-[10px] ${
-                    isMatched
-                      ? 'bg-green-100 text-green-700 ring-1 ring-green-300'
-                      : 'bg-gray-100 text-gray-500 ring-1 ring-gray-300'
-                  }`}
-                >
-                  <img
-                    src={`/images/ingredients/${ingredient?.icon || `${additionId}.png`}`}
-                    alt={name}
-                    className={`w-4 h-4 object-contain ${!isMatched ? 'opacity-50' : ''}`}
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = '/images/placeholder.svg';
-                    }}
-                  />
-                  <span className="truncate max-w-[80px]">{name}</span>
-                </div>
+                  name={name}
+                  icon={`/images/ingredients/${ingredient?.icon || `${additionId}.png`}`}
+                  isMatched={isMatched}
+                />
               );
             })}
             </div>
