@@ -73,7 +73,7 @@ export function IngredientItem({
     return (
       <button
         onClick={onToggle}
-        className={`group relative aspect-square flex flex-col items-center justify-center gap-1 p-2 rounded-2xl border-2 transition-all select-none ${
+        className={`group relative aspect-square flex flex-col items-center justify-between p-2 rounded-2xl border-2 transition-all select-none overflow-hidden ${
           isSelected
             ? 'border-[var(--color-secondary)] bg-orange-100 shadow-sm'
             : `border-transparent ${categoryBg} ${categoryHover} hover:shadow-sm`
@@ -81,7 +81,7 @@ export function IngredientItem({
         style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none' }}
         title={ingredient.name}
       >
-        <div className="flex-1 flex items-center justify-center">
+        <div className="flex-1 flex items-center justify-center w-12 h-12 flex-shrink-0">
           <img
             src={`/images/ingredients/${ingredient.icon}`}
             alt={ingredient.name}
@@ -99,7 +99,7 @@ export function IngredientItem({
           />
         </div>
         <span
-          className="text-[11px] text-center leading-tight select-none line-clamp-2 w-full"
+          className="text-[11px] text-center leading-tight select-none line-clamp-2 w-full flex-shrink-0"
           style={{ WebkitUserSelect: 'none' }}
         >
           {ingredient.name}
