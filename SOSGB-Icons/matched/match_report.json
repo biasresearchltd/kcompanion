@@ -1,0 +1,312 @@
+{
+  "summary": {
+    "total_matched": 0,
+    "high_confidence": 0,
+    "medium_confidence": 0,
+    "low_confidence": 0,
+    "unmatched": 559
+  },
+  "matches": [],
+  "unmatched": [
+    {
+      "sprite": "icon__0061_85x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0061_85x83.png",
+      "best_guess": "mixed_salad",
+      "score": 60.3
+    },
+    {
+      "sprite": "icon__0067_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0067_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 61.2
+    },
+    {
+      "sprite": "icon__0147_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0147_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 61.3
+    },
+    {
+      "sprite": "icon__0122_84x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0122_84x83.png",
+      "best_guess": "mixed_salad",
+      "score": 61.3
+    },
+    {
+      "sprite": "icon__0161_85x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0161_85x83.png",
+      "best_guess": "mixed_salad",
+      "score": 61.49999999999999
+    },
+    {
+      "sprite": "icon__0068_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0068_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 61.599999999999994
+    },
+    {
+      "sprite": "icon__0359_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0359_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 61.599999999999994
+    },
+    {
+      "sprite": "icon__0200_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0200_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 61.599999999999994
+    },
+    {
+      "sprite": "icon__0383_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0383_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 61.599999999999994
+    },
+    {
+      "sprite": "icon__0078_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0078_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 61.599999999999994
+    },
+    {
+      "sprite": "icon__0015_84x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0015_84x83.png",
+      "best_guess": "mixed_salad",
+      "score": 61.599999999999994
+    },
+    {
+      "sprite": "icon__0022_84x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0022_84x83.png",
+      "best_guess": "mixed_salad",
+      "score": 61.699999999999996
+    },
+    {
+      "sprite": "icon__0292_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0292_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 61.7
+    },
+    {
+      "sprite": "icon__0095_84x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0095_84x83.png",
+      "best_guess": "mixed_salad",
+      "score": 61.8
+    },
+    {
+      "sprite": "icon__0162_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0162_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 61.9
+    },
+    {
+      "sprite": "icon__0260_84x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0260_84x83.png",
+      "best_guess": "mixed_salad",
+      "score": 61.9
+    },
+    {
+      "sprite": "icon__0032_85x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0032_85x83.png",
+      "best_guess": "mixed_salad",
+      "score": 62.0
+    },
+    {
+      "sprite": "icon__0052_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0052_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 62.0
+    },
+    {
+      "sprite": "icon__0077_84x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0077_84x83.png",
+      "best_guess": "mixed_salad",
+      "score": 62.2
+    },
+    {
+      "sprite": "icon__0382_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0382_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 62.2
+    },
+    {
+      "sprite": "icon__0072_84x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0072_84x83.png",
+      "best_guess": "mixed_salad",
+      "score": 62.3
+    },
+    {
+      "sprite": "icon__0066_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0066_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 62.400000000000006
+    },
+    {
+      "sprite": "icon__0034_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0034_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 62.5
+    },
+    {
+      "sprite": "icon__0062_84x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0062_84x83.png",
+      "best_guess": "mixed_salad",
+      "score": 62.5
+    },
+    {
+      "sprite": "icon__0079_85x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0079_85x83.png",
+      "best_guess": "mixed_salad",
+      "score": 62.5
+    },
+    {
+      "sprite": "icon__0262_84x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0262_84x83.png",
+      "best_guess": "mixed_salad",
+      "score": 62.599999999999994
+    },
+    {
+      "sprite": "icon__0035_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0035_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 62.599999999999994
+    },
+    {
+      "sprite": "icon__0014_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0014_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 62.599999999999994
+    },
+    {
+      "sprite": "icon__0297_84x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0297_84x83.png",
+      "best_guess": "mixed_salad",
+      "score": 62.599999999999994
+    },
+    {
+      "sprite": "icon__0231_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0231_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 62.8
+    },
+    {
+      "sprite": "icon__0166_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0166_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 62.8
+    },
+    {
+      "sprite": "icon__0234_87x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0234_87x83.png",
+      "best_guess": "mixed_salad",
+      "score": 62.8
+    },
+    {
+      "sprite": "icon__0323_91x86.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0323_91x86.png",
+      "best_guess": "mixed_salad",
+      "score": 62.8
+    },
+    {
+      "sprite": "icon__0257_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0257_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 62.8
+    },
+    {
+      "sprite": "icon__0043_84x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0043_84x83.png",
+      "best_guess": "mixed_salad",
+      "score": 62.8
+    },
+    {
+      "sprite": "icon__0199_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0199_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 62.8
+    },
+    {
+      "sprite": "icon__0201_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0201_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 62.8
+    },
+    {
+      "sprite": "icon__0295_84x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0295_84x83.png",
+      "best_guess": "mixed_salad",
+      "score": 62.9
+    },
+    {
+      "sprite": "icon__0167_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0167_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 62.9
+    },
+    {
+      "sprite": "icon__0093_96x91.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0093_96x91.png",
+      "best_guess": "silkie_egg_plus",
+      "score": 62.9
+    },
+    {
+      "sprite": "icon__0149_91x86.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0149_91x86.png",
+      "best_guess": "mixed_salad",
+      "score": 63.0
+    },
+    {
+      "sprite": "icon__0021_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0021_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 63.099999999999994
+    },
+    {
+      "sprite": "icon__0192_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0192_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 63.099999999999994
+    },
+    {
+      "sprite": "icon__0081_84x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0081_84x83.png",
+      "best_guess": "mixed_salad",
+      "score": 63.099999999999994
+    },
+    {
+      "sprite": "icon__0098_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0098_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 63.2
+    },
+    {
+      "sprite": "icon__0049_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0049_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 63.2
+    },
+    {
+      "sprite": "icon__0324_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0324_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 63.2
+    },
+    {
+      "sprite": "icon__0064_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0064_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 63.3
+    },
+    {
+      "sprite": "icon__0047_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0047_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 63.39999999999999
+    },
+    {
+      "sprite": "icon__0229_83x83.png",
+      "sprite_path": "/Users/bias/Documents/reactdev/sosgb/SOSGB-Icons/extracted/atlas_/icon__0229_83x83.png",
+      "best_guess": "mixed_salad",
+      "score": 63.4
+    }
+  ]
+}

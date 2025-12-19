@@ -284,8 +284,7 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
             <img
               src={`/images/recipes/${recipe.icon}`}
               alt={recipe.name}
-              className="w-14 h-14 object-contain scale-[1.4]"
-              style={{ transformOrigin: 'center center' }}
+              className="w-14 h-14 object-contain"
               onError={(e) => {
                 (e.target as HTMLImageElement).src = '/images/placeholder.svg';
               }}

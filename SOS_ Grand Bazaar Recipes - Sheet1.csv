@@ -1,0 +1,117 @@
+Type,Recipe,Ingredient1,Ingredient2,Ingredient3,Ingredient4,IngredientA
+Salads,Guacamole Salad,Avocado,Onion,Tomato,Salt,Lemon|Salt|Pepper
+Salads,Turnip Salad,Turnip,,,,Cucumber|Tomato|Red Bell Pepper
+Salads,Herb Salad,Mint|Chamomile|Lavender,Mint|Chamomile|Lavender,,,Broccoli|Tomato|Boiled Egg|Olive Oil|Salt|Pepper
+Salads,Poke,Avocado,Salmon,Soy Sauce,,Onion|Green Onion|Oil
+Salads,Mashed Potatoes,Potato,Butter|Herb Butter|Butter +,,,Milk|Buffalo Milk|Mint|Salt|Pepper
+Salads,Onion Salad,Onion,,,,Cucumber|Tomato|Turnip
+Soups,Radish Soup,Radish,Milk|Buffalo Milk,Salt,,Onion|Butter|Herb Butter|Butter +|Pepper
+Soups,Pumpkin Soup,Pumpkin,Milk|Buffalo Milk,Onion,,Butter|Herb Butter|Butter +|Salt|Pepper
+Soups,Gazpacho Soup,Tomato,Garlic,Bread|White Bread|Baguettes|Focaccia Bread,,Cucumber|Onion|Green Bell Pepper|Olive Oil|Salt
+Soups,Herb Soup,Mint|Chamomile|Lavender,Mint|Chamomile|Lavender,,,Onion|Cabbage|Carrot|Broccoli|Salt|Olive Oil
+Soups,Egg Drop Soup,Egg|Silkie Egg,,,,Green Onion|Soy Sauce|Salt|Pepper|Oil
+Sides,Stuffed Cabbage,Cabbage,Carrot,,,Salt|Pepper|Nut Oil|Herb Oil|Olive Oil|Pumpkin Oil|Grape Oil
+Sides,Scones,Wheat Flour,Butter|Herb Butter|Butter +,Milk|Buffalo Milk,,Grape Jam|Apple Jam|Blueberry Jam|Strawberry Jam
+Sides,Buttered Roll,Wheat Flour,Egg|Silkie Egg,Butter|Herb Butter|Butter +,,Milk|Buffalo Milk|Sugar|Salt
+Sides,Sautéed Turnips,Turnip,Butter|Herb Butter|Butter +,,,Garlic|Salt|Pepper|Oil|Nut Oil|Herb Oil|Olive Oil|Miso
+Sides,Focaccia Bread,Wheat Flour,Olive Oil,,,Tomato|Cheese|Herb Cheese|Cheese +|Sugar|Salt
+Sides,Steamed Egg Custard,Egg|Silkie Egg,Shiitake Mushroom,Fish Cake,,Spinach|Carrot|Broccoli|Soybean|Shimeji Mushroom|Salt
+Sides,Buttered Potato,Potato,Butter|Herb Butter|Butter +,,,Corn|Garlic|Soy Sauce|Salt|Seaweed|Urchin
+Sides,Steamed Muffin,Wheat Flour,Egg|Silkie Egg,Sweet Potato,,Milk|Buffalo Milk|Sugar|Salt
+Sides,Potato Pancakes,Potato,Wheat Flour,Egg|Silkie Egg,,Onion|Sugar|Salt|Nut Oil|Herb Oil|Olive Oil
+Sides,Fried Egg,Egg|Silkie Egg,Oil|Nut Oil|Herb Oil|Olive Oil|Grape Oil,,,Tomato|Mayonnaise|Herb Mayonnaise|Mayonnaise +|Soy Sauce|Salt|Pepper
+Sides,Toast,Bread|White Bread,,,,Butter|Herb Butter|Butter +|Mayonnaise|Herb Mayonnaise|Mayonnaise +|Honey|Invigorating Honey|Mellow Honey|Royal Honey
+Sides,Tofu,Soybean,Soy Milk,,,Green Onion|Soy Sauce|Salt|Oil|Seaweed|Urchin
+Sides,Fried Mushrooms,Shiitake Mushroom|Shimeji Mushroom|Common Mushroom|Porcini Mushroom|Morel Mushroom|Matsutake Mushroom|Monarch Mushroom,,,,Salt|Pepper|Nut Oil|Herb Oil|Olive Oil
+Sides,Boiled Egg,Egg|Silkie Egg,,,,Broccoli|Mayonnaise|Herb Mayonnaise|Mayonnaise +|Salt
+Sides,Shumai Dumplings,Wheat Flour,Onion,Bluegill|Willow Shiner|Killifish|Stone Moroko|Pond Smelt|Sweetfish|Eel|Marbled Eel|Goldfish|Crucian Carp,,Soybean|Sugar|Soy Sauce|Salt|Pepper
+Sides,Sashimi,Amur Minnow|Dace|Pale Chub|Sculpin|Dark Chub|Bitterling|Tamoroko|Rainbow Trout|Silver Carp|Basa,,,,Daikon Radish|Carrot|Soy Sauce\
+Sides,Fish Cake,Amur Minnow|Dace|Pale Chub|Sculpin|Dark Chub|Bitterling|Tamoroko|Rainbow Trout|Silver Carp|Basa,,,,Avocado|Cheese|Herb Cheese|Cheese +|Soy Sauce
+Sides,Babaocai,Napa Cabbage,Carrot,Green Bell Pepper,Shiitake Mushroom|Shimeji Mushroom|Common Mushroom|Porcini Mushroom|Morel Mushroom|Matsutake Mushroom|Monarch Mushroom,Cabbage|Onion|Bok Choy|Burdock|Red Bell Pepper
+Sides,Grilled Corn,Corn,Soy Sauce,Sugar,,Garlic|Butter|Herb Butter|Butter +|Oil
+Sides,Cheese Bun,Wheat Flour,Butter|Herb Butter|Butter +,Buffalo Milk,,Garlic|Milk|Buffalo Milk|Sugar|Salt|Pepper|Oil
+Sides,Popcorn,Corn,Oil|Nut Oil|Herb Oil|Olive Oil|Grape Oil,,,Butter|Herb Butter|Butter +|Salt|Curry Powder|Honey|Invigorating Honey|Mellow Honey|Royal Honey
+Sides,French Fries,Potato,Oil|Nut Oil|Herb Oil|Olive Oil|Grape Oil,,,Tomato|Mayonnaise|Herb Mayonnaise|Mayonnaise +|Wheat Flour|Salt|Pepper
+Sides,Poached Egg,Egg|Silkie Egg,Soy Sauce,,,Green Onion|Nut Oil|Herb Oil|Olive Oil|Salt
+Sides,Baked Sweet Potato,Sweet Potato,,,,Sugar|Butter|Herb Butter|Butter +|Honey|Invigorating Honey|Mellow Honey|Royal Honey|Soy Sauce|Oil
+Sides,Bread,Wheat Flour,,,,Milk|Buffalo Milk|Butter|Herb Butter|Butter +|Sugar|Salt
+Sides,Cooked Rice,Rice,,,,Salt|Simmered Seaweed
+Main Dishes,Supreme Curry,Curry Rice,Star Potato,Three-Forked Carrot,,Giant Tomato|Brawny Onion|Golden Apple|Milk +|Buffalo Milk +
+Main Dishes,Hot Pot,Daikon Radish,Napa Cabbage,Green Onion,Nile Perch|Salmon|Masu Trout|Cherry Salmon|Brown Trout|Yellow Perch|Sweetfish,Carrot|Spinach|Bok Choy|Chili Pepper|Soy Milk|Soy Sauce
+Main Dishes,Raclette Cheese,Cheese|Herb Cheese|Cheese +,Corn,Carrot,Broccoli,Asparagus|French Fries|Toast|Butter|Herb Butter|Butter +|Salt|Pepper|Pumpkin Oil|Grape Oil
+Main Dishes,Gratin,Wheat Flour,Cheese|Herb Cheese|Cheese +,Mayonnaise|Herb Mayonnaise|Mayonnaise +,,Onion|Shiitake Mushroom|Pasta|Butter|Herb Butter|Butter +|Salt|Pepper
+Main Dishes,Spaghetti Soup,Pasta,Tomato,Grayling|Bighead Carp|Nile Perch|Barbel Steed|Three-Lips Carp|Brown Trout|Black Bass|Mugitsuku,Oil|Nut Oil|Herb Oil|Olive Oil|Grape Oil,Onion|Cabbage|Soybean|Shimeji Mushroom|Mint|Nut Oil|Herb Oil|Olive Oil
+Main Dishes,Risotto,Rice,Cheese|Herb Cheese|Cheese +,Tomato,Onion,Garlic|Milk|Buffalo Milk|Butter|Herb Butter|Butter +|Olive Oil|Salt|Pepper
+Main Dishes,Mushroom Pasta,Pasta,Shiitake Mushroom|Shimeji Mushroom|Common Mushroom|Porcini Mushroom|Morel Mushroom|Matsutake Mushroom|Monarch Mushroom,Butter|Herb Butter|Butter +,,Green Onion|Garlic|Salt|Pepper|Soy Sauce|Olive Oil|Cheese|Herb Cheese|Cheese +
+Main Dishes,Inari Sushi,Cooked Rice,Fried Tofu,Vinegar,Sugar,Carrot|Burdock|Soybean|Shiitake Mushroom|Soy Sauce
+Main Dishes,Omelet Rice,Omelet,Cooked Rice,,,Onion|Tomato|Milk|Buffalo Milk|Butter|Herb Butter|Butter +|Salt|Pepper|Oil
+Main Dishes,Jam-Filled Bun,Wheat Flour,Apple Jam|Strawberry Jam|Grape Jam|Blueberry Jam,,,Milk|Buffalo Milk|Butter|Herb Butter|Butter +|Sugar|Salt
+Main Dishes,Burgundy Fondue,Olive Oil,Bread|White Bread|Baguettes|Focaccia Bread,Broccoli|Potato|Asparagus|Red Bell Pepper|Carrot|Common Mushroom|Pumpkin,,Garlic|Salt|Pepper
+Main Dishes,Fried Rice,Cooked Rice,Egg|Silkie Egg,Onion,Carrot,Cabbage|Green Bell Pepper|Green Onion|Soy Sauce|Salt|Pepper
+Main Dishes,Fried Matsutake Mushrooms,Matsutake Mushroom,,,,Salt|Pepper|Pumpkin Oil|Grape Oil
+Main Dishes,Tempura,Wheat Flour,Oil|Nut Oil|Herb Oil|Olive Oil|Grape Oil,Egg|Silkie Egg,Shiitake Mushroom|Pumpkin|Eggplant|Sweet Potato|Icefish|Pond Smelt,Daikon Radish|Salt
+Main Dishes,Pizza,Wheat Flour,Tomato,Cheese|Herb Cheese|Cheese +,,Green Bell Pepper|Onion|Asparagus|Corn|Pineapple
+Main Dishes,Curry Rice,Cooked Rice,Curry Powder,Potato|Carrot|Onion,,Tomato|Garlic|Apple
+Main Dishes,Vegetable Curry,Cooked Rice,Curry Powder,Cucumber|Onion|Asparagus|Tomato|Red Bell Pepper|Carrot|Turnip|Sweet Potato|Pumpkin|Eggplant,,Garlic|Apple
+Main Dishes,Mushroom Rice,Rice,Shiitake Mushroom|Shimeji Mushroom|Common Mushroom|Porcini Mushroom|Morel Mushroom|Matsutake Mushroom|Monarch Mushroom,Shiitake Mushroom|Shimeji Mushroom|Common Mushroom|Porcini Mushroom|Morel Mushroom|Matsutake Mushroom|Monarch Mushroom,Shiitake Mushroom|Shimeji Mushroom|Common Mushroom|Porcini Mushroom|Morel Mushroom|Matsutake Mushroom|Monarch Mushroom,Green Onion|Fried Tofu|Soy Sauce|Salt
+Main Dishes,Bouillabaisse,Tomato,Grayling|Bighead Carp|Nile Perch|Barbel Steed|Three-Lips Carp|Brown Trout|Black Bass|Mugitsuku,Oil|Nut Oil|Herb Oil|Olive Oil|Grape Oil,,Onion|Garlic|Salt|Pepper|Nut Oil|Herb Oil|Olive Oil
+Main Dishes,Herb Sandwich,Bread|White Bread|Baguettes|Focaccia Bread,Mint|Chamomile|Lavender,Mayonnaise|Herb Mayonnaise|Mayonnaise +,,Tomato|Onion|Mayonnaise|Herb Mayonnaise|Mayonnaise +|Nut Oil|Herb Oil|Olive Oil
+Main Dishes,Steamed Mushrooms,Shiitake Mushroom|Shimeji Mushroom|Common Mushroom|Porcini Mushroom|Morel Mushroom|Matsutake Mushroom|Monarch Mushroom,Butter|Herb Butter|Butter +,,,Salt\Pepper|Nut Oil|Herb Oil|Olive Oil
+Main Dishes,Milk Rice Porridge,Rice,Salt,Milk|Buffalo Milk,,Onion|Shiitake Mushroom}Shimeji Mushroom|Butter|Herb Butter|Butter +|Salt|Pepper
+Main Dishes,Omelet,Egg|Silkie Egg,Butter|Herb Butter|Butter +,,,Onion|Tomato|Milk|Buffalo Milk|Salt|Pepper
+Main Dishes,Sushi,Sashimi,Cooked Rice,Vinegar,,Cucumber|Soy Sauce|Sugar|Salt|Seaweed
+Main Dishes,Herb Rice Porridge,Rice,Salt,Mint|Chamomile|Lavender,,Green Onion|Egg|Silkie Egg
+Main Dishes,Herb Pasta,Wheat Flour,Mint|Chamomile|Lavender,Oil|Nut Oil|Herb Oil|Olive Oil|Grape Oil,,Tomato|Cucumber|Garlic|Avocado|Cheese|Herb Cheese|Cheese +
+Main Dishes,Rice Porridge,Rice,Salt,,,Green Onion|Egg|Silkie Egg
+Main Dishes,Sandwich,Bread|White Bread|Baguettes|Focaccia Bread,Tomato,Cucumber,,Boiled Egg|Cheese|Herb Cheese|Cheese +|Butter|Herb Butter|Butter +|Mayonnaise|Herb Mayonnaise|Mayonnaise +
+Main Dishes,Onigiri,Cooked Rice,Seaweed,,,Soybean|Shimeji Mushroom|Matsutake Mushroom|Salmon|Salt
+Main Dishes,Fried Eggplant,Eggplant,Oil|Nut Oil|Herb Oil|Olive Oil|Grape Oil,,,Green Onion|Soy Sauce|Salt
+Main Dishes,Pasta,Wheat Flour,Egg|Silkie Egg,,,Tomato|Cucumber|Garlic|Eggplant|Cheese|Herb Cheese|Cheese +
+Main Dishes,Egg Over Rice,Egg|Silkie Egg,Cooked Rice,,,Green Onion|Cheese|Herb Cheese|Cheese +|Soy Sauce|Salt|Pepper
+Main Dishes,Grilled FIsh,Amur Minnow|Dace|Pale Chub|Sculpin|Dark Chub|Bitterling|Tamoroko|Rainbow Trout|Silver Carp|Basa,,,,Daikon Radish|Soy Sauce
+Desserts,Cheesecake,Wheat Flour,Egg|Silkie Egg,Buffalo Milk,Cheese|Herb Cheese|Cheese +,Lemon|Butter|Herb Butter|Butter +|Sugar
+Desserts,Strawberry Pie,Wheat Flour,Egg|Silkie Egg,Butter|Herb Butter|Butter +,Strawberry,Lemon|Sugar|Salt
+Desserts,Donuts,Wheat Flour,Egg|Silkie Egg,Sugar,Oil|Nut Oil|Herb Oil|Olive Oil|Grape Oil,Milk|Buffalo Milk|Butter|Herb Butter|Butter +
+Desserts,Churros,Wheat Flour,Egg|Silkie Egg,Oil|Nut Oil|Herb Oil|Olive Oil|Grape Oil,Sugar,Honey|Invigorating Honey|Mellow Honey|Royal Honey|Butter|Herb Butter|Butter +|Chocolate
+Desserts,Pancakes,Wheat Flour,Egg|Silkie Egg,Milk|Buffalo Milk,Honey|Invigorating Honey|Mellow Honey|Royal Honey,Butter|Herb Butter|Butter +|Sugar
+Desserts,Sweet Potato Cakes,Milk|Buffalo Milk,Sugar,Sweet Potato,,Egg|Silkie Egg|Butter|Herb Butter|Butter +|Salt
+Desserts,Baked Apple,Apple,Butter|Herb Butter|Butter +,,,Honey|Invigorating Honey|Mellow Honey|Royal Honey|Sugar
+Desserts,Ice Cream,Milk|Buffalo Milk,Egg|Silkie Egg,Sugar,,Mint|Chocolate|Black Tea
+Desserts,Strawberry Mochi,Mochi,Strawberry,,,Refined Rice Flour|Sugar|Salt
+Desserts,Cake,Wheat Flour,Egg|Silkie Egg,Milk|Buffalo Milk,,Strawberry|Lemon|Mango|Cheese|Herb Cheese|Cheese +|Butter|Herb Butter|Butter +
+Desserts,Egg Tart,Egg|Silkie Egg,Milk|Buffalo Milk,Wheat Flour,,Sugar|Butter|Herb Butter|Butter +|Almond
+Desserts,Dango,Refined Rice Flour,,,,Rice Flour|Soybean Flour|Sugar
+Desserts,Walnut Cookies,Wheat Flour,Egg|Silkie Egg,Walnut,,Milk|Buffalo Milk|Butter|Herb Butter|Butter +|Sugar
+Desserts,Soy Milk Pudding,Milk|Buffalo Milk,Egg|Silkie Egg,Soy Milk,,Honey|Invigorating Honey|Mellow Honey|Royal Honey|Sugar
+Desserts,Herb Cookies,Wheat Flour,Egg|Silkie Egg,Mint|Chamomile|Lavender,,Milk|Buffalo Milk|Butter|Herb Butter|Butter +|Sugar
+Desserts,Chestnut Paste,Bottled Chestnuts,,,,Sweet Potato|Sugar|Salt
+Desserts,Whole Chocolate Cake,Wheat Flour,Egg +|Silkie Egg +,Milk +|Buffalo Milk +,Chocolate,Butter|Herb Butter|Butter +|Sugar|Chocolate Cookies
+Desserts,Honey Cake,Wheat Flour,Egg +|Silkie Egg +,Honey|Invigorating Honey|Mellow Honey|Royal Honey,,Honey|Invigorating Honey|Mellow Honey|Royal Honey|Chamomile
+Desserts,Pudding,Milk|Buffalo Milk,Egg|Silkie Egg,,,Sugar|Butter|Herb Butter|Butter +
+Desserts,Cookies,Wheat Flour,Egg|Silkie Egg,,,Milk|Buffalo Milk|Butter|Herb Butter|Butter +|Sugar
+Other Recipes,Soy Milk,Soybean,,,,Banana|Honey|Invigorating Honey|Mellow Honey|Royal Honey|Black Tea Tin|Sugar|Soybean Flour
+Other Recipes,Honey Juice,Honey|Invigorating Honey|Mellow Honey|Royal Honey,,,,Lemon|Milk|Buffalo Milk|Yogurt|Fruit Yogurt|Yogurt +
+Other Recipes,Black Tea,Black Tea Tin,,,,Lemon|Milk|Buffalo Milk|Honey|Invigorating Honey|Mellow Honey|Royal Honey|Sugar
+Other Recipes,Café au Lait,Hot Coffee,Milk|Buffalo Milk,,,Butter|Herb Butter|Butter +|Chocolate|Soy Milk|Ice Cream
+Other Recipes,Strawberry Tea,Strawberry Tea Tin,,,,Lemon|Milk|Buffalo Milk|Honey|Invigorating Honey|Mellow Honey|Royal Honey|Sugar
+Other Recipes,Oolong Tea,Oolong Tea Tin,,,,Milk|Buffalo Milk|Sugar|Mint|Chamomile
+Other Recipes,Hot Coffee,Coffee Pack,,,,Butter|Herb Butter|Butter +|Sugar|Chocolate|Soy Milk|Ice Cream
+Other Recipes,Mint Tea,Mint Tea Tin,,,,Lemon|Honey|Invigorating Honey|Mellow Honey|Royal Honey|Sugar
+Other Recipes,Chamomile Tea,Chamomile Tea Tin,,,,Lemon|Honey|Invigorating Honey|Mellow Honey|Royal Honey|Sugar
+Other Recipes,Walnut Juice,Bottled Walnuts,,,,Banana|Milk|Buffalo Milk|Mint|Honey|Invigorating Honey|Mellow Honey|Royal Honey
+Other Recipes,Warm Milk,Milk|Buffalo Milk,,,,Banana|Honey|Invigorating Honey|Mellow Honey|Royal Honey|Chocolate|Soybean Flour
+Other Recipes,Green Tea,Green Tea Tin,,,,Milk|Buffalo Milk|Sugar
+Other Recipes,Strawberry Juice,Strawberry,,,,Lemon|Milk|Buffalo Milk|Yogurt|Fruit Yogurt|Yogurt +|Honey|Invigorating Honey|Mellow Honey|Royal Honey
+Other Recipes,Tomato Juice,Tomato,,,,Lemon|Mint|Salt
+Other Recipes,Specialty Juice,Spring Juice,Summer Juice,Autumn Juice,Royal Honey,Milk +|Fruit Yogurt|Royal Honey
+Other Recipes,Apple Jam,Apple,Sugar,Lemon,,Honey|Invigorating Honey|Mellow Honey|Royal Honey
+Other Recipes,Olive Tea,Olive Tea Tin,,,,Lemon|Milk|Buffalo Milk|Honey|Invigorating Honey|Mellow Honey|Royal Honey|Sugar
+Other Recipes,Grape Juice,Red Grapes,,,,Lemon|Milk|Buffalo Milk|Yogurt|Fruit Yogurt|Yogurt +|Honey|Invigorating Honey|Mellow Honey|Royal Honey
+Other Recipes,Apple Juice,Apple,,,,Lemon|Milk|Buffalo Milk|Yogurt|Fruit Yogurt|Yogurt +|Honey|Invigorating Honey|Mellow Honey|Royal Honey
+Other Recipes,Cherry Juice,Cherry,,,,Lemon|Milk|Buffalo Milk|Yogurt|Fruit Yogurt|Yogurt +|Honey|Invigorating Honey|Mellow Honey|Royal Honey
+Other Recipes,Orange Juice,Orange,,,,Lemon|Milk|Buffalo Milk|Yogurt|Fruit Yogurt|Yogurt +|Honey|Invigorating Honey|Mellow Honey|Royal Honey
+Other Recipes,Blueberry Juice,Blueberry,,,,Lemon|Milk|Buffalo Milk|Yogurt|Fruit Yogurt|Yogurt +|Honey|Invigorating Honey|Mellow Honey|Royal Honey
+Other Recipes,Happy Fruit Platter,Heart Watermelon,Cherry|Blueberry|Green Grapes|Strawberry|Mango|Pineapple|Banana|Peach|Orange|Melon,Apple|Red Grapes|Green Grapes|Strawberry|Mango|Pineapple|Banana|Peach|Orange|Melon,,Sugar|Salt|Walnut|Milk|Buffalo Milk|Honey|Invigorating Honey|Mellow Honey|Royal Honey
+Other Recipes,Happy Chef Salad,Egg|Silkie Egg,Corn,Onion,Cucumber|Onion|Asparagus|Tomato|Red Bell Pepper|Carrot|Turnip|Sweet Potato|Pumpkin|Eggplant,Sugar|Salt|Walnut|Milk|Buffalo Milk|Honey|Invigorating Honey|Mellow Honey|Royal Honey
+Other Recipes,Happy Mushroom Fry,Shiitake Mushroom|Shimeji Mushroom|Common Mushroom|Porcini Mushroom|Morel Mushroom|Matsutake Mushroom|Monarch Mushroom,Salt,,,Sugar|Salt|Walnut|Milk|Buffalo Milk|Honey|Invigorating Honey|Mellow Honey|Royal Honey
+Other Recipes,Happy Forest Mix,Walnut,,,,Sugar|Salt|Walnut|Milk|Buffalo Milk|Honey|Invigorating Honey|Mellow Honey|Royal Honey
