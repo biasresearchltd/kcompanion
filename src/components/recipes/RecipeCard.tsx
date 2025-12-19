@@ -433,8 +433,9 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
       {recipe.additions && recipe.additions.length > 0 && (
         <>
           <div className={`border-t mt-3 mb-2 ${getDividerStyle()}`}></div>
-          <div className="flex flex-wrap items-center gap-1">
-            <span className="text-[10px] text-purple-600 font-medium mr-0.5">Adapt:</span>
+          <div>
+            <span className="text-[10px] text-purple-600 font-medium">Adapt:</span>
+            <div className="flex flex-wrap items-center gap-1 mt-1">
             {recipe.additions.map((additionId) => {
               const ingredient = getIngredient(additionId);
               const name = ingredient?.name || formatIngredientName(additionId);
@@ -460,6 +461,7 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                 </div>
               );
             })}
+            </div>
           </div>
         </>
       )}
