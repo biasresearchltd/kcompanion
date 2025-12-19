@@ -105,10 +105,13 @@ function formatIngredientName(id: string): string {
 export function RecipeCard({ match, ingredientMap, effectMap, characterMap, giftToCharacters, selectedIngredients, index = 0 }: RecipeCardProps) {
   const { recipe, matchType, missingIngredients, matchedIngredients, processedIngredients } = match;
   const effect = recipe.effect ? effectMap.get(recipe.effect) : null;
-  const { bookmarkedRecipes } = useBookmarkStore();
+  const { bookmarkedRecipes, toggleBookmark } = useBookmarkStore();
   const isBookmarked = bookmarkedRecipes.includes(recipe.id);
-  const { ownedRecipes } = useOwnedRecipesStore();
+  const { ownedRecipes, toggleOwned } = useOwnedRecipesStore();
   const isOwned = ownedRecipes.includes(recipe.id);
+
+  // Hover state for showing action buttons on desktop
+  const [isHovered, setIsHovered] = useState(false);
   // 2-column grid, so calculate row for alternating colors
   const row = Math.floor(index / 2);
   const isEvenRow = row % 2 === 0;
@@ -274,8 +277,54 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
 
   return (
     <div
-      className={`rounded-xl border p-3 transition-shadow hover:shadow-md ${getCardStyle()}`}
+      className={`relative rounded-xl border p-3 transition-shadow hover:shadow-md ${getCardStyle()}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
+      {/* Desktop action buttons - show on hover (tablet and above) */}
+      {isHovered && (
+        <div className="hidden tablet:flex items-center gap-1 absolute top-2 right-2 z-20">
+          <button
+            onClick={(e) => { e.stopPropagation(); toggleBookmark(recipe.id); }}
+            className={`p-1.5 rounded-lg bg-white/90 shadow-sm border border-gray-200 transition-colors ${
+              isBookmarked ? 'text-red-500 hover:text-red-600' : 'text-gray-400 hover:text-red-400'
+            }`}
+            title={isBookmarked ? 'Remove bookmark' : 'Bookmark recipe'}
+          >
+            {isBookmarked ? (
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+              </svg>
+            ) : (
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                      d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+              </svg>
+            )}
+          </button>
+          <button
+            onClick={(e) => { e.stopPropagation(); toggleOwned(recipe.id); }}
+            className={`p-1.5 rounded-lg bg-white/90 shadow-sm border border-gray-200 transition-colors ${
+              isOwned ? 'text-green-500 hover:text-green-600' : 'text-gray-400 hover:text-green-400'
+            }`}
+            title={isOwned ? 'Mark as not owned' : 'Mark as owned'}
+          >
+            {isOwned ? (
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd" />
+              </svg>
+            ) : (
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                      d="M5 13l4 4L19 7" />
+              </svg>
+            )}
+          </button>
+        </div>
+      )}
+
       {/* Header - relative container for absolute positioned right column */}
       <div className="relative flex items-start gap-3 mb-3">
         {/* Recipe icon wrapper - relative for bookmark positioning, no overflow hidden */}
