@@ -79,7 +79,7 @@ export function IngredientItem({
             : `border-transparent ${categoryBg} ${categoryHover} hover:shadow-sm`
         }`}
         style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none' }}
-        title={isTruncated ? undefined : ingredient.name}
+        title={ingredient.name}
       >
         <div className="flex-1 flex items-center justify-center">
           <img
@@ -98,15 +98,12 @@ export function IngredientItem({
             }}
           />
         </div>
-        <div className="marquee-container w-full">
-          <span
-            ref={textRef}
-            className={`marquee-text text-[11px] text-center leading-tight select-none ${isTruncated ? 'is-truncated' : ''}`}
-            style={{ '--marquee-distance': `${marqueeDistance}px`, WebkitUserSelect: 'none' } as React.CSSProperties}
-          >
-            {ingredient.name}
-          </span>
-        </div>
+        <span
+          className="text-[11px] text-center leading-tight select-none line-clamp-2 w-full"
+          style={{ WebkitUserSelect: 'none' }}
+        >
+          {ingredient.name}
+        </span>
         {isSelected && (
           <div className="absolute top-1 right-1 w-5 h-5 bg-[var(--color-secondary)] rounded-full flex items-center justify-center shadow-sm">
             <svg className="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 20 20">
