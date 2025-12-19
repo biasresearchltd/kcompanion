@@ -12,7 +12,7 @@ interface HeaderProps {
 export function Header({ utensils, onStatusBarTap }: HeaderProps) {
   const { ownedUtensils, toggleUtensil } = useInventoryStore();
   const { bookmarkedRecipes } = useBookmarkStore();
-  const { showBookmarksView, setShowBookmarksView } = useSettingsStore();
+  const { showBookmarksView, setShowBookmarksView, showBookmarksDrawer, setShowBookmarksDrawer } = useSettingsStore();
   const [utensilsExpanded, setUtensilsExpanded] = useState(false);
 
   // Count how many utensils are disabled (excluding 'none')
@@ -48,8 +48,40 @@ export function Header({ utensils, onStatusBarTap }: HeaderProps) {
             </div>
           </div>
 
-          {/* Desktop: Utensils inline */}
+          {/* Desktop/Tablet: Bookmark toggle and Utensils inline */}
           <div className="hidden sm:flex items-center gap-2">
+            {/* Bookmark drawer toggle button */}
+            <button
+              onClick={() => setShowBookmarksDrawer(!showBookmarksDrawer)}
+              className={`relative w-10 h-10 rounded-lg flex items-center justify-center mr-2 ${
+                showBookmarksDrawer
+                  ? 'bg-red-500 text-white'
+                  : 'bg-white/20 text-white hover:bg-white/30'
+              }`}
+              style={{ transition: 'none' }}
+              title={showBookmarksDrawer ? 'Close bookmarks' : 'View bookmarked recipes'}
+              aria-label={showBookmarksDrawer ? 'Close bookmarks' : 'View bookmarked recipes'}
+            >
+              <svg
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill={showBookmarksDrawer ? 'currentColor' : 'none'}
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
+                />
+              </svg>
+              {bookmarkCount > 0 && !showBookmarksDrawer && (
+                <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center font-medium">
+                  {bookmarkCount}
+                </span>
+              )}
+            </button>
+
             <span className="text-sm text-white/80 mr-2">Utensils:</span>
             {utensils
               .filter((u) => u.id !== 'none')

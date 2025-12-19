@@ -209,6 +209,37 @@ body {
   animation: filter-slide-up 200ms ease-out forwards;
 }
 
+/* Drawer slide animations (for bookmarks drawer) */
+@keyframes drawer-slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes drawer-slide-down {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.animate-drawer-slide-up {
+  animation: drawer-slide-up 250ms ease-out forwards;
+}
+
+.animate-drawer-slide-down {
+  animation: drawer-slide-down 250ms ease-out forwards;
+}
+
 /* Backdrop fade-in animation */
 @keyframes backdrop-fade-in {
   from {

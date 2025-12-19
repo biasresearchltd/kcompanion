@@ -1,4 +1,4 @@
-import { useMemo, forwardRef, useImperativeHandle, useRef, useState, useCallback } from 'react';
+import { useMemo, forwardRef, useImperativeHandle, useRef, useState, useCallback, useEffect } from 'react';
 import Fuse from 'fuse.js';
 import type { Recipe, Ingredient, Effect, VariantGroups, RecipeCategory, ProcessingRecipe, Character, GiftToCharacters } from '../../types';
 import { useInventoryStore } from '../../store/inventoryStore';
@@ -140,7 +140,16 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
     focusIngredientFilters,
     toggleFocusIngredientFilter,
     clearFocusIngredientFilters,
+    showBookmarksDrawer,
+    setShowBookmarksDrawer,
   } = useSettingsStore();
+
+  // Auto-collapse bookmarks drawer when last bookmark is removed
+  useEffect(() => {
+    if (showBookmarksDrawer && bookmarkedRecipes.length === 0) {
+      setShowBookmarksDrawer(false);
+    }
+  }, [bookmarkedRecipes.length, showBookmarksDrawer, setShowBookmarksDrawer]);
 
   // Fuse instance for recipe search
   const fuse = useMemo(() => {
@@ -635,7 +644,7 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
   );
 
   return (
-    <div className={`flex flex-col bg-white ${isMobile ? 'min-h-full h-full' : 'h-full rounded-2xl shadow-sm border border-[var(--color-border)] overflow-hidden'}`}>
+    <div className={`flex flex-col bg-white relative ${isMobile ? 'min-h-full h-full' : 'h-full rounded-2xl shadow-sm border border-[var(--color-border)] overflow-hidden'}`}>
       {/* Mobile Filter Panel - extends from tab bar */}
       {isMobile && showFilterOverlay && (
         <div className={`flex-shrink-0 bg-white border-b border-[var(--color-border)] shadow-sm p-4 z-30 relative ${isFilterClosing ? 'animate-filter-slide-up' : 'animate-filter-slide-down'}`}>
@@ -675,8 +684,8 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
         </div>
       )}
 
-      {/* Scroll container for content only */}
-      <div ref={scrollRef} className="flex-1 overflow-y-auto relative">
+      {/* Scroll container for content only - shrinks when bookmarks drawer is expanded */}
+      <div ref={scrollRef} className={`overflow-y-auto relative min-h-0 ${!isMobile && showBookmarksDrawer && bookmarkedRecipes.length > 0 ? 'flex-[1_1_0%]' : 'flex-1'}`}>
         {/* Focus Dock - floating over content */}
         {showFocusDock && selectedIngredients.length > 0 && (
           <div className="sticky top-0 z-10 pointer-events-none">
@@ -891,6 +900,53 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
         {isMobile && <div style={{ height: '100vh', flexShrink: 0 }} />}
         </div>
       </div>
+
+      {/* Bookmarks Drawer - tablet/desktop only, shows when there are bookmarks */}
+      {!isMobile && bookmarkedRecipes.length > 0 && (
+        <div
+          className={`bg-white border-t-2 border-red-200 flex flex-col min-h-0 overflow-hidden transition-all duration-300 ease-out ${showBookmarksDrawer ? 'flex-[3_1_0%]' : 'flex-shrink-0'}`}
+        >
+          {/* Header - always visible, clickable to expand/collapse */}
+          <button
+            onClick={() => setShowBookmarksDrawer(!showBookmarksDrawer)}
+            className="flex items-center justify-between px-4 py-3 bg-red-50 flex-shrink-0 w-full text-left hover:bg-red-100 transition-colors"
+          >
+            <h3 className="font-semibold text-red-700 flex items-center gap-2">
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+              </svg>
+              Bookmarked Recipes ({bookmarkedRecipes.length})
+            </h3>
+            <svg className={`w-5 h-5 text-red-500 transition-transform duration-300 ${showBookmarksDrawer ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+            </svg>
+          </button>
+
+          {/* Content - scrollable, only shown when expanded */}
+          {showBookmarksDrawer && (
+            <div className="flex-1 min-h-0 overflow-y-auto overflow-x-clip p-4 pt-10 border-t border-red-100">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {(() => {
+                  const bookmarkSet = new Set(bookmarkedRecipes);
+                  const bookmarkedMatches = matches.filter(m => bookmarkSet.has(m.recipe.id));
+                  return bookmarkedMatches.map((match, index) => (
+                    <RecipeCard
+                      key={match.recipe.id}
+                      match={match}
+                      ingredientMap={ingredientMap}
+                      effectMap={effectMap}
+                      characterMap={characterMap}
+                      giftToCharacters={giftToCharacters}
+                      selectedIngredients={selectedIngredients}
+                      index={index}
+                    />
+                  ));
+                })()}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 });

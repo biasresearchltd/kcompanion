@@ -277,11 +277,11 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
 
   return (
     <div
-      className="relative"
+      className={`relative ${isHovered ? 'z-20' : ''}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Desktop action buttons - tab buttons that slide out from under the card */}
+      {/* Desktop action buttons - tab buttons that slide out from behind the card */}
       <div className={`hidden tablet:flex flex-row gap-0.5 absolute -top-9 right-4 transition-all duration-200 ease-out ${
         isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'
       }`}>
