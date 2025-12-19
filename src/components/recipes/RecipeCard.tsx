@@ -281,46 +281,36 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Desktop action buttons - show on hover (tablet and above) */}
+      {/* Desktop action buttons - tab buttons that pop out from right edge on hover */}
       {isHovered && (
-        <div className="hidden tablet:flex items-center gap-1 absolute top-2 right-2 z-20">
+        <div className="hidden tablet:flex flex-col gap-0.5 absolute top-2 -right-9 z-20">
           <button
             onClick={(e) => { e.stopPropagation(); toggleBookmark(recipe.id); }}
-            className={`p-1.5 rounded-lg bg-white/90 shadow-sm border border-gray-200 transition-colors ${
-              isBookmarked ? 'text-red-500 hover:text-red-600' : 'text-gray-400 hover:text-red-400'
+            className={`p-1.5 rounded-r-lg shadow-md border border-l-0 transition-colors ${
+              isBookmarked
+                ? 'bg-red-500 text-white border-red-500 hover:bg-red-600'
+                : 'bg-white text-gray-400 border-gray-200 hover:text-red-500 hover:bg-red-50'
             }`}
             title={isBookmarked ? 'Remove bookmark' : 'Bookmark recipe'}
           >
-            {isBookmarked ? (
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
-              </svg>
-            ) : (
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                      d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
-              </svg>
-            )}
+            <svg className="w-5 h-5" fill={isBookmarked ? 'currentColor' : 'none'} stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                    d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+            </svg>
           </button>
           <button
             onClick={(e) => { e.stopPropagation(); toggleOwned(recipe.id); }}
-            className={`p-1.5 rounded-lg bg-white/90 shadow-sm border border-gray-200 transition-colors ${
-              isOwned ? 'text-green-500 hover:text-green-600' : 'text-gray-400 hover:text-green-400'
+            className={`p-1.5 rounded-r-lg shadow-md border border-l-0 transition-colors ${
+              isOwned
+                ? 'bg-green-500 text-white border-green-500 hover:bg-green-600'
+                : 'bg-white text-gray-400 border-gray-200 hover:text-green-500 hover:bg-green-50'
             }`}
             title={isOwned ? 'Mark as not owned' : 'Mark as owned'}
           >
-            {isOwned ? (
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd" />
-              </svg>
-            ) : (
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                      d="M5 13l4 4L19 7" />
-              </svg>
-            )}
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={isOwned ? 3 : 2}
+                    d="M5 13l4 4L19 7" />
+            </svg>
           </button>
         </div>
       )}
