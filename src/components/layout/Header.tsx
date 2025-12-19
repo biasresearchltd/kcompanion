@@ -20,7 +20,10 @@ export function Header({ utensils, onStatusBarTap }: HeaderProps) {
   const bookmarkCount = bookmarkedRecipes.length;
 
   return (
-    <header className="bg-[var(--color-primary)] text-white shadow-lg pt-[env(safe-area-inset-top)] relative">
+    <header
+      className="bg-[var(--color-primary)] text-white shadow-lg relative"
+      style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}
+    >
       {/* iOS-style status bar tap target - covers safe area inset + extra height for easier tapping */}
       {onStatusBarTap && (
         <button
