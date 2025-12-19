@@ -281,15 +281,15 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Desktop action buttons - tab buttons that pop out from top edge on hover */}
+      {/* Desktop action buttons - tab buttons that extend from under the card */}
       {isHovered && (
-        <div className="hidden tablet:flex flex-row gap-0.5 absolute -top-9 right-2 z-20">
+        <div className="hidden tablet:flex flex-row gap-0.5 absolute -top-8 right-3 -z-10">
           <button
             onClick={(e) => { e.stopPropagation(); toggleBookmark(recipe.id); }}
-            className={`p-1.5 rounded-t-lg shadow-md border border-b-0 transition-colors ${
+            className={`p-1.5 pt-2 rounded-t-lg border border-b-0 transition-colors ${
               isBookmarked
-                ? 'bg-red-500 text-white border-red-500 hover:bg-red-600'
-                : 'bg-white text-gray-400 border-gray-200 hover:text-red-500 hover:bg-red-50'
+                ? 'bg-red-500 text-white border-red-400 hover:bg-red-600'
+                : 'bg-white text-gray-400 border-gray-300 hover:text-red-500 hover:bg-red-50'
             }`}
             title={isBookmarked ? 'Remove bookmark' : 'Bookmark recipe'}
           >
@@ -300,10 +300,10 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
           </button>
           <button
             onClick={(e) => { e.stopPropagation(); toggleOwned(recipe.id); }}
-            className={`p-1.5 rounded-t-lg shadow-md border border-b-0 transition-colors ${
+            className={`p-1.5 pt-2 rounded-t-lg border border-b-0 transition-colors ${
               isOwned
-                ? 'bg-green-500 text-white border-green-500 hover:bg-green-600'
-                : 'bg-white text-gray-400 border-gray-200 hover:text-green-500 hover:bg-green-50'
+                ? 'bg-green-500 text-white border-green-400 hover:bg-green-600'
+                : 'bg-white text-gray-400 border-gray-300 hover:text-green-500 hover:bg-green-50'
             }`}
             title={isOwned ? 'Mark as not owned' : 'Mark as owned'}
           >
