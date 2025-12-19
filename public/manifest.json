@@ -1,0 +1,19 @@
+{
+  "name": "Grand Bazaar Kitchen Companion",
+  "short_name": "GB Kitchen",
+  "description": "Find recipes based on your inventory",
+  "theme_color": "#8B4513",
+  "background_color": "#D9C4A5",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -114,7 +114,7 @@ export function IngredientItem({
         </div>
         {/* Fixed two-line height text area - marquee only when truncated */}
         <div
-          className={`w-full mt-auto ${isGridTruncated ? 'marquee-container' : ''}`}
+          className={`w-full mt-auto flex items-center justify-center ${isGridTruncated ? 'marquee-container' : ''}`}
           style={{ height: '26px' }} /* Fixed height for 2 lines at 11px with leading-tight */
         >
           <span

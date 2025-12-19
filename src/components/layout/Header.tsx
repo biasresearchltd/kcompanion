@@ -42,8 +42,12 @@ export function Header({ utensils, onStatusBarTap }: HeaderProps) {
         <div className="flex items-center justify-between">
           {/* Logo/Title */}
           <div className="flex items-center gap-2 sm:gap-3">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
-              <span className="text-xl sm:text-2xl">🍳</span>
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden">
+              <img
+                src="/icons/icon-512.png"
+                alt="GB Kitchen"
+                className="w-full h-full object-contain"
+              />
             </div>
             <div className="flex items-baseline gap-2 sm:block">
               <h1 className="text-lg sm:text-xl font-bold">SOSGB</h1>
