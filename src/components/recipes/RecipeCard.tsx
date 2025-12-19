@@ -75,8 +75,12 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
   interface IngredientSlot {
     primary: IngredientOption;
     alternatives: IngredientOption[];
+    overflowAlternatives?: IngredientOption[];
     count: number;
   }
+
+  // Maximum alternatives to show inline (more than this goes to Adapt section)
+  const MAX_INLINE_ALTERNATIVES = 2;
 
   const buildRecipeSlots = (): IngredientSlot[] => {
     const slots: IngredientSlot[] = [];
@@ -98,7 +102,7 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
         };
 
         // All other options become alternatives (show all options from oneOf)
-        const alternatives: IngredientOption[] = ing.oneOf
+        const allAlternatives: IngredientOption[] = ing.oneOf
           .filter(id => id !== primaryId)
           .map(id => ({
             id,
@@ -106,7 +110,16 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
             needsProcessing: processedSet.has(id),
           }));
 
-        slots.push({ primary, alternatives, count });
+        // Only show inline alternatives if there are few enough
+        const inlineAlternatives = allAlternatives.length <= MAX_INLINE_ALTERNATIVES ? allAlternatives : [];
+        const overflowAlternatives = allAlternatives.length > MAX_INLINE_ALTERNATIVES ? allAlternatives : [];
+
+        slots.push({
+          primary,
+          alternatives: inlineAlternatives,
+          overflowAlternatives,
+          count
+        });
       } else if (ing.id && ing.id !== 'choice') {
         // Fixed ingredient - no alternatives
         const count = ing.count || 1;
@@ -119,6 +132,7 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
             needsProcessing: processedSet.has(ing.id),
           },
           alternatives: [],
+          overflowAlternatives: [],
           count,
         });
       }
@@ -128,6 +142,9 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
   };
 
   const recipeSlots = buildRecipeSlots();
+
+  // Check if any slots have overflow alternatives (for Adapt section)
+  const hasAdaptIngredients = recipeSlots.some(slot => slot.overflowAlternatives && slot.overflowAlternatives.length > 0);
 
   // Get characters who love this recipe as a gift
   const getCharactersForRecipe = (): CharacterGiftInfo[] => {
@@ -414,6 +431,58 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
           );
         })}
       </div>
+
+      {/* Adapt Section - collapsible overflow alternatives */}
+      {hasAdaptIngredients && (
+        <details className="mt-3 group">
+          <summary className="flex items-center gap-2 cursor-pointer text-xs font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text)]">
+            <span className="flex items-center gap-1">
+              <svg className="w-3.5 h-3.5 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
+              </svg>
+              Adapt
+            </span>
+            <span className="text-[10px] text-gray-400">
+              ({recipeSlots.reduce((count, slot) => count + (slot.overflowAlternatives?.length || 0), 0)} alternatives)
+            </span>
+            <svg className="w-3 h-3 text-gray-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <div className={`mt-2 pt-2 border-t ${getDividerStyle()}`}>
+            <div className="flex flex-wrap gap-1">
+              {recipeSlots.map((slot, slotIndex) =>
+                slot.overflowAlternatives?.map((alt) => {
+                  const ingredient = getIngredient(alt.id);
+                  const name = ingredient?.name || formatIngredientName(alt.id);
+                  return (
+                    <div
+                      key={`${slotIndex}-${alt.id}`}
+                      className={`flex items-center gap-1 px-1.5 py-0.5 rounded-lg text-[10px] ${
+                        alt.isMatched
+                          ? alt.needsProcessing
+                            ? 'bg-blue-50 text-blue-700 ring-1 ring-blue-200'
+                            : 'bg-green-50 text-green-700 ring-1 ring-green-200'
+                          : 'bg-gray-50 text-gray-500 ring-1 ring-gray-200'
+                      }`}
+                    >
+                      <img
+                        src={`/images/ingredients/${ingredient?.icon || `${alt.id}.png`}`}
+                        alt={name}
+                        className={`w-4 h-4 object-contain ${!alt.isMatched ? 'opacity-50' : ''}`}
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = '/images/placeholder.svg';
+                        }}
+                      />
+                      <span className="truncate max-w-[80px]">{name}</span>
+                    </div>
+                  );
+                })
+              )}
+            </div>
+          </div>
+        </details>
+      )}
 
       {/* Bottom row: Unlock info and Character icons */}
       {(recipe.unlockMethod || characterGifts.length > 0) && (
