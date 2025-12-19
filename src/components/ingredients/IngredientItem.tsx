@@ -44,30 +44,44 @@ export function IngredientItem({
   const categoryBg = CATEGORY_COLORS[ingredient.category] || CATEGORY_COLORS.other;
   const categoryHover = CATEGORY_COLORS_HOVER[ingredient.category] || CATEGORY_COLORS_HOVER.other;
 
-  // Truncation detection for marquee effect
-  const textRef = useRef<HTMLSpanElement>(null);
-  const [isTruncated, setIsTruncated] = useState(false);
-  const [marqueeDistance, setMarqueeDistance] = useState(0);
+  // Truncation detection for marquee effect (list view)
+  const listTextRef = useRef<HTMLSpanElement>(null);
+  const [isListTruncated, setIsListTruncated] = useState(false);
+  const [listMarqueeDistance, setListMarqueeDistance] = useState(0);
+
+  // Truncation detection for grid view (second line overflow)
+  const gridTextRef = useRef<HTMLSpanElement>(null);
+  const [isGridTruncated, setIsGridTruncated] = useState(false);
+  const [gridMarqueeDistance, setGridMarqueeDistance] = useState(0);
 
   useEffect(() => {
     const checkTruncation = () => {
-      if (textRef.current) {
-        const scrollW = textRef.current.scrollWidth;
-        const clientW = textRef.current.clientWidth;
+      // List view truncation
+      if (listTextRef.current) {
+        const scrollW = listTextRef.current.scrollWidth;
+        const clientW = listTextRef.current.clientWidth;
         const truncated = scrollW > clientW;
-        setIsTruncated(truncated);
+        setIsListTruncated(truncated);
         if (truncated) {
-          // Calculate how far to scroll (negative value)
-          setMarqueeDistance(-(scrollW - clientW + 8)); // +8 for padding
+          setListMarqueeDistance(-(scrollW - clientW + 8));
+        }
+      }
+      // Grid view truncation (check if text overflows 2 lines)
+      if (gridTextRef.current) {
+        const el = gridTextRef.current;
+        const truncated = el.scrollHeight > el.clientHeight;
+        setIsGridTruncated(truncated);
+        if (truncated) {
+          // For grid, we scroll the full overflow width
+          setGridMarqueeDistance(-(el.scrollWidth - el.clientWidth + 8));
         }
       }
     };
 
     checkTruncation();
-    // Re-check on resize
     window.addEventListener('resize', checkTruncation);
     return () => window.removeEventListener('resize', checkTruncation);
-  }, [ingredient.name]);
+  }, [ingredient.name, viewMode]);
 
   if (viewMode === 'grid') {
     return (
@@ -98,12 +112,19 @@ export function IngredientItem({
             }}
           />
         </div>
-        <span
-          className="text-[11px] text-center leading-tight select-none line-clamp-2 w-full mt-auto"
-          style={{ WebkitUserSelect: 'none' }}
+        {/* Fixed two-line height text area with marquee for overflow */}
+        <div
+          className="marquee-container w-full mt-auto"
+          style={{ height: '26px' }} /* Fixed height for 2 lines at 11px with leading-tight */
         >
-          {ingredient.name}
-        </span>
+          <span
+            ref={gridTextRef}
+            className={`marquee-text text-[11px] text-center leading-tight select-none line-clamp-2 w-full block ${isGridTruncated ? 'is-truncated' : ''}`}
+            style={{ '--marquee-distance': `${gridMarqueeDistance}px`, WebkitUserSelect: 'none' } as React.CSSProperties}
+          >
+            {ingredient.name}
+          </span>
+        </div>
         {isSelected && (
           <div className="absolute top-1 right-1 w-5 h-5 bg-[var(--color-secondary)] rounded-full flex items-center justify-center shadow-sm">
             <svg className="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -148,9 +169,9 @@ export function IngredientItem({
       </div>
       <div className="marquee-container flex-1 min-w-0">
         <span
-          ref={textRef}
-          className={`marquee-text text-left text-sm font-medium select-none ${isTruncated ? 'is-truncated' : ''}`}
-          style={{ '--marquee-distance': `${marqueeDistance}px`, WebkitUserSelect: 'none' } as React.CSSProperties}
+          ref={listTextRef}
+          className={`marquee-text text-left text-sm font-medium select-none ${isListTruncated ? 'is-truncated' : ''}`}
+          style={{ '--marquee-distance': `${listMarqueeDistance}px`, WebkitUserSelect: 'none' } as React.CSSProperties}
         >
           {ingredient.name}
         </span>
