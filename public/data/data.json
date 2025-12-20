@@ -877,7 +877,9 @@
       "name": "Buffalo Milk+",
       "category": "animal_products",
       "subcategory": "milk",
-      "season": ["all"],
+      "season": [
+        "all"
+      ],
       "source": "buffalo",
       "basePrice": 300,
       "variants": [],
@@ -889,7 +891,9 @@
       "name": "Butter+",
       "category": "animal_products",
       "subcategory": "dairy",
-      "season": ["all"],
+      "season": [
+        "all"
+      ],
       "source": "windmill",
       "basePrice": 600,
       "variants": [],
@@ -901,7 +905,9 @@
       "name": "Cheese+",
       "category": "animal_products",
       "subcategory": "dairy",
-      "season": ["all"],
+      "season": [
+        "all"
+      ],
       "source": "windmill",
       "basePrice": 750,
       "variants": [],
@@ -913,7 +919,9 @@
       "name": "Egg+",
       "category": "animal_products",
       "subcategory": "eggs",
-      "season": ["all"],
+      "season": [
+        "all"
+      ],
       "source": "chicken",
       "basePrice": 135,
       "variants": [],
@@ -925,7 +933,9 @@
       "name": "Mayonnaise+",
       "category": "animal_products",
       "subcategory": "dairy",
-      "season": ["all"],
+      "season": [
+        "all"
+      ],
       "source": "windmill",
       "basePrice": 450,
       "variants": [],
@@ -937,7 +947,9 @@
       "name": "Milk+",
       "category": "animal_products",
       "subcategory": "milk",
-      "season": ["all"],
+      "season": [
+        "all"
+      ],
       "source": "cow",
       "basePrice": 225,
       "variants": [],
@@ -949,7 +961,9 @@
       "name": "Silkie Egg+",
       "category": "animal_products",
       "subcategory": "eggs",
-      "season": ["all"],
+      "season": [
+        "all"
+      ],
       "source": "silkie_chicken",
       "basePrice": 180,
       "variants": [],
@@ -961,7 +975,9 @@
       "name": "Yogurt+",
       "category": "animal_products",
       "subcategory": "dairy",
-      "season": ["all"],
+      "season": [
+        "all"
+      ],
       "source": "windmill",
       "basePrice": 900,
       "variants": [],
@@ -3081,7 +3097,12 @@
       "effect": "stamina_saver",
       "effectLevel": 3,
       "unlockMethod": "Plower title, Nadine's Bistro",
-      "icon": "guacamole_salad.png"
+      "icon": "guacamole_salad.png",
+      "additions": [
+        "lemon",
+        "salt",
+        "pepper"
+      ]
     },
     {
       "id": "herb_salad",
@@ -3096,15 +3117,31 @@
             "mint",
             "chamomile",
             "lavender"
-          ],
-          "count": 2
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "mint",
+            "chamomile",
+            "lavender"
+          ]
         }
       ],
       "baseValue": 137,
       "effect": "stamina_saver",
       "effectLevel": 1,
       "unlockMethod": "Available at start",
-      "icon": "herb_salad.png"
+      "icon": "herb_salad.png",
+      "additions": [
+        "broccoli",
+        "tomato",
+        "boiled_egg",
+        "olive_oil",
+        "salt",
+        "pepper"
+      ]
     },
     {
       "id": "kinpira_gobo",
@@ -3212,16 +3249,23 @@
           "required": true,
           "oneOf": [
             "butter",
-            "butter_plus",
-            "herb_butter"
+            "herb_butter",
+            "butter_plus"
           ]
         }
       ],
       "baseValue": 677,
       "effect": "watering_rare_crop",
       "effectLevel": 2,
-      "unlockMethod": "Café Madeleine",
-      "icon": "mashed_potatoes.png"
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "mashed_potatoes.png",
+      "additions": [
+        "milk",
+        "buffalo_milk",
+        "mint",
+        "salt",
+        "pepper"
+      ]
     },
     {
       "id": "mixed_salad",
@@ -3274,8 +3318,13 @@
       "baseValue": 325,
       "effect": "watering_rare_crop",
       "effectLevel": 1,
-      "unlockMethod": "Café Madeleine",
-      "icon": "onion_salad.png"
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "onion_salad.png",
+      "additions": [
+        "cucumber",
+        "tomato",
+        "turnip"
+      ]
     },
     {
       "id": "poke",
@@ -3300,7 +3349,12 @@
       "effect": "watering_rare_crop",
       "effectLevel": 3,
       "unlockMethod": "Mini Madeleine's",
-      "icon": "poke.png"
+      "icon": "poke.png",
+      "additions": [
+        "onion",
+        "green_onion",
+        "oil"
+      ]
     },
     {
       "id": "tomato_salad",
@@ -3343,7 +3397,12 @@
       "effect": "stamina_saver",
       "effectLevel": 1,
       "unlockMethod": "Available at start",
-      "icon": "turnip_salad.png"
+      "icon": "turnip_salad.png",
+      "additions": [
+        "cucumber",
+        "tomato",
+        "red_bell_pepper"
+      ]
     },
     {
       "id": "asparagus_soup",
@@ -3438,9 +3497,7 @@
           "required": true,
           "oneOf": [
             "egg",
-            "egg_plus",
-            "silkie_egg",
-            "silkie_egg_plus"
+            "silkie_egg"
           ]
         }
       ],
@@ -3448,7 +3505,14 @@
       "effect": "run_speed_up",
       "effectLevel": 1,
       "unlockMethod": "Available at start",
-      "icon": "egg_drop_soup.png"
+      "icon": "egg_drop_soup.png",
+      "additions": [
+        "green_onion",
+        "soy_sauce",
+        "salt",
+        "pepper",
+        "oil"
+      ]
     },
     {
       "id": "gazpacho_soup",
@@ -3478,8 +3542,15 @@
       "baseValue": 490,
       "effect": "run_speed_up",
       "effectLevel": 1,
-      "unlockMethod": "Café Madeleine",
-      "icon": "gazpacho_soup.png"
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "gazpacho_soup.png",
+      "additions": [
+        "cucumber",
+        "onion",
+        "green_bell_pepper",
+        "olive_oil",
+        "salt"
+      ]
     },
     {
       "id": "herb_soup",
@@ -3494,15 +3565,31 @@
             "mint",
             "chamomile",
             "lavender"
-          ],
-          "count": 2
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "mint",
+            "chamomile",
+            "lavender"
+          ]
         }
       ],
       "baseValue": 137,
       "effect": "run_speed_up",
       "effectLevel": 1,
       "unlockMethod": "Available at start",
-      "icon": "herb_soup.png"
+      "icon": "herb_soup.png",
+      "additions": [
+        "onion",
+        "cabbage",
+        "carrot",
+        "broccoli",
+        "salt",
+        "olive_oil"
+      ]
     },
     {
       "id": "miso_soup",
@@ -3573,9 +3660,7 @@
           "required": true,
           "oneOf": [
             "milk",
-            "milk_plus",
-            "buffalo_milk",
-            "buffalo_milk_plus"
+            "buffalo_milk"
           ]
         },
         {
@@ -3587,7 +3672,14 @@
       "effect": "run_speed_up",
       "effectLevel": 3,
       "unlockMethod": "Clara's Calamity request from Clara",
-      "icon": "pumpkin_soup.png"
+      "icon": "pumpkin_soup.png",
+      "additions": [
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "salt",
+        "pepper"
+      ]
     },
     {
       "id": "radish_soup",
@@ -3604,9 +3696,7 @@
           "required": true,
           "oneOf": [
             "milk",
-            "milk_plus",
-            "buffalo_milk",
-            "buffalo_milk_plus"
+            "buffalo_milk"
           ]
         },
         {
@@ -3618,7 +3708,14 @@
       "effect": "rod_durability_up",
       "effectLevel": 2,
       "unlockMethod": "Pantry Patron request from Mina",
-      "icon": "radish_soup.png"
+      "icon": "radish_soup.png",
+      "additions": [
+        "onion",
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "pepper"
+      ]
     },
     {
       "id": "vichyssoise_soup",
@@ -3662,9 +3759,7 @@
           "required": true,
           "oneOf": [
             "egg",
-            "egg_plus",
-            "silkie_egg",
-            "silkie_egg_plus"
+            "silkie_egg"
           ]
         }
       ],
@@ -3672,7 +3767,14 @@
       "effect": "max_stamina_up",
       "effectLevel": 1,
       "unlockMethod": "Available at start",
-      "icon": "boiled_egg.png"
+      "icon": "boiled_egg.png",
+      "additions": [
+        "broccoli",
+        "mayonnaise",
+        "herb_mayonnaise",
+        "mayonnaise_plus",
+        "salt"
+      ]
     },
     {
       "id": "bread",
@@ -3688,8 +3790,17 @@
       "baseValue": 195,
       "effect": null,
       "effectLevel": null,
-      "unlockMethod": "Café Madeleine, Mini Madeleine's, Nadine's Bistro, Clara's Diner",
-      "icon": "bread.png"
+      "unlockMethod": "Caf\u00e9 Madeleine, Mini Madeleine's, Nadine's Bistro, Clara's Diner",
+      "icon": "bread.png",
+      "additions": [
+        "milk",
+        "buffalo_milk",
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "sugar",
+        "salt"
+      ]
     },
     {
       "id": "cooked_rice",
@@ -3705,8 +3816,12 @@
       "baseValue": 91,
       "effect": null,
       "effectLevel": null,
-      "unlockMethod": "Café Madeleine, Mini Madeleine's, Nadine's Bistro, Clara's Diner",
-      "icon": "cooked_rice.png"
+      "unlockMethod": "Caf\u00e9 Madeleine, Mini Madeleine's, Nadine's Bistro, Clara's Diner",
+      "icon": "cooked_rice.png",
+      "additions": [
+        "salt",
+        "simmered_seaweed"
+      ]
     },
     {
       "id": "baguettes",
@@ -3744,11 +3859,23 @@
       "effect": "chat_friendship_boost",
       "effectLevel": 1,
       "unlockMethod": "Felix's Fixings (Autumn)",
-      "icon": "baked_sweet_potato.png"
+      "icon": "baked_sweet_potato.png",
+      "additions": [
+        "sugar",
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey",
+        "soy_sauce",
+        "oil"
+      ]
     },
     {
       "id": "broccoli_and_garlic_saute",
-      "name": "Broccoli & Garlic Sauté",
+      "name": "Broccoli & Garlic Saut\u00e9",
       "category": "side",
       "utensil": "frying_pan",
       "ingredients": [
@@ -3793,8 +3920,8 @@
           "required": true,
           "oneOf": [
             "butter",
-            "butter_plus",
-            "herb_butter"
+            "herb_butter",
+            "butter_plus"
           ]
         }
       ],
@@ -3802,7 +3929,15 @@
       "effect": "max_stamina_up",
       "effectLevel": 2,
       "unlockMethod": "Count on Coach! request from Freya",
-      "icon": "buttered_potato.png"
+      "icon": "buttered_potato.png",
+      "additions": [
+        "corn",
+        "garlic",
+        "soy_sauce",
+        "salt",
+        "seaweed",
+        "urchin"
+      ]
     },
     {
       "id": "buttered_roll",
@@ -3819,9 +3954,7 @@
           "required": true,
           "oneOf": [
             "egg",
-            "egg_plus",
-            "silkie_egg",
-            "silkie_egg_plus"
+            "silkie_egg"
           ]
         },
         {
@@ -3829,16 +3962,22 @@
           "required": true,
           "oneOf": [
             "butter",
-            "butter_plus",
-            "herb_butter"
+            "herb_butter",
+            "butter_plus"
           ]
         }
       ],
       "baseValue": 1056,
       "effect": "max_stamina_up",
       "effectLevel": 3,
-      "unlockMethod": "Café Madeleine",
-      "icon": "buttered_roll.png"
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "buttered_roll.png",
+      "additions": [
+        "milk",
+        "buffalo_milk",
+        "sugar",
+        "salt"
+      ]
     },
     {
       "id": "cheese_bun",
@@ -3854,9 +3993,9 @@
           "id": "choice",
           "required": true,
           "oneOf": [
-            "cheese",
-            "cheese_plus",
-            "herb_cheese"
+            "butter",
+            "herb_butter",
+            "butter_plus"
           ]
         },
         {
@@ -3868,7 +4007,16 @@
       "effect": "chat_friendship_boost",
       "effectLevel": 3,
       "unlockMethod": "Mini Madeleine's",
-      "icon": "cheese_bun.png"
+      "icon": "cheese_bun.png",
+      "additions": [
+        "garlic",
+        "milk",
+        "buffalo_milk",
+        "sugar",
+        "salt",
+        "pepper",
+        "oil"
+      ]
     },
     {
       "id": "cheese_croquettes",
@@ -4179,7 +4327,14 @@
       "effect": "rod_durability_up",
       "effectLevel": 1,
       "unlockMethod": "Bottled Nuts Wanted request from Nadine",
-      "icon": "fish_cake.png"
+      "icon": "fish_cake.png",
+      "additions": [
+        "avocado",
+        "cheese",
+        "herb_cheese",
+        "cheese_plus",
+        "soy_sauce"
+      ]
     },
     {
       "id": "focaccia_bread",
@@ -4200,7 +4355,15 @@
       "effect": "max_stamina_up",
       "effectLevel": 2,
       "unlockMethod": "Bookshelves in Lloyd's House",
-      "icon": "focaccia_bread.png"
+      "icon": "focaccia_bread.png",
+      "additions": [
+        "tomato",
+        "cheese",
+        "herb_cheese",
+        "cheese_plus",
+        "sugar",
+        "salt"
+      ]
     },
     {
       "id": "freeze_dried_tofu",
@@ -4260,7 +4423,16 @@
       "effect": "chat_friendship_boost",
       "effectLevel": 1,
       "unlockMethod": "Mini Madeleine's",
-      "icon": "french_fries.png"
+      "icon": "french_fries.png",
+      "additions": [
+        "tomato",
+        "mayonnaise",
+        "herb_mayonnaise",
+        "mayonnaise_plus",
+        "wheat_flour",
+        "salt",
+        "pepper"
+      ]
     },
     {
       "id": "french_toast",
@@ -4314,9 +4486,7 @@
           "required": true,
           "oneOf": [
             "egg",
-            "egg_plus",
-            "silkie_egg",
-            "silkie_egg_plus"
+            "silkie_egg"
           ]
         },
         {
@@ -4334,8 +4504,17 @@
       "baseValue": 396,
       "effect": "max_stamina_up",
       "effectLevel": 1,
-      "unlockMethod": "Café Madeleine",
-      "icon": "fried_egg.png"
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "fried_egg.png",
+      "additions": [
+        "tomato",
+        "mayonnaise",
+        "herb_mayonnaise",
+        "mayonnaise_plus",
+        "soy_sauce",
+        "salt",
+        "pepper"
+      ]
     },
     {
       "id": "fried_mushrooms",
@@ -4347,9 +4526,9 @@
           "id": "choice",
           "required": true,
           "oneOf": [
-            "common_mushroom",
             "shiitake_mushroom",
             "shimeji_mushroom",
+            "common_mushroom",
             "porcini_mushroom",
             "morel_mushroom",
             "matsutake_mushroom",
@@ -4361,7 +4540,14 @@
       "effect": "max_stamina_up",
       "effectLevel": 1,
       "unlockMethod": "Felix's Fixings (Autumn)",
-      "icon": "fried_mushrooms.png"
+      "icon": "fried_mushrooms.png",
+      "additions": [
+        "salt",
+        "pepper",
+        "nut_oil",
+        "herb_oil",
+        "olive_oil"
+      ]
     },
     {
       "id": "fried_tofu",
@@ -4435,7 +4621,14 @@
       "effect": "watering_rare_crop",
       "effectLevel": 2,
       "unlockMethod": "Felix's Fixings (Summer)",
-      "icon": "grilled_corn.png"
+      "icon": "grilled_corn.png",
+      "additions": [
+        "garlic",
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "oil"
+      ]
     },
     {
       "id": "gyoza",
@@ -4635,9 +4828,7 @@
           "required": true,
           "oneOf": [
             "egg",
-            "egg_plus",
-            "silkie_egg",
-            "silkie_egg_plus"
+            "silkie_egg"
           ]
         },
         {
@@ -4648,8 +4839,15 @@
       "baseValue": 301,
       "effect": "chat_friendship_boost",
       "effectLevel": 1,
-      "unlockMethod": "Café Madeleine",
-      "icon": "poached_egg.png"
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "poached_egg.png",
+      "additions": [
+        "green_onion",
+        "nut_oil",
+        "herb_oil",
+        "olive_oil",
+        "salt"
+      ]
     },
     {
       "id": "popcorn",
@@ -4677,7 +4875,18 @@
       "effect": "chat_friendship_boost",
       "effectLevel": 2,
       "unlockMethod": "Neighborly title, Mini Madeleine's",
-      "icon": "popcorn.png"
+      "icon": "popcorn.png",
+      "additions": [
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "salt",
+        "curry_powder",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey"
+      ]
     },
     {
       "id": "potato_pancakes",
@@ -4698,17 +4907,23 @@
           "required": true,
           "oneOf": [
             "egg",
-            "egg_plus",
-            "silkie_egg",
-            "silkie_egg_plus"
+            "silkie_egg"
           ]
         }
       ],
       "baseValue": 429,
       "effect": "max_stamina_up",
       "effectLevel": 1,
-      "unlockMethod": "Café Madeleine",
-      "icon": "potato_pancakes.png"
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "potato_pancakes.png",
+      "additions": [
+        "onion",
+        "sugar",
+        "salt",
+        "nut_oil",
+        "herb_oil",
+        "olive_oil"
+      ]
     },
     {
       "id": "quiche",
@@ -4806,11 +5021,16 @@
       "effect": "rod_durability_up",
       "effectLevel": 1,
       "unlockMethod": "Available at start",
-      "icon": "sashimi.png"
+      "icon": "sashimi.png",
+      "additions": [
+        "daikon_radish",
+        "carrot",
+        "soy_sauce"
+      ]
     },
     {
       "id": "sauteed_cauliflower",
-      "name": "Sautéed Cauliflower",
+      "name": "Saut\u00e9ed Cauliflower",
       "category": "side",
       "utensil": "frying_pan",
       "ingredients": [
@@ -4827,7 +5047,7 @@
     },
     {
       "id": "sauteed_turnips",
-      "name": "Sautéed Turnips",
+      "name": "Saut\u00e9ed Turnips",
       "category": "side",
       "utensil": "frying_pan",
       "ingredients": [
@@ -4840,16 +5060,26 @@
           "required": true,
           "oneOf": [
             "butter",
-            "butter_plus",
-            "herb_butter"
+            "herb_butter",
+            "butter_plus"
           ]
         }
       ],
       "baseValue": 882,
       "effect": "max_stamina_up",
       "effectLevel": 2,
-      "unlockMethod": "Café Madeleine",
-      "icon": "sauteed_turnips.png"
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "sauteed_turnips.png",
+      "additions": [
+        "garlic",
+        "salt",
+        "pepper",
+        "oil",
+        "nut_oil",
+        "herb_oil",
+        "olive_oil",
+        "miso"
+      ]
     },
     {
       "id": "scones",
@@ -4866,8 +5096,8 @@
           "required": true,
           "oneOf": [
             "butter",
-            "butter_plus",
-            "herb_butter"
+            "herb_butter",
+            "butter_plus"
           ]
         },
         {
@@ -4875,17 +5105,21 @@
           "required": true,
           "oneOf": [
             "milk",
-            "milk_plus",
-            "buffalo_milk",
-            "buffalo_milk_plus"
+            "buffalo_milk"
           ]
         }
       ],
       "baseValue": 1155,
       "effect": "max_stamina_up",
       "effectLevel": 3,
-      "unlockMethod": "Café Madeleine",
-      "icon": "scones.png"
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "scones.png",
+      "additions": [
+        "grape_jam",
+        "apple_jam",
+        "blueberry_jam",
+        "strawberry_jam"
+      ]
     },
     {
       "id": "shumai_dumplings",
@@ -4922,7 +5156,14 @@
       "effect": "rod_durability_up",
       "effectLevel": 2,
       "unlockMethod": "Reeling in a Meal request from Sonia",
-      "icon": "shumai_dumplings.png"
+      "icon": "shumai_dumplings.png",
+      "additions": [
+        "soybean",
+        "sugar",
+        "soy_sauce",
+        "salt",
+        "pepper"
+      ]
     },
     {
       "id": "soy_okara",
@@ -5021,9 +5262,7 @@
           "required": true,
           "oneOf": [
             "egg",
-            "egg_plus",
-            "silkie_egg",
-            "silkie_egg_plus"
+            "silkie_egg"
           ]
         },
         {
@@ -5039,7 +5278,15 @@
       "effect": "max_stamina_up",
       "effectLevel": 2,
       "unlockMethod": "Clara's Diner",
-      "icon": "steamed_egg_custard.png"
+      "icon": "steamed_egg_custard.png",
+      "additions": [
+        "spinach",
+        "carrot",
+        "broccoli",
+        "soybean",
+        "shimeji_mushroom",
+        "salt"
+      ]
     },
     {
       "id": "steamed_muffin",
@@ -5056,9 +5303,7 @@
           "required": true,
           "oneOf": [
             "egg",
-            "egg_plus",
-            "silkie_egg",
-            "silkie_egg_plus"
+            "silkie_egg"
           ]
         },
         {
@@ -5070,7 +5315,13 @@
       "effect": "max_stamina_up",
       "effectLevel": 2,
       "unlockMethod": "Bug Collector title, Generous Bug Catcher title, Clara's Diner",
-      "icon": "steamed_muffin.png"
+      "icon": "steamed_muffin.png",
+      "additions": [
+        "milk",
+        "buffalo_milk",
+        "sugar",
+        "salt"
+      ]
     },
     {
       "id": "stew",
@@ -5151,7 +5402,16 @@
       "effect": "max_stamina_up",
       "effectLevel": 3,
       "unlockMethod": "Famed Foodie request from Madeleine",
-      "icon": "stuffed_cabbage.png"
+      "icon": "stuffed_cabbage.png",
+      "additions": [
+        "salt",
+        "pepper",
+        "nut_oil",
+        "herb_oil",
+        "olive_oil",
+        "pumpkin_oil",
+        "grape_oil"
+      ]
     },
     {
       "id": "toast",
@@ -5172,7 +5432,19 @@
       "effect": "max_stamina_up",
       "effectLevel": 1,
       "unlockMethod": "Bookshelves in June's House",
-      "icon": "toast.png"
+      "icon": "toast.png",
+      "additions": [
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "mayonnaise",
+        "herb_mayonnaise",
+        "mayonnaise_plus",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey"
+      ]
     },
     {
       "id": "tofu",
@@ -5193,7 +5465,15 @@
       "effect": "max_stamina_up",
       "effectLevel": 1,
       "unlockMethod": "Mini Madeleine's",
-      "icon": "tofu.png"
+      "icon": "tofu.png",
+      "additions": [
+        "green_onion",
+        "soy_sauce",
+        "salt",
+        "oil",
+        "seaweed",
+        "urchin"
+      ]
     },
     {
       "id": "tofu_skin",
@@ -5251,9 +5531,9 @@
           "id": "choice",
           "required": true,
           "oneOf": [
-            "common_mushroom",
             "shiitake_mushroom",
             "shimeji_mushroom",
+            "common_mushroom",
             "porcini_mushroom",
             "morel_mushroom",
             "matsutake_mushroom",
@@ -5265,7 +5545,14 @@
       "effect": "watering_rare_crop",
       "effectLevel": 3,
       "unlockMethod": "Hydrator title, Nadine's Bistro",
-      "icon": "babaocai.png"
+      "icon": "babaocai.png",
+      "additions": [
+        "cabbage",
+        "onion",
+        "bok_choy",
+        "burdock",
+        "red_bell_pepper"
+      ]
     },
     {
       "id": "curry_rice",
@@ -5295,7 +5582,12 @@
       "effect": null,
       "effectLevel": null,
       "unlockMethod": "Clara's Diner, Flex it out! mail from Felix",
-      "icon": "curry_rice.png"
+      "icon": "curry_rice.png",
+      "additions": [
+        "tomato",
+        "garlic",
+        "apple"
+      ]
     },
     {
       "id": "egg_over_rice",
@@ -5308,9 +5600,7 @@
           "required": true,
           "oneOf": [
             "egg",
-            "egg_plus",
-            "silkie_egg",
-            "silkie_egg_plus"
+            "silkie_egg"
           ]
         },
         {
@@ -5322,7 +5612,16 @@
       "effect": null,
       "effectLevel": null,
       "unlockMethod": "Available at start",
-      "icon": "egg_over_rice.png"
+      "icon": "egg_over_rice.png",
+      "additions": [
+        "green_onion",
+        "cheese",
+        "herb_cheese",
+        "cheese_plus",
+        "soy_sauce",
+        "salt",
+        "pepper"
+      ]
     },
     {
       "id": "grilled_fish",
@@ -5351,7 +5650,11 @@
       "effect": null,
       "effectLevel": null,
       "unlockMethod": "Available at start",
-      "icon": "grilled_fish.png"
+      "icon": "grilled_fish.png",
+      "additions": [
+        "daikon_radish",
+        "soy_sauce"
+      ]
     },
     {
       "id": "omelet",
@@ -5364,9 +5667,7 @@
           "required": true,
           "oneOf": [
             "egg",
-            "egg_plus",
-            "silkie_egg",
-            "silkie_egg_plus"
+            "silkie_egg"
           ]
         },
         {
@@ -5374,16 +5675,24 @@
           "required": true,
           "oneOf": [
             "butter",
-            "butter_plus",
-            "herb_butter"
+            "herb_butter",
+            "butter_plus"
           ]
         }
       ],
       "baseValue": 721,
       "effect": null,
       "effectLevel": null,
-      "unlockMethod": "Café Madeleine",
-      "icon": "omelet.png"
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "omelet.png",
+      "additions": [
+        "onion",
+        "tomato",
+        "milk",
+        "buffalo_milk",
+        "salt",
+        "pepper"
+      ]
     },
     {
       "id": "pasta",
@@ -5400,17 +5709,24 @@
           "required": true,
           "oneOf": [
             "egg",
-            "egg_plus",
-            "silkie_egg",
-            "silkie_egg_plus"
+            "silkie_egg"
           ]
         }
       ],
       "baseValue": 328,
       "effect": null,
       "effectLevel": null,
-      "unlockMethod": "Café Madeleine",
-      "icon": "pasta.png"
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "pasta.png",
+      "additions": [
+        "tomato",
+        "cucumber",
+        "garlic",
+        "eggplant",
+        "cheese",
+        "herb_cheese",
+        "cheese_plus"
+      ]
     },
     {
       "id": "pizza",
@@ -5431,8 +5747,8 @@
           "required": true,
           "oneOf": [
             "cheese",
-            "cheese_plus",
-            "herb_cheese"
+            "herb_cheese",
+            "cheese_plus"
           ]
         }
       ],
@@ -5440,7 +5756,14 @@
       "effect": null,
       "effectLevel": null,
       "unlockMethod": "Face of Zephyr Town title, Nadine's Bistro",
-      "icon": "pizza.png"
+      "icon": "pizza.png",
+      "additions": [
+        "green_bell_pepper",
+        "onion",
+        "asparagus",
+        "corn",
+        "pineapple"
+      ]
     },
     {
       "id": "sandwich",
@@ -5470,8 +5793,20 @@
       "baseValue": 375,
       "effect": null,
       "effectLevel": null,
-      "unlockMethod": "Café Madeleine",
-      "icon": "sandwich.png"
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "sandwich.png",
+      "additions": [
+        "boiled_egg",
+        "cheese",
+        "herb_cheese",
+        "cheese_plus",
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "mayonnaise",
+        "herb_mayonnaise",
+        "mayonnaise_plus"
+      ]
     },
     {
       "id": "fried_rice",
@@ -5488,9 +5823,7 @@
           "required": true,
           "oneOf": [
             "egg",
-            "egg_plus",
-            "silkie_egg",
-            "silkie_egg_plus"
+            "silkie_egg"
           ]
         },
         {
@@ -5506,7 +5839,15 @@
       "effect": null,
       "effectLevel": null,
       "unlockMethod": "Clara's Diner",
-      "icon": "fried_rice.png"
+      "icon": "fried_rice.png",
+      "additions": [
+        "cabbage",
+        "green_bell_pepper",
+        "green_onion",
+        "soy_sauce",
+        "salt",
+        "pepper"
+      ]
     },
     {
       "id": "omelet_rice",
@@ -5527,7 +5868,19 @@
       "effect": null,
       "effectLevel": null,
       "unlockMethod": "Bookshelves in Gabriel's House",
-      "icon": "omelet_rice.png"
+      "icon": "omelet_rice.png",
+      "additions": [
+        "onion",
+        "tomato",
+        "milk",
+        "buffalo_milk",
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "salt",
+        "pepper",
+        "oil"
+      ]
     },
     {
       "id": "udon",
@@ -5577,7 +5930,14 @@
       "effect": null,
       "effectLevel": null,
       "unlockMethod": "Let's get cooking! mail, Clara's Diner",
-      "icon": "sushi.png"
+      "icon": "sushi.png",
+      "additions": [
+        "cucumber",
+        "soy_sauce",
+        "sugar",
+        "salt",
+        "seaweed"
+      ]
     },
     {
       "id": "tempura",
@@ -5605,9 +5965,7 @@
           "required": true,
           "oneOf": [
             "egg",
-            "egg_plus",
-            "silkie_egg",
-            "silkie_egg_plus"
+            "silkie_egg"
           ]
         },
         {
@@ -5627,7 +5985,11 @@
       "effect": null,
       "effectLevel": null,
       "unlockMethod": "Clara's Diner",
-      "icon": "tempura.png"
+      "icon": "tempura.png",
+      "additions": [
+        "daikon_radish",
+        "salt"
+      ]
     },
     {
       "id": "tempura_udon",
@@ -5707,8 +6069,8 @@
           "required": true,
           "oneOf": [
             "cheese",
-            "cheese_plus",
-            "herb_cheese"
+            "herb_cheese",
+            "cheese_plus"
           ]
         },
         {
@@ -5723,8 +6085,19 @@
       "baseValue": 1552,
       "effect": null,
       "effectLevel": null,
-      "unlockMethod": "Café Madeleine",
-      "icon": "risotto.png"
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "risotto.png",
+      "additions": [
+        "garlic",
+        "milk",
+        "buffalo_milk",
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "olive_oil",
+        "salt",
+        "pepper"
+      ]
     },
     {
       "id": "onigiri",
@@ -5744,8 +6117,15 @@
       "baseValue": 370,
       "effect": null,
       "effectLevel": null,
-      "unlockMethod": "Café Madeleine",
-      "icon": "onigiri.png"
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "onigiri.png",
+      "additions": [
+        "soybean",
+        "shimeji_mushroom",
+        "matsutake_mushroom",
+        "salmon",
+        "salt"
+      ]
     },
     {
       "id": "apple_pie",
@@ -5802,8 +6182,8 @@
           "required": true,
           "oneOf": [
             "butter",
-            "butter_plus",
-            "herb_butter"
+            "herb_butter",
+            "butter_plus"
           ]
         }
       ],
@@ -5811,7 +6191,14 @@
       "effect": "petting_happiness_up",
       "effectLevel": 2,
       "unlockMethod": "Felix's Fixings (Autumn)",
-      "icon": "baked_apple.png"
+      "icon": "baked_apple.png",
+      "additions": [
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey",
+        "sugar"
+      ]
     },
     {
       "id": "cake",
@@ -5828,9 +6215,7 @@
           "required": true,
           "oneOf": [
             "egg",
-            "egg_plus",
-            "silkie_egg",
-            "silkie_egg_plus"
+            "silkie_egg"
           ]
         },
         {
@@ -5838,9 +6223,7 @@
           "required": true,
           "oneOf": [
             "milk",
-            "milk_plus",
-            "buffalo_milk",
-            "buffalo_milk_plus"
+            "buffalo_milk"
           ]
         }
       ],
@@ -5848,7 +6231,18 @@
       "effect": "petting_happiness_up",
       "effectLevel": 2,
       "unlockMethod": "Cheer Captain title, Nadine's Bistro, Everything changes! mail from Gabriel",
-      "icon": "cake.png"
+      "icon": "cake.png",
+      "additions": [
+        "strawberry",
+        "lemon",
+        "mango",
+        "cheese",
+        "herb_cheese",
+        "cheese_plus",
+        "butter",
+        "herb_butter",
+        "butter_plus"
+      ]
     },
     {
       "id": "cookies",
@@ -5865,17 +6259,23 @@
           "required": true,
           "oneOf": [
             "egg",
-            "egg_plus",
-            "silkie_egg",
-            "silkie_egg_plus"
+            "silkie_egg"
           ]
         }
       ],
       "baseValue": 328,
       "effect": "petting_rare_item",
       "effectLevel": 1,
-      "unlockMethod": "Cheer Leader title, Café Madeleine",
-      "icon": "cookies.png"
+      "unlockMethod": "Cheer Leader title, Caf\u00e9 Madeleine",
+      "icon": "cookies.png",
+      "additions": [
+        "milk",
+        "buffalo_milk",
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "sugar"
+      ]
     },
     {
       "id": "ice_cream",
@@ -5888,9 +6288,7 @@
           "required": true,
           "oneOf": [
             "milk",
-            "milk_plus",
-            "buffalo_milk",
-            "buffalo_milk_plus"
+            "buffalo_milk"
           ]
         },
         {
@@ -5898,9 +6296,7 @@
           "required": true,
           "oneOf": [
             "egg",
-            "egg_plus",
-            "silkie_egg",
-            "silkie_egg_plus"
+            "silkie_egg"
           ]
         },
         {
@@ -5912,7 +6308,12 @@
       "effect": "petting_happiness_up",
       "effectLevel": 2,
       "unlockMethod": "Bookshelves in June's House",
-      "icon": "ice_cream.png"
+      "icon": "ice_cream.png",
+      "additions": [
+        "mint",
+        "chocolate",
+        "black_tea"
+      ]
     },
     {
       "id": "pudding",
@@ -5925,9 +6326,7 @@
           "required": true,
           "oneOf": [
             "milk",
-            "milk_plus",
-            "buffalo_milk",
-            "buffalo_milk_plus"
+            "buffalo_milk"
           ]
         },
         {
@@ -5935,9 +6334,7 @@
           "required": true,
           "oneOf": [
             "egg",
-            "egg_plus",
-            "silkie_egg",
-            "silkie_egg_plus"
+            "silkie_egg"
           ]
         }
       ],
@@ -5945,7 +6342,13 @@
       "effect": "petting_rare_item",
       "effectLevel": 1,
       "unlockMethod": "Generous Forager title, Nadine's Bistro, Family seal of approval! mail from Felix",
-      "icon": "pudding.png"
+      "icon": "pudding.png",
+      "additions": [
+        "sugar",
+        "butter",
+        "herb_butter",
+        "butter_plus"
+      ]
     },
     {
       "id": "pancakes",
@@ -5962,9 +6365,7 @@
           "required": true,
           "oneOf": [
             "egg",
-            "egg_plus",
-            "silkie_egg",
-            "silkie_egg_plus"
+            "silkie_egg"
           ]
         },
         {
@@ -5972,9 +6373,7 @@
           "required": true,
           "oneOf": [
             "milk",
-            "milk_plus",
-            "buffalo_milk",
-            "buffalo_milk_plus"
+            "buffalo_milk"
           ]
         },
         {
@@ -5991,8 +6390,14 @@
       "baseValue": 1152,
       "effect": "petting_happiness_up",
       "effectLevel": 3,
-      "unlockMethod": "Café Madeleine",
-      "icon": "pancakes.png"
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "pancakes.png",
+      "additions": [
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "sugar"
+      ]
     },
     {
       "id": "chocolate_cake",
@@ -6050,9 +6455,7 @@
           "required": true,
           "oneOf": [
             "egg",
-            "egg_plus",
-            "silkie_egg",
-            "silkie_egg_plus"
+            "silkie_egg"
           ]
         },
         {
@@ -6064,8 +6467,8 @@
           "required": true,
           "oneOf": [
             "cheese",
-            "cheese_plus",
-            "herb_cheese"
+            "herb_cheese",
+            "cheese_plus"
           ]
         }
       ],
@@ -6073,7 +6476,14 @@
       "effect": "petting_happiness_up",
       "effectLevel": 3,
       "unlockMethod": "Dairy Driver title, Nadine's Bistro",
-      "icon": "cheesecake.png"
+      "icon": "cheesecake.png",
+      "additions": [
+        "lemon",
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "sugar"
+      ]
     },
     {
       "id": "donuts",
@@ -6090,9 +6500,7 @@
           "required": true,
           "oneOf": [
             "egg",
-            "egg_plus",
-            "silkie_egg",
-            "silkie_egg_plus"
+            "silkie_egg"
           ]
         },
         {
@@ -6115,7 +6523,14 @@
       "effect": "petting_happiness_up",
       "effectLevel": 3,
       "unlockMethod": "Excellent Eggs request from Sylvia, Me and mom baked em! mail from Sylvia",
-      "icon": "donuts.png"
+      "icon": "donuts.png",
+      "additions": [
+        "milk",
+        "buffalo_milk",
+        "butter",
+        "herb_butter",
+        "butter_plus"
+      ]
     },
     {
       "id": "churros",
@@ -6132,9 +6547,7 @@
           "required": true,
           "oneOf": [
             "egg",
-            "egg_plus",
-            "silkie_egg",
-            "silkie_egg_plus"
+            "silkie_egg"
           ]
         },
         {
@@ -6157,7 +6570,17 @@
       "effect": "petting_happiness_up",
       "effectLevel": 3,
       "unlockMethod": "Scene Stealer title, Mini Madeleine's, A rare treat! mail from Maple",
-      "icon": "churros.png"
+      "icon": "churros.png",
+      "additions": [
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey",
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "chocolate"
+      ]
     },
     {
       "id": "baumkuchen",
@@ -6214,8 +6637,13 @@
       "baseValue": 588,
       "effect": "petting_happiness_up",
       "effectLevel": 2,
-      "unlockMethod": "Café Madeleine",
-      "icon": "dango.png"
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "dango.png",
+      "additions": [
+        "rice_flour",
+        "soybean_flour",
+        "sugar"
+      ]
     },
     {
       "id": "apple_juice",
@@ -6232,7 +6660,19 @@
       "effect": "pet_training_up",
       "effectLevel": 1,
       "unlockMethod": "Mini Madeleine's",
-      "icon": "apple_juice.png"
+      "icon": "apple_juice.png",
+      "additions": [
+        "lemon",
+        "milk",
+        "buffalo_milk",
+        "yogurt",
+        "fruit_yogurt",
+        "yogurt_plus",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey"
+      ]
     },
     {
       "id": "grape_juice",
@@ -6249,7 +6689,19 @@
       "effect": "pet_training_up",
       "effectLevel": 1,
       "unlockMethod": "First Juice Festival, Nadine's Bistro",
-      "icon": "grape_juice.png"
+      "icon": "grape_juice.png",
+      "additions": [
+        "lemon",
+        "milk",
+        "buffalo_milk",
+        "yogurt",
+        "fruit_yogurt",
+        "yogurt_plus",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey"
+      ]
     },
     {
       "id": "strawberry_juice",
@@ -6265,8 +6717,20 @@
       "baseValue": 156,
       "effect": "chat_friendship_boost",
       "effectLevel": 1,
-      "unlockMethod": "Café Madeleine",
-      "icon": "strawberry_juice.png"
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "strawberry_juice.png",
+      "additions": [
+        "lemon",
+        "milk",
+        "buffalo_milk",
+        "yogurt",
+        "fruit_yogurt",
+        "yogurt_plus",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey"
+      ]
     },
     {
       "id": "tomato_juice",
@@ -6282,8 +6746,13 @@
       "baseValue": 55,
       "effect": "chat_friendship_boost",
       "effectLevel": 1,
-      "unlockMethod": "Café Madeleine",
-      "icon": "tomato_juice.png"
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "tomato_juice.png",
+      "additions": [
+        "lemon",
+        "mint",
+        "salt"
+      ]
     },
     {
       "id": "orange_juice",
@@ -6300,7 +6769,19 @@
       "effect": "pet_training_up",
       "effectLevel": 1,
       "unlockMethod": "Mini Madeleine's",
-      "icon": "orange_juice.png"
+      "icon": "orange_juice.png",
+      "additions": [
+        "lemon",
+        "milk",
+        "buffalo_milk",
+        "yogurt",
+        "fruit_yogurt",
+        "yogurt_plus",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey"
+      ]
     },
     {
       "id": "warm_milk",
@@ -6313,17 +6794,24 @@
           "required": true,
           "oneOf": [
             "milk",
-            "milk_plus",
-            "buffalo_milk",
-            "buffalo_milk_plus"
+            "buffalo_milk"
           ]
         }
       ],
       "baseValue": 195,
       "effect": "chat_friendship_boost",
       "effectLevel": 1,
-      "unlockMethod": "Available at start, Café Madeleine",
-      "icon": "warm_milk.png"
+      "unlockMethod": "Available at start, Caf\u00e9 Madeleine",
+      "icon": "warm_milk.png",
+      "additions": [
+        "banana",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey",
+        "chocolate",
+        "soybean_flour"
+      ]
     },
     {
       "id": "hot_coffee",
@@ -6339,8 +6827,17 @@
       "baseValue": 380,
       "effect": "chat_friendship_boost",
       "effectLevel": 1,
-      "unlockMethod": "Café Madeleine",
-      "icon": "hot_coffee.png"
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "hot_coffee.png",
+      "additions": [
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "sugar",
+        "chocolate",
+        "soy_milk",
+        "ice_cream"
+      ]
     },
     {
       "id": "black_tea",
@@ -6356,8 +6853,18 @@
       "baseValue": 401,
       "effect": "watering_rare_crop",
       "effectLevel": 1,
-      "unlockMethod": "Café Madeleine, A trip with a goddess mail from Erik",
-      "icon": "black_tea.png"
+      "unlockMethod": "Caf\u00e9 Madeleine, A trip with a goddess mail from Erik",
+      "icon": "black_tea.png",
+      "additions": [
+        "lemon",
+        "milk",
+        "buffalo_milk",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey",
+        "sugar"
+      ]
     },
     {
       "id": "green_tea",
@@ -6374,7 +6881,12 @@
       "effect": "chat_friendship_boost",
       "effectLevel": 1,
       "unlockMethod": "Clara's Diner",
-      "icon": "green_tea.png"
+      "icon": "green_tea.png",
+      "additions": [
+        "milk",
+        "buffalo_milk",
+        "sugar"
+      ]
     },
     {
       "id": "honey_juice",
@@ -6396,8 +6908,16 @@
       "baseValue": 325,
       "effect": "stamina_saver",
       "effectLevel": 1,
-      "unlockMethod": "Generous Beekeeper title, Café Madeleine",
-      "icon": "honey_juice.png"
+      "unlockMethod": "Generous Beekeeper title, Caf\u00e9 Madeleine",
+      "icon": "honey_juice.png",
+      "additions": [
+        "lemon",
+        "milk",
+        "buffalo_milk",
+        "yogurt",
+        "fruit_yogurt",
+        "yogurt_plus"
+      ]
     },
     {
       "id": "walnut_juice",
@@ -6414,7 +6934,17 @@
       "effect": "chat_friendship_boost",
       "effectLevel": 1,
       "unlockMethod": "Available at start",
-      "icon": "walnut_juice.png"
+      "icon": "walnut_juice.png",
+      "additions": [
+        "banana",
+        "milk",
+        "buffalo_milk",
+        "mint",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey"
+      ]
     },
     {
       "id": "apple_jam",
@@ -6439,7 +6969,13 @@
       "effect": "pet_training_up",
       "effectLevel": 2,
       "unlockMethod": "Mini Madeleine's",
-      "icon": "apple_jam.png"
+      "icon": "apple_jam.png",
+      "additions": [
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey"
+      ]
     },
     {
       "id": "strawberry_jam",
@@ -6530,8 +7066,18 @@
       "baseValue": 85,
       "effect": "max_stamina_up",
       "effectLevel": 1,
-      "unlockMethod": "Café Madeleine",
-      "icon": "soy_milk.png"
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "soy_milk.png",
+      "additions": [
+        "banana",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey",
+        "black_tea_tin",
+        "sugar",
+        "soybean_flour"
+      ]
     },
     {
       "id": "simmered_seaweed",
@@ -6569,7 +7115,18 @@
       "effect": "happy_energy_gain",
       "effectLevel": 1,
       "unlockMethod": "Sprite's Bazaar Stand",
-      "icon": "happy_forest_mix.png"
+      "icon": "happy_forest_mix.png",
+      "additions": [
+        "sugar",
+        "salt",
+        "walnut",
+        "milk",
+        "buffalo_milk",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey"
+      ]
     },
     {
       "id": "happy_chef_salad",
@@ -6582,9 +7139,7 @@
           "required": true,
           "oneOf": [
             "egg",
-            "egg_plus",
-            "silkie_egg",
-            "silkie_egg_plus"
+            "silkie_egg"
           ]
         },
         {
@@ -6616,7 +7171,18 @@
       "effect": "happy_energy_gain",
       "effectLevel": 3,
       "unlockMethod": "Sprite's Bazaar Stand",
-      "icon": "happy_chef_salad.png"
+      "icon": "happy_chef_salad.png",
+      "additions": [
+        "sugar",
+        "salt",
+        "walnut",
+        "milk",
+        "buffalo_milk",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey"
+      ]
     },
     {
       "id": "happy_mushroom_fry",
@@ -6628,9 +7194,9 @@
           "id": "choice",
           "required": true,
           "oneOf": [
-            "common_mushroom",
             "shiitake_mushroom",
             "shimeji_mushroom",
+            "common_mushroom",
             "porcini_mushroom",
             "morel_mushroom",
             "matsutake_mushroom",
@@ -6646,7 +7212,18 @@
       "effect": "happy_energy_gain",
       "effectLevel": 2,
       "unlockMethod": "Sprite's Bazaar Stand",
-      "icon": "happy_mushroom_fry.png"
+      "icon": "happy_mushroom_fry.png",
+      "additions": [
+        "sugar",
+        "salt",
+        "walnut",
+        "milk",
+        "buffalo_milk",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey"
+      ]
     }
   ],
   "effects": [
