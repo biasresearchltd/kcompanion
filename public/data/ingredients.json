@@ -881,7 +881,7 @@
       "source": "buffalo",
       "basePrice": 300,
       "variants": [],
-      "icon": "buffalo_milk.png",
+      "icon": "buffalo_milk_plus.png",
       "plusQuality": true
     },
     {
@@ -893,7 +893,7 @@
       "source": "windmill",
       "basePrice": 600,
       "variants": [],
-      "icon": "butter.png",
+      "icon": "butter_plus.png",
       "plusQuality": true
     },
     {
@@ -905,7 +905,7 @@
       "source": "windmill",
       "basePrice": 750,
       "variants": [],
-      "icon": "cheese.png",
+      "icon": "cheese_plus.png",
       "plusQuality": true
     },
     {
@@ -917,7 +917,7 @@
       "source": "chicken",
       "basePrice": 135,
       "variants": [],
-      "icon": "egg.png",
+      "icon": "egg_plus.png",
       "plusQuality": true
     },
     {
@@ -929,7 +929,7 @@
       "source": "windmill",
       "basePrice": 450,
       "variants": [],
-      "icon": "mayonnaise.png",
+      "icon": "mayonnaise_plus.png",
       "plusQuality": true
     },
     {
@@ -941,7 +941,7 @@
       "source": "cow",
       "basePrice": 225,
       "variants": [],
-      "icon": "milk.png",
+      "icon": "milk_plus.png",
       "plusQuality": true
     },
     {
@@ -953,7 +953,7 @@
       "source": "silkie_chicken",
       "basePrice": 180,
       "variants": [],
-      "icon": "silkie_egg.png",
+      "icon": "silkie_egg_plus.png",
       "plusQuality": true
     },
     {
@@ -965,7 +965,7 @@
       "source": "windmill",
       "basePrice": 900,
       "variants": [],
-      "icon": "yogurt.png",
+      "icon": "yogurt_plus.png",
       "plusQuality": true
     },
     {
