@@ -684,11 +684,11 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
         </div>
       )}
 
-      {/* Scroll container for content only - shrinks when bookmarks drawer is expanded */}
-      <div ref={scrollRef} className={`overflow-y-auto relative min-h-0 ${!isMobile && showBookmarksDrawer && bookmarkedRecipes.length > 0 ? 'flex-[1_1_0%]' : 'flex-1'}`}>
-        {/* Focus Dock - floating over content */}
+      {/* Scroll container wrapper - relative for FocusDock positioning */}
+      <div className={`relative min-h-0 ${!isMobile && showBookmarksDrawer && bookmarkedRecipes.length > 0 ? 'flex-[1_1_0%]' : 'flex-1'}`}>
+        {/* Focus Dock - absolutely positioned over scroll content */}
         {showFocusDock && selectedIngredients.length > 0 && (
-          <div className="sticky top-0 z-10 pointer-events-none">
+          <div className="absolute top-0 left-0 right-0 z-30 pointer-events-none">
             <div className="pointer-events-auto">
               <FocusDock
                 ingredients={selectedIngredients}
@@ -699,6 +699,8 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
             </div>
           </div>
         )}
+        {/* Scroll container for content */}
+        <div ref={scrollRef} className="overflow-y-auto h-full">
         {/* Results content */}
         <div className={isMobile ? 'p-4' : 'p-4 pr-5'} style={isMobile ? { paddingBottom: '300px' } : undefined}>
         {bookmarksOnly && bookmarkedRecipes.length === 0 ? (
@@ -898,6 +900,7 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
         )}
         {/* Mobile scroll spacer */}
         {isMobile && <div style={{ height: '100vh', flexShrink: 0 }} />}
+        </div>
         </div>
       </div>
 

@@ -151,7 +151,8 @@ export function FocusToggleButton({
     e.preventDefault();
   }, []);
 
-  const isHighlighted = isOpen || activeCount > 0;
+  const isHighlighted = isOpen; // Only highlight when dock is open
+  const hasActiveFilters = activeCount > 0;
   const canLongPress = activeCount > 0;
 
   const noSelectStyle = {
@@ -165,7 +166,7 @@ export function FocusToggleButton({
     <div
       role="button"
       tabIndex={disabled ? -1 : 0}
-      className={`relative px-3 py-1.5 text-sm rounded-full border transition-colors select-none overflow-hidden
+      className={`relative px-3 py-1.5 text-sm rounded-full border transition-colors select-none
                  ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
                  ${showClearText
                    ? 'bg-gray-100 border-gray-200 text-[var(--color-text-muted)]'
@@ -182,36 +183,52 @@ export function FocusToggleButton({
       onTouchCancel={canLongPress ? handleTouchCancel : undefined}
       onClick={canLongPress ? handleClick : onToggle}
     >
-      {/* Red progress overlay for long press */}
-      {pressProgress > 0 && (
-        <span
-          className="absolute inset-0 bg-red-500 rounded-full"
-          style={{ width: `${pressProgress * 100}%`, transition: 'none' }}
-        />
-      )}
-      {/* Text - use relative positioning to maintain consistent width */}
+      {/* Red progress overlay for long press - wrapped to clip within button bounds */}
+      <span className="absolute inset-0 overflow-hidden rounded-full">
+        {pressProgress > 0 && (
+          <span
+            className="absolute inset-0 bg-red-500"
+            style={{ width: `${pressProgress * 100}%`, transition: 'none' }}
+          />
+        )}
+      </span>
+      {/* Text content with fixed width */}
       <span className="relative z-10 flex items-center gap-1">
-        {/* Icon - X when clearing, Eye otherwise */}
-        {showClearText ? (
-          <svg className="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-          </svg>
-        ) : (
-          <svg className="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+        {/* Icon container - fixed width to prevent shift */}
+        <span className="w-3.5 h-3.5 flex-shrink-0 relative">
+          {/* Open eye icon - visible when dock is open OR has active filters */}
+          <svg className={`w-3.5 h-3.5 absolute inset-0 ${!(isOpen || hasActiveFilters) || showClearText ? 'invisible' : ''}`} fill="currentColor" viewBox="0 0 20 20">
             <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
             <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
           </svg>
-        )}
+          {/* Closed eye icon - visible when dock is closed AND no active filters */}
+          <svg className={`w-3.5 h-3.5 absolute inset-0 ${(isOpen || hasActiveFilters) || showClearText ? 'invisible' : ''}`} fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M3.28 2.22a.75.75 0 00-1.06 1.06l14.5 14.5a.75.75 0 101.06-1.06l-1.745-1.745a10.029 10.029 0 003.3-4.38 1.651 1.651 0 000-1.185A10.004 10.004 0 009.999 3a9.956 9.956 0 00-4.744 1.194L3.28 2.22zM7.752 6.69l1.092 1.092a2.5 2.5 0 013.374 3.373l1.091 1.092a4 4 0 00-5.557-5.557z" clipRule="evenodd" />
+            <path d="M10.748 13.93l2.523 2.523a9.987 9.987 0 01-3.27.547c-4.258 0-7.894-2.66-9.337-6.41a1.651 1.651 0 010-1.186A10.007 10.007 0 012.839 6.02L6.07 9.252a4 4 0 004.678 4.678z" />
+          </svg>
+          {/* X icon - only visible when clearing */}
+          <svg className={`w-3.5 h-3.5 absolute inset-0 ${showClearText ? '' : 'invisible'}`} fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+          </svg>
+        </span>
         {/* Text with invisible spacer to maintain width */}
         <span className="relative">
           {/* Invisible text to reserve space for the longest label */}
-          <span className="invisible">{`Focus${activeCount > 0 ? ` (${activeCount})` : ''}`}</span>
+          <span className="invisible">Focus</span>
           {/* Visible text positioned on top */}
           <span className="absolute inset-0 flex items-center justify-center">
-            {showClearText ? 'Clear' : `Focus${activeCount > 0 ? ` (${activeCount})` : ''}`}
+            {showClearText ? 'Clear' : 'Focus'}
           </span>
         </span>
       </span>
+      {/* Badge for active count - always present when count > 0 to maintain layout */}
+      {activeCount > 0 && (
+        <span className={`absolute -top-1.5 -right-1.5 min-w-[18px] h-[18px] px-1 text-xs font-medium rounded-full flex items-center justify-center ${
+          showClearText ? 'invisible' : ''
+        } ${isHighlighted ? 'bg-amber-400 text-amber-900' : 'bg-[var(--color-primary)] text-white'}`}>
+          {activeCount}
+        </span>
+      )}
     </div>
   );
 }
