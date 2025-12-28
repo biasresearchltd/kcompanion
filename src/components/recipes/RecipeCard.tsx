@@ -24,7 +24,7 @@ interface SlotFrameProps {
 function SlotFrame({ isEmpty, slotNumber, showNumber, borderClass = '', children }: SlotFrameProps) {
   return (
     <div className={`
-      relative rounded-2xl w-[80px] h-[96px] p-2 pb-2.5
+      relative rounded-2xl w-[76px] h-[92px] tablet:w-[80px] tablet:h-[96px] p-1.5 pb-2 tablet:p-2 tablet:pb-2.5
       ${isEmpty
         ? 'bg-gray-200/50'
         : `bg-white/80 border ${borderClass}`
@@ -514,7 +514,7 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
               <div key={slotIndex} className="flex items-start">
                 {/* Plus symbol between slots - evenly spaced via justify-between on parent */}
                 {slotIndex > 0 && (
-                  <div className="flex items-center justify-center h-[96px] px-1">
+                  <div className="flex items-center justify-center h-[92px] tablet:h-[96px] px-1">
                     {showPlus ? (
                       <span className="text-sm font-bold text-purple-500">+</span>
                     ) : (
@@ -522,7 +522,7 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                     )}
                   </div>
                 )}
-                <div className="flex flex-col items-center w-[80px]">
+                <div className="flex flex-col items-center w-[76px] tablet:w-[80px]">
                 {/* Main slot frame */}
                 {USE_SLOT_FRAMES ? (
                   <SlotFrame
@@ -536,34 +536,34 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                         <span className="text-gray-300 text-lg font-medium">—</span>
                       </div>
                     ) : (
-                      <div className="flex flex-col items-center">
-                        <div className="relative w-14 h-14 flex items-center justify-center">
+                      <div className="flex flex-col items-center h-full">
+                        <div className="relative w-12 h-12 tablet:w-14 tablet:h-14 flex items-center justify-center flex-shrink-0">
                           <img
                             src={`/images/ingredients/${ingredient?.icon || `${slot.primary.id}.png`}`}
                             alt={name}
-                            className={`w-12 h-12 object-contain ${!slot.primary.isMatched ? 'opacity-50' : ''}`}
+                            className={`w-11 h-11 tablet:w-12 tablet:h-12 object-contain ${!slot.primary.isMatched ? 'opacity-50' : ''}`}
                             onError={(e) => {
                               (e.target as HTMLImageElement).src = '/images/placeholder.svg';
                             }}
                           />
                           {/* Status indicator */}
-                          <div className={`absolute -top-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center ${
+                          <div className={`absolute -top-1 -right-2 tablet:-right-1 w-4 h-4 tablet:w-5 tablet:h-5 rounded-full flex items-center justify-center ${
                             slot.primary.isMatched
                               ? slot.primary.needsProcessing ? 'bg-blue-500' : 'bg-green-500'
                               : 'bg-gray-400'
                           }`}>
                             {slot.primary.isMatched ? (
                               slot.primary.needsProcessing ? (
-                                <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <svg className="w-2.5 h-2.5 tablet:w-3 tablet:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                                   <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
                                 </svg>
                               ) : (
-                                <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <svg className="w-2.5 h-2.5 tablet:w-3 tablet:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                                 </svg>
                               )
                             ) : (
-                              <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                              <svg className="w-2.5 h-2.5 tablet:w-3 tablet:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                                 <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
                               </svg>
                             )}
@@ -571,10 +571,9 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                           {/* Count badge */}
                           {slot.count > 1 && (
                             <span
-                              className="absolute right-0.5 text-[var(--color-primary)] leading-none"
+                              className="absolute right-0.5 text-[var(--color-primary)] leading-none text-sm tablet:text-lg"
                               style={{
                                 fontFamily: "'Eurostile Round Pro', system-ui, sans-serif",
-                                fontSize: '18px',
                                 WebkitTextStroke: '2.5px #f5f5f0',
                                 paintOrder: 'stroke fill',
                                 bottom: '-2px',
@@ -584,7 +583,40 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                             </span>
                           )}
                         </div>
-                        <span className={`text-[10px] text-center leading-tight mt-0.5 line-clamp-2 max-w-16 ${
+                        {/* Text area at bottom - similar to IngredientItem grid mode */}
+                        <div className="w-full mt-auto flex items-center justify-center" style={{ height: '24px' }}>
+                          <span className={`text-[10px] tablet:text-[10px] text-center leading-tight line-clamp-2 w-full ${
+                            slot.primary.isMatched
+                              ? slot.primary.needsProcessing ? 'text-blue-700' : 'text-green-700'
+                              : 'text-gray-500'
+                          }`}>
+                            {name}
+                          </span>
+                        </div>
+                      </div>
+                    )}
+                  </SlotFrame>
+                ) : (
+                  // Non-framed version - uses consistent white background
+                  slot.isEmpty ? (
+                    <div className="w-[76px] h-[92px] tablet:w-[80px] tablet:h-[96px] flex items-center justify-center rounded-2xl bg-gray-200/50">
+                      <span className="text-gray-300 text-lg font-medium">—</span>
+                    </div>
+                  ) : (
+                    <div className={`flex flex-col items-center rounded-2xl p-1.5 pb-2 tablet:p-2 tablet:pb-2.5 bg-white/80 w-[76px] h-[92px] tablet:w-[80px] tablet:h-[96px] border ${getSlotBorderStyle()}`}>
+                      <div className="relative w-12 h-12 tablet:w-14 tablet:h-14 flex items-center justify-center flex-shrink-0">
+                        <img
+                          src={`/images/ingredients/${ingredient?.icon || `${slot.primary.id}.png`}`}
+                          alt={name}
+                          className={`w-11 h-11 tablet:w-12 tablet:h-12 object-contain ${!slot.primary.isMatched ? 'opacity-50' : ''}`}
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = '/images/placeholder.svg';
+                          }}
+                        />
+                      </div>
+                      {/* Text area at bottom - similar to IngredientItem grid mode */}
+                      <div className="w-full mt-auto flex items-center justify-center" style={{ height: '24px' }}>
+                        <span className={`text-[10px] tablet:text-[10px] text-center leading-tight line-clamp-2 w-full ${
                           slot.primary.isMatched
                             ? slot.primary.needsProcessing ? 'text-blue-700' : 'text-green-700'
                             : 'text-gray-500'
@@ -592,33 +624,6 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                           {name}
                         </span>
                       </div>
-                    )}
-                  </SlotFrame>
-                ) : (
-                  // Non-framed version - uses consistent white background
-                  slot.isEmpty ? (
-                    <div className="w-[80px] h-[96px] flex items-center justify-center rounded-2xl bg-gray-200/50">
-                      <span className="text-gray-300 text-lg font-medium">—</span>
-                    </div>
-                  ) : (
-                    <div className={`flex flex-col items-center justify-start rounded-2xl p-2 pb-2.5 bg-white/80 w-[80px] h-[96px] border ${getSlotBorderStyle()}`}>
-                      <div className="relative w-14 h-14 flex items-center justify-center">
-                        <img
-                          src={`/images/ingredients/${ingredient?.icon || `${slot.primary.id}.png`}`}
-                          alt={name}
-                          className={`w-12 h-12 object-contain ${!slot.primary.isMatched ? 'opacity-50' : ''}`}
-                          onError={(e) => {
-                            (e.target as HTMLImageElement).src = '/images/placeholder.svg';
-                          }}
-                        />
-                      </div>
-                      <span className={`text-[10px] text-center leading-tight mt-0.5 line-clamp-2 max-w-16 ${
-                        slot.primary.isMatched
-                          ? slot.primary.needsProcessing ? 'text-blue-700' : 'text-green-700'
-                          : 'text-gray-500'
-                      }`}>
-                        {name}
-                      </span>
                     </div>
                   )
                 )}

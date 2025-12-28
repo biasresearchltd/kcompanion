@@ -675,19 +675,6 @@
       "icon": "red_grapes.png"
     },
     {
-      "id": "alpaca_wool",
-      "name": "Alpaca Wool",
-      "category": "animal_products",
-      "subcategory": "wool",
-      "season": [
-        "all"
-      ],
-      "source": "alpaca",
-      "basePrice": 250,
-      "variants": [],
-      "icon": "alpaca_wool.png"
-    },
-    {
       "id": "buffalo_milk",
       "name": "Buffalo Milk",
       "category": "animal_products",
@@ -843,19 +830,6 @@
         "silkie_egg_plus"
       ],
       "icon": "silkie_egg.png"
-    },
-    {
-      "id": "wool",
-      "name": "Wool",
-      "category": "animal_products",
-      "subcategory": "wool",
-      "season": [
-        "all"
-      ],
-      "source": "sheep",
-      "basePrice": 200,
-      "variants": [],
-      "icon": "wool.png"
     },
     {
       "id": "yogurt",
@@ -3232,7 +3206,16 @@
       "effect": "stamina_saver",
       "effectLevel": 2,
       "unlockMethod": "Mini Madeleine's",
-      "icon": "marinated_peppers.png"
+      "icon": "marinated_peppers.png",
+      "additions": [
+        "radish",
+        "onion",
+        "olive_oil",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey"
+      ]
     },
     {
       "id": "mashed_potatoes",
@@ -3380,7 +3363,14 @@
       "effect": "stamina_saver",
       "effectLevel": 1,
       "unlockMethod": "Mini Madeleine's",
-      "icon": "tomato_salad.png"
+      "icon": "tomato_salad.png",
+      "additions": [
+        "cucumber",
+        "red_bell_pepper",
+        "cheese",
+        "herb_cheese",
+        "cheese_plus"
+      ]
     },
     {
       "id": "turnip_salad",
@@ -3419,9 +3409,7 @@
           "required": true,
           "oneOf": [
             "milk",
-            "milk_plus",
-            "buffalo_milk",
-            "buffalo_milk_plus"
+            "buffalo_milk"
           ]
         },
         {
@@ -3444,7 +3432,16 @@
       "effect": "rod_durability_up",
       "effectLevel": 4,
       "unlockMethod": "Clara's Diner",
-      "icon": "asparagus_soup.png"
+      "icon": "asparagus_soup.png",
+      "additions": [
+        "porcini_mushroom",
+        "morel_mushroom",
+        "salt",
+        "pepper",
+        "olive_oil",
+        "pumpkin_oil",
+        "grape_oil"
+      ]
     },
     {
       "id": "corn_soup",
@@ -3634,8 +3631,8 @@
           "required": true,
           "oneOf": [
             "butter",
-            "butter_plus",
-            "herb_butter"
+            "herb_butter",
+            "butter_plus"
           ]
         }
       ],
@@ -3643,7 +3640,13 @@
       "effect": "rod_durability_up",
       "effectLevel": 3,
       "unlockMethod": "Mini Madeleine's",
-      "icon": "onion_soup.png"
+      "icon": "onion_soup.png",
+      "additions": [
+        "garlic",
+        "salt",
+        "pepper",
+        "baguettes"
+      ]
     },
     {
       "id": "pumpkin_soup",
@@ -3749,6 +3752,101 @@
       "icon": "vichyssoise_soup.png"
     },
     {
+      "id": "babaocai",
+      "name": "Babaocai",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "napa_cabbage",
+          "required": true
+        },
+        {
+          "id": "carrot",
+          "required": true
+        },
+        {
+          "id": "green_bell_pepper",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "shiitake_mushroom",
+            "shimeji_mushroom",
+            "common_mushroom",
+            "porcini_mushroom",
+            "morel_mushroom",
+            "matsutake_mushroom",
+            "monarch_mushroom"
+          ]
+        }
+      ],
+      "baseValue": 1509,
+      "effect": "watering_rare_crop",
+      "effectLevel": 3,
+      "unlockMethod": "Hydrator title, Nadine's Bistro",
+      "icon": "babaocai.png",
+      "additions": [
+        "cabbage",
+        "onion",
+        "bok_choy",
+        "burdock",
+        "red_bell_pepper"
+      ]
+    },
+    {
+      "id": "baguettes",
+      "name": "Baguettes",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "salt",
+          "required": true
+        }
+      ],
+      "baseValue": 662,
+      "effect": "max_stamina_up",
+      "effectLevel": 2,
+      "unlockMethod": "Mini Madeleine's",
+      "icon": "baguettes.png"
+    },
+    {
+      "id": "baked_sweet_potato",
+      "name": "Baked Sweet Potato",
+      "category": "side",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "sweet_potato",
+          "required": true
+        }
+      ],
+      "baseValue": 202,
+      "effect": "chat_friendship_boost",
+      "effectLevel": 1,
+      "unlockMethod": "Felix's Fixings (Autumn)",
+      "icon": "baked_sweet_potato.png",
+      "additions": [
+        "sugar",
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey",
+        "soy_sauce",
+        "oil"
+      ]
+    },
+    {
       "id": "boiled_egg",
       "name": "Boiled Egg",
       "category": "side",
@@ -3803,77 +3901,6 @@
       ]
     },
     {
-      "id": "cooked_rice",
-      "name": "Cooked Rice",
-      "category": "side",
-      "utensil": "pot",
-      "ingredients": [
-        {
-          "id": "rice",
-          "required": true
-        }
-      ],
-      "baseValue": 91,
-      "effect": null,
-      "effectLevel": null,
-      "unlockMethod": "Caf\u00e9 Madeleine, Mini Madeleine's, Nadine's Bistro, Clara's Diner",
-      "icon": "cooked_rice.png",
-      "additions": [
-        "salt",
-        "simmered_seaweed"
-      ]
-    },
-    {
-      "id": "baguettes",
-      "name": "Baguettes",
-      "category": "side",
-      "utensil": "frying_pan",
-      "ingredients": [
-        {
-          "id": "wheat_flour",
-          "required": true
-        },
-        {
-          "id": "salt",
-          "required": true
-        }
-      ],
-      "baseValue": 662,
-      "effect": "max_stamina_up",
-      "effectLevel": 2,
-      "unlockMethod": "Mini Madeleine's",
-      "icon": "baguettes.png"
-    },
-    {
-      "id": "baked_sweet_potato",
-      "name": "Baked Sweet Potato",
-      "category": "side",
-      "utensil": "frying_pan",
-      "ingredients": [
-        {
-          "id": "sweet_potato",
-          "required": true
-        }
-      ],
-      "baseValue": 202,
-      "effect": "chat_friendship_boost",
-      "effectLevel": 1,
-      "unlockMethod": "Felix's Fixings (Autumn)",
-      "icon": "baked_sweet_potato.png",
-      "additions": [
-        "sugar",
-        "butter",
-        "herb_butter",
-        "butter_plus",
-        "honey",
-        "invigorating_honey",
-        "mellow_honey",
-        "royal_honey",
-        "soy_sauce",
-        "oil"
-      ]
-    },
-    {
       "id": "broccoli_and_garlic_saute",
       "name": "Broccoli & Garlic Saut\u00e9",
       "category": "side",
@@ -3903,7 +3930,16 @@
       "effect": "max_stamina_up",
       "effectLevel": 2,
       "unlockMethod": "Nadine's Bistro",
-      "icon": "broccoli_and_garlic_saute.png"
+      "icon": "broccoli_and_garlic_saute.png",
+      "additions": [
+        "soy_sauce",
+        "salt",
+        "pepper",
+        "nut_oil",
+        "herb_oil",
+        "olive_oil",
+        "grape_oil"
+      ]
     },
     {
       "id": "buttered_potato",
@@ -4114,6 +4150,27 @@
       "icon": "chilled_tofu.png"
     },
     {
+      "id": "cooked_rice",
+      "name": "Cooked Rice",
+      "category": "side",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "rice",
+          "required": true
+        }
+      ],
+      "baseValue": 91,
+      "effect": null,
+      "effectLevel": null,
+      "unlockMethod": "Caf\u00e9 Madeleine, Mini Madeleine's, Nadine's Bistro, Clara's Diner",
+      "icon": "cooked_rice.png",
+      "additions": [
+        "salt",
+        "simmered_seaweed"
+      ]
+    },
+    {
       "id": "corn_flakes_cereal",
       "name": "Corn Flakes Cereal",
       "category": "side",
@@ -4154,8 +4211,8 @@
           "id": "choice",
           "required": true,
           "oneOf": [
-            "breadcrumbs",
-            "white_breadcrumbs"
+            "breadcrumb",
+            "white_breadcrumb"
           ]
         },
         {
@@ -4174,9 +4231,7 @@
           "required": true,
           "oneOf": [
             "milk",
-            "milk_plus",
-            "buffalo_milk",
-            "buffalo_milk_plus"
+            "buffalo_milk"
           ]
         }
       ],
@@ -4184,7 +4239,16 @@
       "effect": "chat_friendship_boost",
       "effectLevel": 3,
       "unlockMethod": "Nadine's Bistro",
-      "icon": "cream_croquettes.png"
+      "icon": "cream_croquettes.png",
+      "additions": [
+        "onion",
+        "cabbage",
+        "egg",
+        "silkie_egg",
+        "sugar",
+        "salt",
+        "pepper"
+      ]
     },
     {
       "id": "croquettes",
@@ -4692,7 +4756,16 @@
       "effect": "max_stamina_up",
       "effectLevel": 2,
       "unlockMethod": "Mini Madeleine's",
-      "icon": "hash_browns.png"
+      "icon": "hash_browns.png",
+      "additions": [
+        "tomato",
+        "mayonnaise",
+        "herb_mayonnaise",
+        "mayonnaise_plus",
+        "wheat_flour",
+        "salt",
+        "pepper"
+      ]
     },
     {
       "id": "khachapuri",
@@ -4802,8 +4875,8 @@
           "required": true,
           "oneOf": [
             "butter",
-            "butter_plus",
-            "herb_butter"
+            "herb_butter",
+            "butter_plus"
           ]
         },
         {
@@ -4815,7 +4888,17 @@
       "effect": "max_stamina_up",
       "effectLevel": 4,
       "unlockMethod": "Nadine's Bistro",
-      "icon": "morel_cream_stew.png"
+      "icon": "morel_cream_stew.png",
+      "additions": [
+        "onion",
+        "garlic",
+        "pasta",
+        "salt",
+        "pepper",
+        "nut_oil",
+        "herb_oil",
+        "olive_oil"
+      ]
     },
     {
       "id": "poached_egg",
@@ -5237,7 +5320,7 @@
           "required": true
         },
         {
-          "id": "shiitake_mushroom",
+          "id": "shiitake_mushrrom",
           "required": true
         },
         {
@@ -5249,7 +5332,13 @@
       "effect": "max_stamina_up",
       "effectLevel": 3,
       "unlockMethod": "Mini Madeleine's",
-      "icon": "steamed_bun.png"
+      "icon": "steamed_bun.png",
+      "additions": [
+        "sugar",
+        "salt",
+        "pepper",
+        "oil"
+      ]
     },
     {
       "id": "steamed_egg_custard",
@@ -5381,7 +5470,15 @@
       "effect": "max_stamina_up",
       "effectLevel": 3,
       "unlockMethod": "Clara's Diner",
-      "icon": "stir_fried_vegetables.png"
+      "icon": "stir_fried_vegetables.png",
+      "additions": [
+        "carrot",
+        "green_bell_pepper",
+        "asparagus",
+        "pumpkin",
+        "salt",
+        "pepper"
+      ]
     },
     {
       "id": "stuffed_cabbage",
@@ -5510,48 +5607,143 @@
       "icon": "white_bread.png"
     },
     {
-      "id": "babaocai",
-      "name": "Babaocai",
-      "category": "side",
-      "utensil": "frying_pan",
+      "id": "bouillabaisse",
+      "name": "Bouillabaisse",
+      "category": "main_dish",
+      "utensil": "none",
       "ingredients": [
         {
-          "id": "napa_cabbage",
-          "required": true
-        },
-        {
-          "id": "carrot",
-          "required": true
-        },
-        {
-          "id": "green_bell_pepper",
+          "id": "tomato",
           "required": true
         },
         {
           "id": "choice",
           "required": true,
           "oneOf": [
-            "shiitake_mushroom",
-            "shimeji_mushroom",
-            "common_mushroom",
-            "porcini_mushroom",
-            "morel_mushroom",
-            "matsutake_mushroom",
-            "monarch_mushroom"
+            "grayling",
+            "bighead_carp",
+            "nile_perch",
+            "barbel_steed",
+            "three_lips_carp",
+            "brown_trout",
+            "black_bass",
+            "mugitsuku"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "oil",
+            "nut_oil",
+            "herb_oil",
+            "olive_oil",
+            "grape_oil"
           ]
         }
       ],
-      "baseValue": 1509,
-      "effect": "watering_rare_crop",
-      "effectLevel": 3,
-      "unlockMethod": "Hydrator title, Nadine's Bistro",
-      "icon": "babaocai.png",
+      "baseValue": 835,
+      "unlockMethod": "Unknown",
+      "icon": "bouillabaisse.png",
       "additions": [
-        "cabbage",
         "onion",
-        "bok_choy",
-        "burdock",
-        "red_bell_pepper"
+        "garlic",
+        "salt",
+        "pepper",
+        "nut_oil",
+        "herb_oil",
+        "olive_oil"
+      ]
+    },
+    {
+      "id": "burgundy_fondue",
+      "name": "Burgundy Fondue",
+      "category": "main_dish",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "olive_oil",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "bread",
+            "white_bread",
+            "baguettes",
+            "focaccia_bread"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "broccoli",
+            "potato",
+            "asparagus",
+            "red_bell_pepper",
+            "carrot",
+            "common_mushroom",
+            "pumpkin"
+          ]
+        }
+      ],
+      "baseValue": 1325,
+      "unlockMethod": "Unknown",
+      "icon": "burgundy_fondue.png",
+      "additions": [
+        "garlic",
+        "salt",
+        "pepper"
+      ]
+    },
+    {
+      "id": "cheese_fondue",
+      "name": "Cheese Fondue",
+      "category": "main_dish",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "cheese",
+            "herb_cheese",
+            "cheese_plus"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "bread",
+            "white_bread",
+            "baguettes",
+            "focaccia_bread"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "broccoli",
+            "potato",
+            "asparagus",
+            "red_bell_pepper",
+            "carrot",
+            "common_mushroom",
+            "pumpkin"
+          ]
+        }
+      ],
+      "baseValue": 1452,
+      "unlockMethod": "Unknown",
+      "icon": "cheese_fondue.png",
+      "additions": [
+        "garlic",
+        "salt",
+        "pepper"
       ]
     },
     {
@@ -5624,6 +5816,142 @@
       ]
     },
     {
+      "id": "fried_eggplant",
+      "name": "Fried Eggplant",
+      "category": "main_dish",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "eggplant",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "oil",
+            "nut_oil",
+            "herb_oil",
+            "olive_oil",
+            "grape_oil"
+          ]
+        }
+      ],
+      "baseValue": 342,
+      "unlockMethod": "Unknown",
+      "icon": "fried_eggplant.png",
+      "additions": [
+        "green_onion",
+        "soy_sauce",
+        "salt"
+      ]
+    },
+    {
+      "id": "fried_matsutake_mushrooms",
+      "name": "Fried Matsutake Mushrooms",
+      "category": "main_dish",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "matsutake_mushroom",
+          "required": true
+        }
+      ],
+      "baseValue": 1200,
+      "unlockMethod": "Unknown",
+      "icon": "fried_matsutake_mushrooms.png",
+      "additions": [
+        "salt",
+        "pepper",
+        "pumpkin_oil",
+        "grape_oil"
+      ]
+    },
+    {
+      "id": "fried_rice",
+      "name": "Fried Rice",
+      "category": "main_dish",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "cooked_rice",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "silkie_egg"
+          ]
+        },
+        {
+          "id": "onion",
+          "required": true
+        },
+        {
+          "id": "carrot",
+          "required": true
+        }
+      ],
+      "baseValue": 1316,
+      "effect": null,
+      "effectLevel": null,
+      "unlockMethod": "Clara's Diner",
+      "icon": "fried_rice.png",
+      "additions": [
+        "cabbage",
+        "green_bell_pepper",
+        "green_onion",
+        "soy_sauce",
+        "salt",
+        "pepper"
+      ]
+    },
+    {
+      "id": "gratin",
+      "name": "Gratin",
+      "category": "main_dish",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "cheese",
+            "herb_cheese",
+            "cheese_plus"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "mayonnaise",
+            "herb_mayonnaise",
+            "mayonnaise_plus"
+          ]
+        }
+      ],
+      "baseValue": 1568,
+      "unlockMethod": "Unknown",
+      "icon": "gratin.png",
+      "additions": [
+        "onion",
+        "shiitake_mushroom",
+        "pasta",
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "salt",
+        "pepper"
+      ]
+    },
+    {
       "id": "grilled_fish",
       "name": "Grilled Fish",
       "category": "main_dish",
@@ -5654,6 +5982,477 @@
       "additions": [
         "daikon_radish",
         "soy_sauce"
+      ]
+    },
+    {
+      "id": "herb_pasta",
+      "name": "Herb Pasta",
+      "category": "main_dish",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "mint",
+            "chamomile",
+            "lavender"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "oil",
+            "nut_oil",
+            "herb_oil",
+            "olive_oil",
+            "grape_oil"
+          ]
+        }
+      ],
+      "baseValue": 616,
+      "unlockMethod": "Unknown",
+      "icon": "herb_pasta.png",
+      "additions": [
+        "tomato",
+        "cucumber",
+        "garlic",
+        "avocado",
+        "cheese",
+        "herb_cheese",
+        "cheese_plus"
+      ]
+    },
+    {
+      "id": "herb_rice_porridge",
+      "name": "Herb Rice Porridge",
+      "category": "main_dish",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "rice",
+          "required": true
+        },
+        {
+          "id": "salt",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "mint",
+            "chamomile",
+            "lavender"
+          ]
+        }
+      ],
+      "baseValue": 647,
+      "unlockMethod": "Unknown",
+      "icon": "herb_rice_porridge.png",
+      "additions": [
+        "green_onion",
+        "egg",
+        "silkie_egg"
+      ]
+    },
+    {
+      "id": "herb_sandwich",
+      "name": "Herb Sandwich",
+      "category": "main_dish",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "bread",
+            "white_bread",
+            "baguettes",
+            "focaccia_bread"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "mint",
+            "chamomile",
+            "lavender"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "mayonnaise",
+            "herb_mayonnaise",
+            "mayonnaise_plus"
+          ]
+        }
+      ],
+      "baseValue": 817,
+      "unlockMethod": "Unknown",
+      "icon": "herb_sandwich.png",
+      "additions": [
+        "tomato",
+        "onion",
+        "mayonnaise",
+        "herb_mayonnaise",
+        "mayonnaise_plus",
+        "nut_oil",
+        "herb_oil",
+        "olive_oil"
+      ]
+    },
+    {
+      "id": "hot_pot",
+      "name": "Hot Pot",
+      "category": "main_dish",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "daikon_radish",
+          "required": true
+        },
+        {
+          "id": "napa_cabbage",
+          "required": true
+        },
+        {
+          "id": "green_onion",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "nile_perch",
+            "salmon",
+            "masu_trout",
+            "cherry_salmon",
+            "brown_trout",
+            "yellow_perch",
+            "sweetfish"
+          ]
+        }
+      ],
+      "baseValue": 2487,
+      "unlockMethod": "Unknown",
+      "icon": "hot_pot.png",
+      "additions": [
+        "carrot",
+        "spinach",
+        "bok_choy",
+        "chili_pepper",
+        "soy_milk",
+        "soy_sauce"
+      ]
+    },
+    {
+      "id": "inari_sushi",
+      "name": "Inari Sushi",
+      "category": "main_dish",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "cooked_rice",
+          "required": true
+        },
+        {
+          "id": "fried_tofu",
+          "required": true
+        },
+        {
+          "id": "vinegar",
+          "required": true
+        },
+        {
+          "id": "sugar",
+          "required": true
+        }
+      ],
+      "baseValue": 1427,
+      "unlockMethod": "Unknown",
+      "icon": "inari_sushi.png",
+      "additions": [
+        "carrot",
+        "burdock",
+        "soybean",
+        "shiitake_mushroom",
+        "soy_sauce"
+      ]
+    },
+    {
+      "id": "jam_filled_bun",
+      "name": "Jam-Filled Bun",
+      "category": "main_dish",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "apple_jam",
+            "strawberry_jam",
+            "grape_jam",
+            "blueberry_jam"
+          ]
+        }
+      ],
+      "baseValue": 1339,
+      "unlockMethod": "Unknown",
+      "icon": "jam_filled_bun.png",
+      "additions": [
+        "milk",
+        "buffalo_milk",
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "sugar",
+        "salt"
+      ]
+    },
+    {
+      "id": "macaroni_cheese",
+      "name": "Macaroni & Cheese",
+      "category": "main_dish",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "cheese",
+            "herb_cheese",
+            "cheese_plus"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "butter",
+            "herb_butter",
+            "butter_plus"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "mayonnaise",
+            "herb_mayonnaise",
+            "mayonnaise_plus"
+          ]
+        }
+      ],
+      "baseValue": 2592,
+      "unlockMethod": "Unknown",
+      "icon": "macaroni_cheese.png",
+      "additions": [
+        "onion",
+        "shimeji_mushroom",
+        "common_mushroom",
+        "porcini_mushroom",
+        "morel_mushroom",
+        "milk",
+        "buffalo_milk",
+        "salt",
+        "pepper"
+      ]
+    },
+    {
+      "id": "milk_hot_pot",
+      "name": "Milk Hot Pot",
+      "category": "main_dish",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "milk_plus",
+          "required": true
+        },
+        {
+          "id": "carrot",
+          "required": true
+        },
+        {
+          "id": "napa_cabbage",
+          "required": true
+        },
+        {
+          "id": "spinach",
+          "required": true
+        }
+      ],
+      "baseValue": 2640,
+      "unlockMethod": "Unknown",
+      "icon": "milk_hot_pot.png",
+      "additions": [
+        "potato",
+        "cabbage",
+        "green_onion",
+        "shimeji_mushroom",
+        "butter",
+        "herb_butter",
+        "butter_plus"
+      ]
+    },
+    {
+      "id": "milk_rice_porridge",
+      "name": "Milk Rice Porridge",
+      "category": "main_dish",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "rice",
+          "required": true
+        },
+        {
+          "id": "salt",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "buffalo_milk"
+          ]
+        }
+      ],
+      "baseValue": 801,
+      "unlockMethod": "Unknown",
+      "icon": "milk_rice_porridge.png",
+      "additions": [
+        "onion",
+        "shiitake_mushroom_shimeji_mushroom",
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "salt",
+        "pepper"
+      ]
+    },
+    {
+      "id": "mushroom_pasta",
+      "name": "Mushroom Pasta",
+      "category": "main_dish",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "pasta",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "shiitake_mushroom",
+            "shimeji_mushroom",
+            "common_mushroom",
+            "porcini_mushroom",
+            "morel_mushroom",
+            "matsutake_mushroom",
+            "monarch_mushroom"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "butter",
+            "herb_butter",
+            "butter_plus"
+          ]
+        }
+      ],
+      "baseValue": 1449,
+      "unlockMethod": "Unknown",
+      "icon": "mushroom_pasta.png",
+      "additions": [
+        "green_onion",
+        "garlic",
+        "salt",
+        "pepper",
+        "soy_sauce",
+        "olive_oil",
+        "cheese",
+        "herb_cheese",
+        "cheese_plus"
+      ]
+    },
+    {
+      "id": "mushroom_rice",
+      "name": "Mushroom Rice",
+      "category": "main_dish",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "rice",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "shiitake_mushroom",
+            "shimeji_mushroom",
+            "common_mushroom",
+            "porcini_mushroom",
+            "morel_mushroom",
+            "matsutake_mushroom",
+            "monarch_mushroom"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "shiitake_mushroom",
+            "shimeji_mushroom",
+            "common_mushroom",
+            "porcini_mushroom",
+            "morel_mushroom",
+            "matsutake_mushroom",
+            "monarch_mushroom"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "shiitake_mushroom",
+            "shimeji_mushroom",
+            "common_mushroom",
+            "porcini_mushroom",
+            "morel_mushroom",
+            "matsutake_mushroom",
+            "monarch_mushroom"
+          ]
+        }
+      ],
+      "baseValue": 874,
+      "unlockMethod": "Unknown",
+      "icon": "mushroom_rice.png",
+      "additions": [
+        "green_onion",
+        "fried_tofu",
+        "soy_sauce",
+        "salt"
       ]
     },
     {
@@ -5692,6 +6491,67 @@
         "buffalo_milk",
         "salt",
         "pepper"
+      ]
+    },
+    {
+      "id": "omelet_rice",
+      "name": "Omelet Rice",
+      "category": "main_dish",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "omelet",
+          "required": true
+        },
+        {
+          "id": "cooked_rice",
+          "required": true
+        }
+      ],
+      "baseValue": 1410,
+      "effect": null,
+      "effectLevel": null,
+      "unlockMethod": "Bookshelves in Gabriel's House",
+      "icon": "omelet_rice.png",
+      "additions": [
+        "onion",
+        "tomato",
+        "milk",
+        "buffalo_milk",
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "salt",
+        "pepper",
+        "oil"
+      ]
+    },
+    {
+      "id": "onigiri",
+      "name": "Onigiri",
+      "category": "main_dish",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "cooked_rice",
+          "required": true
+        },
+        {
+          "id": "seaweed",
+          "required": true
+        }
+      ],
+      "baseValue": 370,
+      "effect": null,
+      "effectLevel": null,
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "onigiri.png",
+      "additions": [
+        "soybean",
+        "shimeji_mushroom",
+        "matsutake_mushroom",
+        "salmon",
+        "salt"
       ]
     },
     {
@@ -5766,6 +6626,158 @@
       ]
     },
     {
+      "id": "pizzoccheri",
+      "name": "Pizzoccheri",
+      "category": "main_dish",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "buckwheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "cheese",
+            "herb_cheese",
+            "cheese_plus"
+          ]
+        },
+        {
+          "id": "cabbage",
+          "required": true
+        },
+        {
+          "id": "potato",
+          "required": true
+        }
+      ],
+      "baseValue": 2784,
+      "unlockMethod": "Unknown",
+      "icon": "pizzoccheri.png",
+      "additions": [
+        "garlic",
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "salt"
+      ]
+    },
+    {
+      "id": "raclette_cheese",
+      "name": "Raclette Cheese",
+      "category": "main_dish",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "cheese",
+            "herb_cheese",
+            "cheese_plus"
+          ]
+        },
+        {
+          "id": "corn",
+          "required": true
+        },
+        {
+          "id": "carrot",
+          "required": true
+        },
+        {
+          "id": "broccoli",
+          "required": true
+        }
+      ],
+      "baseValue": 1901,
+      "unlockMethod": "Unknown",
+      "icon": "raclette_cheese.png",
+      "additions": [
+        "asparagus",
+        "french_fries",
+        "toast",
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "salt",
+        "pepper",
+        "pumpkin_oil",
+        "grape_oil"
+      ]
+    },
+    {
+      "id": "rice_porridge",
+      "name": "Rice Porridge",
+      "category": "main_dish",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "rice",
+          "required": true
+        },
+        {
+          "id": "salt",
+          "required": true
+        }
+      ],
+      "baseValue": 544,
+      "unlockMethod": "Unknown",
+      "icon": "rice_porridge.png",
+      "additions": [
+        "green_onion",
+        "egg",
+        "silkie_egg"
+      ]
+    },
+    {
+      "id": "risotto",
+      "name": "Risotto",
+      "category": "main_dish",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "rice",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "cheese",
+            "herb_cheese",
+            "cheese_plus"
+          ]
+        },
+        {
+          "id": "tomato",
+          "required": true
+        },
+        {
+          "id": "onion",
+          "required": true
+        }
+      ],
+      "baseValue": 1552,
+      "effect": null,
+      "effectLevel": null,
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "risotto.png",
+      "additions": [
+        "garlic",
+        "milk",
+        "buffalo_milk",
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "olive_oil",
+        "salt",
+        "pepper"
+      ]
+    },
+    {
       "id": "sandwich",
       "name": "Sandwich",
       "category": "main_dish",
@@ -5809,103 +6821,164 @@
       ]
     },
     {
-      "id": "fried_rice",
-      "name": "Fried Rice",
+      "id": "spaghetti_soup",
+      "name": "Spaghetti Soup",
       "category": "main_dish",
-      "utensil": "pot",
+      "utensil": "none",
       "ingredients": [
         {
-          "id": "cooked_rice",
+          "id": "pasta",
+          "required": true
+        },
+        {
+          "id": "tomato",
           "required": true
         },
         {
           "id": "choice",
           "required": true,
           "oneOf": [
-            "egg",
-            "silkie_egg"
+            "grayling",
+            "bighead_carp",
+            "nile_perch",
+            "barbel_steed",
+            "three_lips_carp",
+            "brown_trout",
+            "black_bass",
+            "mugitsuku"
           ]
         },
         {
-          "id": "onion",
-          "required": true
-        },
-        {
-          "id": "carrot",
-          "required": true
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "oil",
+            "nut_oil",
+            "herb_oil",
+            "olive_oil",
+            "grape_oil"
+          ]
         }
       ],
-      "baseValue": 1316,
-      "effect": null,
-      "effectLevel": null,
-      "unlockMethod": "Clara's Diner",
-      "icon": "fried_rice.png",
+      "baseValue": 1566,
+      "unlockMethod": "Unknown",
+      "icon": "spaghetti_soup.png",
       "additions": [
+        "onion",
         "cabbage",
-        "green_bell_pepper",
-        "green_onion",
-        "soy_sauce",
-        "salt",
-        "pepper"
+        "soybean",
+        "shimeji_mushroom",
+        "mint",
+        "nut_oil",
+        "herb_oil",
+        "olive_oil"
       ]
     },
     {
-      "id": "omelet_rice",
-      "name": "Omelet Rice",
+      "id": "spicy_curry",
+      "name": "Spicy Curry",
       "category": "main_dish",
-      "utensil": "pot",
+      "utensil": "none",
       "ingredients": [
-        {
-          "id": "omelet",
-          "required": true
-        },
         {
           "id": "cooked_rice",
           "required": true
+        },
+        {
+          "id": "curry_powder",
+          "required": true
+        },
+        {
+          "id": "spice",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "potato",
+            "carrot",
+            "onion"
+          ]
         }
       ],
-      "baseValue": 1410,
-      "effect": null,
-      "effectLevel": null,
-      "unlockMethod": "Bookshelves in Gabriel's House",
-      "icon": "omelet_rice.png",
+      "baseValue": 1424,
+      "unlockMethod": "Unknown",
+      "icon": "spicy_curry.png",
       "additions": [
-        "onion",
         "tomato",
-        "milk",
-        "buffalo_milk",
-        "butter",
-        "herb_butter",
-        "butter_plus",
-        "salt",
-        "pepper",
-        "oil"
+        "garlic",
+        "apple"
       ]
     },
     {
-      "id": "udon",
-      "name": "Udon",
+      "id": "steamed_mushrooms",
+      "name": "Steamed Mushrooms",
       "category": "main_dish",
-      "utensil": "pot",
+      "utensil": "none",
       "ingredients": [
         {
-          "id": "wheat_flour",
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "shiitake_mushroom",
+            "shimeji_mushroom",
+            "common_mushroom",
+            "porcini_mushroom",
+            "morel_mushroom",
+            "matsutake_mushroom",
+            "monarch_mushroom"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "butter",
+            "herb_butter",
+            "butter_plus"
+          ]
+        }
+      ],
+      "baseValue": 809,
+      "unlockMethod": "Unknown",
+      "icon": "steamed_mushrooms.png",
+      "additions": [
+        "salt_pepper",
+        "nut_oil",
+        "herb_oil",
+        "olive_oil"
+      ]
+    },
+    {
+      "id": "supreme_curry",
+      "name": "Supreme Curry",
+      "category": "main_dish",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "curry_rice",
           "required": true
         },
         {
-          "id": "fish_cake",
+          "id": "star_potato",
           "required": true
         },
         {
-          "id": "green_onion",
+          "id": "three_forked_carrot",
           "required": true
         }
       ],
-      "baseValue": 647,
-      "effect": null,
-      "effectLevel": null,
-      "unlockMethod": "Clara's Diner",
-      "icon": "udon.png"
+      "baseValue": 3724,
+      "unlockMethod": "Unknown",
+      "icon": "supreme_curry.png",
+      "additions": [
+        "giant_tomato",
+        "brawny_onion",
+        "golden_apple",
+        "milk_plus",
+        "buffalo_milk_plus"
+      ]
     },
     {
       "id": "sushi",
@@ -5992,6 +7065,27 @@
       ]
     },
     {
+      "id": "tempura_soba",
+      "name": "Tempura Soba",
+      "category": "main_dish",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "buckwheat_flour",
+          "required": true
+        },
+        {
+          "id": "tempura",
+          "required": true
+        }
+      ],
+      "baseValue": 2641,
+      "effect": null,
+      "effectLevel": null,
+      "unlockMethod": "Clara's Diner",
+      "icon": "tempura_soba.png"
+    },
+    {
       "id": "tempura_udon",
       "name": "Tempura Udon",
       "category": "main_dish",
@@ -6013,25 +7107,111 @@
       "icon": "tempura_udon.png"
     },
     {
-      "id": "tempura_soba",
-      "name": "Tempura Soba",
+      "id": "tomato_fondue",
+      "name": "Tomato Fondue",
+      "category": "main_dish",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "tomato",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "bread",
+            "white_bread",
+            "baguettes",
+            "focaccia_bread"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "broccoli",
+            "potato",
+            "asparagus",
+            "red_bell_pepper",
+            "carrot",
+            "common_mushroom",
+            "pumpkin"
+          ]
+        }
+      ],
+      "baseValue": 650,
+      "unlockMethod": "Unknown",
+      "icon": "tomato_fondue.png",
+      "additions": [
+        "garlic",
+        "salt",
+        "pepper"
+      ]
+    },
+    {
+      "id": "udon",
+      "name": "Udon",
       "category": "main_dish",
       "utensil": "pot",
       "ingredients": [
         {
-          "id": "buckwheat_flour",
+          "id": "wheat_flour",
           "required": true
         },
         {
-          "id": "tempura",
+          "id": "fish_cake",
+          "required": true
+        },
+        {
+          "id": "green_onion",
           "required": true
         }
       ],
-      "baseValue": 2641,
+      "baseValue": 647,
       "effect": null,
       "effectLevel": null,
       "unlockMethod": "Clara's Diner",
-      "icon": "tempura_soba.png"
+      "icon": "udon.png"
+    },
+    {
+      "id": "vegetable_curry",
+      "name": "Vegetable Curry",
+      "category": "main_dish",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "cooked_rice",
+          "required": true
+        },
+        {
+          "id": "curry_powder",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "cucumber",
+            "onion",
+            "asparagus",
+            "tomato",
+            "red_bell_pepper",
+            "carrot",
+            "turnip",
+            "sweet_potato",
+            "pumpkin",
+            "eggplant"
+          ]
+        }
+      ],
+      "baseValue": 911,
+      "unlockMethod": "Unknown",
+      "icon": "vegetable_curry.png",
+      "additions": [
+        "garlic",
+        "apple"
+      ]
     },
     {
       "id": "zaru_soba",
@@ -6055,79 +7235,6 @@
       "icon": "zaru_soba.png"
     },
     {
-      "id": "risotto",
-      "name": "Risotto",
-      "category": "main_dish",
-      "utensil": "pot",
-      "ingredients": [
-        {
-          "id": "rice",
-          "required": true
-        },
-        {
-          "id": "choice",
-          "required": true,
-          "oneOf": [
-            "cheese",
-            "herb_cheese",
-            "cheese_plus"
-          ]
-        },
-        {
-          "id": "tomato",
-          "required": true
-        },
-        {
-          "id": "onion",
-          "required": true
-        }
-      ],
-      "baseValue": 1552,
-      "effect": null,
-      "effectLevel": null,
-      "unlockMethod": "Caf\u00e9 Madeleine",
-      "icon": "risotto.png",
-      "additions": [
-        "garlic",
-        "milk",
-        "buffalo_milk",
-        "butter",
-        "herb_butter",
-        "butter_plus",
-        "olive_oil",
-        "salt",
-        "pepper"
-      ]
-    },
-    {
-      "id": "onigiri",
-      "name": "Onigiri",
-      "category": "main_dish",
-      "utensil": "pot",
-      "ingredients": [
-        {
-          "id": "cooked_rice",
-          "required": true
-        },
-        {
-          "id": "seaweed",
-          "required": true
-        }
-      ],
-      "baseValue": 370,
-      "effect": null,
-      "effectLevel": null,
-      "unlockMethod": "Caf\u00e9 Madeleine",
-      "icon": "onigiri.png",
-      "additions": [
-        "soybean",
-        "shimeji_mushroom",
-        "matsutake_mushroom",
-        "salmon",
-        "salt"
-      ]
-    },
-    {
       "id": "apple_pie",
       "name": "Apple Pie",
       "category": "dessert",
@@ -6142,9 +7249,7 @@
           "required": true,
           "oneOf": [
             "egg",
-            "egg_plus",
-            "silkie_egg",
-            "silkie_egg_plus"
+            "silkie_egg"
           ]
         },
         {
@@ -6152,8 +7257,8 @@
           "required": true,
           "oneOf": [
             "butter",
-            "butter_plus",
-            "herb_butter"
+            "herb_butter",
+            "butter_plus"
           ]
         },
         {
@@ -6165,7 +7270,12 @@
       "effect": "petting_rare_item",
       "effectLevel": 3,
       "unlockMethod": "Calm Amongst Chaos request from Clara",
-      "icon": "apple_pie.png"
+      "icon": "apple_pie.png",
+      "additions": [
+        "lemon",
+        "sugar",
+        "salt"
+      ]
     },
     {
       "id": "baked_apple",
@@ -6199,6 +7309,47 @@
         "royal_honey",
         "sugar"
       ]
+    },
+    {
+      "id": "baumkuchen",
+      "name": "Baumkuchen",
+      "category": "dessert",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "egg_plus",
+            "silkie_egg",
+            "silkie_egg_plus"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "milk_plus",
+            "buffalo_milk",
+            "buffalo_milk_plus"
+          ]
+        },
+        {
+          "id": "sugar",
+          "required": true
+        }
+      ],
+      "baseValue": 1242,
+      "effect": "petting_happiness_up",
+      "effectLevel": 3,
+      "unlockMethod": "It's Gotta Be Yummy request from Laurie",
+      "icon": "baumkuchen.png"
     },
     {
       "id": "cake",
@@ -6245,136 +7396,18 @@
       ]
     },
     {
-      "id": "cookies",
-      "name": "Cookies",
+      "id": "castella",
+      "name": "Castella",
       "category": "dessert",
-      "utensil": "seasoning_set",
+      "utensil": "none",
       "ingredients": [
         {
           "id": "wheat_flour",
           "required": true
         },
         {
-          "id": "choice",
-          "required": true,
-          "oneOf": [
-            "egg",
-            "silkie_egg"
-          ]
-        }
-      ],
-      "baseValue": 328,
-      "effect": "petting_rare_item",
-      "effectLevel": 1,
-      "unlockMethod": "Cheer Leader title, Caf\u00e9 Madeleine",
-      "icon": "cookies.png",
-      "additions": [
-        "milk",
-        "buffalo_milk",
-        "butter",
-        "herb_butter",
-        "butter_plus",
-        "sugar"
-      ]
-    },
-    {
-      "id": "ice_cream",
-      "name": "Ice Cream",
-      "category": "dessert",
-      "utensil": "seasoning_set",
-      "ingredients": [
-        {
-          "id": "choice",
-          "required": true,
-          "oneOf": [
-            "milk",
-            "buffalo_milk"
-          ]
-        },
-        {
-          "id": "choice",
-          "required": true,
-          "oneOf": [
-            "egg",
-            "silkie_egg"
-          ]
-        },
-        {
-          "id": "sugar",
+          "id": "silkie_egg",
           "required": true
-        }
-      ],
-      "baseValue": 832,
-      "effect": "petting_happiness_up",
-      "effectLevel": 2,
-      "unlockMethod": "Bookshelves in June's House",
-      "icon": "ice_cream.png",
-      "additions": [
-        "mint",
-        "chocolate",
-        "black_tea"
-      ]
-    },
-    {
-      "id": "pudding",
-      "name": "Pudding",
-      "category": "dessert",
-      "utensil": "seasoning_set",
-      "ingredients": [
-        {
-          "id": "choice",
-          "required": true,
-          "oneOf": [
-            "milk",
-            "buffalo_milk"
-          ]
-        },
-        {
-          "id": "choice",
-          "required": true,
-          "oneOf": [
-            "egg",
-            "silkie_egg"
-          ]
-        }
-      ],
-      "baseValue": 328,
-      "effect": "petting_rare_item",
-      "effectLevel": 1,
-      "unlockMethod": "Generous Forager title, Nadine's Bistro, Family seal of approval! mail from Felix",
-      "icon": "pudding.png",
-      "additions": [
-        "sugar",
-        "butter",
-        "herb_butter",
-        "butter_plus"
-      ]
-    },
-    {
-      "id": "pancakes",
-      "name": "Pancakes",
-      "category": "dessert",
-      "utensil": "frying_pan",
-      "ingredients": [
-        {
-          "id": "wheat_flour",
-          "required": true
-        },
-        {
-          "id": "choice",
-          "required": true,
-          "oneOf": [
-            "egg",
-            "silkie_egg"
-          ]
-        },
-        {
-          "id": "choice",
-          "required": true,
-          "oneOf": [
-            "milk",
-            "buffalo_milk"
-          ]
         },
         {
           "id": "choice",
@@ -6387,58 +7420,17 @@
           ]
         }
       ],
-      "baseValue": 1152,
-      "effect": "petting_happiness_up",
-      "effectLevel": 3,
-      "unlockMethod": "Caf\u00e9 Madeleine",
-      "icon": "pancakes.png",
+      "baseValue": 801,
+      "unlockMethod": "Unknown",
+      "icon": "castella.png",
       "additions": [
-        "butter",
-        "herb_butter",
-        "butter_plus",
+        "milk",
+        "buffalo_milk",
+        "rice_flour",
         "sugar"
-      ]
-    },
-    {
-      "id": "chocolate_cake",
-      "name": "Chocolate Cake",
-      "category": "dessert",
-      "utensil": "seasoning_set",
-      "ingredients": [
-        {
-          "id": "wheat_flour",
-          "required": true
-        },
-        {
-          "id": "choice",
-          "required": true,
-          "oneOf": [
-            "egg",
-            "egg_plus",
-            "silkie_egg",
-            "silkie_egg_plus"
-          ]
-        },
-        {
-          "id": "choice",
-          "required": true,
-          "oneOf": [
-            "milk",
-            "milk_plus",
-            "buffalo_milk",
-            "buffalo_milk_plus"
-          ]
-        },
-        {
-          "id": "chocolate",
-          "required": true
-        }
       ],
-      "baseValue": 1242,
       "effect": "petting_happiness_up",
-      "effectLevel": 3,
-      "unlockMethod": "Clara's Diner",
-      "icon": "chocolate_cake.png"
+      "effectLevel": 2
     },
     {
       "id": "cheesecake",
@@ -6486,8 +7478,73 @@
       ]
     },
     {
-      "id": "donuts",
-      "name": "Donuts",
+      "id": "cherry_pie",
+      "name": "Cherry Pie",
+      "category": "dessert",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "silkie_egg"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "butter",
+            "herb_butter",
+            "butter_plus"
+          ]
+        },
+        {
+          "id": "cherry",
+          "required": true
+        }
+      ],
+      "baseValue": 1404,
+      "unlockMethod": "Unknown",
+      "icon": "cherry_pie.png",
+      "additions": [
+        "lemon",
+        "sugar",
+        "salt"
+      ],
+      "effect": "petting_happiness_up",
+      "effectLevel": 3
+    },
+    {
+      "id": "chestnut_paste",
+      "name": "Chestnut Paste",
+      "category": "dessert",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "bottled_chestnuts",
+          "required": true
+        }
+      ],
+      "baseValue": 390,
+      "unlockMethod": "Unknown",
+      "icon": "chestnut_paste.png",
+      "additions": [
+        "sweet_potato",
+        "sugar",
+        "salt"
+      ],
+      "effect": "petting_happiness_up",
+      "effectLevel": 1
+    },
+    {
+      "id": "chocolate_cake",
+      "name": "Chocolate Cake",
       "category": "dessert",
       "utensil": "seasoning_set",
       "ingredients": [
@@ -6504,33 +7561,92 @@
           ]
         },
         {
-          "id": "sugar",
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "buffalo_milk"
+          ]
+        },
+        {
+          "id": "chocolate",
+          "required": true
+        }
+      ],
+      "baseValue": 1242,
+      "effect": "petting_happiness_up",
+      "effectLevel": 3,
+      "unlockMethod": "Clara's Diner",
+      "icon": "chocolate_cake.png",
+      "additions": [
+        "cacao_bean",
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "matcha_tea"
+      ]
+    },
+    {
+      "id": "chocolate_cookies",
+      "name": "Chocolate Cookies",
+      "category": "dessert",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
           "required": true
         },
         {
           "id": "choice",
           "required": true,
           "oneOf": [
-            "oil",
-            "nut_oil",
-            "herb_oil",
-            "olive_oil",
-            "grape_oil"
+            "egg",
+            "silkie_egg"
           ]
+        },
+        {
+          "id": "chocolate",
+          "required": true
         }
       ],
-      "baseValue": 1332,
-      "effect": "petting_happiness_up",
-      "effectLevel": 3,
-      "unlockMethod": "Excellent Eggs request from Sylvia, Me and mom baked em! mail from Sylvia",
-      "icon": "donuts.png",
+      "baseValue": 832,
+      "unlockMethod": "Unknown",
+      "icon": "chocolate_cookies.png",
       "additions": [
         "milk",
         "buffalo_milk",
         "butter",
         "herb_butter",
-        "butter_plus"
-      ]
+        "butter_plus",
+        "sugar"
+      ],
+      "effect": "petting_rare_item",
+      "effectLevel": 2
+    },
+    {
+      "id": "chocolate_covered_banana",
+      "name": "Chocolate-Covered Banana",
+      "category": "dessert",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "banana",
+          "required": true
+        },
+        {
+          "id": "chocolate",
+          "required": true
+        }
+      ],
+      "baseValue": 735,
+      "unlockMethod": "Unknown",
+      "icon": "chocolate_covered_banana.png",
+      "additions": [
+        "sugar",
+        "oil"
+      ],
+      "effect": "petting_rare_item",
+      "effectLevel": 2
     },
     {
       "id": "churros",
@@ -6583,8 +7699,8 @@
       ]
     },
     {
-      "id": "baumkuchen",
-      "name": "Baumkuchen",
+      "id": "cookies",
+      "name": "Cookies",
       "category": "dessert",
       "utensil": "seasoning_set",
       "ingredients": [
@@ -6597,31 +7713,23 @@
           "required": true,
           "oneOf": [
             "egg",
-            "egg_plus",
-            "silkie_egg",
-            "silkie_egg_plus"
+            "silkie_egg"
           ]
-        },
-        {
-          "id": "choice",
-          "required": true,
-          "oneOf": [
-            "milk",
-            "milk_plus",
-            "buffalo_milk",
-            "buffalo_milk_plus"
-          ]
-        },
-        {
-          "id": "sugar",
-          "required": true
         }
       ],
-      "baseValue": 1242,
-      "effect": "petting_happiness_up",
-      "effectLevel": 3,
-      "unlockMethod": "It's Gotta Be Yummy request from Laurie",
-      "icon": "baumkuchen.png"
+      "baseValue": 328,
+      "effect": "petting_rare_item",
+      "effectLevel": 1,
+      "unlockMethod": "Cheer Leader title, Caf\u00e9 Madeleine",
+      "icon": "cookies.png",
+      "additions": [
+        "milk",
+        "buffalo_milk",
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "sugar"
+      ]
     },
     {
       "id": "dango",
@@ -6646,149 +7754,66 @@
       ]
     },
     {
-      "id": "apple_juice",
-      "name": "Apple Juice",
-      "category": "other",
-      "utensil": "none",
+      "id": "donuts",
+      "name": "Donuts",
+      "category": "dessert",
+      "utensil": "seasoning_set",
       "ingredients": [
         {
-          "id": "apple",
+          "id": "wheat_flour",
           "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "silkie_egg"
+          ]
+        },
+        {
+          "id": "sugar",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "oil",
+            "nut_oil",
+            "herb_oil",
+            "olive_oil",
+            "grape_oil"
+          ]
         }
       ],
-      "baseValue": 221,
-      "effect": "pet_training_up",
-      "effectLevel": 1,
-      "unlockMethod": "Mini Madeleine's",
-      "icon": "apple_juice.png",
+      "baseValue": 1332,
+      "effect": "petting_happiness_up",
+      "effectLevel": 3,
+      "unlockMethod": "Excellent Eggs request from Sylvia, Me and mom baked em! mail from Sylvia",
+      "icon": "donuts.png",
       "additions": [
-        "lemon",
         "milk",
         "buffalo_milk",
-        "yogurt",
-        "fruit_yogurt",
-        "yogurt_plus",
-        "honey",
-        "invigorating_honey",
-        "mellow_honey",
-        "royal_honey"
+        "butter",
+        "herb_butter",
+        "butter_plus"
       ]
     },
     {
-      "id": "grape_juice",
-      "name": "Grape Juice",
-      "category": "other",
+      "id": "egg_tart",
+      "name": "Egg Tart",
+      "category": "dessert",
       "utensil": "none",
       "ingredients": [
         {
-          "id": "red_grapes",
-          "required": true
-        }
-      ],
-      "baseValue": 228,
-      "effect": "pet_training_up",
-      "effectLevel": 1,
-      "unlockMethod": "First Juice Festival, Nadine's Bistro",
-      "icon": "grape_juice.png",
-      "additions": [
-        "lemon",
-        "milk",
-        "buffalo_milk",
-        "yogurt",
-        "fruit_yogurt",
-        "yogurt_plus",
-        "honey",
-        "invigorating_honey",
-        "mellow_honey",
-        "royal_honey"
-      ]
-    },
-    {
-      "id": "strawberry_juice",
-      "name": "Strawberry Juice",
-      "category": "other",
-      "utensil": "none",
-      "ingredients": [
-        {
-          "id": "strawberry",
-          "required": true
-        }
-      ],
-      "baseValue": 156,
-      "effect": "chat_friendship_boost",
-      "effectLevel": 1,
-      "unlockMethod": "Caf\u00e9 Madeleine",
-      "icon": "strawberry_juice.png",
-      "additions": [
-        "lemon",
-        "milk",
-        "buffalo_milk",
-        "yogurt",
-        "fruit_yogurt",
-        "yogurt_plus",
-        "honey",
-        "invigorating_honey",
-        "mellow_honey",
-        "royal_honey"
-      ]
-    },
-    {
-      "id": "tomato_juice",
-      "name": "Tomato Juice",
-      "category": "other",
-      "utensil": "none",
-      "ingredients": [
-        {
-          "id": "tomato",
-          "required": true
-        }
-      ],
-      "baseValue": 55,
-      "effect": "chat_friendship_boost",
-      "effectLevel": 1,
-      "unlockMethod": "Caf\u00e9 Madeleine",
-      "icon": "tomato_juice.png",
-      "additions": [
-        "lemon",
-        "mint",
-        "salt"
-      ]
-    },
-    {
-      "id": "orange_juice",
-      "name": "Orange Juice",
-      "category": "other",
-      "utensil": "none",
-      "ingredients": [
-        {
-          "id": "orange",
-          "required": true
-        }
-      ],
-      "baseValue": 180,
-      "effect": "pet_training_up",
-      "effectLevel": 1,
-      "unlockMethod": "Mini Madeleine's",
-      "icon": "orange_juice.png",
-      "additions": [
-        "lemon",
-        "milk",
-        "buffalo_milk",
-        "yogurt",
-        "fruit_yogurt",
-        "yogurt_plus",
-        "honey",
-        "invigorating_honey",
-        "mellow_honey",
-        "royal_honey"
-      ]
-    },
-    {
-      "id": "warm_milk",
-      "name": "Warm Milk",
-      "category": "other",
-      "utensil": "none",
-      "ingredients": [
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "silkie_egg"
+          ]
+        },
         {
           "id": "choice",
           "required": true,
@@ -6796,104 +7821,138 @@
             "milk",
             "buffalo_milk"
           ]
-        }
-      ],
-      "baseValue": 195,
-      "effect": "chat_friendship_boost",
-      "effectLevel": 1,
-      "unlockMethod": "Available at start, Caf\u00e9 Madeleine",
-      "icon": "warm_milk.png",
-      "additions": [
-        "banana",
-        "honey",
-        "invigorating_honey",
-        "mellow_honey",
-        "royal_honey",
-        "chocolate",
-        "soybean_flour"
-      ]
-    },
-    {
-      "id": "hot_coffee",
-      "name": "Hot Coffee",
-      "category": "other",
-      "utensil": "none",
-      "ingredients": [
+        },
         {
-          "id": "coffee_pack",
+          "id": "wheat_flour",
           "required": true
         }
       ],
-      "baseValue": 380,
-      "effect": "chat_friendship_boost",
-      "effectLevel": 1,
-      "unlockMethod": "Caf\u00e9 Madeleine",
-      "icon": "hot_coffee.png",
+      "baseValue": 601,
+      "unlockMethod": "Unknown",
+      "icon": "egg_tart.png",
       "additions": [
+        "sugar",
         "butter",
         "herb_butter",
         "butter_plus",
-        "sugar",
-        "chocolate",
-        "soy_milk",
-        "ice_cream"
-      ]
+        "almond"
+      ],
+      "effect": "petting_happiness_up",
+      "effectLevel": 2
     },
     {
-      "id": "black_tea",
-      "name": "Black Tea",
-      "category": "other",
+      "id": "fruit_dumplings",
+      "name": "Fruit Dumplings",
+      "category": "dessert",
       "utensil": "none",
       "ingredients": [
         {
-          "id": "black_tea_tin",
+          "id": "refined_rice_flour",
           "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "cherry",
+            "blueberry",
+            "green_grapes",
+            "strawberry",
+            "mango",
+            "pineapple",
+            "banana",
+            "peach",
+            "orange",
+            "melon"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "cherry",
+            "blueberry",
+            "green_grapes",
+            "strawberry",
+            "mango",
+            "pineapple",
+            "banana",
+            "peach",
+            "orange",
+            "melon"
+          ]
         }
       ],
-      "baseValue": 401,
-      "effect": "watering_rare_crop",
-      "effectLevel": 1,
-      "unlockMethod": "Caf\u00e9 Madeleine, A trip with a goddess mail from Erik",
-      "icon": "black_tea.png",
+      "baseValue": 1089,
+      "unlockMethod": "Unknown",
+      "icon": "fruit_dumplings.png",
       "additions": [
-        "lemon",
-        "milk",
-        "buffalo_milk",
-        "honey",
-        "invigorating_honey",
-        "mellow_honey",
-        "royal_honey",
+        "mint",
         "sugar"
-      ]
+      ],
+      "effect": "petting_happiness_up",
+      "effectLevel": 3
     },
     {
-      "id": "green_tea",
-      "name": "Green Tea",
-      "category": "other",
+      "id": "herb_cookies",
+      "name": "Herb Cookies",
+      "category": "dessert",
       "utensil": "none",
       "ingredients": [
         {
-          "id": "green_tea_tin",
+          "id": "wheat_flour",
           "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "silkie_egg"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "mint",
+            "chamomile",
+            "lavender"
+          ]
         }
       ],
-      "baseValue": 182,
-      "effect": "chat_friendship_boost",
-      "effectLevel": 1,
-      "unlockMethod": "Clara's Diner",
-      "icon": "green_tea.png",
+      "baseValue": 415,
+      "unlockMethod": "Unknown",
+      "icon": "herb_cookies.png",
       "additions": [
         "milk",
         "buffalo_milk",
+        "butter",
+        "herb_butter",
+        "butter_plus",
         "sugar"
-      ]
+      ],
+      "effect": "petting_happiness_up",
+      "effectLevel": 1
     },
     {
-      "id": "honey_juice",
-      "name": "Honey Juice",
-      "category": "other",
+      "id": "honey_cake",
+      "name": "Honey Cake",
+      "category": "dessert",
       "utensil": "none",
       "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg_plus",
+            "silkie_egg_plus"
+          ]
+        },
         {
           "id": "choice",
           "required": true,
@@ -6905,46 +7964,575 @@
           ]
         }
       ],
-      "baseValue": 325,
-      "effect": "stamina_saver",
-      "effectLevel": 1,
-      "unlockMethod": "Generous Beekeeper title, Caf\u00e9 Madeleine",
-      "icon": "honey_juice.png",
+      "baseValue": 755,
+      "unlockMethod": "Unknown",
+      "icon": "honey_cake.png",
       "additions": [
-        "lemon",
-        "milk",
-        "buffalo_milk",
-        "yogurt",
-        "fruit_yogurt",
-        "yogurt_plus"
-      ]
-    },
-    {
-      "id": "walnut_juice",
-      "name": "Walnut Juice",
-      "category": "other",
-      "utensil": "none",
-      "ingredients": [
-        {
-          "id": "bottled_walnuts",
-          "required": true
-        }
-      ],
-      "baseValue": 260,
-      "effect": "chat_friendship_boost",
-      "effectLevel": 1,
-      "unlockMethod": "Available at start",
-      "icon": "walnut_juice.png",
-      "additions": [
-        "banana",
-        "milk",
-        "buffalo_milk",
-        "mint",
         "honey",
         "invigorating_honey",
         "mellow_honey",
-        "royal_honey"
+        "royal_honey",
+        "chamomile"
+      ],
+      "effect": "petting_rare_item",
+      "effectLevel": 2
+    },
+    {
+      "id": "ice_cream",
+      "name": "Ice Cream",
+      "category": "dessert",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "buffalo_milk"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "silkie_egg"
+          ]
+        },
+        {
+          "id": "sugar",
+          "required": true
+        }
+      ],
+      "baseValue": 832,
+      "effect": "petting_happiness_up",
+      "effectLevel": 2,
+      "unlockMethod": "Bookshelves in June's House",
+      "icon": "ice_cream.png",
+      "additions": [
+        "mint",
+        "chocolate",
+        "black_tea"
       ]
+    },
+    {
+      "id": "pancakes",
+      "name": "Pancakes",
+      "category": "dessert",
+      "utensil": "frying_pan",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "silkie_egg"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "buffalo_milk"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "honey",
+            "invigorating_honey",
+            "mellow_honey",
+            "royal_honey"
+          ]
+        }
+      ],
+      "baseValue": 1152,
+      "effect": "petting_happiness_up",
+      "effectLevel": 3,
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "pancakes.png",
+      "additions": [
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "sugar"
+      ]
+    },
+    {
+      "id": "pineapple_pie",
+      "name": "Pineapple Pie",
+      "category": "dessert",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "silkie_egg"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "butter",
+            "herb_butter",
+            "butter_plus"
+          ]
+        },
+        {
+          "id": "jewel_pineapple",
+          "required": true
+        }
+      ],
+      "baseValue": 3130,
+      "unlockMethod": "Unknown",
+      "icon": "pineapple_pie.png",
+      "additions": [
+        "lemon",
+        "sugar",
+        "salt"
+      ],
+      "effect": "petting_happiness_up",
+      "effectLevel": 4
+    },
+    {
+      "id": "pudding",
+      "name": "Pudding",
+      "category": "dessert",
+      "utensil": "seasoning_set",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "buffalo_milk"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "silkie_egg"
+          ]
+        }
+      ],
+      "baseValue": 328,
+      "effect": "petting_rare_item",
+      "effectLevel": 1,
+      "unlockMethod": "Generous Forager title, Nadine's Bistro, Family seal of approval! mail from Felix",
+      "icon": "pudding.png",
+      "additions": [
+        "sugar",
+        "butter",
+        "herb_butter",
+        "butter_plus"
+      ]
+    },
+    {
+      "id": "soy_milk_pudding",
+      "name": "Soy Milk Pudding",
+      "category": "dessert",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "buffalo_milk"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "silkie_egg"
+          ]
+        },
+        {
+          "id": "soy_milk",
+          "required": true
+        }
+      ],
+      "baseValue": 501,
+      "unlockMethod": "Unknown",
+      "icon": "soy_milk_pudding.png",
+      "additions": [
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey",
+        "sugar"
+      ],
+      "effect": "petting_happiness_up",
+      "effectLevel": 2
+    },
+    {
+      "id": "steamed_cake",
+      "name": "Steamed Cake",
+      "category": "dessert",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "silkie_egg"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "buffalo_milk"
+          ]
+        },
+        {
+          "id": "pumpkin",
+          "required": true
+        }
+      ],
+      "baseValue": 1422,
+      "unlockMethod": "Unknown",
+      "icon": "steamed_cake.png",
+      "additions": [
+        "sweet_potato",
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "rice_flour",
+        "sugar"
+      ],
+      "effect": "petting_happiness_up",
+      "effectLevel": 3
+    },
+    {
+      "id": "strawberry_mochi",
+      "name": "Strawberry Mochi",
+      "category": "dessert",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "mochi",
+          "required": true
+        },
+        {
+          "id": "strawberry",
+          "required": true
+        }
+      ],
+      "baseValue": 618,
+      "unlockMethod": "Unknown",
+      "icon": "strawberry_mochi.png",
+      "additions": [
+        "refined_rice_flour",
+        "sugar",
+        "salt"
+      ],
+      "effect": "petting_happiness_up",
+      "effectLevel": 2
+    },
+    {
+      "id": "strawberry_pie",
+      "name": "Strawberry Pie",
+      "category": "dessert",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "silkie_egg"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "butter",
+            "herb_butter",
+            "butter_plus"
+          ]
+        },
+        {
+          "id": "strawberry",
+          "required": true
+        }
+      ],
+      "baseValue": 1368,
+      "unlockMethod": "Unknown",
+      "icon": "strawberry_pie.png",
+      "additions": [
+        "lemon",
+        "sugar",
+        "salt"
+      ],
+      "effect": "petting_happiness_up",
+      "effectLevel": 3
+    },
+    {
+      "id": "sweet_potato_cakes",
+      "name": "Sweet Potato Cakes",
+      "category": "dessert",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "buffalo_milk"
+          ]
+        },
+        {
+          "id": "sugar",
+          "required": true
+        },
+        {
+          "id": "sweet_potato",
+          "required": true
+        }
+      ],
+      "baseValue": 932,
+      "unlockMethod": "Unknown",
+      "icon": "sweet_potato_cakes.png",
+      "additions": [
+        "egg",
+        "silkie_egg",
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "salt"
+      ],
+      "effect": "petting_happiness_up",
+      "effectLevel": 2
+    },
+    {
+      "id": "toasted_mochi",
+      "name": "Toasted Mochi",
+      "category": "dessert",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "mochi",
+          "required": true
+        }
+      ],
+      "baseValue": 390,
+      "unlockMethod": "Unknown",
+      "icon": "toasted_mochi.png",
+      "additions": [
+        "soybean_flour",
+        "sugar",
+        "soy_sauce",
+        "seaweed"
+      ],
+      "effect": "petting_happiness_up",
+      "effectLevel": 1
+    },
+    {
+      "id": "trifle",
+      "name": "Trifle",
+      "category": "dessert",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "castella",
+          "required": true
+        },
+        {
+          "id": "silkie_egg_plus",
+          "required": true
+        },
+        {
+          "id": "yogurt_plus",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "cherry",
+            "blueberry",
+            "green_grapes",
+            "strawberry",
+            "mango",
+            "pineapple",
+            "banana",
+            "peach",
+            "orange",
+            "melon"
+          ]
+        }
+      ],
+      "baseValue": 6192,
+      "unlockMethod": "Unknown",
+      "icon": "trifle.png",
+      "additions": [
+        "cookies",
+        "herb_cookies",
+        "walnut_cookies",
+        "chocolate_cookies"
+      ],
+      "effect": "petting_happiness_up",
+      "effectLevel": 4
+    },
+    {
+      "id": "walnut_cookies",
+      "name": "Walnut Cookies",
+      "category": "dessert",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg",
+            "silkie_egg"
+          ]
+        },
+        {
+          "id": "walnut",
+          "required": true
+        }
+      ],
+      "baseValue": 524,
+      "unlockMethod": "Unknown",
+      "icon": "walnut_cookies.png",
+      "additions": [
+        "milk",
+        "buffalo_milk",
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "sugar"
+      ],
+      "effect": "petting_happiness_up",
+      "effectLevel": 2
+    },
+    {
+      "id": "whole_cheesecake",
+      "name": "Whole Cheesecake",
+      "category": "dessert",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg_plus",
+            "silkie_egg_plus"
+          ]
+        },
+        {
+          "id": "buffalo_milk_plus",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "cheese",
+            "herb_cheese",
+            "cheese_plus"
+          ]
+        }
+      ],
+      "baseValue": 2746,
+      "unlockMethod": "Unknown",
+      "icon": "whole_cheesecake.png",
+      "additions": [
+        "lemon",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey",
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "sugar",
+        "cookies"
+      ],
+      "effect": "petting_rare_item",
+      "effectLevel": 4
+    },
+    {
+      "id": "whole_chocolate_cake",
+      "name": "Whole Chocolate Cake",
+      "category": "dessert",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "wheat_flour",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "egg_plus",
+            "silkie_egg_plus"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk_plus",
+            "buffalo_milk_plus"
+          ]
+        },
+        {
+          "id": "chocolate",
+          "required": true
+        }
+      ],
+      "baseValue": 1786,
+      "unlockMethod": "Unknown",
+      "icon": "whole_chocolate_cake.png",
+      "additions": [
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "sugar",
+        "chocolate_cookies"
+      ],
+      "effect": "petting_rare_item",
+      "effectLevel": 4
     },
     {
       "id": "apple_jam",
@@ -6978,54 +8566,60 @@
       ]
     },
     {
-      "id": "strawberry_jam",
-      "name": "Strawberry Jam",
+      "id": "apple_juice",
+      "name": "Apple Juice",
       "category": "other",
       "utensil": "none",
       "ingredients": [
         {
-          "id": "strawberry",
-          "required": true
-        },
-        {
-          "id": "sugar",
-          "required": true
-        },
-        {
-          "id": "lemon",
+          "id": "apple",
           "required": true
         }
       ],
-      "baseValue": 855,
-      "effect": "chat_friendship_boost",
-      "effectLevel": 2,
+      "baseValue": 221,
+      "effect": "pet_training_up",
+      "effectLevel": 1,
       "unlockMethod": "Mini Madeleine's",
-      "icon": "strawberry_jam.png"
+      "icon": "apple_juice.png",
+      "additions": [
+        "lemon",
+        "milk",
+        "buffalo_milk",
+        "yogurt",
+        "fruit_yogurt",
+        "yogurt_plus",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey"
+      ]
     },
     {
-      "id": "grape_jam",
-      "name": "Grape Jam",
+      "id": "black_tea",
+      "name": "Black Tea",
       "category": "other",
       "utensil": "none",
       "ingredients": [
         {
-          "id": "red_grapes",
-          "required": true
-        },
-        {
-          "id": "sugar",
-          "required": true
-        },
-        {
-          "id": "lemon",
+          "id": "black_tea_tin",
           "required": true
         }
       ],
-      "baseValue": 1007,
-      "effect": "pet_training_up",
-      "effectLevel": 3,
-      "unlockMethod": "Mini Madeleine's",
-      "icon": "grape_jam.png"
+      "baseValue": 401,
+      "effect": "watering_rare_crop",
+      "effectLevel": 1,
+      "unlockMethod": "Caf\u00e9 Madeleine, A trip with a goddess mail from Erik",
+      "icon": "black_tea.png",
+      "additions": [
+        "lemon",
+        "milk",
+        "buffalo_milk",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey",
+        "sugar"
+      ]
     },
     {
       "id": "blueberry_jam",
@@ -7053,79 +8647,222 @@
       "icon": "blueberry_jam.png"
     },
     {
-      "id": "soy_milk",
-      "name": "Soy Milk",
+      "id": "blueberry_juice",
+      "name": "Blueberry Juice",
       "category": "other",
       "utensil": "none",
       "ingredients": [
         {
-          "id": "soybean",
+          "id": "blueberry",
           "required": true
         }
       ],
-      "baseValue": 85,
-      "effect": "max_stamina_up",
-      "effectLevel": 1,
-      "unlockMethod": "Caf\u00e9 Madeleine",
-      "icon": "soy_milk.png",
+      "baseValue": 163,
+      "unlockMethod": "Unknown",
+      "icon": "blueberry_juice.png",
       "additions": [
-        "banana",
+        "lemon",
+        "milk",
+        "buffalo_milk",
+        "yogurt",
+        "fruit_yogurt",
+        "yogurt_plus",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey"
+      ],
+      "effect": "pet_training_up",
+      "effectLevel": 1
+    },
+    {
+      "id": "caf_au_lait",
+      "name": "Caf\u00e9 au Lait",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "hot_coffee",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "buffalo_milk"
+          ]
+        }
+      ],
+      "baseValue": 780,
+      "unlockMethod": "Unknown",
+      "icon": "caf_au_lait.png",
+      "additions": [
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "chocolate",
+        "soy_milk",
+        "ice_cream"
+      ],
+      "effect": "chat_friendship_boost",
+      "effectLevel": 2
+    },
+    {
+      "id": "chamomile_tea",
+      "name": "Chamomile Tea",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "chamomile_tea_tin",
+          "required": true
+        }
+      ],
+      "baseValue": 344,
+      "unlockMethod": "Unknown",
+      "icon": "chamomile_tea.png",
+      "additions": [
+        "lemon",
         "honey",
         "invigorating_honey",
         "mellow_honey",
         "royal_honey",
-        "black_tea_tin",
-        "sugar",
-        "soybean_flour"
-      ]
-    },
-    {
-      "id": "simmered_seaweed",
-      "name": "Simmered Seaweed",
-      "category": "other",
-      "utensil": "pot",
-      "ingredients": [
-        {
-          "id": "seaweed",
-          "required": true
-        },
-        {
-          "id": "soy_sauce",
-          "required": true
-        }
+        "sugar"
       ],
-      "baseValue": 424,
-      "effect": "rod_durability_up",
-      "effectLevel": 1,
-      "unlockMethod": "Clara's Diner",
-      "icon": "simmered_seaweed.png"
+      "effect": "chat_friendship_boost",
+      "effectLevel": 1
     },
     {
-      "id": "happy_forest_mix",
-      "name": "Happy Forest Mix",
+      "id": "cherry_juice",
+      "name": "Cherry Juice",
       "category": "other",
       "utensil": "none",
       "ingredients": [
         {
-          "id": "walnut",
+          "id": "cherry",
           "required": true
         }
       ],
-      "baseValue": 130,
-      "effect": "happy_energy_gain",
-      "effectLevel": 1,
-      "unlockMethod": "Sprite's Bazaar Stand",
-      "icon": "happy_forest_mix.png",
+      "baseValue": 182,
+      "unlockMethod": "Unknown",
+      "icon": "cherry_juice.png",
       "additions": [
-        "sugar",
-        "salt",
-        "walnut",
+        "lemon",
+        "milk",
+        "buffalo_milk",
+        "yogurt",
+        "fruit_yogurt",
+        "yogurt_plus",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey"
+      ],
+      "effect": "pet_training_up",
+      "effectLevel": 1
+    },
+    {
+      "id": "cherry_tea",
+      "name": "Cherry Tea",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "cherry_tea_tin",
+          "required": true
+        }
+      ],
+      "baseValue": 842,
+      "unlockMethod": "Unknown",
+      "icon": "cherry_tea.png",
+      "additions": [
+        "lemon",
         "milk",
         "buffalo_milk",
         "honey",
         "invigorating_honey",
         "mellow_honey",
+        "royal_honey",
+        "sugar"
+      ],
+      "effect": "pet_training_up",
+      "effectLevel": 2
+    },
+    {
+      "id": "grape_jam",
+      "name": "Grape Jam",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "red_grapes",
+          "required": true
+        },
+        {
+          "id": "sugar",
+          "required": true
+        },
+        {
+          "id": "lemon",
+          "required": true
+        }
+      ],
+      "baseValue": 1007,
+      "effect": "pet_training_up",
+      "effectLevel": 3,
+      "unlockMethod": "Mini Madeleine's",
+      "icon": "grape_jam.png"
+    },
+    {
+      "id": "grape_juice",
+      "name": "Grape Juice",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "red_grapes",
+          "required": true
+        }
+      ],
+      "baseValue": 228,
+      "effect": "pet_training_up",
+      "effectLevel": 1,
+      "unlockMethod": "First Juice Festival, Nadine's Bistro",
+      "icon": "grape_juice.png",
+      "additions": [
+        "lemon",
+        "milk",
+        "buffalo_milk",
+        "yogurt",
+        "fruit_yogurt",
+        "yogurt_plus",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
         "royal_honey"
+      ]
+    },
+    {
+      "id": "green_tea",
+      "name": "Green Tea",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "green_tea_tin",
+          "required": true
+        }
+      ],
+      "baseValue": 182,
+      "effect": "chat_friendship_boost",
+      "effectLevel": 1,
+      "unlockMethod": "Clara's Diner",
+      "icon": "green_tea.png",
+      "additions": [
+        "milk",
+        "buffalo_milk",
+        "sugar"
       ]
     },
     {
@@ -7185,6 +8922,94 @@
       ]
     },
     {
+      "id": "happy_forest_mix",
+      "name": "Happy Forest Mix",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "walnut",
+          "required": true
+        }
+      ],
+      "baseValue": 130,
+      "effect": "happy_energy_gain",
+      "effectLevel": 1,
+      "unlockMethod": "Sprite's Bazaar Stand",
+      "icon": "happy_forest_mix.png",
+      "additions": [
+        "sugar",
+        "salt",
+        "walnut",
+        "milk",
+        "buffalo_milk",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey"
+      ]
+    },
+    {
+      "id": "happy_fruit_platter",
+      "name": "Happy Fruit Platter",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "heart_watermelon",
+          "required": true
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "cherry",
+            "blueberry",
+            "green_grapes",
+            "strawberry",
+            "mango",
+            "pineapple",
+            "banana",
+            "peach",
+            "orange",
+            "melon"
+          ]
+        },
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "apple",
+            "red_grapes",
+            "green_grapes",
+            "strawberry",
+            "mango",
+            "pineapple",
+            "banana",
+            "peach",
+            "orange",
+            "melon"
+          ]
+        }
+      ],
+      "baseValue": 3274,
+      "unlockMethod": "Unknown",
+      "icon": "happy_fruit_platter.png",
+      "additions": [
+        "sugar",
+        "salt",
+        "walnut",
+        "milk",
+        "buffalo_milk",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey"
+      ],
+      "effect": "happy_energy_gain",
+      "effectLevel": 4
+    },
+    {
       "id": "happy_mushroom_fry",
       "name": "Happy Mushroom Fry",
       "category": "other",
@@ -7223,6 +9048,602 @@
         "invigorating_honey",
         "mellow_honey",
         "royal_honey"
+      ]
+    },
+    {
+      "id": "honey_juice",
+      "name": "Honey Juice",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "honey",
+            "invigorating_honey",
+            "mellow_honey",
+            "royal_honey"
+          ]
+        }
+      ],
+      "baseValue": 325,
+      "effect": "stamina_saver",
+      "effectLevel": 1,
+      "unlockMethod": "Generous Beekeeper title, Caf\u00e9 Madeleine",
+      "icon": "honey_juice.png",
+      "additions": [
+        "lemon",
+        "milk",
+        "buffalo_milk",
+        "yogurt",
+        "fruit_yogurt",
+        "yogurt_plus"
+      ]
+    },
+    {
+      "id": "hot_coffee",
+      "name": "Hot Coffee",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "coffee_pack",
+          "required": true
+        }
+      ],
+      "baseValue": 380,
+      "effect": "chat_friendship_boost",
+      "effectLevel": 1,
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "hot_coffee.png",
+      "additions": [
+        "butter",
+        "herb_butter",
+        "butter_plus",
+        "sugar",
+        "chocolate",
+        "soy_milk",
+        "ice_cream"
+      ]
+    },
+    {
+      "id": "lemon_juice",
+      "name": "Lemon Juice",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "lemon",
+          "required": true
+        }
+      ],
+      "baseValue": 176,
+      "unlockMethod": "Unknown",
+      "icon": "lemon_juice.png",
+      "additions": [
+        "lemon",
+        "milk",
+        "buffalo_milk",
+        "yogurt",
+        "fruit_yogurt",
+        "yogurt_plus",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey"
+      ],
+      "effect": "pet_training_up",
+      "effectLevel": 1
+    },
+    {
+      "id": "matcha_tea",
+      "name": "Matcha Tea",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "matcha_tea_tin",
+          "required": true
+        }
+      ],
+      "baseValue": 364,
+      "unlockMethod": "Unknown",
+      "icon": "matcha_tea.png",
+      "additions": [
+        "milk",
+        "buffalo_milk",
+        "sugar"
+      ],
+      "effect": "chat_friendship_boost",
+      "effectLevel": 1
+    },
+    {
+      "id": "mint_tea",
+      "name": "Mint Tea",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "mint_tea_tin",
+          "required": true
+        }
+      ],
+      "baseValue": 344,
+      "unlockMethod": "Unknown",
+      "icon": "mint_tea.png",
+      "additions": [
+        "lemon",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey",
+        "sugar"
+      ],
+      "effect": "chat_friendship_boost",
+      "effectLevel": 1
+    },
+    {
+      "id": "olive_tea",
+      "name": "Olive Tea",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "olive_tea_tin",
+          "required": true
+        }
+      ],
+      "baseValue": 586,
+      "unlockMethod": "Unknown",
+      "icon": "olive_tea.png",
+      "additions": [
+        "lemon",
+        "milk",
+        "buffalo_milk",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey",
+        "sugar"
+      ],
+      "effect": "pet_training_up",
+      "effectLevel": 2
+    },
+    {
+      "id": "oolong_tea",
+      "name": "Oolong Tea",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "oolong_tea_tin",
+          "required": true
+        }
+      ],
+      "baseValue": 401,
+      "unlockMethod": "Unknown",
+      "icon": "oolong_tea.png",
+      "additions": [
+        "milk",
+        "buffalo_milk",
+        "sugar",
+        "mint",
+        "chamomile"
+      ],
+      "effect": "chat_friendship_boost",
+      "effectLevel": 1
+    },
+    {
+      "id": "orange_juice",
+      "name": "Orange Juice",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "orange",
+          "required": true
+        }
+      ],
+      "baseValue": 180,
+      "effect": "pet_training_up",
+      "effectLevel": 1,
+      "unlockMethod": "Mini Madeleine's",
+      "icon": "orange_juice.png",
+      "additions": [
+        "lemon",
+        "milk",
+        "buffalo_milk",
+        "yogurt",
+        "fruit_yogurt",
+        "yogurt_plus",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey"
+      ]
+    },
+    {
+      "id": "pineapple_juice",
+      "name": "Pineapple Juice",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "pineapple",
+          "required": true
+        }
+      ],
+      "baseValue": 429,
+      "unlockMethod": "Unknown",
+      "icon": "pineapple_juice.png",
+      "additions": [
+        "lemon",
+        "milk",
+        "buffalo_milk",
+        "yogurt",
+        "fruit_yogurt",
+        "yogurt_plus",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey"
+      ],
+      "effect": "chat_friendship_boost",
+      "effectLevel": 1
+    },
+    {
+      "id": "sencha_tea",
+      "name": "Sencha Tea",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "sencha_tea_tin",
+          "required": true
+        }
+      ],
+      "baseValue": 401,
+      "unlockMethod": "Unknown",
+      "icon": "sencha_tea.png",
+      "additions": [
+        "milk",
+        "buffalo_milk",
+        "sugar"
+      ],
+      "effect": "chat_friendship_boost",
+      "effectLevel": 1
+    },
+    {
+      "id": "simmered_seaweed",
+      "name": "Simmered Seaweed",
+      "category": "other",
+      "utensil": "pot",
+      "ingredients": [
+        {
+          "id": "seaweed",
+          "required": true
+        },
+        {
+          "id": "soy_sauce",
+          "required": true
+        }
+      ],
+      "baseValue": 424,
+      "effect": "rod_durability_up",
+      "effectLevel": 1,
+      "unlockMethod": "Clara's Diner",
+      "icon": "simmered_seaweed.png"
+    },
+    {
+      "id": "soy_milk",
+      "name": "Soy Milk",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "soybean",
+          "required": true
+        }
+      ],
+      "baseValue": 85,
+      "effect": "max_stamina_up",
+      "effectLevel": 1,
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "soy_milk.png",
+      "additions": [
+        "banana",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey",
+        "black_tea_tin",
+        "sugar",
+        "soybean_flour"
+      ]
+    },
+    {
+      "id": "specialty_juice",
+      "name": "Specialty Juice",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "spring_juice",
+          "required": true
+        },
+        {
+          "id": "summer_juice",
+          "required": true
+        },
+        {
+          "id": "autumn_juice",
+          "required": true
+        },
+        {
+          "id": "royal_honey",
+          "required": true
+        }
+      ],
+      "baseValue": 9511,
+      "unlockMethod": "Unknown",
+      "icon": "specialty_juice.png",
+      "additions": [
+        "milk_plus",
+        "fruit_yogurt",
+        "royal_honey"
+      ],
+      "effect": "pet_training_up",
+      "effectLevel": 4
+    },
+    {
+      "id": "spring_blend_tea",
+      "name": "Spring Blend Tea",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "spring_blend_tea_tin",
+          "required": true
+        }
+      ],
+      "baseValue": 1287,
+      "unlockMethod": "Unknown",
+      "icon": "spring_blend_tea.png",
+      "additions": [
+        "lemon",
+        "milk",
+        "buffalo_milk",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey",
+        "sugar"
+      ],
+      "effect": "chat_friendship_boost",
+      "effectLevel": 3
+    },
+    {
+      "id": "spring_juice",
+      "name": "Spring Juice",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "strawberry_juice",
+          "required": true
+        },
+        {
+          "id": "orange_juice",
+          "required": true
+        },
+        {
+          "id": "cherry_juice",
+          "required": true
+        }
+      ],
+      "baseValue": 935,
+      "unlockMethod": "Unknown",
+      "icon": "spring_juice.png",
+      "additions": [
+        "milk",
+        "buffalo_milk",
+        "yogurt",
+        "fruit_yogurt",
+        "yogurt_plus",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey"
+      ],
+      "effect": "chat_friendship_boost",
+      "effectLevel": 3
+    },
+    {
+      "id": "strawberry_jam",
+      "name": "Strawberry Jam",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "strawberry",
+          "required": true
+        },
+        {
+          "id": "sugar",
+          "required": true
+        },
+        {
+          "id": "lemon",
+          "required": true
+        }
+      ],
+      "baseValue": 855,
+      "effect": "chat_friendship_boost",
+      "effectLevel": 2,
+      "unlockMethod": "Mini Madeleine's",
+      "icon": "strawberry_jam.png"
+    },
+    {
+      "id": "strawberry_juice",
+      "name": "Strawberry Juice",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "strawberry",
+          "required": true
+        }
+      ],
+      "baseValue": 156,
+      "effect": "chat_friendship_boost",
+      "effectLevel": 1,
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "strawberry_juice.png",
+      "additions": [
+        "lemon",
+        "milk",
+        "buffalo_milk",
+        "yogurt",
+        "fruit_yogurt",
+        "yogurt_plus",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey"
+      ]
+    },
+    {
+      "id": "strawberry_tea",
+      "name": "Strawberry Tea",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "strawberry_tea_tin",
+          "required": true
+        }
+      ],
+      "baseValue": 586,
+      "unlockMethod": "Unknown",
+      "icon": "strawberry_tea.png",
+      "additions": [
+        "lemon",
+        "milk",
+        "buffalo_milk",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey",
+        "sugar"
+      ],
+      "effect": "chat_friendship_boost",
+      "effectLevel": 2
+    },
+    {
+      "id": "summer_blend_tea",
+      "name": "Summer Blend Tea",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "summer_blend_tea_tin",
+          "required": true
+        }
+      ],
+      "baseValue": 1674,
+      "unlockMethod": "Unknown",
+      "icon": "summer_blend_tea.png",
+      "additions": [
+        "lemon",
+        "milk",
+        "buffalo_milk",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey",
+        "sugar"
+      ],
+      "effect": "run_speed_up",
+      "effectLevel": 3
+    },
+    {
+      "id": "tomato_juice",
+      "name": "Tomato Juice",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "tomato",
+          "required": true
+        }
+      ],
+      "baseValue": 55,
+      "effect": "chat_friendship_boost",
+      "effectLevel": 1,
+      "unlockMethod": "Caf\u00e9 Madeleine",
+      "icon": "tomato_juice.png",
+      "additions": [
+        "lemon",
+        "mint",
+        "salt"
+      ]
+    },
+    {
+      "id": "walnut_juice",
+      "name": "Walnut Juice",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "bottled_walnuts",
+          "required": true
+        }
+      ],
+      "baseValue": 260,
+      "effect": "chat_friendship_boost",
+      "effectLevel": 1,
+      "unlockMethod": "Available at start",
+      "icon": "walnut_juice.png",
+      "additions": [
+        "banana",
+        "milk",
+        "buffalo_milk",
+        "mint",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey"
+      ]
+    },
+    {
+      "id": "warm_milk",
+      "name": "Warm Milk",
+      "category": "other",
+      "utensil": "none",
+      "ingredients": [
+        {
+          "id": "choice",
+          "required": true,
+          "oneOf": [
+            "milk",
+            "buffalo_milk"
+          ]
+        }
+      ],
+      "baseValue": 195,
+      "effect": "chat_friendship_boost",
+      "effectLevel": 1,
+      "unlockMethod": "Available at start, Caf\u00e9 Madeleine",
+      "icon": "warm_milk.png",
+      "additions": [
+        "banana",
+        "honey",
+        "invigorating_honey",
+        "mellow_honey",
+        "royal_honey",
+        "chocolate",
+        "soybean_flour"
       ]
     }
   ],
