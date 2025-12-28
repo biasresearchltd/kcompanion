@@ -4,14 +4,52 @@ import { Badge } from '../ui/Badge';
 import { useBookmarkStore } from '../../store/bookmarkStore';
 import { useOwnedRecipesStore } from '../../store/ownedRecipesStore';
 
+// === DEV ITERATION FLAGS ===
+// Toggle these to test different slot display modes
+const SHOW_EMPTY_SLOTS = true;      // true = always 4 slots, false = only used slots
+const SHOW_SLOT_NUMBERS = false;    // true = show 1,2,3,4 indicators on slot frames
+const USE_SLOT_FRAMES = true;       // true = game-like frames, false = current style
+const VERTICAL_ALTERNATIVES = true; // true = alternatives as pills below slots, false = inline
+// ===========================
+
+// SlotFrame component - container for ingredient slots
+interface SlotFrameProps {
+  isEmpty: boolean;
+  slotNumber?: number;
+  showNumber: boolean;
+  borderClass?: string;
+  children: React.ReactNode;
+}
+
+function SlotFrame({ isEmpty, slotNumber, showNumber, borderClass = '', children }: SlotFrameProps) {
+  return (
+    <div className={`
+      relative rounded-2xl w-[80px] h-[96px] p-2 pb-2.5
+      ${isEmpty
+        ? 'bg-gray-200/50'
+        : `bg-white/80 border ${borderClass}`
+      }
+      flex flex-col items-center justify-start
+    `}>
+      {showNumber && slotNumber !== undefined && (
+        <span className="absolute -top-2 -left-1 text-[10px] font-bold text-gray-400 bg-white px-0.5 rounded">
+          {slotNumber}
+        </span>
+      )}
+      {children}
+    </div>
+  );
+}
+
 // Adapt ingredient pill with marquee effect for long names
 interface AdaptPillProps {
   name: string;
   icon: string;
   isMatched: boolean;
+  isFocused?: boolean;
 }
 
-function AdaptPill({ name, icon, isMatched }: AdaptPillProps) {
+function AdaptPill({ name, icon, isMatched, isFocused = false }: AdaptPillProps) {
   const textRef = useRef<HTMLSpanElement>(null);
   const [isTruncated, setIsTruncated] = useState(false);
   const [marqueeDistance, setMarqueeDistance] = useState(0);
@@ -33,18 +71,25 @@ function AdaptPill({ name, icon, isMatched }: AdaptPillProps) {
     return () => window.removeEventListener('resize', checkTruncation);
   }, [name]);
 
+  // Determine styling based on state
+  const getStyle = () => {
+    if (isFocused) {
+      return 'bg-amber-100 text-amber-700 ring-2 ring-amber-400';
+    }
+    if (isMatched) {
+      return 'bg-green-100 text-green-700 ring-1 ring-green-300';
+    }
+    return 'bg-gray-100 text-gray-500 ring-1 ring-gray-300';
+  };
+
   return (
     <div
-      className={`flex items-center gap-1 px-1.5 py-0.5 rounded-lg text-[10px] ${
-        isMatched
-          ? 'bg-green-100 text-green-700 ring-1 ring-green-300'
-          : 'bg-gray-100 text-gray-500 ring-1 ring-gray-300'
-      }`}
+      className={`flex items-center gap-1 px-1.5 py-0.5 rounded-lg text-[10px] ${getStyle()}`}
     >
       <img
         src={icon}
         alt={name}
-        className={`w-4 h-4 object-contain flex-shrink-0 ${!isMatched ? 'opacity-50' : ''}`}
+        className={`w-4 h-4 object-contain flex-shrink-0 ${!isMatched && !isFocused ? 'opacity-50' : ''}`}
         onError={(e) => {
           (e.target as HTMLImageElement).src = '/images/placeholder.svg';
         }}
@@ -69,6 +114,7 @@ interface RecipeCardProps {
   characterMap: Map<string, Character>;
   giftToCharacters: GiftToCharacters;
   selectedIngredients: string[];
+  focusedIngredients?: string[];
   index?: number;
 }
 
@@ -102,7 +148,7 @@ function formatIngredientName(id: string): string {
   return id.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 }
 
-export function RecipeCard({ match, ingredientMap, effectMap, characterMap, giftToCharacters, selectedIngredients, index = 0 }: RecipeCardProps) {
+export function RecipeCard({ match, ingredientMap, effectMap, characterMap, giftToCharacters, selectedIngredients, focusedIngredients = [], index = 0 }: RecipeCardProps) {
   const { recipe, matchType, missingIngredients, matchedIngredients, processedIngredients } = match;
   const effect = recipe.effect ? effectMap.get(recipe.effect) : null;
   const { bookmarkedRecipes, toggleBookmark } = useBookmarkStore();
@@ -126,6 +172,9 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
   // Create a Set for quick lookup of selected ingredients
   const selectedSet = new Set(selectedIngredients);
 
+  // Create a Set for quick lookup of focused ingredients
+  const focusedSet = new Set(focusedIngredients);
+
   // Slot-based rendering: each slot is an ingredient position with optional alternatives
   interface IngredientOption {
     id: string;
@@ -137,7 +186,9 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
     primary: IngredientOption;
     alternatives: IngredientOption[];
     overflowAlternatives?: IngredientOption[];
+    focusedOverflowAlternatives?: IngredientOption[]; // Focused ingredients that are in overflow
     count: number;
+    isEmpty?: boolean; // True for empty placeholder slots
   }
 
   // Maximum alternatives to show inline (more than this goes to Adapt section)
@@ -175,10 +226,16 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
         const inlineAlternatives = allAlternatives.length <= MAX_INLINE_ALTERNATIVES ? allAlternatives : [];
         const overflowAlternatives = allAlternatives.length > MAX_INLINE_ALTERNATIVES ? allAlternatives : [];
 
+        // Find focused ingredients in overflow that aren't already the primary
+        const focusedOverflowAlternatives = overflowAlternatives.filter(alt =>
+          focusedSet.has(alt.id) && alt.id !== primaryId
+        );
+
         slots.push({
           primary,
           alternatives: inlineAlternatives,
           overflowAlternatives,
+          focusedOverflowAlternatives,
           count
         });
       } else if (ing.id && ing.id !== 'choice') {
@@ -195,6 +252,20 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
           alternatives: [],
           overflowAlternatives: [],
           count,
+          isEmpty: false,
+        });
+      }
+    }
+
+    // Pad to 4 slots if SHOW_EMPTY_SLOTS is enabled (game constraint: always 4 main ingredient slots)
+    if (SHOW_EMPTY_SLOTS) {
+      while (slots.length < 4) {
+        slots.push({
+          primary: { id: '', isMatched: false, needsProcessing: false },
+          alternatives: [],
+          overflowAlternatives: [],
+          count: 0,
+          isEmpty: true,
         });
       }
     }
@@ -255,6 +326,17 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
 
   // Get divider color to match border
   const getDividerStyle = () => {
+    if (matchType === 'exact') return 'border-green-200';
+    if (matchType === 'needs_processing') return 'border-blue-200';
+    const missingCount = missingIngredients.length;
+    if (missingCount === 1) return 'border-yellow-200';
+    if (missingCount === 2) return 'border-orange-200';
+    if (missingCount >= 3) return 'border-red-200';
+    return 'border-[var(--color-border)]';
+  };
+
+  // Get slot border style to match card/divider borders
+  const getSlotBorderStyle = () => {
     if (matchType === 'exact') return 'border-green-200';
     if (matchType === 'needs_processing') return 'border-blue-200';
     const missingCount = missingIngredients.length;
@@ -412,120 +494,289 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
       {/* Divider */}
       <div className={`border-t mb-3 ${getDividerStyle()}`}></div>
 
-      {/* Ingredients as slots with inline alternatives */}
-      <div className="flex flex-wrap items-start gap-1">
-        {recipeSlots.map((slot, slotIndex) => {
-          // Helper to render a single ingredient icon
-          const renderIngredientIcon = (ing: IngredientOption, showCount: boolean = false) => {
-            const ingredient = getIngredient(ing.id);
-            const name = ingredient?.name || formatIngredientName(ing.id);
+      {/* Ingredients as slots - VERTICAL_ALTERNATIVES uses grid layout with pills below */}
+      {VERTICAL_ALTERNATIVES ? (
+        // Flex layout with fixed-width slots and evenly distributed plus symbols
+        <div className="flex items-start justify-between">
+          {recipeSlots.map((slot, slotIndex) => {
+            const ingredient = slot.isEmpty ? null : getIngredient(slot.primary.id);
+            const name = ingredient?.name || formatIngredientName(slot.primary.id);
+
+            // Calculate remaining count for "+N more" pill
+            const remainingCount = (slot.overflowAlternatives?.length || 0) - (slot.focusedOverflowAlternatives?.length || 0);
+
+            // Determine if we should show a plus before this slot
+            // Show plus if: this is not the first slot, this slot is not empty, and the previous slot was not empty
+            const prevSlot = slotIndex > 0 ? recipeSlots[slotIndex - 1] : null;
+            const showPlus = slotIndex > 0 && !slot.isEmpty && prevSlot && !prevSlot.isEmpty;
+
             return (
-              <div className="flex flex-col items-center w-11">
-                <div
-                  className={`relative w-10 h-10 rounded-xl flex items-center justify-center ${
-                    ing.isMatched
-                      ? ing.needsProcessing
-                        ? 'bg-blue-100 ring-2 ring-blue-300'
-                        : 'bg-green-100 ring-2 ring-green-300'
-                      : 'bg-gray-100 ring-2 ring-gray-300'
-                  }`}
-                >
-                  <img
-                    src={`/images/ingredients/${ingredient?.icon || `${ing.id}.png`}`}
-                    alt={name}
-                    className={`w-8 h-8 object-contain ${!ing.isMatched ? 'opacity-50' : ''}`}
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = '/images/placeholder.svg';
-                    }}
-                  />
-                  {/* Status indicator - top right */}
-                  <div className={`absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full flex items-center justify-center ${
-                    ing.isMatched
-                      ? ing.needsProcessing
-                        ? 'bg-blue-500'
-                        : 'bg-green-500'
-                      : 'bg-gray-400'
-                  }`}>
-                    {ing.isMatched ? (
-                      ing.needsProcessing ? (
-                        <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                          <path
-                            fillRule="evenodd"
-                            d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      ) : (
-                        <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                          <path
-                            fillRule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      )
+              <div key={slotIndex} className="flex items-start">
+                {/* Plus symbol between slots - evenly spaced via justify-between on parent */}
+                {slotIndex > 0 && (
+                  <div className="flex items-center justify-center h-[96px] px-1">
+                    {showPlus ? (
+                      <span className="text-sm font-bold text-purple-500">+</span>
                     ) : (
-                      <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path
-                          fillRule="evenodd"
-                          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <span className="text-sm font-bold text-transparent">+</span>
                     )}
                   </div>
-                  {/* Count badge - bottom right, only show if count > 1 */}
-                  {showCount && slot.count > 1 && (
-                    <span
-                      className="absolute right-0.5 text-[var(--color-primary)] leading-none"
-                      style={{
-                        fontFamily: "'Eurostile Round Pro', system-ui, sans-serif",
-                        fontSize: '16px',
-                        WebkitTextStroke: '2.5px #f5f5f0',
-                        paintOrder: 'stroke fill',
-                        bottom: '-1px',
-                      }}
-                    >
-                      {slot.count}
-                    </span>
-                  )}
+                )}
+                <div className="flex flex-col items-center w-[80px]">
+                {/* Main slot frame */}
+                {USE_SLOT_FRAMES ? (
+                  <SlotFrame
+                    isEmpty={slot.isEmpty || false}
+                    slotNumber={slotIndex + 1}
+                    showNumber={SHOW_SLOT_NUMBERS}
+                    borderClass={getSlotBorderStyle()}
+                  >
+                    {slot.isEmpty ? (
+                      <div className="flex flex-col items-center justify-center w-full h-full">
+                        <span className="text-gray-300 text-lg font-medium">—</span>
+                      </div>
+                    ) : (
+                      <div className="flex flex-col items-center">
+                        <div className="relative w-14 h-14 flex items-center justify-center">
+                          <img
+                            src={`/images/ingredients/${ingredient?.icon || `${slot.primary.id}.png`}`}
+                            alt={name}
+                            className={`w-12 h-12 object-contain ${!slot.primary.isMatched ? 'opacity-50' : ''}`}
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).src = '/images/placeholder.svg';
+                            }}
+                          />
+                          {/* Status indicator */}
+                          <div className={`absolute -top-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center ${
+                            slot.primary.isMatched
+                              ? slot.primary.needsProcessing ? 'bg-blue-500' : 'bg-green-500'
+                              : 'bg-gray-400'
+                          }`}>
+                            {slot.primary.isMatched ? (
+                              slot.primary.needsProcessing ? (
+                                <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
+                                </svg>
+                              ) : (
+                                <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                </svg>
+                              )
+                            ) : (
+                              <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                              </svg>
+                            )}
+                          </div>
+                          {/* Count badge */}
+                          {slot.count > 1 && (
+                            <span
+                              className="absolute right-0.5 text-[var(--color-primary)] leading-none"
+                              style={{
+                                fontFamily: "'Eurostile Round Pro', system-ui, sans-serif",
+                                fontSize: '18px',
+                                WebkitTextStroke: '2.5px #f5f5f0',
+                                paintOrder: 'stroke fill',
+                                bottom: '-2px',
+                              }}
+                            >
+                              {slot.count}
+                            </span>
+                          )}
+                        </div>
+                        <span className={`text-[10px] text-center leading-tight mt-0.5 line-clamp-2 max-w-16 ${
+                          slot.primary.isMatched
+                            ? slot.primary.needsProcessing ? 'text-blue-700' : 'text-green-700'
+                            : 'text-gray-500'
+                        }`}>
+                          {name}
+                        </span>
+                      </div>
+                    )}
+                  </SlotFrame>
+                ) : (
+                  // Non-framed version - uses consistent white background
+                  slot.isEmpty ? (
+                    <div className="w-[80px] h-[96px] flex items-center justify-center rounded-2xl bg-gray-200/50">
+                      <span className="text-gray-300 text-lg font-medium">—</span>
+                    </div>
+                  ) : (
+                    <div className={`flex flex-col items-center justify-start rounded-2xl p-2 pb-2.5 bg-white/80 w-[80px] h-[96px] border ${getSlotBorderStyle()}`}>
+                      <div className="relative w-14 h-14 flex items-center justify-center">
+                        <img
+                          src={`/images/ingredients/${ingredient?.icon || `${slot.primary.id}.png`}`}
+                          alt={name}
+                          className={`w-12 h-12 object-contain ${!slot.primary.isMatched ? 'opacity-50' : ''}`}
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = '/images/placeholder.svg';
+                          }}
+                        />
+                      </div>
+                      <span className={`text-[10px] text-center leading-tight mt-0.5 line-clamp-2 max-w-16 ${
+                        slot.primary.isMatched
+                          ? slot.primary.needsProcessing ? 'text-blue-700' : 'text-green-700'
+                          : 'text-gray-500'
+                      }`}>
+                        {name}
+                      </span>
+                    </div>
+                  )
+                )}
+
+                {/* Alternative ingredients as pills below the slot */}
+                {!slot.isEmpty && (slot.alternatives.length > 0 || (slot.focusedOverflowAlternatives && slot.focusedOverflowAlternatives.length > 0)) && (
+                  <div className="flex flex-col gap-1 mt-1 w-full">
+                    {/* "or" label */}
+                    <span className="text-[10px] font-medium text-purple-500 text-center">or</span>
+                    {/* Show inline alternatives */}
+                    {slot.alternatives.map((alt) => {
+                      const altIngredient = getIngredient(alt.id);
+                      const altName = altIngredient?.name || formatIngredientName(alt.id);
+                      const isFocused = focusedSet.has(alt.id);
+                      return (
+                        <AdaptPill
+                          key={alt.id}
+                          name={altName}
+                          icon={`/images/ingredients/${altIngredient?.icon || `${alt.id}.png`}`}
+                          isMatched={alt.isMatched}
+                          isFocused={isFocused}
+                        />
+                      );
+                    })}
+                    {/* Show focused overflow alternatives */}
+                    {slot.focusedOverflowAlternatives && slot.focusedOverflowAlternatives.map((alt) => {
+                      const altIngredient = getIngredient(alt.id);
+                      const altName = altIngredient?.name || formatIngredientName(alt.id);
+                      return (
+                        <AdaptPill
+                          key={alt.id}
+                          name={altName}
+                          icon={`/images/ingredients/${altIngredient?.icon || `${alt.id}.png`}`}
+                          isMatched={true}
+                          isFocused={true}
+                        />
+                      );
+                    })}
+                    {/* Show "+N more" pill if there are remaining overflow */}
+                    {remainingCount > 0 && (
+                      <div className="flex items-center justify-center px-1.5 py-0.5 rounded-lg text-[10px] bg-gray-100 text-gray-500 ring-1 ring-gray-300">
+                        <span>+{remainingCount} more</span>
+                      </div>
+                    )}
+                  </div>
+                )}
                 </div>
-                <span className={`text-[10px] text-center leading-tight mt-1 line-clamp-2 ${
-                  ing.isMatched
-                    ? ing.needsProcessing
-                      ? 'text-blue-700'
-                      : 'text-green-700'
-                    : 'text-gray-500'
-                }`}>
-                  {name}
-                </span>
               </div>
             );
-          };
-
-          return (
-            <div key={slotIndex} className="flex items-start">
-              {/* "+" separator between slots */}
-              {slotIndex > 0 && (
-                <div className="h-10 flex items-center justify-center px-0.5">
-                  <span className="text-[11px] font-bold text-purple-500">+</span>
-                </div>
-              )}
-              {/* Primary ingredient */}
-              {renderIngredientIcon(slot.primary, true)}
-              {/* Inline alternatives with "or" */}
-              {slot.alternatives.map((alt) => (
-                <div key={alt.id} className="flex items-start">
-                  <div className="h-10 flex items-center justify-center px-1">
-                    <span className="text-[10px] font-medium text-gray-400">or</span>
+          })}
+        </div>
+      ) : (
+        // Original inline layout
+        <div className="flex flex-wrap items-start gap-1">
+          {recipeSlots.map((slot, slotIndex) => {
+            const renderIngredientIcon = (ing: IngredientOption, showCount: boolean = false) => {
+              const ingredient = getIngredient(ing.id);
+              const name = ingredient?.name || formatIngredientName(ing.id);
+              return (
+                <div className="flex flex-col items-center w-11">
+                  <div
+                    className={`relative w-10 h-10 rounded-xl flex items-center justify-center ${
+                      ing.isMatched
+                        ? ing.needsProcessing
+                          ? 'bg-blue-100 ring-2 ring-blue-300'
+                          : 'bg-green-100 ring-2 ring-green-300'
+                        : 'bg-gray-100 ring-2 ring-gray-300'
+                    }`}
+                  >
+                    <img
+                      src={`/images/ingredients/${ingredient?.icon || `${ing.id}.png`}`}
+                      alt={name}
+                      className={`w-8 h-8 object-contain ${!ing.isMatched ? 'opacity-50' : ''}`}
+                      onError={(e) => { (e.target as HTMLImageElement).src = '/images/placeholder.svg'; }}
+                    />
+                    <div className={`absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full flex items-center justify-center ${
+                      ing.isMatched ? (ing.needsProcessing ? 'bg-blue-500' : 'bg-green-500') : 'bg-gray-400'
+                    }`}>
+                      {ing.isMatched ? (
+                        ing.needsProcessing ? (
+                          <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
+                          </svg>
+                        ) : (
+                          <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                        )
+                      ) : (
+                        <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                        </svg>
+                      )}
+                    </div>
+                    {showCount && slot.count > 1 && (
+                      <span className="absolute right-0.5 text-[var(--color-primary)] leading-none" style={{ fontFamily: "'Eurostile Round Pro', system-ui, sans-serif", fontSize: '16px', WebkitTextStroke: '2.5px #f5f5f0', paintOrder: 'stroke fill', bottom: '-1px' }}>
+                        {slot.count}
+                      </span>
+                    )}
                   </div>
-                  {renderIngredientIcon(alt, false)}
+                  <span className={`text-[10px] text-center leading-tight mt-1 line-clamp-2 ${ing.isMatched ? (ing.needsProcessing ? 'text-blue-700' : 'text-green-700') : 'text-gray-500'}`}>
+                    {name}
+                  </span>
                 </div>
-              ))}
-            </div>
-          );
-        })}
-      </div>
+              );
+            };
+
+            return (
+              <div key={slotIndex} className="flex items-start">
+                {slotIndex > 0 && !slot.isEmpty && (
+                  <div className="h-10 flex items-center justify-center px-0.5">
+                    <span className="text-[11px] font-bold text-purple-500">+</span>
+                  </div>
+                )}
+                {USE_SLOT_FRAMES ? (
+                  <SlotFrame isEmpty={slot.isEmpty || false} slotNumber={slotIndex + 1} showNumber={SHOW_SLOT_NUMBERS} borderClass={getSlotBorderStyle()}>
+                    {slot.isEmpty ? (
+                      <div className="flex flex-col items-center justify-center w-full h-full">
+                        <span className="text-gray-300 text-lg font-medium">—</span>
+                      </div>
+                    ) : (
+                      <div className="flex items-start">
+                        {renderIngredientIcon(slot.primary, true)}
+                        {slot.alternatives.map((alt) => (
+                          <div key={alt.id} className="flex items-start">
+                            <div className="h-10 flex items-center justify-center px-1">
+                              <span className="text-[10px] font-medium text-gray-400">or</span>
+                            </div>
+                            {renderIngredientIcon(alt, false)}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </SlotFrame>
+                ) : (
+                  slot.isEmpty ? (
+                    <div className="flex flex-col items-center justify-center w-11 h-14">
+                      <span className="text-gray-300 text-lg font-medium">—</span>
+                    </div>
+                  ) : (
+                    <div className="flex items-start">
+                      {renderIngredientIcon(slot.primary, true)}
+                      {slot.alternatives.map((alt) => (
+                        <div key={alt.id} className="flex items-start">
+                          <div className="h-10 flex items-center justify-center px-1">
+                            <span className="text-[10px] font-medium text-gray-400">or</span>
+                          </div>
+                          {renderIngredientIcon(alt, false)}
+                        </div>
+                      ))}
+                    </div>
+                  )
+                )}
+              </div>
+            );
+          })}
+        </div>
+      )}
 
       {/* Adapt Section - optional ingredients from recipe.additions */}
       {recipe.additions && recipe.additions.length > 0 && (
@@ -538,12 +789,14 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
               const ingredient = getIngredient(additionId);
               const name = ingredient?.name || formatIngredientName(additionId);
               const isMatched = selectedSet.has(additionId);
+              const isFocused = focusedSet.has(additionId);
               return (
                 <AdaptPill
                   key={additionId}
                   name={name}
                   icon={`/images/ingredients/${ingredient?.icon || `${additionId}.png`}`}
                   isMatched={isMatched}
+                  isFocused={isFocused}
                 />
               );
             })}

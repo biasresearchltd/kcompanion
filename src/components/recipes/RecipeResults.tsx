@@ -324,13 +324,16 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
     );
     if (validFocusFilters.length > 0) {
       results = results.filter((m) => {
-        // Get all ingredient IDs the recipe can use (including oneOf alternatives)
+        // Get all ingredient IDs the recipe can use (including oneOf alternatives and additions)
         const recipeIngredientIds = m.recipe.ingredients.flatMap(ing =>
           ing.oneOf && ing.oneOf.length > 0 ? ing.oneOf : [ing.id]
         );
+        // Also include additions
+        const additions = m.recipe.additions || [];
+        const allRecipeIngredients = [...recipeIngredientIds, ...additions];
         // Recipe must contain ALL focused ingredients
         return validFocusFilters.every(focusId =>
-          recipeIngredientIds.includes(focusId)
+          allRecipeIngredients.includes(focusId)
         );
       });
     }
@@ -813,6 +816,7 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
                         characterMap={characterMap}
                         giftToCharacters={giftToCharacters}
                         selectedIngredients={selectedIngredients}
+                        focusedIngredients={focusIngredientFilters}
                         index={index}
                       />
                     ))}
@@ -850,6 +854,7 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
                         characterMap={characterMap}
                         giftToCharacters={giftToCharacters}
                         selectedIngredients={selectedIngredients}
+                        focusedIngredients={focusIngredientFilters}
                         index={index}
                       />
                     ))}
@@ -889,6 +894,7 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
                           characterMap={characterMap}
                           giftToCharacters={giftToCharacters}
                           selectedIngredients={selectedIngredients}
+                          focusedIngredients={focusIngredientFilters}
                           index={index}
                         />
                       ))}
@@ -941,6 +947,7 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
                       characterMap={characterMap}
                       giftToCharacters={giftToCharacters}
                       selectedIngredients={selectedIngredients}
+                      focusedIngredients={focusIngredientFilters}
                       index={index}
                     />
                   ));
