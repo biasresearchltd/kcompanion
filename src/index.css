@@ -11,6 +11,8 @@
 }
 
 @theme {
+  /* Custom breakpoint for larger phones like iPhone Pro Max/Air (430px+ viewport) */
+  --breakpoint-mobile-lg: 420px;
   /* Custom breakpoint for tablets like iPad Mini (744px viewport in portrait) */
   --breakpoint-tablet: 700px;
 }

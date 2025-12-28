@@ -675,19 +675,6 @@
       "icon": "red_grapes.png"
     },
     {
-      "id": "alpaca_wool",
-      "name": "Alpaca Wool",
-      "category": "animal_products",
-      "subcategory": "wool",
-      "season": [
-        "all"
-      ],
-      "source": "alpaca",
-      "basePrice": 250,
-      "variants": [],
-      "icon": "alpaca_wool.png"
-    },
-    {
       "id": "buffalo_milk",
       "name": "Buffalo Milk",
       "category": "animal_products",
@@ -843,19 +830,6 @@
         "silkie_egg_plus"
       ],
       "icon": "silkie_egg.png"
-    },
-    {
-      "id": "wool",
-      "name": "Wool",
-      "category": "animal_products",
-      "subcategory": "wool",
-      "season": [
-        "all"
-      ],
-      "source": "sheep",
-      "basePrice": 200,
-      "variants": [],
-      "icon": "wool.png"
     },
     {
       "id": "yogurt",
