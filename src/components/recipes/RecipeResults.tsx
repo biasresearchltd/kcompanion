@@ -23,6 +23,7 @@ interface RecipeResultsProps {
   effects: Effect[];
   processing: ProcessingRecipe[];
   recipeCategories: RecipeCategory[];
+  ingredientCategories: { id: string; name: string; order: number }[];
   variantGroups: VariantGroups;
   ingredientMap: Map<string, Ingredient>;
   effectMap: Map<string, Effect>;
@@ -42,6 +43,7 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
   effects,
   processing,
   recipeCategories,
+  ingredientCategories,
   variantGroups,
   ingredientMap,
   effectMap,
@@ -150,6 +152,33 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
       setShowBookmarksDrawer(false);
     }
   }, [bookmarkedRecipes.length, showBookmarksDrawer, setShowBookmarksDrawer]);
+
+  // Sort selected ingredients by category order (matching Ingredients panel), then by name
+  const sortedSelectedIngredients = useMemo(() => {
+    // Create a map of category ID to its order
+    const categoryOrder = new Map(
+      ingredientCategories.map((cat, index) => [cat.id, cat.order ?? index])
+    );
+
+    return [...selectedIngredients].sort((a, b) => {
+      const ingA = ingredientMap.get(a);
+      const ingB = ingredientMap.get(b);
+
+      // Get category orders (default to high number if not found)
+      const catOrderA = categoryOrder.get(ingA?.category || '') ?? 999;
+      const catOrderB = categoryOrder.get(ingB?.category || '') ?? 999;
+
+      // Sort by category order first
+      if (catOrderA !== catOrderB) {
+        return catOrderA - catOrderB;
+      }
+
+      // Then sort by name within category
+      const nameA = ingA?.name || a;
+      const nameB = ingB?.name || b;
+      return nameA.localeCompare(nameB);
+    });
+  }, [selectedIngredients, ingredientCategories, ingredientMap]);
 
   // Fuse instance for recipe search
   const fuse = useMemo(() => {
@@ -694,7 +723,7 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
           <div className="absolute top-0 left-0 right-0 z-30 pointer-events-none">
             <div className="pointer-events-auto">
               <FocusDock
-                ingredients={selectedIngredients}
+                ingredients={sortedSelectedIngredients}
                 focusedIds={focusIngredientFilters}
                 onToggle={toggleFocusIngredientFilter}
                 ingredientMap={ingredientMap}

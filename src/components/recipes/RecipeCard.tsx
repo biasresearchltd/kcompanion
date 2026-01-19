@@ -24,7 +24,7 @@ interface SlotFrameProps {
 function SlotFrame({ isEmpty, slotNumber, showNumber, borderClass = '', children }: SlotFrameProps) {
   return (
     <div className={`
-      relative rounded-2xl w-[68px] h-[86px] mobile-lg:w-[76px] mobile-lg:h-[92px] tablet:w-[80px] tablet:h-[96px] p-1 pb-1.5 mobile-lg:p-1.5 mobile-lg:pb-2 tablet:p-2 tablet:pb-2.5
+      relative rounded-2xl w-[72px] h-[88px] mobile-lg:w-[76px] mobile-lg:h-[92px] tablet:w-[80px] tablet:h-[96px] p-1 pb-1.5 mobile-lg:p-1.5 mobile-lg:pb-2 tablet:p-2 tablet:pb-2.5
       ${isEmpty
         ? 'bg-gray-200/50'
         : `bg-white/80 border ${borderClass}`
@@ -191,8 +191,8 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
     isEmpty?: boolean; // True for empty placeholder slots
   }
 
-  // Maximum alternatives to show inline (more than this goes to Adapt section)
-  const MAX_INLINE_ALTERNATIVES = 2;
+  // Maximum alternatives to show inline - 10 is max in game
+  const MAX_INLINE_ALTERNATIVES = 10;
 
   const buildRecipeSlots = (): IngredientSlot[] => {
     const slots: IngredientSlot[] = [];
@@ -514,7 +514,7 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
               <div key={slotIndex} className="flex items-start">
                 {/* Plus symbol between slots - evenly spaced via justify-between on parent */}
                 {slotIndex > 0 && (
-                  <div className="flex items-center justify-center h-[86px] mobile-lg:h-[92px] tablet:h-[96px] px-0.5 mobile-lg:px-1">
+                  <div className="flex items-center justify-center h-[88px] mobile-lg:h-[92px] tablet:h-[96px] px-0.5 mobile-lg:px-1">
                     {showPlus ? (
                       <span className="text-xs mobile-lg:text-sm font-bold text-purple-500">+</span>
                     ) : (
@@ -522,7 +522,7 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                     )}
                   </div>
                 )}
-                <div className="flex flex-col items-center w-[68px] mobile-lg:w-[76px] tablet:w-[80px]">
+                <div className="flex flex-col items-center w-[72px] mobile-lg:w-[76px] tablet:w-[80px]">
                 {/* Main slot frame */}
                 {USE_SLOT_FRAMES ? (
                   <SlotFrame
@@ -599,11 +599,11 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                 ) : (
                   // Non-framed version - uses consistent white background
                   slot.isEmpty ? (
-                    <div className="w-[68px] h-[86px] mobile-lg:w-[76px] mobile-lg:h-[92px] tablet:w-[80px] tablet:h-[96px] flex items-center justify-center rounded-2xl bg-gray-200/50">
+                    <div className="w-[72px] h-[88px] mobile-lg:w-[76px] mobile-lg:h-[92px] tablet:w-[80px] tablet:h-[96px] flex items-center justify-center rounded-2xl bg-gray-200/50">
                       <span className="text-gray-300 text-lg font-medium">—</span>
                     </div>
                   ) : (
-                    <div className={`flex flex-col items-center rounded-2xl p-1 pb-1.5 mobile-lg:p-1.5 mobile-lg:pb-2 tablet:p-2 tablet:pb-2.5 bg-white/80 w-[68px] h-[86px] mobile-lg:w-[76px] mobile-lg:h-[92px] tablet:w-[80px] tablet:h-[96px] border ${getSlotBorderStyle()}`}>
+                    <div className={`flex flex-col items-center rounded-2xl p-1 pb-1.5 mobile-lg:p-1.5 mobile-lg:pb-2 tablet:p-2 tablet:pb-2.5 bg-white/80 w-[72px] h-[88px] mobile-lg:w-[76px] mobile-lg:h-[92px] tablet:w-[80px] tablet:h-[96px] border ${getSlotBorderStyle()}`}>
                       <div className="relative w-10 h-10 mobile-lg:w-12 mobile-lg:h-12 tablet:w-14 tablet:h-14 flex items-center justify-center flex-shrink-0">
                         <img
                           src={`/images/ingredients/${ingredient?.icon || `${slot.primary.id}.png`}`}
@@ -629,7 +629,7 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                 )}
 
                 {/* Alternative ingredients as pills below the slot */}
-                {!slot.isEmpty && (slot.alternatives.length > 0 || (slot.focusedOverflowAlternatives && slot.focusedOverflowAlternatives.length > 0)) && (
+                {!slot.isEmpty && (slot.alternatives.length > 0 || (slot.focusedOverflowAlternatives && slot.focusedOverflowAlternatives.length > 0) || remainingCount > 0) && (
                   <div className="flex flex-col gap-1 mt-1 w-full">
                     {/* "or" label */}
                     <span className="text-[10px] font-medium text-purple-500 text-center">or</span>

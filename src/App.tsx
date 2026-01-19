@@ -556,6 +556,7 @@ function App() {
               effects={effects}
               processing={processing}
               recipeCategories={categories.recipeCategories}
+              ingredientCategories={categories.ingredientCategories}
               variantGroups={categories.variantGroups}
               ingredientMap={ingredientMap}
               effectMap={effectMap}
@@ -586,6 +587,7 @@ function App() {
               effects={effects}
               processing={processing}
               recipeCategories={categories.recipeCategories}
+              ingredientCategories={categories.ingredientCategories}
               variantGroups={categories.variantGroups}
               ingredientMap={ingredientMap}
               effectMap={effectMap}
@@ -608,6 +610,7 @@ function App() {
             effects={effects}
             processing={processing}
             recipeCategories={categories.recipeCategories}
+            ingredientCategories={categories.ingredientCategories}
             variantGroups={categories.variantGroups}
             ingredientMap={ingredientMap}
             effectMap={effectMap}
@@ -637,6 +640,7 @@ function App() {
             effects={effects}
             processing={processing}
             recipeCategories={categories.recipeCategories}
+            ingredientCategories={categories.ingredientCategories}
             variantGroups={categories.variantGroups}
             ingredientMap={ingredientMap}
             effectMap={effectMap}
