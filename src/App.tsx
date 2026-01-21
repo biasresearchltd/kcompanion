@@ -3,6 +3,7 @@ import { useGameData, useIngredientMap, useEffectMap, useCharacterMap } from './
 import { Header } from './components/layout/Header';
 import { IngredientSelector } from './components/ingredients/IngredientSelector';
 import { RecipeResults, type RecipeResultsHandle } from './components/recipes/RecipeResults';
+import { SettingsModal } from './components/ui/SettingsModal';
 import { useInventoryStore } from './store/inventoryStore';
 import { useSettingsStore } from './store/settingsStore';
 import { useBookmarkStore } from './store/bookmarkStore';
@@ -20,7 +21,7 @@ function App() {
   const characterMap = useCharacterMap(characters);
   const [activeTab, setActiveTab] = useState<'ingredients' | 'recipes'>('ingredients');
   const { selectedIngredients, ownedUtensils, clearInventory } = useInventoryStore();
-  const { showBookmarksView, setShowBookmarksView } = useSettingsStore();
+  const { showBookmarksView, setShowBookmarksView, showSettingsModal, setShowSettingsModal } = useSettingsStore();
   const { bookmarkedRecipes } = useBookmarkStore();
 
   // State for "show only selected" filter (controlled from tab badge)
@@ -404,7 +405,7 @@ function App() {
 
   return (
     <div className="flex flex-col overflow-hidden" style={{ minHeight: '200vh', height: '100%' }}>
-      <Header utensils={categories.utensils} onStatusBarTap={handleStatusBarTap} />
+      <Header onStatusBarTap={handleStatusBarTap} />
 
       {/* Content wrapper with khaki background */}
       <div className="flex-1 flex flex-col bg-[var(--color-background)]" style={{ minHeight: '150vh' }}>
@@ -651,6 +652,14 @@ function App() {
         </div>
       </main>
       </div>{/* End content wrapper */}
+
+      {/* Settings Modal */}
+      <SettingsModal
+        isOpen={showSettingsModal}
+        onClose={() => setShowSettingsModal(false)}
+        recipes={recipes}
+        utensils={categories.utensils}
+      />
     </div>
   );
 }

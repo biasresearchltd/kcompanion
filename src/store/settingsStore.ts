@@ -25,6 +25,9 @@ interface SettingsState {
   showBookmarksView: boolean;
   showBookmarksDrawer: boolean;  // Desktop/tablet drawer
 
+  // Settings modal
+  showSettingsModal: boolean;
+
   // Actions
   setViewMode: (mode: 'list' | 'grid') => void;
   setSortBy: (sort: 'name' | 'category' | 'commonRank') => void;
@@ -39,6 +42,7 @@ interface SettingsState {
   setRecipeSortBy: (sort: RecipeSortBy) => void;
   setShowBookmarksView: (show: boolean) => void;
   setShowBookmarksDrawer: (show: boolean) => void;
+  setShowSettingsModal: (show: boolean) => void;
   setShowFocusDock: (show: boolean) => void;
   toggleFocusIngredientFilter: (ingredientId: string) => void;
   clearFocusIngredientFilters: () => void;
@@ -60,6 +64,7 @@ export const useSettingsStore = create<SettingsState>()(
       focusIngredientFilters: [],
       showBookmarksView: false,
       showBookmarksDrawer: false,
+      showSettingsModal: false,
 
       setViewMode: (mode) => set({ viewMode: mode }),
       setSortBy: (sort) => set({ sortBy: sort }),
@@ -86,6 +91,7 @@ export const useSettingsStore = create<SettingsState>()(
       setRecipeSortBy: (sort) => set({ recipeSortBy: sort }),
       setShowBookmarksView: (show) => set({ showBookmarksView: show }),
       setShowBookmarksDrawer: (show) => set({ showBookmarksDrawer: show }),
+      setShowSettingsModal: (show) => set({ showSettingsModal: show }),
       setShowFocusDock: (show) => set({ showFocusDock: show }),
       toggleFocusIngredientFilter: (ingredientId) => set((state) => ({
         focusIngredientFilters: state.focusIngredientFilters.includes(ingredientId)

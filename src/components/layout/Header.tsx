@@ -1,22 +1,14 @@
-import { useState } from 'react';
-import { useInventoryStore } from '../../store/inventoryStore';
 import { useBookmarkStore } from '../../store/bookmarkStore';
 import { useSettingsStore } from '../../store/settingsStore';
-import type { Utensil } from '../../types';
 
 interface HeaderProps {
-  utensils: Utensil[];
   onStatusBarTap?: () => void;
 }
 
-export function Header({ utensils, onStatusBarTap }: HeaderProps) {
-  const { ownedUtensils, toggleUtensil } = useInventoryStore();
+export function Header({ onStatusBarTap }: HeaderProps) {
   const { bookmarkedRecipes } = useBookmarkStore();
-  const { showBookmarksView, setShowBookmarksView, showBookmarksDrawer, setShowBookmarksDrawer } = useSettingsStore();
-  const [utensilsExpanded, setUtensilsExpanded] = useState(false);
+  const { showBookmarksView, setShowBookmarksView, showBookmarksDrawer, setShowBookmarksDrawer, showSettingsModal, setShowSettingsModal } = useSettingsStore();
 
-  // Count how many utensils are disabled (excluding 'none')
-  const disabledCount = utensils.filter(u => u.id !== 'none' && !ownedUtensils.includes(u.id)).length;
   const bookmarkCount = bookmarkedRecipes.length;
 
   return (
@@ -89,23 +81,23 @@ export function Header({ utensils, onStatusBarTap }: HeaderProps) {
               )}
             </button>
 
-            <span className="text-sm text-white/80 mr-2">Utensils:</span>
-            {utensils
-              .filter((u) => u.id !== 'none')
-              .map((utensil) => (
-                <button
-                  key={utensil.id}
-                  onClick={() => toggleUtensil(utensil.id)}
-                  className={`px-3 py-1.5 text-sm rounded-lg ${
-                    ownedUtensils.includes(utensil.id)
-                      ? 'bg-white text-[var(--color-primary)] font-medium'
-                      : 'bg-white/20 text-white hover:bg-white/30'
-                  }`}
-                  style={{ transition: 'none' }}
-                >
-                  {utensil.name}
-                </button>
-              ))}
+            {/* Settings button */}
+            <button
+              onClick={() => setShowSettingsModal(!showSettingsModal)}
+              className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+                showSettingsModal
+                  ? 'bg-white text-[var(--color-primary)]'
+                  : 'bg-white/20 text-white hover:bg-white/30'
+              }`}
+              style={{ transition: 'none' }}
+              title="Settings"
+              aria-label="Settings"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </button>
           </div>
 
           {/* Mobile: Bookmark and Settings buttons */}
@@ -137,47 +129,20 @@ export function Header({ utensils, onStatusBarTap }: HeaderProps) {
               )}
             </button>
 
-            {/* Settings cog button */}
+            {/* Settings button */}
             <button
-              onClick={() => setUtensilsExpanded(!utensilsExpanded)}
-              className="relative p-2 rounded-lg bg-white/20 hover:bg-white/30"
+              onClick={() => setShowSettingsModal(true)}
+              className="p-2 rounded-lg bg-white/20 hover:bg-white/30"
               style={{ transition: 'none' }}
+              aria-label="Settings"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
-              {disabledCount > 0 && (
-                <span className="absolute -top-1 -right-1 w-4 h-4 bg-amber-500 text-white text-xs rounded-full flex items-center justify-center">
-                  {disabledCount}
-                </span>
-              )}
             </button>
           </div>
         </div>
-
-        {/* Mobile: Collapsible utensils row */}
-        {utensilsExpanded && (
-          <div className="sm:hidden flex items-center gap-2 mt-3 pt-3 border-t border-white/20">
-            <span className="text-sm text-white/80 mr-2">Utensils:</span>
-            {utensils
-              .filter((u) => u.id !== 'none')
-              .map((utensil) => (
-                <button
-                  key={utensil.id}
-                  onClick={() => toggleUtensil(utensil.id)}
-                  className={`px-3 py-1.5 text-sm rounded-lg ${
-                    ownedUtensils.includes(utensil.id)
-                      ? 'bg-white text-[var(--color-primary)] font-medium'
-                      : 'bg-white/20 text-white'
-                  }`}
-                  style={{ transition: 'none' }}
-                >
-                  {utensil.name}
-                </button>
-              ))}
-          </div>
-        )}
       </div>
     </header>
   );

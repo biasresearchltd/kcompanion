@@ -6,6 +6,8 @@ interface OwnedRecipesState {
   toggleOwned: (recipeId: string) => void;
   isOwned: (recipeId: string) => boolean;
   clearOwned: () => void;
+  setOwnedRecipes: (ids: string[]) => void;
+  mergeOwnedRecipes: (ids: string[]) => void;
 }
 
 export const useOwnedRecipesStore = create<OwnedRecipesState>()(
@@ -28,6 +30,16 @@ export const useOwnedRecipesStore = create<OwnedRecipesState>()(
 
       clearOwned: () => {
         set({ ownedRecipes: [] });
+      },
+
+      setOwnedRecipes: (ids: string[]) => {
+        set({ ownedRecipes: ids });
+      },
+
+      mergeOwnedRecipes: (ids: string[]) => {
+        const current = get().ownedRecipes;
+        const merged = [...new Set([...current, ...ids])];
+        set({ ownedRecipes: merged });
       },
     }),
     {
