@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import type { Ingredient, Recipe, CategoriesData, Effect, ProcessingRecipe, Character, GiftToCharacters, Fish, FishCategories } from '../types';
+import type { Ingredient, Recipe, CategoriesData, Effect, ProcessingRecipe, Character, GiftToCharacters, Fish, FishCategories, Critter, CritterCategories } from '../types';
 
 interface GameData {
   ingredients: Ingredient[];
@@ -11,6 +11,8 @@ interface GameData {
   giftToCharacters: GiftToCharacters;
   fish: Fish[];
   fishCategories: FishCategories;
+  critters: Critter[];
+  critterCategories: CritterCategories;
   isLoading: boolean;
   error: string | null;
 }
@@ -36,13 +38,21 @@ export function useGameData(): GameData {
     locations: [],
     rodLevels: [],
   });
+  const [critters, setCritters] = useState<Critter[]>([]);
+  const [critterCategories, setCritterCategories] = useState<CritterCategories>({
+    types: [],
+    rarities: [],
+    seasons: [],
+    weather: [],
+    locations: [],
+  });
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function loadData() {
       try {
-        const [ingredientsRes, recipesRes, categoriesRes, effectsRes, processingRes, charactersRes, fishRes] = await Promise.all([
+        const [ingredientsRes, recipesRes, categoriesRes, effectsRes, processingRes, charactersRes, fishRes, crittersRes] = await Promise.all([
           fetch('/data/ingredients.json'),
           fetch('/data/recipes.json'),
           fetch('/data/categories.json'),
@@ -50,13 +60,14 @@ export function useGameData(): GameData {
           fetch('/data/processing.json'),
           fetch('/data/characters.json'),
           fetch('/data/fish.json'),
+          fetch('/data/critters.json'),
         ]);
 
-        if (!ingredientsRes.ok || !recipesRes.ok || !categoriesRes.ok || !effectsRes.ok || !processingRes.ok || !charactersRes.ok || !fishRes.ok) {
+        if (!ingredientsRes.ok || !recipesRes.ok || !categoriesRes.ok || !effectsRes.ok || !processingRes.ok || !charactersRes.ok || !fishRes.ok || !crittersRes.ok) {
           throw new Error('Failed to load game data');
         }
 
-        const [ingredientsData, recipesData, categoriesData, effectsData, processingData, charactersData, fishData] = await Promise.all([
+        const [ingredientsData, recipesData, categoriesData, effectsData, processingData, charactersData, fishData, crittersData] = await Promise.all([
           ingredientsRes.json(),
           recipesRes.json(),
           categoriesRes.json(),
@@ -64,6 +75,7 @@ export function useGameData(): GameData {
           processingRes.json(),
           charactersRes.json(),
           fishRes.json(),
+          crittersRes.json(),
         ]);
 
         setIngredients(ingredientsData.ingredients || []);
@@ -75,6 +87,8 @@ export function useGameData(): GameData {
         setGiftToCharacters(charactersData.giftToCharacters || {});
         setFish(fishData.fish || []);
         setFishCategories(fishData.fishCategories || { sizes: [], seasons: [], weather: [], locations: [], rodLevels: [] });
+        setCritters(crittersData.critters || []);
+        setCritterCategories(crittersData.critterCategories || { types: [], rarities: [], seasons: [], weather: [], locations: [] });
         setIsLoading(false);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Unknown error');
@@ -85,7 +99,7 @@ export function useGameData(): GameData {
     loadData();
   }, []);
 
-  return { ingredients, recipes, categories, effects, processing, characters, giftToCharacters, fish, fishCategories, isLoading, error };
+  return { ingredients, recipes, categories, effects, processing, characters, giftToCharacters, fish, fishCategories, critters, critterCategories, isLoading, error };
 }
 
 // Helper hook to get ingredient by ID

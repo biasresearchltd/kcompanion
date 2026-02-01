@@ -8,6 +8,7 @@ import { useInventoryStore } from './store/inventoryStore';
 import { useSettingsStore } from './store/settingsStore';
 import { useBookmarkStore } from './store/bookmarkStore';
 import { FishingResults } from './components/fishing/FishingResults';
+import { CritterResults } from './components/critters/CritterResults';
 import { findRecipes } from './lib/recipeEngine';
 import type { ScrollToTopHandle } from './hooks/useScrollToTop';
 
@@ -16,11 +17,11 @@ const TAP_THRESHOLD = 200; // Only toggle if press was shorter than this (ms)
 const CLEAR_TEXT_DELAY = 300; // Show "Clear" text after this duration (ms)
 
 function App() {
-  const { ingredients, recipes, categories, effects, processing, characters, giftToCharacters, fish, fishCategories, isLoading, error } = useGameData();
+  const { ingredients, recipes, categories, effects, processing, characters, giftToCharacters, fish, fishCategories, critters, critterCategories, isLoading, error } = useGameData();
   const ingredientMap = useIngredientMap(ingredients);
   const effectMap = useEffectMap(effects);
   const characterMap = useCharacterMap(characters);
-  const [activePage, setActivePage] = useState<'kitchen' | 'fishing'>('kitchen');
+  const [activePage, setActivePage] = useState<'kitchen' | 'fishing' | 'critters'>('kitchen');
   const [activeTab, setActiveTab] = useState<'ingredients' | 'recipes'>('ingredients');
   const { selectedIngredients, ownedUtensils, clearInventory } = useInventoryStore();
   const { showBookmarksView, setShowBookmarksView, showSettingsModal, setShowSettingsModal } = useSettingsStore();
@@ -570,11 +571,19 @@ function App() {
               />
             </div>
           </div>
-        ) : (
+        ) : activePage === 'fishing' ? (
           <div className="h-[calc(100vh-80px)]">
             <FishingResults
               fish={fish}
               fishCategories={fishCategories}
+              isMobile={true}
+            />
+          </div>
+        ) : (
+          <div className="h-[calc(100vh-80px)]">
+            <CritterResults
+              critters={critters}
+              critterCategories={critterCategories}
               isMobile={true}
             />
           </div>
@@ -610,11 +619,18 @@ function App() {
               />
             </div>
           </div>
-        ) : (
+        ) : activePage === 'fishing' ? (
           <div className="h-[calc(100vh-140px)]">
             <FishingResults
               fish={fish}
               fishCategories={fishCategories}
+            />
+          </div>
+        ) : (
+          <div className="h-[calc(100vh-140px)]">
+            <CritterResults
+              critters={critters}
+              critterCategories={critterCategories}
             />
           </div>
         )}
@@ -674,12 +690,21 @@ function App() {
               />
             </div>
           </>
-        ) : (
+        ) : activePage === 'fishing' ? (
           /* Fishing page - full width */
           <div className="absolute inset-0">
             <FishingResults
               fish={fish}
               fishCategories={fishCategories}
+              isMobile={true}
+            />
+          </div>
+        ) : (
+          /* Critters page - full width */
+          <div className="absolute inset-0">
+            <CritterResults
+              critters={critters}
+              critterCategories={critterCategories}
               isMobile={true}
             />
           </div>

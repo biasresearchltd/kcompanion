@@ -3,8 +3,8 @@ import { useSettingsStore } from '../../store/settingsStore';
 
 interface HeaderProps {
   onStatusBarTap?: () => void;
-  activePage: 'kitchen' | 'fishing';
-  onPageChange: (page: 'kitchen' | 'fishing') => void;
+  activePage: 'kitchen' | 'fishing' | 'critters';
+  onPageChange: (page: 'kitchen' | 'fishing' | 'critters') => void;
 }
 
 export function Header({ onStatusBarTap, activePage, onPageChange }: HeaderProps) {
@@ -68,10 +68,26 @@ export function Header({ onStatusBarTap, activePage, onPageChange }: HeaderProps
                 className="w-full h-full object-contain"
               />
             </button>
+            {/* Critters icon */}
+            <button
+              onClick={() => onPageChange('critters')}
+              className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden ${
+                activePage === 'critters' ? 'ring-2 ring-white' : 'opacity-60 hover:opacity-80'
+              }`}
+              style={{ transition: 'none' }}
+              title="Critter Companion"
+              aria-label="Critter Companion"
+            >
+              <img
+                src="/icons/critters.png"
+                alt="Critter Companion"
+                className="w-full h-full object-contain"
+              />
+            </button>
             <div className="flex items-baseline gap-2 sm:block">
               <h1 className="text-lg sm:text-xl font-bold">SOSGB</h1>
               <p className="text-sm text-white/80">
-                {activePage === 'kitchen' ? 'Kitchen Companion' : 'Fishing Companion'}
+                {activePage === 'kitchen' ? 'Kitchen Companion' : activePage === 'fishing' ? 'Fishing Companion' : 'Critter Companion'}
               </p>
             </div>
           </div>

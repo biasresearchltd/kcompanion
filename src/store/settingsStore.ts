@@ -3,6 +3,7 @@ import { persist } from 'zustand/middleware';
 
 type RecipeSortBy = 'missing' | 'price_asc' | 'price_desc' | 'name';
 type FishSortBy = 'name' | 'price_asc' | 'price_desc' | 'size';
+type CritterSortBy = 'name' | 'price_asc' | 'price_desc';
 
 interface SettingsState {
   // Ingredient panel settings
@@ -39,6 +40,17 @@ interface SettingsState {
   showCaughtOnly: boolean;
   showUncaughtOnly: boolean;
 
+  // Critter filter/sort settings
+  critterTypeFilters: string[];
+  critterRarityFilters: string[];
+  critterSeasonFilters: string[];
+  critterWeatherFilters: string[];
+  critterLocationFilters: string[];
+  critterSearchQuery: string;
+  critterSortBy: CritterSortBy;
+  showCritterCaughtOnly: boolean;
+  showCritterUncaughtOnly: boolean;
+
   // Settings modal
   showSettingsModal: boolean;
 
@@ -74,6 +86,15 @@ interface SettingsState {
   setFishSortBy: (sort: FishSortBy) => void;
   setShowCaughtOnly: (show: boolean) => void;
   setShowUncaughtOnly: (show: boolean) => void;
+  toggleCritterTypeFilter: (type: string) => void;
+  toggleCritterRarityFilter: (rarity: string) => void;
+  toggleCritterSeasonFilter: (season: string) => void;
+  toggleCritterWeatherFilter: (weather: string) => void;
+  toggleCritterLocationFilter: (location: string) => void;
+  setCritterSearchQuery: (query: string) => void;
+  setCritterSortBy: (sort: CritterSortBy) => void;
+  setShowCritterCaughtOnly: (show: boolean) => void;
+  setShowCritterUncaughtOnly: (show: boolean) => void;
 }
 
 export const useSettingsStore = create<SettingsState>()(
@@ -101,6 +122,15 @@ export const useSettingsStore = create<SettingsState>()(
       fishSortBy: 'name',
       showCaughtOnly: false,
       showUncaughtOnly: false,
+      critterTypeFilters: [],
+      critterRarityFilters: [],
+      critterSeasonFilters: [],
+      critterWeatherFilters: [],
+      critterLocationFilters: [],
+      critterSearchQuery: '',
+      critterSortBy: 'name',
+      showCritterCaughtOnly: false,
+      showCritterUncaughtOnly: false,
       showSettingsModal: false,
 
       setViewMode: (mode) => set({ viewMode: mode }),
@@ -170,6 +200,35 @@ export const useSettingsStore = create<SettingsState>()(
       setFishSortBy: (sort) => set({ fishSortBy: sort }),
       setShowCaughtOnly: (show) => set({ showCaughtOnly: show, ...(show && { showUncaughtOnly: false }) }),
       setShowUncaughtOnly: (show) => set({ showUncaughtOnly: show, ...(show && { showCaughtOnly: false }) }),
+      toggleCritterTypeFilter: (type) => set((state) => ({
+        critterTypeFilters: state.critterTypeFilters.includes(type)
+          ? state.critterTypeFilters.filter(t => t !== type)
+          : [...state.critterTypeFilters, type]
+      })),
+      toggleCritterRarityFilter: (rarity) => set((state) => ({
+        critterRarityFilters: state.critterRarityFilters.includes(rarity)
+          ? state.critterRarityFilters.filter(r => r !== rarity)
+          : [...state.critterRarityFilters, rarity]
+      })),
+      toggleCritterSeasonFilter: (season) => set((state) => ({
+        critterSeasonFilters: state.critterSeasonFilters.includes(season)
+          ? state.critterSeasonFilters.filter(s => s !== season)
+          : [...state.critterSeasonFilters, season]
+      })),
+      toggleCritterWeatherFilter: (weather) => set((state) => ({
+        critterWeatherFilters: state.critterWeatherFilters.includes(weather)
+          ? state.critterWeatherFilters.filter(w => w !== weather)
+          : [...state.critterWeatherFilters, weather]
+      })),
+      toggleCritterLocationFilter: (location) => set((state) => ({
+        critterLocationFilters: state.critterLocationFilters.includes(location)
+          ? state.critterLocationFilters.filter(l => l !== location)
+          : [...state.critterLocationFilters, location]
+      })),
+      setCritterSearchQuery: (query) => set({ critterSearchQuery: query }),
+      setCritterSortBy: (sort) => set({ critterSortBy: sort }),
+      setShowCritterCaughtOnly: (show) => set({ showCritterCaughtOnly: show, ...(show && { showCritterUncaughtOnly: false }) }),
+      setShowCritterUncaughtOnly: (show) => set({ showCritterUncaughtOnly: show, ...(show && { showCritterCaughtOnly: false }) }),
     }),
     {
       name: 'gb-kitchen-settings',
