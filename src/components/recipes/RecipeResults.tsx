@@ -131,6 +131,8 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
     toggleEffectFilter,
     recipeCategoryFilters,
     toggleRecipeCategoryFilter,
+    characterFilters,
+    toggleCharacterFilter,
     recipeSearchQuery,
     setRecipeSearchQuery,
     showAllRecipes,
@@ -179,6 +181,13 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
       return nameA.localeCompare(nameB);
     });
   }, [selectedIngredients, ingredientCategories, ingredientMap]);
+
+  // Character options for the dropdown filter
+  const characterOptions = useMemo(() => {
+    return Array.from(characterMap.values())
+      .map(c => ({ id: c.id, name: c.name }))
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }, [characterMap]);
 
   // Fuse instance for recipe search
   const fuse = useMemo(() => {
@@ -346,6 +355,17 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
       results = results.filter((m) => m.recipe.effect && effectFilters.includes(m.recipe.effect));
     }
 
+    // Apply character gift filter (OR logic - recipe is a favorite/loved gift of ANY selected character)
+    if (characterFilters.length > 0) {
+      results = results.filter((m) => {
+        const giftInfo = giftToCharacters[m.recipe.id];
+        if (!giftInfo) return false;
+        return characterFilters.some(charId =>
+          giftInfo.favorite.includes(charId) || giftInfo.loved.includes(charId)
+        );
+      });
+    }
+
     // Filter by focus ingredients (AND logic - recipe must contain ALL focused ingredients)
     // Only apply filters for ingredients that are still in the selected inventory
     const validFocusFilters = focusIngredientFilters.filter(id =>
@@ -368,7 +388,7 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
     }
 
     return results;
-  }, [matches, recipeSearchQuery, recipeCategoryFilters, effectFilters, fuse, bookmarksOnly, bookmarkedRecipes, showOwnedOnly, ownedRecipes, focusIngredientFilters, selectedIngredients]);
+  }, [matches, recipeSearchQuery, recipeCategoryFilters, effectFilters, characterFilters, giftToCharacters, fuse, bookmarksOnly, bookmarkedRecipes, showOwnedOnly, ownedRecipes, focusIngredientFilters, selectedIngredients]);
 
   // Sort filtered matches
   const sortedMatches = useMemo(() => {
@@ -461,7 +481,7 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
 
   const exactCount = groupedMatches.exact.length;
   const processingCount = groupedMatches.needsProcessing.length;
-  const hasFilters = recipeSearchQuery || recipeCategoryFilters.length > 0 || effectFilters.length > 0;
+  const hasFilters = recipeSearchQuery || recipeCategoryFilters.length > 0 || effectFilters.length > 0 || characterFilters.length > 0;
 
   // Helper to render recipe card - uses SwipeableRecipeCard on mobile
   const CardComponent = isMobile ? SwipeableRecipeCard : RecipeCard;
@@ -556,6 +576,13 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
           selected={effectFilters}
           onToggle={toggleEffectFilter}
           placeholder="Effects"
+          className="flex-shrink-0"
+        />
+        <MultiSelectDropdown
+          options={characterOptions}
+          selected={characterFilters}
+          onToggle={toggleCharacterFilter}
+          placeholder="Gifts"
           className="flex-shrink-0"
         />
         <div className="flex-1 min-w-0" />
@@ -655,6 +682,15 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
           className="flex-shrink-0"
         />
 
+        {/* Character gift filter - multi-select dropdown */}
+        <MultiSelectDropdown
+          options={characterOptions}
+          selected={characterFilters}
+          onToggle={toggleCharacterFilter}
+          placeholder="Gifts"
+          className="flex-shrink-0"
+        />
+
         {/* Spacer to push sort to the right */}
         <div className="flex-1 min-w-0" />
 
@@ -679,7 +715,7 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
     <div className={`flex flex-col bg-white relative ${isMobile ? 'min-h-full h-full' : 'h-full rounded-2xl shadow-sm border border-[var(--color-border)] overflow-hidden'}`}>
       {/* Mobile Filter Panel - extends from tab bar */}
       {isMobile && showFilterOverlay && (
-        <div className={`flex-shrink-0 bg-white border-b border-[var(--color-border)] shadow-sm p-4 z-30 relative ${isFilterClosing ? 'animate-filter-slide-up' : 'animate-filter-slide-down'}`}>
+        <div className={`flex-shrink-0 bg-white border-b border-[var(--color-border)] shadow-sm p-4 z-40 relative ${isFilterClosing ? 'animate-filter-slide-up' : 'animate-filter-slide-down'}`}>
           {mobileFilterControlsJSX}
         </div>
       )}

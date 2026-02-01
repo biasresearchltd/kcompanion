@@ -1,8 +1,10 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import type { MatchResult, Ingredient, Effect, Character, GiftToCharacters } from '../../types';
 import { Badge } from '../ui/Badge';
 import { useBookmarkStore } from '../../store/bookmarkStore';
 import { useOwnedRecipesStore } from '../../store/ownedRecipesStore';
+import { useInventoryStore } from '../../store/inventoryStore';
+import { useLongPress } from '../../hooks/useLongPress';
 
 // === DEV ITERATION FLAGS ===
 // Toggle these to test different slot display modes
@@ -47,9 +49,10 @@ interface AdaptPillProps {
   icon: string;
   isMatched: boolean;
   isFocused?: boolean;
+  pressHandlers?: Record<string, (e: React.SyntheticEvent) => void>;
 }
 
-function AdaptPill({ name, icon, isMatched, isFocused = false }: AdaptPillProps) {
+function AdaptPill({ name, icon, isMatched, isFocused = false, pressHandlers }: AdaptPillProps) {
   const textRef = useRef<HTMLSpanElement>(null);
   const [isTruncated, setIsTruncated] = useState(false);
   const [marqueeDistance, setMarqueeDistance] = useState(0);
@@ -84,12 +87,16 @@ function AdaptPill({ name, icon, isMatched, isFocused = false }: AdaptPillProps)
 
   return (
     <div
-      className={`flex items-center gap-1 px-1.5 py-0.5 rounded-lg text-[10px] ${getStyle()}`}
+      className={`flex items-center gap-1 px-1.5 py-0.5 rounded-lg text-[10px] ${getStyle()} ${pressHandlers ? 'cursor-pointer select-none' : ''}`}
+      style={pressHandlers ? { WebkitTouchCallout: 'none', WebkitUserSelect: 'none', userSelect: 'none' } : undefined}
+      onContextMenu={pressHandlers ? (e: React.MouseEvent) => e.preventDefault() : undefined}
+      {...pressHandlers}
     >
       <img
         src={icon}
         alt={name}
-        className={`w-4 h-4 object-contain flex-shrink-0 ${!isMatched && !isFocused ? 'opacity-50' : ''}`}
+        className={`w-4 h-4 object-contain flex-shrink-0 pointer-events-none ${!isMatched && !isFocused ? 'opacity-50' : ''}`}
+        draggable={false}
         onError={(e) => {
           (e.target as HTMLImageElement).src = '/images/placeholder.svg';
         }}
@@ -155,6 +162,20 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
   const isBookmarked = bookmarkedRecipes.includes(recipe.id);
   const { ownedRecipes, toggleOwned } = useOwnedRecipesStore();
   const isOwned = ownedRecipes.includes(recipe.id);
+  const { toggleIngredient } = useInventoryStore();
+  const getLongPressHandlers = useLongPress();
+
+  // Track which ingredient just flashed for visual feedback
+  const [flashIngredient, setFlashIngredient] = useState<string | null>(null);
+  const flashTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleIngredientLongPress = useCallback((ingredientId: string) => {
+    toggleIngredient(ingredientId);
+    // Visual feedback
+    setFlashIngredient(ingredientId);
+    if (flashTimerRef.current) clearTimeout(flashTimerRef.current);
+    flashTimerRef.current = setTimeout(() => setFlashIngredient(null), 400);
+  }, [toggleIngredient]);
 
   // Hover state for showing action buttons on desktop
   const [isHovered, setIsHovered] = useState(false);
@@ -525,6 +546,16 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                 <div className="flex flex-col items-center w-[72px] mobile-lg:w-[76px] tablet:w-[80px]">
                 {/* Main slot frame */}
                 {USE_SLOT_FRAMES ? (
+                  <div
+                    className={`relative ${!slot.isEmpty ? 'cursor-pointer select-none' : ''}`}
+                    style={!slot.isEmpty ? { WebkitTouchCallout: 'none', WebkitUserSelect: 'none', userSelect: 'none' } : undefined}
+                    onContextMenu={!slot.isEmpty ? (e) => e.preventDefault() : undefined}
+                    {...(!slot.isEmpty ? getLongPressHandlers(slot.primary.id, () => handleIngredientLongPress(slot.primary.id)) : {})}
+                  >
+                  {/* Flash overlay */}
+                  {flashIngredient === slot.primary.id && (
+                    <div className="absolute inset-0 rounded-2xl bg-amber-300/60 z-10 animate-pulse pointer-events-none" />
+                  )}
                   <SlotFrame
                     isEmpty={slot.isEmpty || false}
                     slotNumber={slotIndex + 1}
@@ -541,7 +572,8 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                           <img
                             src={`/images/ingredients/${ingredient?.icon || `${slot.primary.id}.png`}`}
                             alt={name}
-                            className={`w-9 h-9 mobile-lg:w-11 mobile-lg:h-11 tablet:w-12 tablet:h-12 object-contain ${!slot.primary.isMatched ? 'opacity-50' : ''}`}
+                            className={`w-9 h-9 mobile-lg:w-11 mobile-lg:h-11 tablet:w-12 tablet:h-12 object-contain pointer-events-none ${!slot.primary.isMatched ? 'opacity-50' : ''}`}
+                            draggable={false}
                             onError={(e) => {
                               (e.target as HTMLImageElement).src = '/images/placeholder.svg';
                             }}
@@ -596,6 +628,7 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                       </div>
                     )}
                   </SlotFrame>
+                  </div>
                 ) : (
                   // Non-framed version - uses consistent white background
                   slot.isEmpty ? (
@@ -645,6 +678,7 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                           icon={`/images/ingredients/${altIngredient?.icon || `${alt.id}.png`}`}
                           isMatched={alt.isMatched}
                           isFocused={isFocused}
+                          pressHandlers={getLongPressHandlers(alt.id, () => handleIngredientLongPress(alt.id))}
                         />
                       );
                     })}
@@ -659,6 +693,7 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                           icon={`/images/ingredients/${altIngredient?.icon || `${alt.id}.png`}`}
                           isMatched={true}
                           isFocused={true}
+                          pressHandlers={getLongPressHandlers(alt.id, () => handleIngredientLongPress(alt.id))}
                         />
                       );
                     })}
@@ -802,6 +837,7 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                   icon={`/images/ingredients/${ingredient?.icon || `${additionId}.png`}`}
                   isMatched={isMatched}
                   isFocused={isFocused}
+                  pressHandlers={getLongPressHandlers(additionId, () => handleIngredientLongPress(additionId))}
                 />
               );
             })}

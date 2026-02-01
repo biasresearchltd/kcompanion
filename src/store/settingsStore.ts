@@ -25,6 +25,9 @@ interface SettingsState {
   showBookmarksView: boolean;
   showBookmarksDrawer: boolean;  // Desktop/tablet drawer
 
+  // Character gift filter
+  characterFilters: string[];
+
   // Settings modal
   showSettingsModal: boolean;
 
@@ -46,6 +49,8 @@ interface SettingsState {
   setShowFocusDock: (show: boolean) => void;
   toggleFocusIngredientFilter: (ingredientId: string) => void;
   clearFocusIngredientFilters: () => void;
+  toggleCharacterFilter: (characterId: string) => void;
+  clearCharacterFilters: () => void;
 }
 
 export const useSettingsStore = create<SettingsState>()(
@@ -64,6 +69,7 @@ export const useSettingsStore = create<SettingsState>()(
       focusIngredientFilters: [],
       showBookmarksView: false,
       showBookmarksDrawer: false,
+      characterFilters: [],
       showSettingsModal: false,
 
       setViewMode: (mode) => set({ viewMode: mode }),
@@ -99,6 +105,12 @@ export const useSettingsStore = create<SettingsState>()(
           : [...state.focusIngredientFilters, ingredientId]
       })),
       clearFocusIngredientFilters: () => set({ focusIngredientFilters: [], showFocusDock: false }),
+      toggleCharacterFilter: (characterId) => set((state) => ({
+        characterFilters: state.characterFilters.includes(characterId)
+          ? state.characterFilters.filter(id => id !== characterId)
+          : [...state.characterFilters, characterId]
+      })),
+      clearCharacterFilters: () => set({ characterFilters: [] }),
     }),
     {
       name: 'gb-kitchen-settings',

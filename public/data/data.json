@@ -4211,8 +4211,8 @@
           "id": "choice",
           "required": true,
           "oneOf": [
-            "breadcrumb",
-            "white_breadcrumb"
+            "breadcrumbs",
+            "white_breadcrumbs"
           ]
         },
         {
