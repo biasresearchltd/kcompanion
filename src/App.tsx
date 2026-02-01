@@ -7,6 +7,7 @@ import { SettingsModal } from './components/ui/SettingsModal';
 import { useInventoryStore } from './store/inventoryStore';
 import { useSettingsStore } from './store/settingsStore';
 import { useBookmarkStore } from './store/bookmarkStore';
+import { FishingResults } from './components/fishing/FishingResults';
 import { findRecipes } from './lib/recipeEngine';
 import type { ScrollToTopHandle } from './hooks/useScrollToTop';
 
@@ -15,10 +16,11 @@ const TAP_THRESHOLD = 200; // Only toggle if press was shorter than this (ms)
 const CLEAR_TEXT_DELAY = 300; // Show "Clear" text after this duration (ms)
 
 function App() {
-  const { ingredients, recipes, categories, effects, processing, characters, giftToCharacters, isLoading, error } = useGameData();
+  const { ingredients, recipes, categories, effects, processing, characters, giftToCharacters, fish, fishCategories, isLoading, error } = useGameData();
   const ingredientMap = useIngredientMap(ingredients);
   const effectMap = useEffectMap(effects);
   const characterMap = useCharacterMap(characters);
+  const [activePage, setActivePage] = useState<'kitchen' | 'fishing'>('kitchen');
   const [activeTab, setActiveTab] = useState<'ingredients' | 'recipes'>('ingredients');
   const { selectedIngredients, ownedUtensils, clearInventory } = useInventoryStore();
   const { showBookmarksView, setShowBookmarksView, showSettingsModal, setShowSettingsModal } = useSettingsStore();
@@ -405,12 +407,12 @@ function App() {
 
   return (
     <div className="flex flex-col overflow-hidden" style={{ minHeight: '200vh', height: '100%' }}>
-      <Header onStatusBarTap={handleStatusBarTap} />
+      <Header onStatusBarTap={handleStatusBarTap} activePage={activePage} onPageChange={setActivePage} />
 
       {/* Content wrapper with khaki background */}
       <div className="flex-1 flex flex-col bg-[var(--color-background)]" style={{ minHeight: '150vh' }}>
-      {/* Mobile Tab Navigation - folder tab style (phones only) */}
-      <div className="tablet:hidden flex gap-2 bg-[var(--color-surface-elevated)] px-2 pt-2 select-none no-transitions relative z-10 tab-bar-border" style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none' }}>
+      {/* Mobile Tab Navigation - folder tab style (phones only, kitchen page only) */}
+      <div className={`tablet:hidden flex gap-2 bg-[var(--color-surface-elevated)] px-2 pt-2 select-none no-transitions relative z-10 tab-bar-border ${activePage !== 'kitchen' ? 'hidden' : ''}`} style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none' }}>
         {showBookmarksView ? (
           /* Bookmarks view - single tab */
           <div className="flex-1 relative">
@@ -539,117 +541,149 @@ function App() {
 
       {/* Tablet: Side-by-side layout (portrait tablets like iPad Mini) */}
       <main className="hidden tablet:block lg:hidden flex-1 w-full overflow-hidden">
-        <div className="grid grid-cols-[40%_60%] h-[calc(100vh-80px)]">
-          {/* Ingredient Selector (1/3 left) */}
-          <div className="h-full overflow-hidden border-r border-[var(--color-border)]">
-            <IngredientSelector
-              ingredients={ingredients}
-              categories={categories.ingredientCategories}
-              isMobile={true}
-            />
-          </div>
+        {activePage === 'kitchen' ? (
+          <div className="grid grid-cols-[40%_60%] h-[calc(100vh-80px)]">
+            {/* Ingredient Selector (1/3 left) */}
+            <div className="h-full overflow-hidden border-r border-[var(--color-border)]">
+              <IngredientSelector
+                ingredients={ingredients}
+                categories={categories.ingredientCategories}
+                isMobile={true}
+              />
+            </div>
 
-          {/* Recipe Results (2/3 right) */}
-          <div className="h-full overflow-hidden">
-            <RecipeResults
-              recipes={recipes}
-              ingredients={ingredients}
-              effects={effects}
-              processing={processing}
-              recipeCategories={categories.recipeCategories}
-              ingredientCategories={categories.ingredientCategories}
-              variantGroups={categories.variantGroups}
-              ingredientMap={ingredientMap}
-              effectMap={effectMap}
-              characterMap={characterMap}
-              giftToCharacters={giftToCharacters}
+            {/* Recipe Results (2/3 right) */}
+            <div className="h-full overflow-hidden">
+              <RecipeResults
+                recipes={recipes}
+                ingredients={ingredients}
+                effects={effects}
+                processing={processing}
+                recipeCategories={categories.recipeCategories}
+                ingredientCategories={categories.ingredientCategories}
+                variantGroups={categories.variantGroups}
+                ingredientMap={ingredientMap}
+                effectMap={effectMap}
+                characterMap={characterMap}
+                giftToCharacters={giftToCharacters}
+                isMobile={true}
+              />
+            </div>
+          </div>
+        ) : (
+          <div className="h-[calc(100vh-80px)]">
+            <FishingResults
+              fish={fish}
+              fishCategories={fishCategories}
               isMobile={true}
             />
           </div>
-        </div>
+        )}
       </main>
 
       {/* Desktop: Side-by-side layout with fixed sidebar */}
       <main className="hidden lg:block flex-1 max-w-7xl mx-auto w-full p-4 overflow-hidden">
-        <div className="grid lg:grid-cols-[380px_1fr] gap-4 h-[calc(100vh-140px)]">
-          {/* Ingredient Selector (Sidebar) */}
-          <div className="h-full overflow-hidden">
-            <IngredientSelector
-              ingredients={ingredients}
-              categories={categories.ingredientCategories}
-            />
-          </div>
+        {activePage === 'kitchen' ? (
+          <div className="grid lg:grid-cols-[380px_1fr] gap-4 h-[calc(100vh-140px)]">
+            {/* Ingredient Selector (Sidebar) */}
+            <div className="h-full overflow-hidden">
+              <IngredientSelector
+                ingredients={ingredients}
+                categories={categories.ingredientCategories}
+              />
+            </div>
 
-          {/* Recipe Results (Main) */}
-          <div className="h-full overflow-hidden">
-            <RecipeResults
-              recipes={recipes}
-              ingredients={ingredients}
-              effects={effects}
-              processing={processing}
-              recipeCategories={categories.recipeCategories}
-              ingredientCategories={categories.ingredientCategories}
-              variantGroups={categories.variantGroups}
-              ingredientMap={ingredientMap}
-              effectMap={effectMap}
-              characterMap={characterMap}
-              giftToCharacters={giftToCharacters}
+            {/* Recipe Results (Main) */}
+            <div className="h-full overflow-hidden">
+              <RecipeResults
+                recipes={recipes}
+                ingredients={ingredients}
+                effects={effects}
+                processing={processing}
+                recipeCategories={categories.recipeCategories}
+                ingredientCategories={categories.ingredientCategories}
+                variantGroups={categories.variantGroups}
+                ingredientMap={ingredientMap}
+                effectMap={effectMap}
+                characterMap={characterMap}
+                giftToCharacters={giftToCharacters}
+              />
+            </div>
+          </div>
+        ) : (
+          <div className="h-[calc(100vh-140px)]">
+            <FishingResults
+              fish={fish}
+              fishCategories={fishCategories}
             />
           </div>
-        </div>
+        )}
       </main>
 
       {/* Mobile phones: Tab-based full-width layout */}
       {/* Keep all components mounted but hidden to avoid remount lag on tab switch */}
       <main className="tablet:hidden relative" style={{ flex: '1 1 0', overflow: 'hidden' }}>
-        {/* Bookmarks view */}
-        <div className={`absolute inset-0 ${showBookmarksView ? '' : 'invisible pointer-events-none'}`}>
-          <RecipeResults
-            ref={showBookmarksView ? recipeResultsRef : undefined}
-            recipes={recipes}
-            ingredients={ingredients}
-            effects={effects}
-            processing={processing}
-            recipeCategories={categories.recipeCategories}
-            ingredientCategories={categories.ingredientCategories}
-            variantGroups={categories.variantGroups}
-            ingredientMap={ingredientMap}
-            effectMap={effectMap}
-            characterMap={characterMap}
-            giftToCharacters={giftToCharacters}
-            isMobile={true}
-            bookmarksOnly={true}
-          />
-        </div>
-        {/* Ingredients tab */}
-        <div className={`absolute inset-0 ${!showBookmarksView && activeTab === 'ingredients' ? '' : 'invisible pointer-events-none'}`}>
-          <IngredientSelector
-            ref={ingredientSelectorRef}
-            ingredients={ingredients}
-            categories={categories.ingredientCategories}
-            isMobile={true}
-            showOnlySelected={showOnlySelected}
-            onShowOnlySelectedChange={setShowOnlySelected}
-          />
-        </div>
-        {/* Recipes tab */}
-        <div className={`absolute inset-0 ${!showBookmarksView && activeTab === 'recipes' ? '' : 'invisible pointer-events-none'}`}>
-          <RecipeResults
-            ref={!showBookmarksView && activeTab === 'recipes' ? recipeResultsRef : undefined}
-            recipes={recipes}
-            ingredients={ingredients}
-            effects={effects}
-            processing={processing}
-            recipeCategories={categories.recipeCategories}
-            ingredientCategories={categories.ingredientCategories}
-            variantGroups={categories.variantGroups}
-            ingredientMap={ingredientMap}
-            effectMap={effectMap}
-            characterMap={characterMap}
-            giftToCharacters={giftToCharacters}
-            isMobile={true}
-          />
-        </div>
+        {activePage === 'kitchen' ? (
+          <>
+            {/* Bookmarks view */}
+            <div className={`absolute inset-0 ${showBookmarksView ? '' : 'invisible pointer-events-none'}`}>
+              <RecipeResults
+                ref={showBookmarksView ? recipeResultsRef : undefined}
+                recipes={recipes}
+                ingredients={ingredients}
+                effects={effects}
+                processing={processing}
+                recipeCategories={categories.recipeCategories}
+                ingredientCategories={categories.ingredientCategories}
+                variantGroups={categories.variantGroups}
+                ingredientMap={ingredientMap}
+                effectMap={effectMap}
+                characterMap={characterMap}
+                giftToCharacters={giftToCharacters}
+                isMobile={true}
+                bookmarksOnly={true}
+              />
+            </div>
+            {/* Ingredients tab */}
+            <div className={`absolute inset-0 ${!showBookmarksView && activeTab === 'ingredients' ? '' : 'invisible pointer-events-none'}`}>
+              <IngredientSelector
+                ref={ingredientSelectorRef}
+                ingredients={ingredients}
+                categories={categories.ingredientCategories}
+                isMobile={true}
+                showOnlySelected={showOnlySelected}
+                onShowOnlySelectedChange={setShowOnlySelected}
+              />
+            </div>
+            {/* Recipes tab */}
+            <div className={`absolute inset-0 ${!showBookmarksView && activeTab === 'recipes' ? '' : 'invisible pointer-events-none'}`}>
+              <RecipeResults
+                ref={!showBookmarksView && activeTab === 'recipes' ? recipeResultsRef : undefined}
+                recipes={recipes}
+                ingredients={ingredients}
+                effects={effects}
+                processing={processing}
+                recipeCategories={categories.recipeCategories}
+                ingredientCategories={categories.ingredientCategories}
+                variantGroups={categories.variantGroups}
+                ingredientMap={ingredientMap}
+                effectMap={effectMap}
+                characterMap={characterMap}
+                giftToCharacters={giftToCharacters}
+                isMobile={true}
+              />
+            </div>
+          </>
+        ) : (
+          /* Fishing page - full width */
+          <div className="absolute inset-0">
+            <FishingResults
+              fish={fish}
+              fishCategories={fishCategories}
+              isMobile={true}
+            />
+          </div>
+        )}
       </main>
       </div>{/* End content wrapper */}
 

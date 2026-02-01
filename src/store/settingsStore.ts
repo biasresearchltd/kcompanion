@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 type RecipeSortBy = 'missing' | 'price_asc' | 'price_desc' | 'name';
+type FishSortBy = 'name' | 'price_asc' | 'price_desc' | 'size';
 
 interface SettingsState {
   // Ingredient panel settings
@@ -28,6 +29,16 @@ interface SettingsState {
   // Character gift filter
   characterFilters: string[];
 
+  // Fish filter/sort settings
+  fishSizeFilters: string[];
+  fishSeasonFilters: string[];
+  fishWeatherFilters: string[];
+  fishLocationFilters: string[];
+  fishSearchQuery: string;
+  fishSortBy: FishSortBy;
+  showCaughtOnly: boolean;
+  showUncaughtOnly: boolean;
+
   // Settings modal
   showSettingsModal: boolean;
 
@@ -51,6 +62,18 @@ interface SettingsState {
   clearFocusIngredientFilters: () => void;
   toggleCharacterFilter: (characterId: string) => void;
   clearCharacterFilters: () => void;
+  toggleFishSizeFilter: (size: string) => void;
+  clearFishSizeFilters: () => void;
+  toggleFishSeasonFilter: (season: string) => void;
+  clearFishSeasonFilters: () => void;
+  toggleFishWeatherFilter: (weather: string) => void;
+  clearFishWeatherFilters: () => void;
+  toggleFishLocationFilter: (location: string) => void;
+  clearFishLocationFilters: () => void;
+  setFishSearchQuery: (query: string) => void;
+  setFishSortBy: (sort: FishSortBy) => void;
+  setShowCaughtOnly: (show: boolean) => void;
+  setShowUncaughtOnly: (show: boolean) => void;
 }
 
 export const useSettingsStore = create<SettingsState>()(
@@ -70,6 +93,14 @@ export const useSettingsStore = create<SettingsState>()(
       showBookmarksView: false,
       showBookmarksDrawer: false,
       characterFilters: [],
+      fishSizeFilters: [],
+      fishSeasonFilters: [],
+      fishWeatherFilters: [],
+      fishLocationFilters: [],
+      fishSearchQuery: '',
+      fishSortBy: 'name',
+      showCaughtOnly: false,
+      showUncaughtOnly: false,
       showSettingsModal: false,
 
       setViewMode: (mode) => set({ viewMode: mode }),
@@ -111,6 +142,34 @@ export const useSettingsStore = create<SettingsState>()(
           : [...state.characterFilters, characterId]
       })),
       clearCharacterFilters: () => set({ characterFilters: [] }),
+      toggleFishSizeFilter: (size) => set((state) => ({
+        fishSizeFilters: state.fishSizeFilters.includes(size)
+          ? state.fishSizeFilters.filter(s => s !== size)
+          : [...state.fishSizeFilters, size]
+      })),
+      clearFishSizeFilters: () => set({ fishSizeFilters: [] }),
+      toggleFishSeasonFilter: (season) => set((state) => ({
+        fishSeasonFilters: state.fishSeasonFilters.includes(season)
+          ? state.fishSeasonFilters.filter(s => s !== season)
+          : [...state.fishSeasonFilters, season]
+      })),
+      clearFishSeasonFilters: () => set({ fishSeasonFilters: [] }),
+      toggleFishWeatherFilter: (weather) => set((state) => ({
+        fishWeatherFilters: state.fishWeatherFilters.includes(weather)
+          ? state.fishWeatherFilters.filter(w => w !== weather)
+          : [...state.fishWeatherFilters, weather]
+      })),
+      clearFishWeatherFilters: () => set({ fishWeatherFilters: [] }),
+      toggleFishLocationFilter: (location) => set((state) => ({
+        fishLocationFilters: state.fishLocationFilters.includes(location)
+          ? state.fishLocationFilters.filter(l => l !== location)
+          : [...state.fishLocationFilters, location]
+      })),
+      clearFishLocationFilters: () => set({ fishLocationFilters: [] }),
+      setFishSearchQuery: (query) => set({ fishSearchQuery: query }),
+      setFishSortBy: (sort) => set({ fishSortBy: sort }),
+      setShowCaughtOnly: (show) => set({ showCaughtOnly: show, ...(show && { showUncaughtOnly: false }) }),
+      setShowUncaughtOnly: (show) => set({ showUncaughtOnly: show, ...(show && { showCaughtOnly: false }) }),
     }),
     {
       name: 'gb-kitchen-settings',

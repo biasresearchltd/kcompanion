@@ -23,7 +23,7 @@ export function useLongPress() {
 
   const getHandlers = useCallback(
     (key: string, callback: () => void) => ({
-      onTouchStart: (e: React.TouchEvent) => {
+      onTouchStart: (_e: React.TouchEvent) => {
         triggeredRef.current.delete(key);
         clearTimer(key);
         timersRef.current.set(

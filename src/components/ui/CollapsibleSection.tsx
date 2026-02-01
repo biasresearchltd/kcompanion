@@ -3,8 +3,8 @@ import { useState, useEffect, type ReactNode } from 'react';
 interface CollapsibleSectionProps {
   title: string;
   count: number;
-  icon: ReactNode;
-  colorClass: string;
+  icon?: ReactNode;
+  colorClass?: string;
   children: ReactNode;
   defaultOpen?: boolean;
   isOpen?: boolean;
@@ -43,7 +43,7 @@ export function CollapsibleSection({
     <div>
       <button
         onClick={handleToggle}
-        className={`w-full text-sm font-semibold ${colorClass} mb-3 flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer select-none`}
+        className={`w-full text-sm font-semibold ${colorClass || 'text-[var(--color-text)]'} mb-3 flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer select-none`}
       >
         {/* Chevron indicator */}
         <svg
@@ -57,7 +57,7 @@ export function CollapsibleSection({
             clipRule="evenodd"
           />
         </svg>
-        {icon}
+        {icon && icon}
         <span>{title}</span>
         <span className="opacity-70">({count})</span>
       </button>

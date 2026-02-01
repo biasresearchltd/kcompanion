@@ -1,0 +1,537 @@
+{
+  "fish": [
+    {
+      "id": "pale_chub",
+      "name": "Pale Chub",
+      "size": "small",
+      "seasons": ["spring", "summer", "autumn", "winter"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["equestrian_park", "mountain_bridge", "gabriels_house", "zephyr_town"],
+      "rodLevel": "any",
+      "price": 42,
+      "icon": "pale_chub.png"
+    },
+    {
+      "id": "bluegill",
+      "name": "Bluegill",
+      "size": "small",
+      "seasons": ["spring", "summer", "autumn", "winter"],
+      "weather": ["cloudy", "rainy", "stormy"],
+      "locations": ["gabriels_house", "zephyr_town"],
+      "rodLevel": "copper",
+      "price": 90,
+      "icon": "bluegill.png"
+    },
+    {
+      "id": "bitterling",
+      "name": "Bitterling",
+      "size": "small",
+      "seasons": ["spring", "summer", "autumn", "winter"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["mountain_hilltop"],
+      "rodLevel": "any",
+      "price": 54,
+      "icon": "bitterling.png"
+    },
+    {
+      "id": "tamoroko",
+      "name": "Tamoroko",
+      "size": "small",
+      "seasons": ["spring"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["gabriels_house", "yellow_windmill", "zephyr_town"],
+      "rodLevel": "any",
+      "price": 60,
+      "icon": "tamoroko.png"
+    },
+    {
+      "id": "mugitsuku",
+      "name": "Mugitsuku",
+      "size": "small",
+      "seasons": ["spring"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["bazaar", "zephyr_town"],
+      "rodLevel": "silver",
+      "price": 150,
+      "icon": "mugitsuku.png"
+    },
+    {
+      "id": "dark_chub",
+      "name": "Dark Chub",
+      "size": "small",
+      "seasons": ["spring", "summer"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["gabriels_house", "yellow_windmill", "zephyr_town"],
+      "rodLevel": "any",
+      "price": 50,
+      "icon": "dark_chub.png"
+    },
+    {
+      "id": "loach",
+      "name": "Loach",
+      "size": "small",
+      "seasons": ["spring", "summer"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["mountain_bridge", "mountain_hilltop", "mountain_stream"],
+      "rodLevel": "any",
+      "price": 66,
+      "icon": "loach.png"
+    },
+    {
+      "id": "stone_moroko",
+      "name": "Stone Moroko",
+      "size": "small",
+      "seasons": ["spring", "autumn", "winter"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["bazaar", "equestrian_park", "zephyr_town"],
+      "rodLevel": "copper",
+      "price": 105,
+      "icon": "stone_moroko.png"
+    },
+    {
+      "id": "amur_minnow",
+      "name": "Amur Minnow",
+      "size": "small",
+      "seasons": ["spring", "autumn", "winter"],
+      "weather": ["sunny", "rainy", "stormy"],
+      "locations": ["mountain_bridge", "mountain_hilltop", "mountain_stream", "yellow_windmill"],
+      "rodLevel": "any",
+      "price": 40,
+      "icon": "amur_minnow.png"
+    },
+    {
+      "id": "goldfish",
+      "name": "Goldfish",
+      "size": "small",
+      "seasons": ["spring", "winter"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["gabriels_house", "yellow_windmill"],
+      "rodLevel": "copper",
+      "price": 122,
+      "icon": "goldfish.png"
+    },
+    {
+      "id": "icefish",
+      "name": "Icefish",
+      "size": "small",
+      "seasons": ["spring", "winter"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["bazaar", "gabriels_house"],
+      "rodLevel": "gold",
+      "price": 180,
+      "icon": "icefish.png"
+    },
+    {
+      "id": "sweetfish",
+      "name": "Sweetfish",
+      "size": "small",
+      "seasons": ["summer", "autumn"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["mountain_bridge", "mountain_hilltop", "mountain_stream", "yellow_windmill", "zephyr_town"],
+      "rodLevel": "copper",
+      "price": 120,
+      "icon": "sweetfish.png"
+    },
+    {
+      "id": "killifish",
+      "name": "Killifish",
+      "size": "small",
+      "seasons": ["summer", "autumn"],
+      "weather": ["sunny", "cloudy"],
+      "locations": ["bazaar", "mountain_bridge", "gabriels_house"],
+      "rodLevel": "copper",
+      "price": 102,
+      "icon": "killifish.png"
+    },
+    {
+      "id": "sculpin",
+      "name": "Sculpin",
+      "size": "small",
+      "seasons": ["summer", "autumn", "winter"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["equestrian_park", "mountain_hilltop", "yellow_windmill", "zephyr_town"],
+      "rodLevel": "any",
+      "price": 45,
+      "icon": "sculpin.png"
+    },
+    {
+      "id": "dark_sleeper",
+      "name": "Dark Sleeper",
+      "size": "small",
+      "seasons": ["autumn", "winter"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["bazaar", "equestrian_park", "zephyr_town"],
+      "rodLevel": "any",
+      "price": 70,
+      "icon": "dark_sleeper.png"
+    },
+    {
+      "id": "pond_smelt",
+      "name": "Pond Smelt",
+      "size": "small",
+      "seasons": ["winter"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["gabriels_house", "zephyr_town"],
+      "rodLevel": "copper",
+      "price": 110,
+      "icon": "pond_smelt.png"
+    },
+    {
+      "id": "willow_shiner",
+      "name": "Willow Shiner",
+      "size": "small",
+      "seasons": ["winter"],
+      "weather": ["cloudy", "rainy", "stormy"],
+      "locations": ["mountain_hilltop"],
+      "rodLevel": "copper",
+      "price": 96,
+      "icon": "willow_shiner.png"
+    },
+    {
+      "id": "cherry_salmon",
+      "name": "Cherry Salmon",
+      "size": "medium",
+      "seasons": ["spring", "summer"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["yellow_windmill"],
+      "rodLevel": "gold",
+      "price": 336,
+      "icon": "cherry_salmon.png"
+    },
+    {
+      "id": "brown_trout",
+      "name": "Brown Trout",
+      "size": "medium",
+      "seasons": ["spring", "summer", "autumn"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["mountain_bridge", "mountain_hilltop", "mountain_stream"],
+      "rodLevel": "silver",
+      "price": 265,
+      "icon": "brown_trout.png"
+    },
+    {
+      "id": "rainbow_trout",
+      "name": "Rainbow Trout",
+      "size": "medium",
+      "seasons": ["spring", "summer", "autumn"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["mountain_stream", "yellow_windmill"],
+      "rodLevel": "any",
+      "price": 120,
+      "icon": "rainbow_trout.png"
+    },
+    {
+      "id": "snakehead",
+      "name": "Snakehead",
+      "size": "medium",
+      "seasons": ["spring", "autumn", "winter"],
+      "weather": ["sunny", "cloudy"],
+      "locations": ["zephyr_town"],
+      "rodLevel": "gold",
+      "price": 300,
+      "icon": "snakehead.png"
+    },
+    {
+      "id": "dace",
+      "name": "Dace",
+      "size": "medium",
+      "seasons": ["spring", "summer", "autumn", "winter"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["yellow_windmill", "zephyr_town"],
+      "rodLevel": "any",
+      "price": 100,
+      "icon": "dace.png"
+    },
+    {
+      "id": "crucian_carp",
+      "name": "Crucian Carp",
+      "size": "medium",
+      "seasons": ["spring", "summer", "winter"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["equestrian_park"],
+      "rodLevel": "copper",
+      "price": 240,
+      "icon": "crucian_carp.png"
+    },
+    {
+      "id": "masu_trout",
+      "name": "Masu Trout",
+      "size": "medium",
+      "seasons": ["spring", "summer"],
+      "weather": ["rainy", "stormy"],
+      "locations": ["bazaar", "yellow_windmill"],
+      "rodLevel": "gold",
+      "price": 310,
+      "icon": "masu_trout.png"
+    },
+    {
+      "id": "char",
+      "name": "Char",
+      "size": "medium",
+      "seasons": ["spring", "summer", "autumn"],
+      "weather": ["cloudy", "rainy", "stormy"],
+      "locations": ["mountain_bridge", "mountain_hilltop", "mountain_stream", "yellow_windmill"],
+      "rodLevel": "gold",
+      "price": 330,
+      "icon": "char.png"
+    },
+    {
+      "id": "black_bass",
+      "name": "Black Bass",
+      "size": "medium",
+      "seasons": ["spring", "summer", "winter"],
+      "weather": ["cloudy", "rainy", "stormy"],
+      "locations": ["equestrian_park", "mountain_bridge", "mountain_hilltop", "mountain_stream", "yellow_windmill", "zephyr_town"],
+      "rodLevel": "silver",
+      "price": 280,
+      "icon": "black_bass.png"
+    },
+    {
+      "id": "grayling",
+      "name": "Grayling",
+      "size": "medium",
+      "seasons": ["spring", "summer"],
+      "weather": ["sunny", "cloudy", "rainy"],
+      "locations": ["mountain_bridge", "mountain_hilltop", "mountain_stream"],
+      "rodLevel": "silver",
+      "price": 255,
+      "icon": "grayling.png"
+    },
+    {
+      "id": "three_lips_carp",
+      "name": "Three-Lips Carp",
+      "size": "medium",
+      "seasons": ["summer"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["yellow_windmill", "zephyr_town"],
+      "rodLevel": "silver",
+      "price": 260,
+      "icon": "three_lips_carp.png"
+    },
+    {
+      "id": "eel",
+      "name": "Eel",
+      "size": "medium",
+      "seasons": ["autumn", "winter"],
+      "weather": ["rainy", "stormy"],
+      "locations": ["gabriels_house", "zephyr_town"],
+      "rodLevel": "copper",
+      "price": 180,
+      "icon": "eel.png"
+    },
+    {
+      "id": "barbel_steed",
+      "name": "Barbel Steed",
+      "size": "medium",
+      "seasons": ["autumn", "winter"],
+      "weather": ["rainy", "stormy"],
+      "locations": ["gabriels_house", "zephyr_town"],
+      "rodLevel": "silver",
+      "price": 258,
+      "icon": "barbel_steed.png"
+    },
+    {
+      "id": "bighead_carp",
+      "name": "Bighead Carp",
+      "size": "large",
+      "seasons": ["spring", "summer", "autumn", "winter"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["bazaar", "yellow_windmill", "zephyr_town"],
+      "rodLevel": "silver",
+      "price": 350,
+      "icon": "bighead_carp.png"
+    },
+    {
+      "id": "silver_carp",
+      "name": "Silver Carp",
+      "size": "large",
+      "seasons": ["spring", "summer", "autumn", "winter"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["mountain_stream", "yellow_windmill", "zephyr_town"],
+      "rodLevel": "any",
+      "price": 200,
+      "icon": "silver_carp.png"
+    },
+    {
+      "id": "basa",
+      "name": "Basa",
+      "size": "large",
+      "seasons": ["spring", "summer", "autumn", "winter"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["mountain_bridge"],
+      "rodLevel": "any",
+      "price": 250,
+      "icon": "basa.png"
+    },
+    {
+      "id": "yellow_perch",
+      "name": "Yellow Perch",
+      "size": "large",
+      "seasons": ["summer", "autumn"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["mountain_bridge", "mountain_hilltop", "mountain_stream"],
+      "rodLevel": "gold",
+      "price": 450,
+      "icon": "yellow_perch.png"
+    },
+    {
+      "id": "nile_perch",
+      "name": "Nile Perch",
+      "size": "large",
+      "seasons": ["summer", "autumn"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["mountain_bridge", "mountain_hilltop", "mountain_stream"],
+      "rodLevel": "silver",
+      "price": 380,
+      "icon": "nile_perch.png"
+    },
+    {
+      "id": "salmon",
+      "name": "Salmon",
+      "size": "large",
+      "seasons": ["autumn", "winter"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["mountain_hilltop"],
+      "rodLevel": "gold",
+      "price": 460,
+      "icon": "salmon.png"
+    },
+    {
+      "id": "marbled_eel",
+      "name": "Marbled Eel",
+      "size": "large",
+      "seasons": ["autumn", "winter"],
+      "weather": ["rainy", "stormy"],
+      "locations": ["zephyr_town"],
+      "rodLevel": "copper",
+      "price": 360,
+      "icon": "marbled_eel.png"
+    },
+    {
+      "id": "wels_catfish",
+      "name": "Wels Catfish",
+      "size": "guardian",
+      "seasons": ["spring"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["mountain_bridge"],
+      "rodLevel": "orichalcum",
+      "price": 2500,
+      "icon": "wels_catfish.png"
+    },
+    {
+      "id": "catfish",
+      "name": "Catfish",
+      "size": "guardian",
+      "seasons": ["spring", "summer"],
+      "weather": ["rainy", "stormy"],
+      "locations": ["zephyr_town"],
+      "rodLevel": "gold",
+      "price": 1600,
+      "icon": "catfish.png"
+    },
+    {
+      "id": "black_carp",
+      "name": "Black Carp",
+      "size": "guardian",
+      "seasons": ["spring", "autumn"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["yellow_windmill", "zephyr_town"],
+      "rodLevel": "gold",
+      "price": 1680,
+      "icon": "black_carp.png"
+    },
+    {
+      "id": "grass_carp",
+      "name": "Grass Carp",
+      "size": "guardian",
+      "seasons": ["summer", "autumn"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["gabriels_house", "zephyr_town"],
+      "rodLevel": "gold",
+      "price": 1720,
+      "icon": "grass_carp.png"
+    },
+    {
+      "id": "northern_pike",
+      "name": "Northern Pike",
+      "size": "guardian",
+      "seasons": ["autumn"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["gabriels_house"],
+      "rodLevel": "orichalcum",
+      "price": 2700,
+      "icon": "northern_pike.png"
+    },
+    {
+      "id": "shining_fish",
+      "name": "Shining Fish",
+      "size": "guardian",
+      "seasons": ["autumn"],
+      "weather": ["sunny"],
+      "locations": ["mountain_hilltop"],
+      "rodLevel": "orichalcum",
+      "price": 3300,
+      "icon": "shining_fish.png",
+      "notes": "12:00 PM - 5:00 PM only, no wind"
+    },
+    {
+      "id": "peacock_bass",
+      "name": "Peacock Bass",
+      "size": "guardian",
+      "seasons": ["winter"],
+      "weather": ["sunny", "cloudy", "rainy", "stormy"],
+      "locations": ["equestrian_park"],
+      "rodLevel": "orichalcum",
+      "price": 2200,
+      "icon": "peacock_bass.png"
+    },
+    {
+      "id": "koi",
+      "name": "Koi",
+      "size": "guardian",
+      "seasons": ["winter"],
+      "weather": ["sunny", "cloudy"],
+      "locations": ["yellow_windmill"],
+      "rodLevel": "gold",
+      "price": 1500,
+      "icon": "koi.png"
+    }
+  ],
+  "fishCategories": {
+    "sizes": [
+      { "id": "small", "name": "Small Fish" },
+      { "id": "medium", "name": "Medium Fish" },
+      { "id": "large", "name": "Large Fish" },
+      { "id": "guardian", "name": "Guardian Fish" }
+    ],
+    "seasons": [
+      { "id": "spring", "name": "Spring" },
+      { "id": "summer", "name": "Summer" },
+      { "id": "autumn", "name": "Autumn" },
+      { "id": "winter", "name": "Winter" }
+    ],
+    "weather": [
+      { "id": "sunny", "name": "Sunny" },
+      { "id": "cloudy", "name": "Cloudy" },
+      { "id": "rainy", "name": "Rainy" },
+      { "id": "stormy", "name": "Stormy" }
+    ],
+    "locations": [
+      { "id": "bazaar", "name": "Bazaar" },
+      { "id": "equestrian_park", "name": "Equestrian Park" },
+      { "id": "gabriels_house", "name": "Gabriel's House" },
+      { "id": "mountain_bridge", "name": "Mountain Bridge" },
+      { "id": "mountain_hilltop", "name": "Mountain Hilltop" },
+      { "id": "mountain_stream", "name": "Mountain Stream" },
+      { "id": "yellow_windmill", "name": "Yellow Windmill" },
+      { "id": "zephyr_town", "name": "Zephyr Town" }
+    ],
+    "rodLevels": [
+      { "id": "any", "name": "Any Rod" },
+      { "id": "copper", "name": "Copper Rod" },
+      { "id": "silver", "name": "Silver Rod" },
+      { "id": "gold", "name": "Gold Rod" },
+      { "id": "orichalcum", "name": "Orichalcum Rod" }
+    ]
+  }
+}

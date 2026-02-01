@@ -49,7 +49,7 @@ interface AdaptPillProps {
   icon: string;
   isMatched: boolean;
   isFocused?: boolean;
-  pressHandlers?: Record<string, (e: React.SyntheticEvent) => void>;
+  pressHandlers?: Record<string, (e: never) => void>;
 }
 
 function AdaptPill({ name, icon, isMatched, isFocused = false, pressHandlers }: AdaptPillProps) {

@@ -3,9 +3,11 @@ import { useSettingsStore } from '../../store/settingsStore';
 
 interface HeaderProps {
   onStatusBarTap?: () => void;
+  activePage: 'kitchen' | 'fishing';
+  onPageChange: (page: 'kitchen' | 'fishing') => void;
 }
 
-export function Header({ onStatusBarTap }: HeaderProps) {
+export function Header({ onStatusBarTap, activePage, onPageChange }: HeaderProps) {
   const { bookmarkedRecipes } = useBookmarkStore();
   const { showBookmarksView, setShowBookmarksView, showBookmarksDrawer, setShowBookmarksDrawer, showSettingsModal, setShowSettingsModal } = useSettingsStore();
 
@@ -32,18 +34,45 @@ export function Header({ onStatusBarTap }: HeaderProps) {
       <div className="max-w-7xl mx-auto px-4 py-3">
         {/* Main header row */}
         <div className="flex items-center justify-between">
-          {/* Logo/Title */}
+          {/* Logo/Title with page navigation */}
           <div className="flex items-center gap-2 sm:gap-3">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden">
+            {/* Kitchen icon */}
+            <button
+              onClick={() => onPageChange('kitchen')}
+              className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden ${
+                activePage === 'kitchen' ? 'ring-2 ring-white' : 'opacity-60 hover:opacity-80'
+              }`}
+              style={{ transition: 'none' }}
+              title="Kitchen Companion"
+              aria-label="Kitchen Companion"
+            >
               <img
-                src="/icons/icon-512.png"
-                alt="GB Kitchen"
+                src="/icons/kitchen.png"
+                alt="Kitchen Companion"
                 className="w-full h-full object-contain"
               />
-            </div>
+            </button>
+            {/* Fishing icon */}
+            <button
+              onClick={() => onPageChange('fishing')}
+              className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden ${
+                activePage === 'fishing' ? 'ring-2 ring-white' : 'opacity-60 hover:opacity-80'
+              }`}
+              style={{ transition: 'none' }}
+              title="Fishing Companion"
+              aria-label="Fishing Companion"
+            >
+              <img
+                src="/icons/fishing-rod.png"
+                alt="Fishing Companion"
+                className="w-full h-full object-contain"
+              />
+            </button>
             <div className="flex items-baseline gap-2 sm:block">
               <h1 className="text-lg sm:text-xl font-bold">SOSGB</h1>
-              <p className="text-sm text-white/80">Kitchen Companion</p>
+              <p className="text-sm text-white/80">
+                {activePage === 'kitchen' ? 'Kitchen Companion' : 'Fishing Companion'}
+              </p>
             </div>
           </div>
 

@@ -117,6 +117,28 @@ export interface CharactersData {
   giftToCharacters: GiftToCharacters;
 }
 
+// Fish types
+export interface Fish {
+  id: string;
+  name: string;
+  size: 'small' | 'medium' | 'large' | 'guardian';
+  seasons: string[];
+  weather: string[];
+  locations: string[];
+  rodLevel: string;
+  price: number;
+  icon: string;
+  notes?: string;
+}
+
+export interface FishCategories {
+  sizes: { id: string; name: string }[];
+  seasons: { id: string; name: string }[];
+  weather: { id: string; name: string }[];
+  locations: { id: string; name: string }[];
+  rodLevels: { id: string; name: string }[];
+}
+
 // Store types
 export interface InventoryState {
   selectedIngredients: Set<string>;
