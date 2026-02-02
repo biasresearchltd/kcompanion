@@ -5,7 +5,12 @@ type RecipeSortBy = 'missing' | 'price_asc' | 'price_desc' | 'name';
 type FishSortBy = 'name' | 'price_asc' | 'price_desc' | 'size';
 type CritterSortBy = 'name' | 'price_asc' | 'price_desc';
 
+type ActivePage = 'kitchen' | 'fishing' | 'critters';
+
 interface SettingsState {
+  // Active page / mode
+  activePage: ActivePage;
+
   // Ingredient panel settings
   viewMode: 'list' | 'grid';
   sortBy: 'name' | 'category' | 'commonRank';
@@ -55,6 +60,7 @@ interface SettingsState {
   showSettingsModal: boolean;
 
   // Actions
+  setActivePage: (page: ActivePage) => void;
   setViewMode: (mode: 'list' | 'grid') => void;
   setSortBy: (sort: 'name' | 'category' | 'commonRank') => void;
   toggleIngredientCategoryFilter: (category: string) => void;
@@ -100,6 +106,7 @@ interface SettingsState {
 export const useSettingsStore = create<SettingsState>()(
   persist(
     (set) => ({
+      activePage: 'kitchen' as ActivePage,
       viewMode: 'grid',
       sortBy: 'category',
       ingredientCategoryFilters: [],
@@ -133,6 +140,7 @@ export const useSettingsStore = create<SettingsState>()(
       showCritterUncaughtOnly: false,
       showSettingsModal: false,
 
+      setActivePage: (page) => set({ activePage: page }),
       setViewMode: (mode) => set({ viewMode: mode }),
       setSortBy: (sort) => set({ sortBy: sort }),
       toggleIngredientCategoryFilter: (category) => set((state) => ({
@@ -233,6 +241,7 @@ export const useSettingsStore = create<SettingsState>()(
     {
       name: 'gb-kitchen-settings',
       partialize: (state) => ({
+        activePage: state.activePage,
         viewMode: state.viewMode,
         sortBy: state.sortBy,
       }),

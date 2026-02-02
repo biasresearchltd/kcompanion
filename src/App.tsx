@@ -21,7 +21,7 @@ function App() {
   const ingredientMap = useIngredientMap(ingredients);
   const effectMap = useEffectMap(effects);
   const characterMap = useCharacterMap(characters);
-  const [activePage, setActivePage] = useState<'kitchen' | 'fishing' | 'critters'>('kitchen');
+  const { activePage } = useSettingsStore();
   const [activeTab, setActiveTab] = useState<'ingredients' | 'recipes'>('ingredients');
   const { selectedIngredients, ownedUtensils, clearInventory } = useInventoryStore();
   const { showBookmarksView, setShowBookmarksView, showSettingsModal, setShowSettingsModal } = useSettingsStore();
@@ -408,7 +408,7 @@ function App() {
 
   return (
     <div className="flex flex-col overflow-hidden" style={{ minHeight: '200vh', height: '100%' }}>
-      <Header onStatusBarTap={handleStatusBarTap} activePage={activePage} onPageChange={setActivePage} />
+      <Header onStatusBarTap={handleStatusBarTap} />
 
       {/* Content wrapper with khaki background */}
       <div className="flex-1 flex flex-col bg-[var(--color-background)]" style={{ minHeight: '150vh' }}>

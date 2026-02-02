@@ -1,24 +1,42 @@
+import { useState } from 'react';
 import { useBookmarkStore } from '../../store/bookmarkStore';
 import { useSettingsStore } from '../../store/settingsStore';
 
+const pages = [
+  { id: 'kitchen', icon: '/icons/kitchen.png', label: 'Kitchen Companion' },
+  { id: 'fishing', icon: '/icons/fishing-rod.png', label: 'Fishing Companion' },
+  { id: 'critters', icon: '/icons/critters.png', label: 'Critter Companion' },
+] as const;
+
 interface HeaderProps {
   onStatusBarTap?: () => void;
-  activePage: 'kitchen' | 'fishing' | 'critters';
-  onPageChange: (page: 'kitchen' | 'fishing' | 'critters') => void;
 }
 
-export function Header({ onStatusBarTap, activePage, onPageChange }: HeaderProps) {
+export function Header({ onStatusBarTap }: HeaderProps) {
   const { bookmarkedRecipes } = useBookmarkStore();
-  const { showBookmarksView, setShowBookmarksView, showBookmarksDrawer, setShowBookmarksDrawer, showSettingsModal, setShowSettingsModal } = useSettingsStore();
+  const { activePage, setActivePage, showBookmarksView, setShowBookmarksView, showBookmarksDrawer, setShowBookmarksDrawer, showSettingsModal, setShowSettingsModal } = useSettingsStore();
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   const bookmarkCount = bookmarkedRecipes.length;
+  const activePageData = pages.find(p => p.id === activePage)!;
+
+  const handleIconClick = (pageId: typeof activePage) => {
+    if (pageId === activePage) {
+      // Tapping active icon toggles drawer
+      setDrawerOpen(prev => !prev);
+    } else {
+      // Tapping inactive icon switches page and closes drawer
+      setActivePage(pageId);
+      setDrawerOpen(false);
+    }
+  };
 
   return (
     <header
       className="bg-[var(--color-primary)] text-white shadow-lg relative"
       style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}
     >
-      {/* iOS-style status bar tap target - covers safe area inset + extra height for easier tapping */}
+      {/* iOS-style status bar tap target */}
       {onStatusBarTap && (
         <button
           onClick={onStatusBarTap}
@@ -34,65 +52,57 @@ export function Header({ onStatusBarTap, activePage, onPageChange }: HeaderProps
       <div className="max-w-7xl mx-auto px-4 py-3">
         {/* Main header row */}
         <div className="flex items-center justify-between">
-          {/* Logo/Title with page navigation */}
+          {/* Logo/Title with page navigation drawer */}
           <div className="flex items-center gap-2 sm:gap-3">
-            {/* Kitchen icon */}
-            <button
-              onClick={() => onPageChange('kitchen')}
-              className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden ${
-                activePage === 'kitchen' ? 'ring-2 ring-white' : 'opacity-60 hover:opacity-80'
-              }`}
-              style={{ transition: 'none' }}
-              title="Kitchen Companion"
-              aria-label="Kitchen Companion"
-            >
-              <img
-                src="/icons/kitchen.png"
-                alt="Kitchen Companion"
-                className="w-full h-full object-contain"
-              />
-            </button>
-            {/* Fishing icon */}
-            <button
-              onClick={() => onPageChange('fishing')}
-              className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden ${
-                activePage === 'fishing' ? 'ring-2 ring-white' : 'opacity-60 hover:opacity-80'
-              }`}
-              style={{ transition: 'none' }}
-              title="Fishing Companion"
-              aria-label="Fishing Companion"
-            >
-              <img
-                src="/icons/fishing-rod.png"
-                alt="Fishing Companion"
-                className="w-full h-full object-contain"
-              />
-            </button>
-            {/* Critters icon */}
-            <button
-              onClick={() => onPageChange('critters')}
-              className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden ${
-                activePage === 'critters' ? 'ring-2 ring-white' : 'opacity-60 hover:opacity-80'
-              }`}
-              style={{ transition: 'none' }}
-              title="Critter Companion"
-              aria-label="Critter Companion"
-            >
-              <img
-                src="/icons/critters.png"
-                alt="Critter Companion"
-                className="w-full h-full object-contain"
-              />
-            </button>
+            {/* Icon drawer container */}
+            <div className="flex items-center">
+              {pages.map((page, index) => {
+                const isActive = page.id === activePage;
+                const showIcon = drawerOpen || isActive;
+                // First visible icon when collapsed is always the active one (no margin).
+                // When expanded, the first icon in the list (index 0) gets no margin,
+                // all others get margin.
+                const needsMargin = showIcon && drawerOpen && index > 0;
+
+                return (
+                  <div
+                    key={page.id}
+                    className="overflow-hidden flex-shrink-0"
+                    style={{
+                      width: showIcon ? (isActive ? undefined : '') : '0',
+                      maxWidth: showIcon ? '3rem' : '0',
+                      opacity: showIcon ? 1 : 0,
+                      marginLeft: needsMargin ? '0.625rem' : '0',
+                      transition: 'max-width 200ms ease-out, opacity 200ms ease-out, margin 200ms ease-out',
+                    }}
+                  >
+                    <button
+                      onClick={() => handleIconClick(page.id as typeof activePage)}
+                      className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden ${
+                        isActive ? 'border-2 border-white' : 'opacity-60 hover:opacity-80'
+                      }`}
+                      title={page.label}
+                      aria-label={page.label}
+                    >
+                      <img
+                        src={page.icon}
+                        alt={page.label}
+                        className="w-full h-full object-contain rounded-lg"
+                      />
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
             <div className="flex items-baseline gap-2 sm:block">
               <h1 className="text-lg sm:text-xl font-bold">SOSGB</h1>
               <p className="text-sm text-white/80">
-                {activePage === 'kitchen' ? 'Kitchen Companion' : activePage === 'fishing' ? 'Fishing Companion' : 'Critter Companion'}
+                {activePageData.label}
               </p>
             </div>
           </div>
 
-          {/* Desktop/Tablet: Bookmark toggle and Utensils inline */}
+          {/* Desktop/Tablet: Bookmark toggle and Settings inline */}
           <div className="hidden sm:flex items-center gap-2">
             {/* Bookmark drawer toggle button */}
             <button
