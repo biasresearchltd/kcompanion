@@ -1,4 +1,4 @@
-import { useState, useMemo, useRef, useCallback, useEffect } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import { useGameData, useIngredientMap, useEffectMap, useCharacterMap } from './hooks/useGameData';
 import { Header } from './components/layout/Header';
 import { IngredientSelector } from './components/ingredients/IngredientSelector';
@@ -9,7 +9,6 @@ import { useSettingsStore } from './store/settingsStore';
 import { useBookmarkStore } from './store/bookmarkStore';
 import { FishingResults } from './components/fishing/FishingResults';
 import { CritterResults } from './components/critters/CritterResults';
-import { findRecipes } from './lib/recipeEngine';
 import type { ScrollToTopHandle } from './hooks/useScrollToTop';
 
 const LONG_PRESS_DURATION = 3000;
@@ -23,12 +22,18 @@ function App() {
   const characterMap = useCharacterMap(characters);
   const { activePage } = useSettingsStore();
   const [activeTab, setActiveTab] = useState<'ingredients' | 'recipes'>('ingredients');
-  const { selectedIngredients, ownedUtensils, clearInventory } = useInventoryStore();
+  const { selectedIngredients, clearInventory } = useInventoryStore();
   const { showBookmarksView, setShowBookmarksView, showSettingsModal, setShowSettingsModal } = useSettingsStore();
   const { bookmarkedRecipes } = useBookmarkStore();
 
   // State for "show only selected" filter (controlled from tab badge)
   const [showOnlySelected, setShowOnlySelected] = useState(false);
+
+  // Track whether recipe results are stale (ingredients changed but not committed)
+  const [recipesStale, setRecipesStale] = useState(false);
+  const handleRecipesStaleChange = useCallback((stale: boolean) => {
+    setRecipesStale(stale);
+  }, []);
 
   // Refs for mobile scroll-to-top functionality
   const ingredientSelectorRef = useRef<ScrollToTopHandle>(null);
@@ -83,20 +88,21 @@ function App() {
     }
   }, [activeTab]);
 
-  // Calculate recipe counts for tab badges
-  const { readyCount, processingCount } = useMemo(() => {
-    if (!recipes.length) {
-      return { readyCount: 0, processingCount: 0 };
+  // Auto-commit recipe ingredients whenever they change, unless user is viewing recipes tab
+  // The deferred refresh system only applies while actively viewing the recipes panel
+  useEffect(() => {
+    if (activeTab !== 'recipes') {
+      recipeResultsRef.current?.commitIngredients();
     }
-    const inventory = new Set(selectedIngredients);
-    const utensils = new Set(ownedUtensils);
-    const matches = findRecipes(inventory, recipes, utensils, categories.variantGroups, 999, processing);
+  }, [activeTab, selectedIngredients]);
 
-    const ready = matches.filter(m => m.matchType === 'exact').length;
-    const needsProcessing = matches.filter(m => m.matchType === 'needs_processing').length;
-
-    return { readyCount: ready, processingCount: needsProcessing };
-  }, [selectedIngredients, ownedUtensils, recipes, categories.variantGroups, processing]);
+  // Recipe counts for tab badges — driven by RecipeResults' committed state
+  const [readyCount, setReadyCount] = useState(0);
+  const [processingCount, setProcessingCount] = useState(0);
+  const handleCountsChange = useCallback((ready: number, needsProcessing: number) => {
+    setReadyCount(ready);
+    setProcessingCount(needsProcessing);
+  }, []);
 
   // Handlers for ingredient count badge
   const handleIngredientBadgeTouchStart = useCallback((e: React.TouchEvent) => {
@@ -507,8 +513,20 @@ function App() {
                 </span>
               </button>
               {/* Recipe badges positioned OUTSIDE the button */}
-              {(readyCount > 0 || processingCount > 0) && (
+              {(recipesStale || readyCount > 0 || processingCount > 0) && (
                 <span className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1 z-20">
+                  {recipesStale && (
+                    <span
+                      data-badge="refresh"
+                      className="bg-amber-500 text-white w-5 h-5 rounded-full flex items-center justify-center animate-refresh-appear"
+                      onClick={(e) => { e.stopPropagation(); recipeResultsRef.current?.commitIngredients(); }}
+                    >
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round"
+                              d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                      </svg>
+                    </span>
+                  )}
                   {readyCount > 0 && (
                     <span
                       data-badge="ready"
@@ -674,7 +692,7 @@ function App() {
             {/* Recipes tab */}
             <div className={`absolute inset-0 ${!showBookmarksView && activeTab === 'recipes' ? '' : 'invisible pointer-events-none'}`}>
               <RecipeResults
-                ref={!showBookmarksView && activeTab === 'recipes' ? recipeResultsRef : undefined}
+                ref={!showBookmarksView ? recipeResultsRef : undefined}
                 recipes={recipes}
                 ingredients={ingredients}
                 effects={effects}
@@ -687,6 +705,8 @@ function App() {
                 characterMap={characterMap}
                 giftToCharacters={giftToCharacters}
                 isMobile={true}
+                onStaleChange={handleRecipesStaleChange}
+                onCountsChange={handleCountsChange}
               />
             </div>
           </>

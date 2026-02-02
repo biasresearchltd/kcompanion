@@ -48,11 +48,15 @@ interface AdaptPillProps {
   name: string;
   icon: string;
   isMatched: boolean;
+  isDeselected?: boolean;
   isFocused?: boolean;
   pressHandlers?: Record<string, (e: never) => void>;
+  longPressProgress?: number;
+  isRemoving?: boolean;
+  isPopping?: boolean;
 }
 
-function AdaptPill({ name, icon, isMatched, isFocused = false, pressHandlers }: AdaptPillProps) {
+function AdaptPill({ name, icon, isMatched, isDeselected = false, isFocused = false, pressHandlers, longPressProgress, isRemoving, isPopping }: AdaptPillProps) {
   const textRef = useRef<HTMLSpanElement>(null);
   const [isTruncated, setIsTruncated] = useState(false);
   const [marqueeDistance, setMarqueeDistance] = useState(0);
@@ -76,6 +80,9 @@ function AdaptPill({ name, icon, isMatched, isFocused = false, pressHandlers }: 
 
   // Determine styling based on state
   const getStyle = () => {
+    if (isDeselected) {
+      return 'bg-red-50 text-red-400 ring-1 ring-red-300/60';
+    }
     if (isFocused) {
       return 'bg-amber-100 text-amber-700 ring-2 ring-amber-400';
     }
@@ -87,15 +94,22 @@ function AdaptPill({ name, icon, isMatched, isFocused = false, pressHandlers }: 
 
   return (
     <div
-      className={`flex items-center gap-1 px-1.5 py-0.5 rounded-lg text-[10px] ${getStyle()} ${pressHandlers ? 'cursor-pointer select-none' : ''}`}
+      className={`relative overflow-hidden flex items-center gap-1 px-1.5 py-0.5 rounded-lg text-[10px] ${getStyle()} ${pressHandlers ? 'cursor-pointer select-none' : ''}`}
       style={pressHandlers ? { WebkitTouchCallout: 'none', WebkitUserSelect: 'none', userSelect: 'none' } : undefined}
       onContextMenu={pressHandlers ? (e: React.MouseEvent) => e.preventDefault() : undefined}
       {...pressHandlers}
     >
+      {/* Long-press progress fill */}
+      {longPressProgress != null && longPressProgress > 0 && (
+        <div
+          className={`absolute inset-0 rounded-lg ${isRemoving ? 'bg-red-300/60' : 'bg-green-300/60'}`}
+          style={{ width: `${longPressProgress * 100}%`, transition: 'none' }}
+        />
+      )}
       <img
         src={icon}
         alt={name}
-        className={`w-4 h-4 object-contain flex-shrink-0 pointer-events-none ${!isMatched && !isFocused ? 'opacity-50' : ''}`}
+        className={`w-4 h-4 object-contain flex-shrink-0 pointer-events-none ${isDeselected || (!isMatched && !isFocused) ? 'opacity-50' : ''}`}
         draggable={false}
         onError={(e) => {
           (e.target as HTMLImageElement).src = '/images/placeholder.svg';
@@ -121,6 +135,7 @@ interface RecipeCardProps {
   characterMap: Map<string, Character>;
   giftToCharacters: GiftToCharacters;
   selectedIngredients: string[];
+  committedIngredients?: string[];
   focusedIngredients?: string[];
   index?: number;
 }
@@ -155,7 +170,7 @@ function formatIngredientName(id: string): string {
   return id.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 }
 
-export function RecipeCard({ match, ingredientMap, effectMap, characterMap, giftToCharacters, selectedIngredients, focusedIngredients = [], index = 0 }: RecipeCardProps) {
+export function RecipeCard({ match, ingredientMap, effectMap, characterMap, giftToCharacters, selectedIngredients, committedIngredients, focusedIngredients = [], index = 0 }: RecipeCardProps) {
   const { recipe, matchType, missingIngredients, matchedIngredients, processedIngredients } = match;
   const effect = recipe.effect ? effectMap.get(recipe.effect) : null;
   const { bookmarkedRecipes, toggleBookmark } = useBookmarkStore();
@@ -169,6 +184,13 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
   const [flashIngredient, setFlashIngredient] = useState<string | null>(null);
   const flashTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  // Long-press progress tracking
+  const [slotProgress, setSlotProgress] = useState<Map<number, number>>(new Map());
+  const [pillProgress, setPillProgress] = useState<Map<string, number>>(new Map());
+  const [poppedSlots, setPoppedSlots] = useState<Set<number>>(new Set());
+  const [poppedPills, setPoppedPills] = useState<Set<string>>(new Set());
+  const popTimerRef = useRef<Map<string, ReturnType<typeof setTimeout>>>(new Map());
+
   const handleIngredientLongPress = useCallback((ingredientId: string) => {
     toggleIngredient(ingredientId);
     // Visual feedback
@@ -176,6 +198,42 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
     if (flashTimerRef.current) clearTimeout(flashTimerRef.current);
     flashTimerRef.current = setTimeout(() => setFlashIngredient(null), 400);
   }, [toggleIngredient]);
+
+  // Trigger pop animation for a slot index
+  const triggerSlotPop = useCallback((slotIndex: number) => {
+    setPoppedSlots(prev => new Set(prev).add(slotIndex));
+    const key = `slot-${slotIndex}`;
+    const existing = popTimerRef.current.get(key);
+    if (existing) clearTimeout(existing);
+    popTimerRef.current.set(key, setTimeout(() => {
+      setPoppedSlots(prev => { const next = new Set(prev); next.delete(slotIndex); return next; });
+      popTimerRef.current.delete(key);
+    }, 300));
+  }, []);
+
+  // Trigger pop animation for a pill ingredient
+  const triggerPillPop = useCallback((ingredientId: string) => {
+    setPoppedPills(prev => new Set(prev).add(ingredientId));
+    const key = `pill-${ingredientId}`;
+    const existing = popTimerRef.current.get(key);
+    if (existing) clearTimeout(existing);
+    popTimerRef.current.set(key, setTimeout(() => {
+      setPoppedPills(prev => { const next = new Set(prev); next.delete(ingredientId); return next; });
+      popTimerRef.current.delete(key);
+    }, 300));
+  }, []);
+
+  // Track which slot indexes have their alternatives expanded
+  const [expandedSlots, setExpandedSlots] = useState<Set<number>>(new Set());
+
+  const toggleSlotExpanded = (slotIndex: number) => {
+    setExpandedSlots(prev => {
+      const next = new Set(prev);
+      if (next.has(slotIndex)) next.delete(slotIndex);
+      else next.add(slotIndex);
+      return next;
+    });
+  };
 
   // Hover state for showing action buttons on desktop
   const [isHovered, setIsHovered] = useState(false);
@@ -197,10 +255,15 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
   const focusedSet = new Set(focusedIngredients);
 
   // Slot-based rendering: each slot is an ingredient position with optional alternatives
+  // Create a Set of committed ingredients for transitory deselected state detection
+  // An ingredient is "deselected" if it was selected at commit time but has since been removed
+  const committedSet = new Set(committedIngredients || selectedIngredients);
+
   interface IngredientOption {
     id: string;
     isMatched: boolean;
     needsProcessing: boolean;
+    isDeselected: boolean; // Was matched at commit time but since removed from live selection
   }
 
   interface IngredientSlot {
@@ -232,6 +295,7 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
           id: primaryId,
           isMatched: selectedSet.has(primaryId) || processedSet.has(primaryId),
           needsProcessing: processedSet.has(primaryId),
+          isDeselected: committedSet.has(primaryId) && !selectedSet.has(primaryId) && !processedSet.has(primaryId),
         };
 
         // All other options become alternatives (show all options from oneOf)
@@ -241,6 +305,7 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
             id,
             isMatched: selectedSet.has(id) || processedSet.has(id),
             needsProcessing: processedSet.has(id),
+            isDeselected: committedSet.has(id) && !selectedSet.has(id) && !processedSet.has(id),
           }));
 
         // Only show inline alternatives if there are few enough
@@ -269,6 +334,7 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
             id: ing.id,
             isMatched,
             needsProcessing: processedSet.has(ing.id),
+            isDeselected: committedSet.has(ing.id) && !selectedSet.has(ing.id) && !processedSet.has(ing.id),
           },
           alternatives: [],
           overflowAlternatives: [],
@@ -282,7 +348,7 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
     if (SHOW_EMPTY_SLOTS) {
       while (slots.length < 4) {
         slots.push({
-          primary: { id: '', isMatched: false, needsProcessing: false },
+          primary: { id: '', isMatched: false, needsProcessing: false, isDeselected: false },
           alternatives: [],
           overflowAlternatives: [],
           count: 0,
@@ -419,7 +485,7 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
       </div>
 
       {/* Card content - sits on top of tabs */}
-      <div className={`relative z-10 rounded-xl border p-3 transition-shadow hover:shadow-md ${getCardStyle()}`}>
+      <div className={`relative z-10 rounded-xl border p-3 transition-shadow hover:shadow-md select-none ${getCardStyle()}`}>
       {/* Header - relative container for absolute positioned right column */}
       <div className="relative flex items-start gap-3 mb-3">
         {/* Recipe icon wrapper - relative for bookmark positioning, no overflow hidden */}
@@ -550,11 +616,24 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                     className={`relative ${!slot.isEmpty ? 'cursor-pointer select-none' : ''}`}
                     style={!slot.isEmpty ? { WebkitTouchCallout: 'none', WebkitUserSelect: 'none', userSelect: 'none' } : undefined}
                     onContextMenu={!slot.isEmpty ? (e) => e.preventDefault() : undefined}
-                    {...(!slot.isEmpty ? getLongPressHandlers(slot.primary.id, () => handleIngredientLongPress(slot.primary.id)) : {})}
+                    {...(!slot.isEmpty ? getLongPressHandlers(
+                      slot.primary.id,
+                      () => { handleIngredientLongPress(slot.primary.id); triggerSlotPop(slotIndex); },
+                      (progress) => setSlotProgress(prev => { const next = new Map(prev); if (progress === 0) { next.delete(slotIndex); } else { next.set(slotIndex, progress); } return next; })
+                    ) : {})}
                   >
                   {/* Flash overlay */}
                   {flashIngredient === slot.primary.id && (
                     <div className="absolute inset-0 rounded-2xl bg-amber-300/60 z-10 animate-pulse pointer-events-none" />
+                  )}
+                  {/* Long-press progress bar */}
+                  {(slotProgress.get(slotIndex) || 0) > 0 && (
+                    <div className="absolute top-[10px] tablet:top-[13px] left-2 right-[10px] mobile-lg:right-[8px] tablet:right-[14px] h-[5px] rounded-full bg-gray-200/60 overflow-hidden z-[5] pointer-events-none">
+                      <div
+                        className={`h-full rounded-full ${selectedSet.has(slot.primary.id) ? 'bg-red-400' : 'bg-green-400'}`}
+                        style={{ width: `${(slotProgress.get(slotIndex) || 0) * 100}%`, transition: 'none' }}
+                      />
+                    </div>
                   )}
                   <SlotFrame
                     isEmpty={slot.isEmpty || false}
@@ -572,19 +651,34 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                           <img
                             src={`/images/ingredients/${ingredient?.icon || `${slot.primary.id}.png`}`}
                             alt={name}
-                            className={`w-9 h-9 mobile-lg:w-11 mobile-lg:h-11 tablet:w-12 tablet:h-12 object-contain pointer-events-none ${!slot.primary.isMatched ? 'opacity-50' : ''}`}
+                            className={`w-9 h-9 mobile-lg:w-11 mobile-lg:h-11 tablet:w-12 tablet:h-12 object-contain pointer-events-none ${!slot.primary.isMatched || slot.primary.isDeselected ? 'opacity-50' : ''}`}
                             draggable={false}
                             onError={(e) => {
                               (e.target as HTMLImageElement).src = '/images/placeholder.svg';
                             }}
                           />
                           {/* Status indicator */}
-                          <div className={`absolute -top-1 -right-1.5 mobile-lg:-right-2 tablet:-right-1 w-3.5 h-3.5 mobile-lg:w-4 mobile-lg:h-4 tablet:w-5 tablet:h-5 rounded-full flex items-center justify-center ${
-                            slot.primary.isMatched
-                              ? slot.primary.needsProcessing ? 'bg-blue-500' : 'bg-green-500'
-                              : 'bg-gray-400'
-                          }`}>
-                            {slot.primary.isMatched ? (
+                          <div
+                            className={`absolute -top-0.5 tablet:-top-1 -right-1.5 mobile-lg:-right-2 tablet:-right-1 w-3.5 h-3.5 mobile-lg:w-4 mobile-lg:h-4 tablet:w-5 tablet:h-5 rounded-full flex items-center justify-center z-10 ${
+                              slot.primary.isDeselected
+                                ? 'bg-red-400/60'
+                                : slot.primary.isMatched
+                                  ? slot.primary.needsProcessing ? 'bg-blue-500' : 'bg-green-500'
+                                  : 'bg-gray-400'
+                            }`}
+                            style={
+                              poppedSlots.has(slotIndex)
+                                ? { animation: 'checkmark-pop 300ms ease-out' }
+                                : (slotProgress.get(slotIndex) || 0) > 0
+                                  ? { transform: `scale(${1 - (slotProgress.get(slotIndex) || 0)})`, transition: 'none' }
+                                  : undefined
+                            }
+                          >
+                            {slot.primary.isDeselected ? (
+                              <svg className="w-2 h-2 mobile-lg:w-2.5 mobile-lg:h-2.5 tablet:w-3 tablet:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                              </svg>
+                            ) : slot.primary.isMatched ? (
                               slot.primary.needsProcessing ? (
                                 <svg className="w-2 h-2 mobile-lg:w-2.5 mobile-lg:h-2.5 tablet:w-3 tablet:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                                   <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
@@ -618,9 +712,11 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                         {/* Text area at bottom - similar to IngredientItem grid mode */}
                         <div className="w-full mt-auto flex items-center justify-center" style={{ height: '22px' }}>
                           <span className={`text-[9px] mobile-lg:text-[10px] text-center leading-tight line-clamp-2 w-full ${
-                            slot.primary.isMatched
-                              ? slot.primary.needsProcessing ? 'text-blue-700' : 'text-green-700'
-                              : 'text-gray-500'
+                            slot.primary.isDeselected
+                              ? 'text-red-400'
+                              : slot.primary.isMatched
+                                ? slot.primary.needsProcessing ? 'text-blue-700' : 'text-green-700'
+                                : 'text-gray-500'
                           }`}>
                             {name}
                           </span>
@@ -641,7 +737,7 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                         <img
                           src={`/images/ingredients/${ingredient?.icon || `${slot.primary.id}.png`}`}
                           alt={name}
-                          className={`w-9 h-9 mobile-lg:w-11 mobile-lg:h-11 tablet:w-12 tablet:h-12 object-contain ${!slot.primary.isMatched ? 'opacity-50' : ''}`}
+                          className={`w-9 h-9 mobile-lg:w-11 mobile-lg:h-11 tablet:w-12 tablet:h-12 object-contain ${!slot.primary.isMatched || slot.primary.isDeselected ? 'opacity-50' : ''}`}
                           onError={(e) => {
                             (e.target as HTMLImageElement).src = '/images/placeholder.svg';
                           }}
@@ -650,9 +746,11 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                       {/* Text area at bottom - similar to IngredientItem grid mode */}
                       <div className="w-full mt-auto flex items-center justify-center" style={{ height: '22px' }}>
                         <span className={`text-[9px] mobile-lg:text-[10px] text-center leading-tight line-clamp-2 w-full ${
-                          slot.primary.isMatched
-                            ? slot.primary.needsProcessing ? 'text-blue-700' : 'text-green-700'
-                            : 'text-gray-500'
+                          slot.primary.isDeselected
+                            ? 'text-red-400'
+                            : slot.primary.isMatched
+                              ? slot.primary.needsProcessing ? 'text-blue-700' : 'text-green-700'
+                              : 'text-gray-500'
                         }`}>
                           {name}
                         </span>
@@ -662,49 +760,104 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                 )}
 
                 {/* Alternative ingredients as pills below the slot */}
-                {!slot.isEmpty && (slot.alternatives.length > 0 || (slot.focusedOverflowAlternatives && slot.focusedOverflowAlternatives.length > 0) || remainingCount > 0) && (
-                  <div className="flex flex-col gap-1 mt-1 w-full">
-                    {/* "or" label */}
-                    <span className="text-[10px] font-medium text-purple-500 text-center">or</span>
-                    {/* Show inline alternatives */}
-                    {slot.alternatives.map((alt) => {
-                      const altIngredient = getIngredient(alt.id);
-                      const altName = altIngredient?.name || formatIngredientName(alt.id);
-                      const isFocused = focusedSet.has(alt.id);
-                      return (
-                        <AdaptPill
-                          key={alt.id}
-                          name={altName}
-                          icon={`/images/ingredients/${altIngredient?.icon || `${alt.id}.png`}`}
-                          isMatched={alt.isMatched}
-                          isFocused={isFocused}
-                          pressHandlers={getLongPressHandlers(alt.id, () => handleIngredientLongPress(alt.id))}
-                        />
-                      );
-                    })}
-                    {/* Show focused overflow alternatives */}
-                    {slot.focusedOverflowAlternatives && slot.focusedOverflowAlternatives.map((alt) => {
-                      const altIngredient = getIngredient(alt.id);
-                      const altName = altIngredient?.name || formatIngredientName(alt.id);
-                      return (
-                        <AdaptPill
-                          key={alt.id}
-                          name={altName}
-                          icon={`/images/ingredients/${altIngredient?.icon || `${alt.id}.png`}`}
-                          isMatched={true}
-                          isFocused={true}
-                          pressHandlers={getLongPressHandlers(alt.id, () => handleIngredientLongPress(alt.id))}
-                        />
-                      );
-                    })}
-                    {/* Show "+N more" pill if there are remaining overflow */}
-                    {remainingCount > 0 && (
-                      <div className="flex items-center justify-center px-1.5 py-0.5 rounded-lg text-[10px] bg-gray-100 text-gray-500 ring-1 ring-gray-300">
-                        <span>+{remainingCount} more</span>
+                {!slot.isEmpty && (slot.alternatives.length > 0 || (slot.focusedOverflowAlternatives && slot.focusedOverflowAlternatives.length > 0) || remainingCount > 0) && (() => {
+                  const isExpanded = expandedSlots.has(slotIndex);
+
+                  // Gather all alternatives (inline + overflow)
+                  const allAlts = [...slot.alternatives, ...(slot.overflowAlternatives || [])];
+                  const matchedAlts = allAlts.filter(a => a.isMatched || focusedSet.has(a.id));
+                  const unmatchedCount = allAlts.length - matchedAlts.length;
+
+                  if (isExpanded) {
+                    // Expanded: show all alternatives sorted with matched/focused first
+                    const sortedAlts = [...allAlts].sort((a, b) => {
+                      const aActive = a.isMatched || focusedSet.has(a.id) ? 1 : 0;
+                      const bActive = b.isMatched || focusedSet.has(b.id) ? 1 : 0;
+                      return bActive - aActive;
+                    });
+                    return (
+                      <div className="flex flex-col gap-1 mt-1 w-full">
+                        <button
+                          type="button"
+                          onClick={() => toggleSlotExpanded(slotIndex)}
+                          className="text-[10px] font-medium text-purple-500 text-center cursor-pointer hover:text-purple-700"
+                        >
+                          or
+                        </button>
+                        {sortedAlts.map((alt) => {
+                          const altIngredient = getIngredient(alt.id);
+                          const altName = altIngredient?.name || formatIngredientName(alt.id);
+                          const isFocused = focusedSet.has(alt.id);
+                          return (
+                            <AdaptPill
+                              key={alt.id}
+                              name={altName}
+                              icon={`/images/ingredients/${altIngredient?.icon || `${alt.id}.png`}`}
+                              isMatched={alt.isMatched}
+                              isDeselected={alt.isDeselected}
+                              isFocused={isFocused}
+                              pressHandlers={getLongPressHandlers(
+                                alt.id,
+                                () => { handleIngredientLongPress(alt.id); triggerPillPop(alt.id); },
+                                (progress) => setPillProgress(prev => { const next = new Map(prev); if (progress === 0) { next.delete(alt.id); } else { next.set(alt.id, progress); } return next; })
+                              )}
+                              longPressProgress={pillProgress.get(alt.id)}
+                              isRemoving={selectedSet.has(alt.id)}
+                              isPopping={poppedPills.has(alt.id)}
+                            />
+                          );
+                        })}
                       </div>
-                    )}
-                  </div>
-                )}
+                    );
+                  } else {
+                    // Collapsed: show matched alts + summary pill for the rest
+                    return (
+                      <div className="flex flex-col gap-1 mt-1 w-full">
+                        <button
+                          type="button"
+                          onClick={() => toggleSlotExpanded(slotIndex)}
+                          className="text-[10px] font-medium text-purple-500 text-center cursor-pointer hover:text-purple-700"
+                        >
+                          or
+                        </button>
+                        {/* Show matched/focused alternatives as normal pills */}
+                        {matchedAlts.map((alt) => {
+                          const altIngredient = getIngredient(alt.id);
+                          const altName = altIngredient?.name || formatIngredientName(alt.id);
+                          const isFocused = focusedSet.has(alt.id);
+                          return (
+                            <AdaptPill
+                              key={alt.id}
+                              name={altName}
+                              icon={`/images/ingredients/${altIngredient?.icon || `${alt.id}.png`}`}
+                              isMatched={alt.isMatched}
+                              isDeselected={alt.isDeselected}
+                              isFocused={isFocused}
+                              pressHandlers={getLongPressHandlers(
+                                alt.id,
+                                () => { handleIngredientLongPress(alt.id); triggerPillPop(alt.id); },
+                                (progress) => setPillProgress(prev => { const next = new Map(prev); if (progress === 0) { next.delete(alt.id); } else { next.set(alt.id, progress); } return next; })
+                              )}
+                              longPressProgress={pillProgress.get(alt.id)}
+                              isRemoving={selectedSet.has(alt.id)}
+                              isPopping={poppedPills.has(alt.id)}
+                            />
+                          );
+                        })}
+                        {/* Summary pill for remaining unmatched alternatives */}
+                        {unmatchedCount > 0 && (
+                          <button
+                            type="button"
+                            onClick={() => toggleSlotExpanded(slotIndex)}
+                            className="flex items-center justify-center px-1.5 py-0.5 rounded-lg text-[10px] bg-gray-100 text-gray-500 ring-1 ring-gray-300 cursor-pointer hover:bg-gray-200"
+                          >
+                            {unmatchedCount} more..
+                          </button>
+                        )}
+                      </div>
+                    );
+                  }
+                })()}
                 </div>
               </div>
             );
@@ -721,23 +874,31 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                 <div className="flex flex-col items-center w-11">
                   <div
                     className={`relative w-10 h-10 rounded-xl flex items-center justify-center ${
-                      ing.isMatched
-                        ? ing.needsProcessing
-                          ? 'bg-blue-100 ring-2 ring-blue-300'
-                          : 'bg-green-100 ring-2 ring-green-300'
-                        : 'bg-gray-100 ring-2 ring-gray-300'
+                      ing.isDeselected
+                        ? 'bg-red-50 ring-2 ring-red-300/60'
+                        : ing.isMatched
+                          ? ing.needsProcessing
+                            ? 'bg-blue-100 ring-2 ring-blue-300'
+                            : 'bg-green-100 ring-2 ring-green-300'
+                          : 'bg-gray-100 ring-2 ring-gray-300'
                     }`}
                   >
                     <img
                       src={`/images/ingredients/${ingredient?.icon || `${ing.id}.png`}`}
                       alt={name}
-                      className={`w-8 h-8 object-contain ${!ing.isMatched ? 'opacity-50' : ''}`}
+                      className={`w-8 h-8 object-contain ${!ing.isMatched || ing.isDeselected ? 'opacity-50' : ''}`}
                       onError={(e) => { (e.target as HTMLImageElement).src = '/images/placeholder.svg'; }}
                     />
                     <div className={`absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full flex items-center justify-center ${
-                      ing.isMatched ? (ing.needsProcessing ? 'bg-blue-500' : 'bg-green-500') : 'bg-gray-400'
+                      ing.isDeselected
+                        ? 'bg-red-400/60'
+                        : ing.isMatched ? (ing.needsProcessing ? 'bg-blue-500' : 'bg-green-500') : 'bg-gray-400'
                     }`}>
-                      {ing.isMatched ? (
+                      {ing.isDeselected ? (
+                        <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                        </svg>
+                      ) : ing.isMatched ? (
                         ing.needsProcessing ? (
                           <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
@@ -759,7 +920,7 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                       </span>
                     )}
                   </div>
-                  <span className={`text-[10px] text-center leading-tight mt-1 line-clamp-2 ${ing.isMatched ? (ing.needsProcessing ? 'text-blue-700' : 'text-green-700') : 'text-gray-500'}`}>
+                  <span className={`text-[10px] text-center leading-tight mt-1 line-clamp-2 ${ing.isDeselected ? 'text-red-400' : ing.isMatched ? (ing.needsProcessing ? 'text-blue-700' : 'text-green-700') : 'text-gray-500'}`}>
                     {name}
                   </span>
                 </div>
@@ -837,7 +998,14 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                   icon={`/images/ingredients/${ingredient?.icon || `${additionId}.png`}`}
                   isMatched={isMatched}
                   isFocused={isFocused}
-                  pressHandlers={getLongPressHandlers(additionId, () => handleIngredientLongPress(additionId))}
+                  pressHandlers={getLongPressHandlers(
+                    additionId,
+                    () => { handleIngredientLongPress(additionId); triggerPillPop(additionId); },
+                    (progress) => setPillProgress(prev => { const next = new Map(prev); if (progress === 0) { next.delete(additionId); } else { next.set(additionId, progress); } return next; })
+                  )}
+                  longPressProgress={pillProgress.get(additionId)}
+                  isRemoving={selectedSet.has(additionId)}
+                  isPopping={poppedPills.has(additionId)}
                 />
               );
             })}

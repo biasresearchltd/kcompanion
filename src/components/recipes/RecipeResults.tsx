@@ -1,4 +1,4 @@
-import { useMemo, forwardRef, useImperativeHandle, useRef, useState, useCallback, useEffect } from 'react';
+import React, { useMemo, forwardRef, useImperativeHandle, useRef, useState, useCallback, useEffect } from 'react';
 import Fuse from 'fuse.js';
 import type { Recipe, Ingredient, Effect, VariantGroups, RecipeCategory, ProcessingRecipe, Character, GiftToCharacters } from '../../types';
 import { useInventoryStore } from '../../store/inventoryStore';
@@ -17,6 +17,25 @@ import { MultiSelectDropdown } from '../ui/MultiSelectDropdown';
 import { SortDropdown } from '../ui/SortDropdown';
 import { FocusToggleButton } from '../ui/FocusToggleButton';
 
+/** Card layout: single column on mobile, two-column masonry on desktop.
+ *  Uses JS-based column splitting to avoid CSS `columns` (clips overflow)
+ *  and CSS `grid` (uniform row heights cause gaps). */
+function CardGrid({ isMobile, children }: { isMobile?: boolean; children: React.ReactNode }) {
+  if (isMobile) {
+    return <div className="space-y-3">{children}</div>;
+  }
+  const items = React.Children.toArray(children);
+  const left: React.ReactNode[] = [];
+  const right: React.ReactNode[] = [];
+  items.forEach((item, i) => (i % 2 === 0 ? left : right).push(item));
+  return (
+    <div className="flex gap-3 items-start">
+      <div className="flex-1 flex flex-col gap-3 min-w-0">{left}</div>
+      <div className="flex-1 flex flex-col gap-3 min-w-0">{right}</div>
+    </div>
+  );
+}
+
 interface RecipeResultsProps {
   recipes: Recipe[];
   ingredients: Ingredient[];
@@ -31,11 +50,14 @@ interface RecipeResultsProps {
   giftToCharacters: GiftToCharacters;
   isMobile?: boolean;
   bookmarksOnly?: boolean;
+  onStaleChange?: (isStale: boolean) => void;
+  onCountsChange?: (readyCount: number, processingCount: number) => void;
 }
 
 export interface RecipeResultsHandle extends ScrollToTopHandle {
   scrollToReady: () => void;
   scrollToProcessing: () => void;
+  commitIngredients: () => void;
 }
 
 export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>(function RecipeResults({
@@ -51,6 +73,8 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
   giftToCharacters,
   isMobile = false,
   bookmarksOnly = false,
+  onStaleChange,
+  onCountsChange,
 }, ref) {
   const { scrollRef, scrollToTop } = useScrollToTop();
   const headerRef = useRef<HTMLDivElement>(null);
@@ -120,12 +144,23 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
     toggleFilters,
     scrollToReady: () => scrollToSection(readySectionRef, setReadySectionOpen),
     scrollToProcessing: () => scrollToSection(processingSectionRef, setProcessingSectionOpen),
+    commitIngredients: () => setCommittedIngredients(selectedIngredients),
   }));
 
   const { selectedIngredients, ownedUtensils, maxMissing } = useInventoryStore();
   const { bookmarkedRecipes } = useBookmarkStore();
   const { ownedRecipes } = useOwnedRecipesStore();
   const [showOwnedOnly, setShowOwnedOnly] = useState(false);
+
+  // "Committed" snapshot — recipe list only recomputes on explicit refresh
+  const [committedIngredients, setCommittedIngredients] = useState<string[]>(selectedIngredients);
+
+  // Detect if results are stale (live ingredients differ from committed)
+  const isStale = useMemo(() => {
+    if (committedIngredients.length !== selectedIngredients.length) return true;
+    const committedSet = new Set(committedIngredients);
+    return selectedIngredients.some(id => !committedSet.has(id));
+  }, [selectedIngredients, committedIngredients]);
   const {
     effectFilters,
     toggleEffectFilter,
@@ -148,12 +183,24 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
     setShowBookmarksDrawer,
   } = useSettingsStore();
 
+  // Notify parent when stale state changes (for mobile tab badge)
+  useEffect(() => {
+    onStaleChange?.(isStale);
+  }, [isStale, onStaleChange]);
+
+
   // Auto-collapse bookmarks drawer when last bookmark is removed
   useEffect(() => {
     if (showBookmarksDrawer && bookmarkedRecipes.length === 0) {
       setShowBookmarksDrawer(false);
     }
   }, [bookmarkedRecipes.length, showBookmarksDrawer, setShowBookmarksDrawer]);
+
+  // Auto-commit ingredients when showAllRecipes is toggled (deliberate mode switch)
+  useEffect(() => {
+    setCommittedIngredients(selectedIngredients);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [showAllRecipes]);
 
   // Sort selected ingredients by category order (matching Ingredients panel), then by name
   const sortedSelectedIngredients = useMemo(() => {
@@ -200,9 +247,10 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
     });
   }, [recipes]);
 
-  // Find matching recipes based on inventory OR show all recipes
+  // Find matching recipes based on committed inventory OR show all recipes
+  // Uses committedIngredients (not live selectedIngredients) so the list stays stable
   const matches = useMemo(() => {
-    const inventory = new Set(selectedIngredients);
+    const inventory = new Set(committedIngredients);
     const utensils = new Set(ownedUtensils);
 
     // In bookmarks mode, always show all recipes (filtered by bookmarks later)
@@ -320,7 +368,7 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
     }
 
     return findRecipes(inventory, recipes, utensils, variantGroups, maxMissing, processing);
-  }, [selectedIngredients, ownedUtensils, recipes, variantGroups, maxMissing, showAllRecipes, processing, bookmarksOnly]);
+  }, [committedIngredients, ownedUtensils, recipes, variantGroups, maxMissing, showAllRecipes, processing, bookmarksOnly]);
 
   // Apply filters (search, category, effect, bookmarks, owned)
   const filteredMatches = useMemo(() => {
@@ -367,9 +415,9 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
     }
 
     // Filter by focus ingredients (AND logic - recipe must contain ALL focused ingredients)
-    // Only apply filters for ingredients that are still in the selected inventory
+    // Only apply filters for ingredients that are still in the committed inventory
     const validFocusFilters = focusIngredientFilters.filter(id =>
-      selectedIngredients.includes(id)
+      committedIngredients.includes(id)
     );
     if (validFocusFilters.length > 0) {
       results = results.filter((m) => {
@@ -388,7 +436,7 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
     }
 
     return results;
-  }, [matches, recipeSearchQuery, recipeCategoryFilters, effectFilters, characterFilters, giftToCharacters, fuse, bookmarksOnly, bookmarkedRecipes, showOwnedOnly, ownedRecipes, focusIngredientFilters, selectedIngredients]);
+  }, [matches, recipeSearchQuery, recipeCategoryFilters, effectFilters, characterFilters, giftToCharacters, fuse, bookmarksOnly, bookmarkedRecipes, showOwnedOnly, ownedRecipes, focusIngredientFilters, committedIngredients]);
 
   // Sort filtered matches
   const sortedMatches = useMemo(() => {
@@ -482,6 +530,12 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
   const exactCount = groupedMatches.exact.length;
   const processingCount = groupedMatches.needsProcessing.length;
   const hasFilters = recipeSearchQuery || recipeCategoryFilters.length > 0 || effectFilters.length > 0 || characterFilters.length > 0;
+
+  // Notify parent of committed counts (for mobile tab badges)
+  // Include committedIngredients to guarantee re-notification after a commit
+  useEffect(() => {
+    onCountsChange?.(exactCount, processingCount);
+  }, [exactCount, processingCount, committedIngredients, onCountsChange]);
 
   // Helper to render recipe card - uses SwipeableRecipeCard on mobile
   const CardComponent = isMobile ? SwipeableRecipeCard : RecipeCard;
@@ -727,6 +781,18 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
           <div className="flex items-center justify-between mb-3">
             <h2 className="text-lg font-semibold text-[var(--color-text)]">Recipes</h2>
             <div className="flex items-center gap-2">
+              {isStale && (
+                <button
+                  onClick={() => setCommittedIngredients(selectedIngredients)}
+                  className="text-sm px-3 py-1 rounded-full bg-amber-500 text-white hover:bg-amber-600 transition-colors flex items-center gap-1.5 animate-refresh-appear"
+                >
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round"
+                          d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                  Update Recipes
+                </button>
+              )}
               <span className="text-sm px-3 py-1 rounded-full bg-gray-100 text-[var(--color-text-muted)]">
                 {filteredMatches.length} found
               </span>
@@ -811,7 +877,7 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
               Swipe left on a recipe card to mark it as owned
             </p>
           </div>
-        ) : !showAllRecipes && selectedIngredients.length === 0 && !hasFilters && !bookmarksOnly ? (
+        ) : !showAllRecipes && committedIngredients.length === 0 && !hasFilters && !bookmarksOnly ? (
           <div className="flex flex-col items-center justify-center h-64 text-[var(--color-text-muted)]">
             <svg
               className="w-16 h-16 mb-4"
@@ -871,7 +937,7 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
                   isOpen={readySectionOpen}
                   onToggle={setReadySectionOpen}
                 >
-                  <div className={`grid gap-3 ${isMobile ? '' : 'sm:grid-cols-2'}`}>
+                  <CardGrid isMobile={isMobile}>
                     {groupedMatches.exact.map((match, index) => (
                       <CardComponent
                         key={match.recipe.id}
@@ -881,11 +947,12 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
                         characterMap={characterMap}
                         giftToCharacters={giftToCharacters}
                         selectedIngredients={selectedIngredients}
+                        committedIngredients={committedIngredients}
                         focusedIngredients={focusIngredientFilters}
                         index={index}
                       />
                     ))}
-                  </div>
+                  </CardGrid>
                 </CollapsibleSection>
               </div>
             )}
@@ -909,7 +976,7 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
                   isOpen={processingSectionOpen}
                   onToggle={setProcessingSectionOpen}
                 >
-                  <div className={`grid gap-3 ${isMobile ? '' : 'sm:grid-cols-2'}`}>
+                  <CardGrid isMobile={isMobile}>
                     {groupedMatches.needsProcessing.map((match, index) => (
                       <CardComponent
                         key={match.recipe.id}
@@ -919,11 +986,12 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
                         characterMap={characterMap}
                         giftToCharacters={giftToCharacters}
                         selectedIngredients={selectedIngredients}
+                        committedIngredients={committedIngredients}
                         focusedIngredients={focusIngredientFilters}
                         index={index}
                       />
                     ))}
-                  </div>
+                  </CardGrid>
                 </CollapsibleSection>
               </div>
             )}
@@ -949,7 +1017,7 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
                     }
                     defaultOpen={count <= 2}
                   >
-                    <div className={`grid gap-3 ${isMobile ? '' : 'sm:grid-cols-2'}`}>
+                    <CardGrid isMobile={isMobile}>
                       {groupedMatches.missing[count].map((match, index) => (
                         <CardComponent
                           key={match.recipe.id}
@@ -959,11 +1027,12 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
                           characterMap={characterMap}
                           giftToCharacters={giftToCharacters}
                           selectedIngredients={selectedIngredients}
+                          committedIngredients={committedIngredients}
                           focusedIngredients={focusIngredientFilters}
                           index={index}
                         />
                       ))}
-                    </div>
+                    </CardGrid>
                   </CollapsibleSection>
                 )
             )}
@@ -999,7 +1068,7 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
           {/* Content - scrollable, only shown when expanded */}
           {showBookmarksDrawer && (
             <div className="flex-1 min-h-0 overflow-y-auto overflow-x-clip p-4 pt-10 border-t border-red-100">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <CardGrid>
                 {(() => {
                   const bookmarkSet = new Set(bookmarkedRecipes);
                   const bookmarkedMatches = matches.filter(m => bookmarkSet.has(m.recipe.id));
@@ -1012,12 +1081,13 @@ export const RecipeResults = forwardRef<RecipeResultsHandle, RecipeResultsProps>
                       characterMap={characterMap}
                       giftToCharacters={giftToCharacters}
                       selectedIngredients={selectedIngredients}
+                      committedIngredients={committedIngredients}
                       focusedIngredients={focusIngredientFilters}
                       index={index}
                     />
                   ));
                 })()}
-              </div>
+              </CardGrid>
             </div>
           )}
         </div>

@@ -11,6 +11,7 @@ interface SwipeableRecipeCardProps {
   characterMap: Map<string, Character>;
   giftToCharacters: GiftToCharacters;
   selectedIngredients: string[];
+  committedIngredients?: string[];
   focusedIngredients?: string[];
   index?: number;
 }

@@ -176,8 +176,8 @@ body {
 .marquee-container:hover .marquee-text.is-truncated {
   overflow: visible;
   text-overflow: clip;
-  animation: marquee 3s ease-in-out infinite;
-  -webkit-animation: marquee 3s ease-in-out infinite;
+  animation: marquee 4.5s ease-in-out infinite;
+  -webkit-animation: marquee 4.5s ease-in-out infinite;
 }
 
 /* Filter overlay slide-down animation */
@@ -254,4 +254,21 @@ body {
 
 .animate-backdrop-fade-in {
   animation: backdrop-fade-in 150ms ease-out forwards;
+}
+
+/* Refresh button appear animation */
+@keyframes refresh-appear {
+  0% { opacity: 0; transform: scale(0.8) translateY(-8px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.animate-refresh-appear {
+  animation: refresh-appear 300ms ease-out;
+}
+
+/* Checkmark pop animation on long-press completion */
+@keyframes checkmark-pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.6); }
+  100% { transform: scale(1); }
 }
