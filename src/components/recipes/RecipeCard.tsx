@@ -627,8 +627,8 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                     <div className="absolute inset-0 rounded-2xl bg-amber-300/60 z-10 animate-pulse pointer-events-none" />
                   )}
                   {/* Long-press progress bar */}
-                  {(slotProgress.get(slotIndex) || 0) > 0 && (
-                    <div className="absolute top-[10px] tablet:top-[13px] left-2 right-[10px] mobile-lg:right-[8px] tablet:right-[14px] h-[5px] rounded-full bg-gray-200/60 overflow-hidden z-[5] pointer-events-none">
+                  {(slotProgress.get(slotIndex) || 0) > 0 && !poppedSlots.has(slotIndex) && (
+                    <div className="absolute top-[10px] tablet:top-[13px] left-[10px] right-[10px] mobile-lg:right-[10px] tablet:right-[14px] h-[5px] rounded-full bg-gray-200/60 overflow-hidden z-[5] pointer-events-none">
                       <div
                         className={`h-full rounded-full ${selectedSet.has(slot.primary.id) ? 'bg-red-400' : 'bg-green-400'}`}
                         style={{ width: `${(slotProgress.get(slotIndex) || 0) * 100}%`, transition: 'none' }}
@@ -666,13 +666,15 @@ export function RecipeCard({ match, ingredientMap, effectMap, characterMap, gift
                                   ? slot.primary.needsProcessing ? 'bg-blue-500' : 'bg-green-500'
                                   : 'bg-gray-400'
                             }`}
-                            style={
-                              poppedSlots.has(slotIndex)
-                                ? { animation: 'checkmark-pop 300ms ease-out' }
+                            style={{
+                              transition: 'none',
+                              ...(poppedSlots.has(slotIndex)
+                                ? { animation: 'checkmark-pop 450ms ease-out' }
                                 : (slotProgress.get(slotIndex) || 0) > 0
-                                  ? { transform: `scale(${1 - (slotProgress.get(slotIndex) || 0)})`, transition: 'none' }
-                                  : undefined
-                            }
+                                  ? { transform: `scale(${1 - (slotProgress.get(slotIndex) || 0)})` }
+                                  : {}
+                              ),
+                            }}
                           >
                             {slot.primary.isDeselected ? (
                               <svg className="w-2 h-2 mobile-lg:w-2.5 mobile-lg:h-2.5 tablet:w-3 tablet:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
